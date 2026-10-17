@@ -125,26 +125,27 @@
             direction: rtl;
         }
 
-        /* تم تكبير مقاس حاوية الشعار وإبراز الصورة بوضوح تام */
+        /* تم تكبير مقاس الحوية والشعار داخله ليكون بارزاً وبحجم كبير وواضح */
         .monogram-box {
-            width: 62px;
-            height: 62px;
-            border-radius: 16px;
-            background: rgba(10, 10, 14, 0.9);
-            border: 1.5px solid rgba(223, 177, 91, 0.65);
+            width: 76px;
+            height: 76px;
+            border-radius: 18px;
+            background: rgba(10, 10, 14, 0.95);
+            border: 1.5px solid rgba(223, 177, 91, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 1px 3px rgba(223, 177, 91, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 3px rgba(223, 177, 91, 0.4);
             flex-shrink: 0;
             overflow: hidden;
-            padding: 3px;
+            padding: 2px;
         }
 
         .monogram-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* لضمان ظهور الشعار كاملاً وبحجم ممتاز بدون قص */
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            transform: scale(1.15); /* تكبير إضافي لحجم الشعار نفسه بداخل الإطار */
         }
 
         .brand-titles {
@@ -628,7 +629,7 @@
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 </div>
-                <!-- حاوية الشعار بالحجم المكبر والواضح -->
+                <!-- حاوية الشعار بالحجم الكبير والبارز -->
                 <div class="monogram-box">
                     <img src="logo.png" alt="شعار نبيل النمر">
                 </div>
