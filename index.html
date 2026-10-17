@@ -125,10 +125,10 @@
             direction: rtl;
         }
 
-        /* حاوية الشعار بالحجم البارز والكبير */
+        /* حاوية الشعار بالحروف الصغيرة logo1.png */
         .monogram-box {
-            width: 76px;
-            height: 76px;
+            width: 78px;
+            height: 78px;
             border-radius: 18px;
             background: rgba(10, 10, 14, 0.95);
             border: 1.5px solid rgba(223, 177, 91, 0.7);
@@ -138,14 +138,13 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 3px rgba(223, 177, 91, 0.4);
             flex-shrink: 0;
             overflow: hidden;
-            padding: 2px;
+            padding: 4px;
         }
 
         .monogram-box img {
-            width: 120%;
-            height: 120%;
-            object-fit: cover;
-            transform: scale(1.15);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .brand-titles {
@@ -629,9 +628,9 @@
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 </div>
-                <!-- تم التحديث إلى Logo1.png مع تكبير المقاسات -->
+                <!-- اسم الصورة بالحروف الصغيرة logo1.png -->
                 <div class="monogram-box">
-                    <img src="Logo1.png" alt="شعار نبيل النمر">
+                    <img src="logo1.png" alt="شعار نبيل النمر" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><text x=\'50%\' y=\'55%\' font-family=\'Amiri\' font-size=\'45\' font-weight=\'bold\' fill=\'%23dfb15b\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ن</text></svg>';">
                 </div>
             </div>
         </div>
@@ -910,7 +909,7 @@
 
         function saveCustomData() {
             EZWA_CONFIG.brandAr = document.getElementById('inputBrandAr').value;
-            EZWA_CONFIG.role = document.getElementById('inputRole'].value;
+            EZWA_CONFIG.role = document.getElementById('inputRole').value;
             EZWA_CONFIG.slogan = document.getElementById('inputSlogan').value;
             EZWA_CONFIG.phone1 = document.getElementById('inputPhone1').value;
             EZWA_CONFIG.phone2 = document.getElementById('inputPhone2').value;
