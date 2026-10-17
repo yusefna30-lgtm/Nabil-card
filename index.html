@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نبيل النمر - الكارت الرقمي الفاخر</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-deep: #020204;
@@ -90,7 +90,7 @@
                 inset -3px 0 5px rgba(223, 177, 91, 0.3);
                 
             position: relative;
-            padding: 34px 22px 24px 22px;
+            padding: 34px 22px 20px 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -109,13 +109,13 @@
             pointer-events: none;
         }
 
-        /* الترويسة العلوية المعكوسة (الاسم والشعار يمين، والنصوص الإنجليزية يسار) */
+        /* الترويسة العلوية */
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             direction: ltr;
         }
 
@@ -169,7 +169,7 @@
             margin-top: 4px;
         }
 
-        /* مكان الـ QR السابق (النصوص الإنجليزية باليمين/اليسار) */
+        /* الخط الإنجليزي الجديد المنسق والفاخر باستخدام Montserrat */
         .header-english-info {
             display: flex;
             flex-direction: column;
@@ -179,26 +179,30 @@
         }
 
         .eng-name {
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: 1.5px;
+            color: #ffffff;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
         }
 
         .eng-role {
-            font-size: 9.5px;
-            color: var(--gold-primary);
-            letter-spacing: 0.8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
             font-weight: 600;
-            margin-top: 2px;
+            color: var(--gold-primary);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-top: 3px;
         }
 
+        /* منطقة الابتكار بدون مسافات زائدة من الأسفل */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-bottom: 16px;
-            padding: 8px 0;
+            margin-bottom: 10px;
+            padding: 7px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.3);
             border-bottom: 1px solid rgba(223, 177, 91, 0.3);
             background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.08), transparent);
@@ -212,21 +216,21 @@
             text-transform: uppercase;
         }
 
-        /* جسم الأزرار مرتفع للأعلى */
+        /* جسم الأزرار متراص وبدون فراغات */
         .card-body {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 9px;
             justify-content: flex-start;
             direction: rtl;
         }
 
         .action-pill-btn {
             width: 100%;
-            height: 56px;
+            height: 54px;
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 28px;
+            border-radius: 27px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -251,8 +255,8 @@
         }
 
         .btn-icon-circle {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, rgba(223, 177, 91, 0.08) 70%);
             border: 1px solid rgba(223, 177, 91, 0.6);
@@ -260,7 +264,6 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
-            font-size: 16px;
             flex-shrink: 0;
             box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
         }
@@ -272,30 +275,30 @@
         }
 
         .btn-arrow {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.04);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
             flex-shrink: 0;
         }
 
         .social-grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 9px;
+            gap: 8px;
             width: 100%;
         }
 
         .social-item-col {
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 18px;
-            padding: 10px 6px;
+            border-radius: 16px;
+            padding: 9px 6px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -312,8 +315,8 @@
         }
 
         .social-icon-box {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, rgba(223, 177, 91, 0.05) 70%);
             border: 1px solid rgba(223, 177, 91, 0.55);
@@ -321,20 +324,19 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
-            font-size: 15px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             box-shadow: inset 0 1px 2px rgba(255,255,255,0.25);
         }
 
         .social-name {
-            font-size: 10.5px;
+            font-size: 10px;
             font-weight: 600;
             color: #fff;
             margin-bottom: 1px;
         }
 
         .social-handle {
-            font-size: 8.5px;
+            font-size: 8px;
             color: var(--text-muted);
             text-align: center;
             max-width: 100%;
@@ -347,15 +349,15 @@
         .dual-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 9px;
+            gap: 8px;
             width: 100%;
         }
 
         .action-box-btn {
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 18px;
-            padding: 10px 12px;
+            border-radius: 16px;
+            padding: 9px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -374,12 +376,12 @@
         .box-content-right {
             display: flex;
             align-items: center;
-            gap: 9px;
+            gap: 8px;
         }
 
         .box-icon {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: rgba(223, 177, 91, 0.18);
             border: 1px solid rgba(223, 177, 91, 0.45);
@@ -387,7 +389,7 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
-            font-size: 14px;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
         }
 
         .box-titles {
@@ -397,13 +399,13 @@
         }
 
         .box-title {
-            font-size: 11.5px;
+            font-size: 11px;
             font-weight: 700;
             color: #fff;
         }
 
         .box-subtitle {
-            font-size: 9px;
+            font-size: 8.5px;
             color: var(--text-muted);
             margin-top: 1px;
             direction: ltr;
@@ -411,7 +413,7 @@
         }
 
         .box-arrow {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-muted);
         }
 
@@ -420,9 +422,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 14px;
+            margin-top: 10px;
             border-top: 1px solid rgba(223, 177, 91, 0.25);
-            padding-top: 12px;
+            padding-top: 10px;
             direction: ltr;
         }
 
@@ -430,21 +432,20 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 4px;
+            gap: 3px;
         }
 
         .customize-trigger-btn {
             background: transparent;
             border: none;
             color: var(--gold-primary);
-            font-size: 10px;
+            font-size: 9.5px;
             cursor: pointer;
             text-decoration: underline;
             opacity: 0.85;
             text-align: left;
         }
 
-        /* الـ QR Code في أسفل الكارت */
         .qr-bottom-wrapper {
             display: flex;
             flex-direction: column;
@@ -453,8 +454,8 @@
         }
 
         .qr-frame {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             background: #fff;
             padding: 3px;
             border-radius: 8px;
@@ -484,17 +485,17 @@
         .nfc-indicator {
             display: flex;
             align-items: center;
-            gap: 4px;
-            margin-top: 4px;
+            gap: 3px;
+            margin-top: 3px;
         }
 
         .nfc-icon {
-            font-size: 8px;
+            font-size: 7.5px;
             color: var(--gold-primary);
         }
 
         .nfc-text {
-            font-size: 7.5px;
+            font-size: 7px;
             color: var(--text-muted);
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -635,7 +636,7 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- الترويسة العلوية مع الاسم بالعربي يمين والإنجليزي يسار -->
+        <!-- الترويسة العلوية -->
         <div class="card-header">
             <div class="header-english-info">
                 <span class="eng-name">NABIL ALNAMER</span>
@@ -657,11 +658,14 @@
             <span class="brand-slogan" id="uiSlogan">اول مبتكر دمج تقنية ال NFC بتيشيرت ستريت وير</span>
         </div>
 
-        <!-- جسم الأزرار مرتفع للأعلى ومترتب -->
+        <!-- جسم التبويبات والأزرار (متراص وبدون مسافات) -->
         <div class="card-body">
             <div class="action-pill-btn" onclick="openChoiceModal('call')">
                 <div class="btn-right-group">
-                    <div class="btn-icon-circle">📞</div>
+                    <div class="btn-icon-circle">
+                        <!-- أيقونة اتصال SVG فاخرة -->
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
                     <span class="btn-title">إتصال مباشر</span>
                 </div>
                 <div class="btn-arrow">‹</div>
@@ -669,7 +673,10 @@
 
             <div class="action-pill-btn" onclick="openChoiceModal('whatsapp')">
                 <div class="btn-right-group">
-                    <div class="btn-icon-circle" style="color: #4ade80;">💬</div>
+                    <div class="btn-icon-circle" style="color: #4ade80;">
+                        <!-- أيقونة واتساب SVG فاخرة -->
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
                     <span class="btn-title">واتساب</span>
                 </div>
                 <div class="btn-arrow">‹</div>
@@ -683,14 +690,14 @@
                 </a>
                 <a href="#" class="social-item-col" id="linkInsta" target="_blank">
                     <div class="social-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </div>
                     <span class="social-name">إنستغرام</span>
                     <span class="social-handle" id="uiInsta">alnamer.nabeel</span>
                 </a>
                 <a href="#" class="social-item-col" id="linkSnap" target="_blank">
                     <div class="social-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-3.3 0-6 2.7-6 6 0 2.2 1.2 4.1 3 5.1V15c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-1.9c1.8-1 3-2.9 3-5.1 0-3.3-2.7-6-6-6zm0 1.5c2.5 0 4.5 2 4.5 4.5 0 2.1-1.4 3.9-3.4 4.4L13 13v2h-2v-2l-.6-.6c-2-.5-3.4-2.3-3.4-4.4 0-2.5 2-4.5 4.5-4.5z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-3.3 0-6 2.7-6 6 0 2.2 1.2 4.1 3 5.1V15c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-1.9c1.8-1 3-2.9 3-5.1 0-3.3-2.7-6-6-6zm0 1.5c2.5 0 4.5 2 4.5 4.5 0 2.1-1.4 3.9-3.4 4.4L13 13v2h-2v-2l-.6-.6c-2-.5-3.4-2.3-3.4-4.4 0-2.5 2-4.5 4.5-4.5z"/></svg>
                     </div>
                     <span class="social-name">سناب شات</span>
                     <span class="social-handle" id="uiSnap">nabilalnamer</span>
@@ -700,7 +707,10 @@
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="handleEmail(event)">
                     <div class="box-content-right">
-                        <div class="box-icon">✉️</div>
+                        <div class="box-icon">
+                            <!-- أيقونة بريد SVG فاخرة -->
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
                         <div class="box-titles">
                             <span class="box-title">البريد الإلكتروني</span>
                             <span class="box-subtitle">Ibn.alnamer@gmail.com</span>
@@ -711,7 +721,10 @@
 
                 <a href="#" class="action-box-btn" onclick="handleMap(event)">
                     <div class="box-content-right">
-                        <div class="box-icon">📍</div>
+                        <div class="box-icon">
+                            <!-- أيقونة موقع SVG فاخرة -->
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
                         <div class="box-titles">
                             <span class="box-title">الموقع</span>
                             <span class="box-subtitle">حي الديرة، الرياض</span>
@@ -844,8 +857,8 @@
             qrContainer.innerHTML = "";
             new QRCode(qrContainer, {
                 text: EZWA_CONFIG.cardUrl,
-                width: 44,
-                height: 44,
+                width: 40,
+                height: 40,
                 colorDark: "#020204",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.M
@@ -951,7 +964,7 @@
             EZWA_CONFIG.instagram = document.getElementById('inputInsta').value;
             EZWA_CONFIG.x = document.getElementById('inputX').value;
             EZWA_CONFIG.email = document.getElementById('inputEmail').value;
-            EZWA_CONFIG.mapUrl = document.getElementById('inputMap').value;
+            EZWA_CONFIG.mapUrl = document.getElementById('inputMap'].value;
             updateUI();
             closeCustomizeModal();
             showToast("تم تحديث البيانات بنجاح");
