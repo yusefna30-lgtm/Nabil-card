@@ -125,25 +125,26 @@
             direction: rtl;
         }
 
-        /* حاوية شعار الصورة الجديد */
+        /* تم تكبير مقاس حاوية الشعار وإبراز الصورة بوضوح تام */
         .monogram-box {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            background: rgba(10, 10, 14, 0.8);
-            border: 1px solid rgba(223, 177, 91, 0.6);
+            width: 62px;
+            height: 62px;
+            border-radius: 16px;
+            background: rgba(10, 10, 14, 0.9);
+            border: 1.5px solid rgba(223, 177, 91, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 1px 3px rgba(223, 177, 91, 0.4);
             flex-shrink: 0;
             overflow: hidden;
+            padding: 3px;
         }
 
         .monogram-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* لضمان ظهور الشعار كاملاً وبحجم ممتاز بدون قص */
         }
 
         .brand-titles {
@@ -627,7 +628,7 @@
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 </div>
-                <!-- تم وضع شعار logo.png هنا -->
+                <!-- حاوية الشعار بالحجم المكبر والواضح -->
                 <div class="monogram-box">
                     <img src="logo.png" alt="شعار نبيل النمر">
                 </div>
@@ -883,7 +884,7 @@
             }
         }
 
-        function openQrModal() {
+        openQrModal = function() {
             document.getElementById('qrModal').style.display = 'flex';
             const largeContainer = document.getElementById('largeQrContainer');
             largeContainer.innerHTML = "";
