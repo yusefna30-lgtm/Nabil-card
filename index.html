@@ -90,7 +90,7 @@
                 inset -3px 0 5px rgba(223, 177, 91, 0.3);
                 
             position: relative;
-            padding: 38px 22px 24px 22px;
+            padding: 34px 22px 24px 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -109,36 +109,36 @@
             pointer-events: none;
         }
 
+        /* الترويسة العلوية المعكوسة (الاسم والشعار يمين، والنصوص الإنجليزية يسار) */
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             direction: ltr;
         }
 
-        .brand-left-group {
+        .brand-right-group {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             direction: rtl;
         }
 
-        /* حاوية الشعار بالحروف الصغيرة logo1.png */
         .monogram-box {
-            width: 78px;
-            height: 78px;
-            border-radius: 18px;
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
             background: rgba(10, 10, 14, 0.95);
             border: 1.5px solid rgba(223, 177, 91, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 1px 3px rgba(223, 177, 91, 0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8), inset 0 1px 3px rgba(223, 177, 91, 0.4);
             flex-shrink: 0;
             overflow: hidden;
-            padding: 4px;
+            padding: 3px;
         }
 
         .monogram-box img {
@@ -155,49 +155,306 @@
 
         .brand-name-ar {
             font-family: 'Amiri', serif;
-            font-size: 24px;
+            font-size: 23px;
             font-weight: 700;
             color: #fff;
-            line-height: 1.15;
+            line-height: 1.1;
             text-shadow: 0 2px 5px rgba(0,0,0,0.6);
         }
 
         .brand-role {
-            font-size: 12px;
+            font-size: 11.5px;
             color: var(--gold-primary);
             font-weight: 700;
-            margin-top: 6px;
+            margin-top: 4px;
+        }
+
+        /* مكان الـ QR السابق (النصوص الإنجليزية باليمين/اليسار) */
+        .header-english-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .eng-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .eng-role {
+            font-size: 9.5px;
+            color: var(--gold-primary);
+            letter-spacing: 0.8px;
+            font-weight: 600;
+            margin-top: 2px;
         }
 
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-bottom: 22px;
-            padding: 10px 0;
+            margin-bottom: 16px;
+            padding: 8px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.3);
             border-bottom: 1px solid rgba(223, 177, 91, 0.3);
             background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.08), transparent);
         }
 
         .brand-slogan {
-            font-size: 9.5px;
+            font-size: 9px;
             color: var(--gold-light);
             letter-spacing: 0.5px;
             font-weight: 500;
             text-transform: uppercase;
         }
 
-        .qr-nfc-wrapper {
+        /* جسم الأزرار مرتفع للأعلى */
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: flex-start;
+            direction: rtl;
+        }
+
+        .action-pill-btn {
+            width: 100%;
+            height: 56px;
+            background: rgba(20, 20, 26, 0.48);
+            border: 1px solid rgba(223, 177, 91, 0.35);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.15);
+            cursor: pointer;
+        }
+
+        .action-pill-btn:hover {
+            background: rgba(30, 30, 42, 0.75);
+            border-color: rgba(223, 177, 91, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .btn-right-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, rgba(223, 177, 91, 0.08) 70%);
+            border: 1px solid rgba(223, 177, 91, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
+        }
+
+        .btn-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .btn-arrow {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .social-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            width: 100%;
+        }
+
+        .social-item-col {
+            background: rgba(20, 20, 26, 0.48);
+            border: 1px solid rgba(223, 177, 91, 0.35);
+            border-radius: 18px;
+            padding: 10px 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.15);
+        }
+
+        .social-item-col:hover {
+            background: rgba(30, 30, 42, 0.75);
+            border-color: rgba(223, 177, 91, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .social-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, rgba(223, 177, 91, 0.05) 70%);
+            border: 1px solid rgba(223, 177, 91, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 15px;
+            margin-bottom: 5px;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.25);
+        }
+
+        .social-name {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1px;
+        }
+
+        .social-handle {
+            font-size: 8.5px;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            width: 100%;
+        }
+
+        .action-box-btn {
+            background: rgba(20, 20, 26, 0.48);
+            border: 1px solid rgba(223, 177, 91, 0.35);
+            border-radius: 18px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.15);
+        }
+
+        .action-box-btn:hover {
+            background: rgba(30, 30, 42, 0.75);
+            border-color: rgba(223, 177, 91, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .box-content-right {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .box-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(223, 177, 91, 0.18);
+            border: 1px solid rgba(223, 177, 91, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 14px;
+        }
+
+        .box-titles {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .box-title {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .box-subtitle {
+            font-size: 9px;
+            color: var(--text-muted);
+            margin-top: 1px;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .box-arrow {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* التذييل السفلي وقسم الـ QR في الأسفل تماماً */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            border-top: 1px solid rgba(223, 177, 91, 0.25);
+            padding-top: 12px;
+            direction: ltr;
+        }
+
+        .footer-left-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .customize-trigger-btn {
+            background: transparent;
+            border: none;
+            color: var(--gold-primary);
+            font-size: 10px;
+            cursor: pointer;
+            text-decoration: underline;
+            opacity: 0.85;
+            text-align: left;
+        }
+
+        /* الـ QR Code في أسفل الكارت */
+        .qr-bottom-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            direction: rtl;
         }
 
         .qr-frame {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             background: #fff;
             padding: 3px;
             border-radius: 8px;
@@ -228,255 +485,19 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .nfc-icon {
-            font-size: 9px;
+            font-size: 8px;
             color: var(--gold-primary);
         }
 
         .nfc-text {
-            font-size: 8px;
+            font-size: 7.5px;
             color: var(--text-muted);
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            direction: ltr;
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            gap: 11px;
-            flex-grow: 1;
-            justify-content: center;
-            direction: rtl;
-        }
-
-        .action-pill-btn {
-            width: 100%;
-            height: 60px;
-            background: rgba(20, 20, 26, 0.48);
-            border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 16px;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.15);
-            cursor: pointer;
-        }
-
-        .action-pill-btn:hover {
-            background: rgba(30, 30, 42, 0.75);
-            border-color: rgba(223, 177, 91, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.6), 0 0 15px rgba(223, 177, 91, 0.2);
-        }
-
-        .btn-right-group {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-icon-circle {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, rgba(223, 177, 91, 0.08) 70%);
-            border: 1px solid rgba(223, 177, 91, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 18px;
-            flex-shrink: 0;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
-        }
-
-        .btn-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .btn-arrow {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .social-grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            width: 100%;
-        }
-
-        .social-item-col {
-            background: rgba(20, 20, 26, 0.48);
-            border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 20px;
-            padding: 12px 6px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.15);
-        }
-
-        .social-item-col:hover {
-            background: rgba(30, 30, 42, 0.75);
-            border-color: rgba(223, 177, 91, 0.7);
-            transform: translateY(-2px);
-        }
-
-        .social-icon-box {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, rgba(223, 177, 91, 0.05) 70%);
-            border: 1px solid rgba(223, 177, 91, 0.55);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 16px;
-            margin-bottom: 6px;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.25);
-        }
-
-        .social-name {
-            font-size: 11px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 1px;
-        }
-
-        .social-handle {
-            font-size: 9px;
-            color: var(--text-muted);
-            text-align: center;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            direction: ltr;
-        }
-
-        .dual-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .action-box-btn {
-            background: rgba(20, 20, 26, 0.48);
-            border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 20px;
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.15);
-        }
-
-        .action-box-btn:hover {
-            background: rgba(30, 30, 42, 0.75);
-            border-color: rgba(223, 177, 91, 0.7);
-            transform: translateY(-2px);
-        }
-
-        .box-content-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .box-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(223, 177, 91, 0.18);
-            border: 1px solid rgba(223, 177, 91, 0.45);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 15px;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
-        }
-
-        .box-titles {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-        }
-
-        .box-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .box-subtitle {
-            font-size: 9.5px;
-            color: var(--text-muted);
-            margin-top: 1px;
-            direction: ltr;
-            text-align: right;
-        }
-
-        .box-arrow {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .card-footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            border-top: 1px solid rgba(223, 177, 91, 0.25);
-            padding-top: 12px;
-            direction: rtl;
-        }
-
-        .footer-brand {
-            font-family: 'Amiri', serif;
-            font-size: 11.5px;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            direction: ltr;
-        }
-
-        .customize-trigger-btn {
-            background: transparent;
-            border: none;
-            color: var(--gold-primary);
-            font-size: 10.5px;
-            cursor: pointer;
-            text-decoration: underline;
-            opacity: 0.85;
         }
 
         .modal-overlay {
@@ -614,21 +635,18 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
+        <!-- الترويسة العلوية مع الاسم بالعربي يمين والإنجليزي يسار -->
         <div class="card-header">
-            <div class="qr-nfc-wrapper" onclick="openQrModal()" title="اضغط لعرض رمز QR">
-                <div class="qr-frame" id="qrContainer"></div>
-                <div class="nfc-indicator">
-                    <span class="nfc-icon">◈</span>
-                    <span class="nfc-text">NFC</span>
-                </div>
+            <div class="header-english-info">
+                <span class="eng-name">NABIL ALNAMER</span>
+                <span class="eng-role">MARKETING SPECIALIST</span>
             </div>
 
-            <div class="brand-left-group">
+            <div class="brand-right-group">
                 <div class="brand-titles">
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 </div>
-                <!-- اسم الصورة بالحروف الصغيرة logo1.png -->
                 <div class="monogram-box">
                     <img src="logo1.png" alt="شعار نبيل النمر" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><text x=\'50%\' y=\'55%\' font-family=\'Amiri\' font-size=\'45\' font-weight=\'bold\' fill=\'%23dfb15b\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ن</text></svg>';">
                 </div>
@@ -639,6 +657,7 @@
             <span class="brand-slogan" id="uiSlogan">اول مبتكر دمج تقنية ال NFC بتيشيرت ستريت وير</span>
         </div>
 
+        <!-- جسم الأزرار مرتفع للأعلى ومترتب -->
         <div class="card-body">
             <div class="action-pill-btn" onclick="openChoiceModal('call')">
                 <div class="btn-right-group">
@@ -663,12 +682,16 @@
                     <span class="social-handle" id="uiX">nabilalnamer</span>
                 </a>
                 <a href="#" class="social-item-col" id="linkInsta" target="_blank">
-                    <div class="social-icon-box">📸</div>
+                    <div class="social-icon-box">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </div>
                     <span class="social-name">إنستغرام</span>
                     <span class="social-handle" id="uiInsta">alnamer.nabeel</span>
                 </a>
                 <a href="#" class="social-item-col" id="linkSnap" target="_blank">
-                    <div class="social-icon-box">👻</div>
+                    <div class="social-icon-box">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-3.3 0-6 2.7-6 6 0 2.2 1.2 4.1 3 5.1V15c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-1.9c1.8-1 3-2.9 3-5.1 0-3.3-2.7-6-6-6zm0 1.5c2.5 0 4.5 2 4.5 4.5 0 2.1-1.4 3.9-3.4 4.4L13 13v2h-2v-2l-.6-.6c-2-.5-3.4-2.3-3.4-4.4 0-2.5 2-4.5 4.5-4.5z"/></svg>
+                    </div>
                     <span class="social-name">سناب شات</span>
                     <span class="social-handle" id="uiSnap">nabilalnamer</span>
                 </a>
@@ -723,9 +746,20 @@
             </div>
         </div>
 
+        <!-- التذييل السفلي يحتوي على زر التخصيص ورمز QR في أسفل الكارت تماماً -->
         <div class="card-footer">
-            <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
-            <button class="customize-trigger-btn" onclick="openCustomizeModal()">⚙️ تخصيص البيانات</button>
+            <div class="footer-left-info">
+                <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
+                <button class="customize-trigger-btn" onclick="openCustomizeModal()">⚙️ تخصيص البيانات</button>
+            </div>
+
+            <div class="qr-bottom-wrapper" onclick="openQrModal()" title="اضغط لعرض رمز QR">
+                <div class="qr-frame" id="qrContainer"></div>
+                <div class="nfc-indicator">
+                    <span class="nfc-icon">◈</span>
+                    <span class="nfc-text">NFC</span>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -810,8 +844,8 @@
             qrContainer.innerHTML = "";
             new QRCode(qrContainer, {
                 text: EZWA_CONFIG.cardUrl,
-                width: 48,
-                height: 48,
+                width: 44,
+                height: 44,
                 colorDark: "#020204",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.M
