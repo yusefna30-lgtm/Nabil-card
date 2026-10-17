@@ -74,7 +74,7 @@
 
         .ezwa-card-container {
             width: var(--card-width);
-            min-height: 890px;
+            min-height: 870px;
             background: rgba(12, 12, 16, 0.42);
             backdrop-filter: blur(30px) saturate(210%);
             -webkit-backdrop-filter: blur(30px) saturate(210%);
@@ -90,10 +90,11 @@
                 inset -3px 0 5px rgba(223, 177, 91, 0.3);
                 
             position: relative;
-            padding: 20px 18px 14px 18px;
+            padding: 22px 18px 16px 18px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start; /* إلغاء التوزيع المتباعد وتراص العناصر للأعلى */
+            gap: 10px;
         }
 
         .ezwa-card-container::before {
@@ -109,23 +110,22 @@
             pointer-events: none;
         }
 
-        /* الترويسة العلوية بدون هوامش سفلية مفرطة */
+        /* الترويسة العلوية المثبتة: الشعار يمين تماماً والاسم والمهنة بالمنتصف */
         .card-header {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 60px;
-            margin-bottom: 2px;
+            height: 65px;
         }
 
         .monogram-box {
             position: absolute;
             right: 0;
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
+            width: 62px;
+            height: 62px;
+            border-radius: 15px;
             background: rgba(10, 10, 14, 0.95);
             border: 1.5px solid rgba(223, 177, 91, 0.7);
             display: flex;
@@ -152,7 +152,7 @@
 
         .brand-name-ar {
             font-family: 'Amiri', serif;
-            font-size: 24px;
+            font-size: 25px;
             font-weight: 700;
             color: #fff;
             line-height: 1.1;
@@ -160,19 +160,17 @@
         }
 
         .brand-role {
-            font-size: 11px;
+            font-size: 11.5px;
             color: var(--gold-primary);
             font-weight: 700;
-            margin-top: 1px;
+            margin-top: 2px;
         }
 
-        /* عبارة الابتكار ملتصقة تماماً من الأعلى والأسفل لتلغي الفراغين اللذين حددتهما */
+        /* عبارة الابتكار ملتصقة تماماً وبدون أي فراغات رأسية مفرطة */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-top: 2px;
-            margin-bottom: 6px;
-            padding: 4px 0;
+            padding: 5px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.3);
             border-bottom: 1px solid rgba(223, 177, 91, 0.3);
             background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.08), transparent);
@@ -186,21 +184,21 @@
             text-transform: uppercase;
         }
 
-        /* جسم الأزرار مصعد بالكامل للأعلى وبدون مساحات فارغة */
+        /* جسم الأزرار والتبويبات صعدت ولصقت مباشرة بعبارة الابتكار */
         .card-body {
             display: flex;
             flex-direction: column;
-            gap: 7px;
+            gap: 8px;
             justify-content: flex-start;
             direction: rtl;
         }
 
         .action-pill-btn {
             width: 100%;
-            height: 50px;
+            height: 52px;
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 25px;
+            border-radius: 26px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -225,8 +223,8 @@
         }
 
         .btn-icon-circle {
-            width: 35px;
-            height: 35px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, rgba(223, 177, 91, 0.08) 70%);
             border: 1px solid rgba(223, 177, 91, 0.6);
@@ -239,14 +237,14 @@
         }
 
         .btn-title {
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 700;
             color: #fff;
         }
 
         .btn-arrow {
-            width: 24px;
-            height: 24px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.04);
             display: flex;
@@ -260,15 +258,15 @@
         .social-grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
+            gap: 7px;
             width: 100%;
         }
 
         .social-item-col {
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 14px;
-            padding: 7px 4px;
+            border-radius: 15px;
+            padding: 8px 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -285,8 +283,8 @@
         }
 
         .social-icon-box {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, rgba(223, 177, 91, 0.05) 70%);
             border: 1px solid rgba(223, 177, 91, 0.55);
@@ -299,14 +297,14 @@
         }
 
         .social-name {
-            font-size: 9.5px;
+            font-size: 10px;
             font-weight: 600;
             color: #fff;
             margin-bottom: 1px;
         }
 
         .social-handle {
-            font-size: 7.5px;
+            font-size: 8px;
             color: var(--text-muted);
             text-align: center;
             max-width: 100%;
@@ -319,15 +317,15 @@
         .dual-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6px;
+            gap: 7px;
             width: 100%;
         }
 
         .action-box-btn {
             background: rgba(20, 20, 26, 0.48);
             border: 1px solid rgba(223, 177, 91, 0.35);
-            border-radius: 14px;
-            padding: 7px 10px;
+            border-radius: 15px;
+            padding: 8px 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -346,12 +344,12 @@
         .box-content-right {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 7px;
         }
 
         .box-icon {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: rgba(223, 177, 91, 0.18);
             border: 1px solid rgba(223, 177, 91, 0.45);
@@ -369,13 +367,13 @@
         }
 
         .box-title {
-            font-size: 10.5px;
+            font-size: 11px;
             font-weight: 700;
             color: #fff;
         }
 
         .box-subtitle {
-            font-size: 8px;
+            font-size: 8.5px;
             color: var(--text-muted);
             margin-top: 1px;
             direction: ltr;
@@ -392,9 +390,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 6px;
+            margin-top: 10px;
             border-top: 1px solid rgba(223, 177, 91, 0.25);
-            padding-top: 6px;
+            padding-top: 8px;
             direction: ltr;
         }
 
@@ -424,8 +422,8 @@
         }
 
         .qr-frame {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             background: #fff;
             padding: 3px;
             border-radius: 8px;
@@ -606,7 +604,7 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- الترويسة العلوية -->
+        <!-- الترويسة العلوية: الشعار يمين تماماً والاسم والمهنة بالمنتصف -->
         <div class="card-header">
             <div class="brand-titles-center">
                 <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
@@ -622,7 +620,7 @@
             <span class="brand-slogan" id="uiSlogan">اول مبتكر دمج تقنية ال NFC بتيشيرت ستريت وير</span>
         </div>
 
-        <!-- جسم الأزرار والتبويبات صعدت لتلصق بعبارة الابتكار وتلغي الفراغات تماماً -->
+        <!-- جسم التبويبات صعد للأعلى تماماً وألغى الفراغ المظلم بالكامل -->
         <div class="card-body">
             <div class="action-pill-btn" onclick="openChoiceModal('call')">
                 <div class="btn-right-group">
