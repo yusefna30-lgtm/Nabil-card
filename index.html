@@ -53,7 +53,7 @@
             position: absolute;
             width: 450px;
             height: 450px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.25) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.28) 0%, transparent 65%);
             border-radius: 50%;
             top: -10%;
             left: 10%;
@@ -64,7 +64,7 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.18) 0%, transparent 70%);
             border-radius: 50%;
             bottom: -15%;
             right: 5%;
@@ -72,6 +72,7 @@
             z-index: -1;
         }
 
+        /* حاوية الكارت مع الهالة الذهبية الساحرة المحيطة بالإطار */
         .ezwa-card-container {
             width: var(--card-width);
             min-height: 870px;
@@ -80,14 +81,16 @@
             -webkit-backdrop-filter: blur(30px) saturate(210%);
             border-radius: 42px;
             
-            border: 1.5px solid rgba(223, 177, 91, 0.4);
+            border: 1.5px solid rgba(223, 177, 91, 0.55);
+            /* الهالة الذهبية المتوهجة حول الإطار بالكامل */
             box-shadow: 
+                0 0 45px rgba(223, 177, 91, 0.28),
+                0 0 90px rgba(223, 177, 91, 0.12),
                 0 50px 120px rgba(0, 0, 0, 0.98),
-                0 0 70px rgba(223, 177, 91, 0.18),
                 inset 0 2px 4px rgba(255, 255, 255, 0.5),
                 inset 0 -3px 8px rgba(0, 0, 0, 0.98),
-                inset 3px 0 5px rgba(223, 177, 91, 0.3),
-                inset -3px 0 5px rgba(223, 177, 91, 0.3);
+                inset 3px 0 5px rgba(223, 177, 91, 0.35),
+                inset -3px 0 5px rgba(223, 177, 91, 0.35);
                 
             position: relative;
             padding: 22px 18px 16px 18px;
@@ -103,7 +106,7 @@
             inset: 0;
             border-radius: 42px;
             padding: 1.5px;
-            background: linear-gradient(135deg, rgba(223, 177, 91, 0.85) 0%, rgba(255, 255, 255, 0.35) 25%, rgba(0, 0, 0, 0.9) 60%, rgba(223, 177, 91, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(223, 177, 91, 0.9) 0%, rgba(255, 255, 255, 0.4) 25%, rgba(0, 0, 0, 0.9) 60%, rgba(223, 177, 91, 0.3) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -166,11 +169,11 @@
             margin-top: 2px;
         }
 
-        /* عبارة الابتكار مع مسافة إضافية بسيطة للأسفل (إنزال الأزرار قليلاً) */
+        /* عبارة الابتكار بمسافة تنفس متوازنة */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-bottom: 12px; /* تم إعطاء مسافة مريحة ومدروسة أسفل الخط */
+            margin-bottom: 12px;
             padding: 5px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.3);
             border-bottom: 1px solid rgba(223, 177, 91, 0.3);
@@ -621,7 +624,7 @@
             <span class="brand-slogan" id="uiSlogan">اول مبتكر دمج تقنية ال NFC بتيشيرت ستريت وير</span>
         </div>
 
-        <!-- جسم الأزرار والتبويبات بمسافة تنفس متوازنة وجميلة -->
+        <!-- جسم التبويبات بالمسافة المتوازنة -->
         <div class="card-body">
             <div class="action-pill-btn" onclick="openChoiceModal('call')">
                 <div class="btn-right-group">
