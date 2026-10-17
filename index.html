@@ -93,7 +93,7 @@
             padding: 22px 18px 16px 18px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* إلغاء التوزيع المتباعد وتراص العناصر للأعلى */
+            justify-content: flex-start;
             gap: 10px;
         }
 
@@ -110,7 +110,7 @@
             pointer-events: none;
         }
 
-        /* الترويسة العلوية المثبتة: الشعار يمين تماماً والاسم والمهنة بالمنتصف */
+        /* الترويسة العلوية */
         .card-header {
             position: relative;
             display: flex;
@@ -166,10 +166,11 @@
             margin-top: 2px;
         }
 
-        /* عبارة الابتكار ملتصقة تماماً وبدون أي فراغات رأسية مفرطة */
+        /* عبارة الابتكار مع مسافة إضافية بسيطة للأسفل (إنزال الأزرار قليلاً) */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
+            margin-bottom: 12px; /* تم إعطاء مسافة مريحة ومدروسة أسفل الخط */
             padding: 5px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.3);
             border-bottom: 1px solid rgba(223, 177, 91, 0.3);
@@ -184,7 +185,7 @@
             text-transform: uppercase;
         }
 
-        /* جسم الأزرار والتبويبات صعدت ولصقت مباشرة بعبارة الابتكار */
+        /* جسم الأزرار والتبويبات بالمسافة الجديدة المتوازنة */
         .card-body {
             display: flex;
             flex-direction: column;
@@ -604,7 +605,7 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- الترويسة العلوية: الشعار يمين تماماً والاسم والمهنة بالمنتصف -->
+        <!-- الترويسة العلوية -->
         <div class="card-header">
             <div class="brand-titles-center">
                 <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
@@ -620,7 +621,7 @@
             <span class="brand-slogan" id="uiSlogan">اول مبتكر دمج تقنية ال NFC بتيشيرت ستريت وير</span>
         </div>
 
-        <!-- جسم التبويبات صعد للأعلى تماماً وألغى الفراغ المظلم بالكامل -->
+        <!-- جسم الأزرار والتبويبات بمسافة تنفس متوازنة وجميلة -->
         <div class="card-body">
             <div class="action-pill-btn" onclick="openChoiceModal('call')">
                 <div class="btn-right-group">
