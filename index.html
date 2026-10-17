@@ -125,7 +125,7 @@
             direction: rtl;
         }
 
-        /* تم تكبير مقاس الحوية والشعار داخله ليكون بارزاً وبحجم كبير وواضح */
+        /* حاوية الشعار بالحجم البارز والكبير */
         .monogram-box {
             width: 76px;
             height: 76px;
@@ -145,7 +145,7 @@
             width: 120%;
             height: 120%;
             object-fit: cover;
-            transform: scale(1.15); /* تكبير إضافي لحجم الشعار نفسه بداخل الإطار */
+            transform: scale(1.15);
         }
 
         .brand-titles {
@@ -629,9 +629,9 @@
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 </div>
-                <!-- حاوية الشعار بالحجم الكبير والبارز -->
+                <!-- تم التحديث إلى Logo1.png مع تكبير المقاسات -->
                 <div class="monogram-box">
-                    <img src="logo.png" alt="شعار نبيل النمر">
+                    <img src="Logo1.png" alt="شعار نبيل النمر">
                 </div>
             </div>
         </div>
@@ -910,7 +910,7 @@
 
         function saveCustomData() {
             EZWA_CONFIG.brandAr = document.getElementById('inputBrandAr').value;
-            EZWA_CONFIG.role = document.getElementById('inputRole').value;
+            EZWA_CONFIG.role = document.getElementById('inputRole'].value;
             EZWA_CONFIG.slogan = document.getElementById('inputSlogan').value;
             EZWA_CONFIG.phone1 = document.getElementById('inputPhone1').value;
             EZWA_CONFIG.phone2 = document.getElementById('inputPhone2').value;
