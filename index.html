@@ -36,7 +36,7 @@
             perspective: 1000px;
         }
 
-        /* خلفية سينمائية مع إضاءات كريستالية وراء الزجاج */
+        /* خلفية سينمائية هادئة وعميقة */
         .cinema-background {
             position: fixed;
             top: 0;
@@ -45,10 +45,9 @@
             height: 100vh;
             z-index: -1;
             background: 
-                radial-gradient(circle at 80% 15%, rgba(223, 177, 91, 0.35) 0%, transparent 45%),
-                radial-gradient(circle at 15% 85%, rgba(180, 130, 60, 0.25) 0%, transparent 55%),
-                radial-gradient(circle at 50% 50%, rgba(255, 220, 150, 0.08) 0%, transparent 60%),
-                linear-gradient(135deg, #010103 0%, #0a0a0f 50%, #020204 100%);
+                radial-gradient(circle at 80% 15%, rgba(223, 177, 91, 0.3) 0%, transparent 45%),
+                radial-gradient(circle at 15% 85%, rgba(180, 130, 60, 0.22) 0%, transparent 55%),
+                linear-gradient(135deg, #010103 0%, #08080d 50%, #010102 100%);
             overflow: hidden;
         }
 
@@ -56,49 +55,46 @@
             position: absolute;
             width: 480px;
             height: 480px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, transparent 65%);
             border-radius: 50%;
             top: -10%;
             left: 5%;
-            filter: blur(65px);
+            filter: blur(70px);
             z-index: -1;
-            animation: pulseLight 8s ease-in-out infinite alternate;
+            animation: smokeDrift1 12s ease-in-out infinite alternate;
         }
         .light-beam-2 {
             position: absolute;
             width: 520px;
             height: 520px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.22) 0%, transparent 70%);
             border-radius: 50%;
             bottom: -15%;
             right: 0%;
-            filter: blur(75px);
+            filter: blur(80px);
             z-index: -1;
-            animation: pulseLight 10s ease-in-out infinite alternate-reverse;
+            animation: smokeDrift2 14s ease-in-out infinite alternate;
         }
 
-        @keyframes pulseLight {
-            0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
-            100% { transform: scale(1.15) translate(20px, -20px); opacity: 1; }
+        @keyframes smokeDrift1 {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.7; }
+            100% { transform: scale(1.2) translate(30px, 20px); opacity: 0.95; }
         }
 
-        /* حاوية الكارت: زجاج كريستالي فائق الشفافية والنقاء (Crystal Glassmorphism) */
+        @keyframes smokeDrift2 {
+            0% { transform: scale(1.1) translate(0, 0); opacity: 0.6; }
+            100% { transform: scale(0.95) translate(-25px, -20px); opacity: 0.85; }
+        }
+
+        /* حاوية الكارت: زجاج كريستالي فائق النقاء مع تنفس ضوئي هادئ */
         .ezwa-card-container {
             width: var(--card-width);
             min-height: 870px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 18, 24, 0.35) 40%, rgba(8, 8, 12, 0.55) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 18, 25, 0.42) 40%, rgba(8, 8, 12, 0.65) 100%);
             backdrop-filter: blur(35px) saturate(220%);
             -webkit-backdrop-filter: blur(35px) saturate(220%);
             border-radius: 42px;
             border: 1.5px solid rgba(223, 177, 91, 0.65);
-            box-shadow: 
-                0 0 60px rgba(223, 177, 91, 0.35),
-                0 0 120px rgba(223, 177, 91, 0.15),
-                0 40px 100px rgba(0, 0, 0, 0.85),
-                inset 0 2px 6px rgba(255, 255, 255, 0.75),
-                inset 0 -3px 10px rgba(0, 0, 0, 0.8),
-                inset 3px 0 6px rgba(223, 177, 91, 0.4),
-                inset -3px 0 6px rgba(223, 177, 91, 0.4);
             position: relative;
             padding: 22px 18px 16px 18px;
             display: flex;
@@ -107,61 +103,61 @@
             gap: 10px;
             transform-style: preserve-3d;
             transition: transform 0.15s ease-out;
-            overflow: hidden;
+            animation: crystalBreathe 6s ease-in-out infinite alternate;
         }
 
-        /* انعكاس لمعان الكريستال القطري الداخلي */
-        .ezwa-card-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(
-                115deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.12) 45%,
-                rgba(223, 177, 91, 0.15) 50%,
-                transparent 55%
-            );
-            pointer-events: none;
-            z-index: 2;
+        /* تأثير تنفس الهالة الذهبية المتصاعد بهدوء وفخامة */
+        @keyframes crystalBreathe {
+            0% {
+                border-color: rgba(223, 177, 91, 0.45);
+                box-shadow: 
+                    0 0 35px rgba(223, 177, 91, 0.25),
+                    0 0 70px rgba(180, 130, 60, 0.12),
+                    0 40px 100px rgba(0, 0, 0, 0.85),
+                    inset 0 2px 5px rgba(255, 255, 255, 0.6),
+                    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
+            }
+            100% {
+                border-color: rgba(245, 214, 156, 0.85);
+                box-shadow: 
+                    0 0 55px rgba(223, 177, 91, 0.42),
+                    0 0 110px rgba(223, 177, 91, 0.2),
+                    0 45px 110px rgba(0, 0, 0, 0.95),
+                    inset 0 2px 7px rgba(255, 255, 255, 0.85),
+                    inset 0 -3px 8px rgba(0, 0, 0, 0.9);
+            }
         }
 
-        /* توهج الحواف الدوري المباشر (Border Shimmer) */
-        .shimmer-border {
+        /* طبقة الدخان والأورورا الذهبية المتموجة حول الإطار */
+        .smoke-aurora-layer {
             position: absolute;
-            inset: -50%;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                transparent 70deg,
-                rgba(223, 177, 91, 0.85) 90deg,
-                rgba(255, 255, 255, 0.95) 95deg,
-                rgba(223, 177, 91, 0.85) 100deg,
-                transparent 120deg,
-                transparent 360deg
-            );
-            animation: rotateShimmer 6s linear infinite;
+            inset: -15px;
+            border-radius: 52px;
+            background: 
+                radial-gradient(circle at 20% 25%, rgba(223, 177, 91, 0.45) 0%, transparent 50%),
+                radial-gradient(circle at 80% 75%, rgba(245, 214, 156, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(180, 130, 60, 0.3) 0%, transparent 45%),
+                radial-gradient(circle at 30% 85%, rgba(223, 177, 91, 0.4) 0%, transparent 55%);
+            filter: blur(28px);
+            opacity: 0.65;
+            animation: smokeMorph 10s ease-in-out infinite alternate;
             pointer-events: none !important;
-            z-index: 1;
-            opacity: 0.8;
+            z-index: 0;
         }
 
-        /* قناع زجاجي شفاف يحفظ شفافية الكريستال بدلاً من السواد المكتوم */
-        .shimmer-mask {
-            position: absolute;
-            inset: 1.5px;
-            border-radius: 40px;
-            background: linear-gradient(145deg, rgba(20, 20, 28, 0.65) 0%, rgba(10, 10, 15, 0.82) 100%);
-            pointer-events: none !important;
-            z-index: 1;
-        }
-
-        @keyframes rotateShimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes smokeMorph {
+            0% {
+                transform: scale(0.98) translate(0px, 0px);
+                opacity: 0.55;
+            }
+            50% {
+                transform: scale(1.03) translate(-8px, 6px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.01) translate(8px, -6px);
+                opacity: 0.65;
+            }
         }
 
         .card-content-layer {
@@ -173,7 +169,7 @@
             width: 100%;
         }
 
-        /* زر تبديل اللغة بتصميم زجاجي كريستالي مدمج */
+        /* زر تبديل اللغة بتصميم زجاجي كريستالي */
         .lang-switch-btn {
             position: absolute;
             top: 0px;
@@ -273,7 +269,6 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
-        /* ضبط وتصغير الاسم الإنجليزي بدقة ليتسع بفخامة */
         html[dir="ltr"] .brand-name-ar {
             font-family: 'Montserrat', sans-serif;
             font-size: 14.5px;
@@ -750,14 +745,13 @@
         <div class="light-beam-2"></div>
     </div>
 
-    <!-- حاوية الكارت بثيم زجاجي كريستالي شفاف -->
+    <!-- حاوية الكارت مع طبقة الدخان والأورورا الذهبية الناعمة -->
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- طبقة التوهج الدوري (Border Shimmer) -->
-        <div class="shimmer-border"></div>
-        <div class="shimmer-mask"></div>
+        <!-- هالة الدخان والأورورا الانسيابية الهادئة -->
+        <div class="smoke-aurora-layer"></div>
 
-        <!-- محتوى الكارت -->
+        <!-- محتوى الكارت الكريستالي -->
         <div class="card-content-layer">
             
             <!-- زر تبديل اللغة الفوري -->
