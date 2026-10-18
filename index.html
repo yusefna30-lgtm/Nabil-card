@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نبيل النمر - الكارت الرقمي الفاخر</title>
+    <title>نبيل النمر | Nabil Alnamer</title>
+
+    <meta name="description" content="نبيل النمر - اختصاصي تسويق، صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط.">
+    <meta property="og:title" content="نبيل النمر | Nabil Alnamer">
+    <meta property="og:description" content="صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط">
+    <meta property="og:image" content="logo1.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#050507">
+
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -45,7 +53,6 @@
             background: radial-gradient(circle at 50% 25%, #14131d 0%, #050507 85%);
         }
 
-        /* حاوية الكارت مع دوران التوهج الذهبي حول الإطار */
         .ezwa-card-container {
             width: var(--card-width);
             min-height: auto;
@@ -62,7 +69,6 @@
                 0 30px 80px rgba(0, 0, 0, 0.95);
         }
 
-        /* شعاع التوهج الدوار حول الإطار */
         .rotating-glow-border {
             position: absolute;
             inset: -50%;
@@ -104,7 +110,6 @@
             width: 100%;
         }
 
-        /* زر تبديل اللغة */
         .lang-switch-btn {
             position: absolute;
             top: 2px;
@@ -136,7 +141,6 @@
             right: 2px;
         }
 
-        /* الترويسة العلوية */
         .card-header {
             position: relative;
             display: flex;
@@ -176,7 +180,6 @@
             object-fit: contain;
         }
 
-        /* توسيط الاسم والمسمى الوظيفي */
         .brand-titles-center {
             display: flex;
             flex-direction: column;
@@ -218,15 +221,24 @@
             letter-spacing: 0.6px;
         }
 
-        /* عبارة الابتكار */
+        /* عبارة الابتكار التفاعلية */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding: 6px 12px;
             border-top: 1px solid rgba(223, 177, 91, 0.25);
             border-bottom: 1px solid rgba(223, 177, 91, 0.25);
             background: rgba(223, 177, 91, 0.04);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .slogan-divider-area:hover {
+            background: rgba(223, 177, 91, 0.1);
+            border-color: rgba(223, 177, 91, 0.5);
+            transform: translateY(-1px);
         }
 
         .brand-slogan {
@@ -238,20 +250,28 @@
             display: inline-block;
         }
 
-        /* جسم الأزرار والتبويبات */
+        .slogan-explore-hint {
+            display: block;
+            font-size: 7.5px;
+            color: var(--gold-primary);
+            margin-top: 3px;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+
         .card-body {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
             justify-content: flex-start;
         }
 
         .action-pill-btn {
             width: 100%;
-            height: 52px;
+            height: 50px;
             background: #13131a;
             border: 1px solid rgba(223, 177, 91, 0.3);
-            border-radius: 26px;
+            border-radius: 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -276,8 +296,8 @@
         }
 
         .btn-icon-circle {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: rgba(223, 177, 91, 0.15);
             border: 1.2px solid rgba(223, 177, 91, 0.65);
@@ -292,14 +312,14 @@
         }
 
         .btn-title {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 700;
             color: #fff;
         }
 
         .btn-arrow {
-            width: 25px;
-            height: 25px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.04);
             display: flex;
@@ -436,7 +456,7 @@
         }
 
         .box-subtitle {
-            font-size: 8.5px;
+            font-size: 8px;
             color: var(--text-muted);
             margin-top: 1px;
             direction: ltr;
@@ -451,14 +471,37 @@
             transform: rotate(180deg);
         }
 
-        /* التذييل السفلي */
+        /* زر المحفظة الرقمية المستقل الفاخر */
+        .wallet-pill-btn {
+            width: 100%;
+            height: 44px;
+            background: linear-gradient(90deg, rgba(20,20,28,0.95), rgba(30,26,20,0.95));
+            border: 1.2px solid rgba(223, 177, 91, 0.55);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+
+        .wallet-pill-btn:hover {
+            background: linear-gradient(90deg, rgba(30,26,20,1), rgba(45,38,25,1));
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 6px;
+            margin-top: 4px;
             border-top: 1px solid rgba(223, 177, 91, 0.2);
-            padding-top: 8px;
+            padding-top: 7px;
             padding-bottom: 2px;
             direction: ltr;
         }
@@ -534,7 +577,6 @@
             text-transform: uppercase;
         }
 
-        /* النوافذ المنبثقة */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -562,7 +604,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
             padding-bottom: 12px;
         }
@@ -579,6 +621,59 @@
             color: #fff;
             font-size: 20px;
             cursor: pointer;
+        }
+
+        .innovation-body {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-align: center;
+        }
+
+        .innovation-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(223, 177, 91, 0.25) 0%, rgba(223, 177, 91, 0.05) 70%);
+            border: 1.5px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: var(--gold-primary);
+            font-size: 22px;
+            box-shadow: 0 0 20px rgba(223, 177, 91, 0.35);
+        }
+
+        .innovation-text {
+            font-size: 12.5px;
+            color: var(--text-main);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .innovation-steps {
+            background: #171720;
+            border-radius: 16px;
+            border: 1px solid rgba(223, 177, 91, 0.25);
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: start;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11.5px;
+            color: var(--gold-light);
+        }
+
+        .step-icon {
+            color: var(--gold-primary);
+            font-weight: bold;
         }
 
         .choice-btn {
@@ -649,10 +744,14 @@
             color: #fff;
             padding: 12px 24px;
             border-radius: 30px;
-            font-size: 13px;
-            transition: transform 0.3s ease;
+            font-size: 12.5px;
+            transition: transform 0.35s ease;
             z-index: 2000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
         .toast-notification.show {
             transform: translateX(-50%) translateY(0);
@@ -665,7 +764,6 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- دوران التوهج حول الإطار -->
         <div class="rotating-glow-border"></div>
         <div class="card-inner-mask"></div>
 
@@ -689,9 +787,10 @@
                 </div>
             </div>
 
-            <!-- عبارة الابتكار المعتمدة -->
-            <div class="slogan-divider-area">
+            <!-- (1) نافذة قصة الابتكار / كيف تعمل تقنية الـ NFC -->
+            <div class="slogan-divider-area" onclick="openInnovationModal()" title="انقر لمعرفة قصة الابتكار">
                 <span class="brand-slogan" id="uiSlogan">صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط</span>
+                <span class="slogan-explore-hint" id="uiSloganHint">◈ اضغط لاستكشاف الابتكار ◈</span>
             </div>
 
             <!-- جسم الأزرار والتبويبات -->
@@ -791,6 +890,18 @@
                         <div class="box-arrow">‹</div>
                     </a>
                 </div>
+
+                <!-- (2) زر المحفظة الرقمية (Apple Wallet & Google Wallet) -->
+                <div class="wallet-pill-btn" onclick="openWalletModal()">
+                    <div class="btn-side-group">
+                        <div class="btn-icon-circle" style="width: 28px; height: 28px; font-size: 13px;">
+                            💳
+                        </div>
+                        <span class="btn-title" id="tWallet" style="font-size: 12.5px;">إضافة إلى المحفظة الرقمية (Apple / Google)</span>
+                    </div>
+                    <div class="btn-arrow" style="width: 22px; height: 22px;">‹</div>
+                </div>
+
             </div>
 
             <!-- التذييل السفلي -->
@@ -810,6 +921,51 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- (1) نافذة استكشف الابتكار -->
+    <div class="modal-overlay" id="innovationModal" onclick="closeInnovationModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title" id="innoModalTitle">ابتكار الأزياء التفاعلية</h3>
+                <button class="modal-close" onclick="closeInnovationModal()">×</button>
+            </div>
+            <div class="innovation-body">
+                <div class="innovation-badge">◈</div>
+                <p class="innovation-text" id="innoModalDesc">
+                    أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.
+                </p>
+                <div class="innovation-steps">
+                    <div class="step-item"><span class="step-icon">1.</span> <span id="innoStep1">مرر أعلى هاتفك بالقرب من شعار التيشيرت</span></div>
+                    <div class="step-item"><span class="step-icon">2.</span> <span id="innoStep2">تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة</span></div>
+                    <div class="step-item"><span class="step-icon">3.</span> <span id="innoStep3">مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- (2) نافذة المحفظة الرقمية (Apple & Google Wallet) -->
+    <div class="modal-overlay" id="walletModal" onclick="closeWalletModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title" id="walletModalTitle">المحفظة الرقمية</h3>
+                <button class="modal-close" onclick="closeWalletModal()">×</button>
+            </div>
+            <div class="innovation-body">
+                <div class="innovation-badge"></div>
+                <p class="innovation-text" id="walletModalDesc">
+                    احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت.
+                </p>
+                <a href="#" class="choice-btn" onclick="downloadVCard(event); closeWalletModal();">
+                    <span>🍏 حفظ كبطاقة اتصال في آبل وجوجل</span>
+                    <span style="color: var(--gold-primary);">vCard</span>
+                </a>
+                <a href="#" class="choice-btn" onclick="openQrModal(); closeWalletModal();">
+                    <span>📷 عرض وتصوير رمز QR لحفظه بالألبوم</span>
+                    <span style="color: var(--gold-primary);">QR</span>
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- نافذة اختيار الرقم -->
@@ -856,7 +1012,10 @@
         </div>
     </div>
 
-    <div class="toast-notification" id="toastMsg">تم تنفيذ العملية بنجاح</div>
+    <div class="toast-notification" id="toastMsg">
+        <span>◈</span>
+        <span id="toastMsgText">تم تنفيذ العملية بنجاح</span>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
@@ -882,6 +1041,7 @@
         var TRANSLATIONS = {
             ar: {
                 langBtn: "EN",
+                sloganHint: "◈ اضغط لاستكشاف الابتكار ◈",
                 call: "إتصال مباشر",
                 whatsapp: "واتساب",
                 x: "منصة X",
@@ -892,13 +1052,23 @@
                 mapSub: "حي الديرة، الرياض",
                 share: "مشاركة الكارت",
                 contact: "حفظ جهة الاتصال",
+                wallet: "إضافة إلى المحفظة الرقمية (Apple / Google)",
                 customize: "⚙️ تخصيص البيانات",
                 toastSaved: "تم تحديث البيانات بنجاح",
                 toastCopied: "تم نسخ الرابط إلى الحافظة",
-                toastVcf: "تم تحميل vCard بنجاح"
+                toastVcf: "تم تحميل vCard بنجاح",
+                toastNfc: "تم الاتصال بنجاح عبر تقنية NFC ◈",
+                innoTitle: "ابتكار الأزياء التفاعلية",
+                innoDesc: "أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
+                innoStep1: "مرر أعلى هاتفك بالقرب من شعار التيشيرت",
+                innoStep2: "تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",
+                innoStep3: "مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",
+                walletTitle: "المحفظة الرقمية",
+                walletDesc: "احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت."
             },
             en: {
                 langBtn: "عربي",
+                sloganHint: "◈ Tap to Explore Innovation ◈",
                 call: "Direct Call",
                 whatsapp: "WhatsApp",
                 x: "X Platform",
@@ -909,10 +1079,19 @@
                 mapSub: "Al Deerah, Riyadh",
                 share: "Share Card",
                 contact: "Save Contact",
+                wallet: "Add to Digital Wallet (Apple / Google)",
                 customize: "⚙️ Customize",
                 toastSaved: "Settings saved successfully",
                 toastCopied: "Link copied to clipboard",
-                toastVcf: "Contact file downloaded"
+                toastVcf: "Contact file downloaded",
+                toastNfc: "Connected successfully via NFC ◈",
+                innoTitle: "NFC Fashion Innovation",
+                innoDesc: "The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",
+                innoStep1: "Tap the top of your phone near the garment emblem",
+                innoStep2: "Instant launch of your digital card without any app",
+                innoStep3: "Fully waterproof, wash-proof, and premium streetwear grade",
+                walletTitle: "Digital Wallet",
+                walletDesc: "Save Nabil Alnamer's digital profile directly to your phone contacts & wallet to keep it accessible anytime, even offline."
             }
         };
 
@@ -937,6 +1116,7 @@
             var sloganElem = document.getElementById('uiSlogan');
             if (sloganElem) sloganElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.sloganAr : EZWA_CONFIG.sloganEn;
 
+            document.getElementById('uiSloganHint').innerText = t.sloganHint;
             document.getElementById('tCall').innerText = t.call;
             document.getElementById('tWhatsapp').innerText = t.whatsapp;
             document.getElementById('tX').innerText = t.x;
@@ -947,7 +1127,16 @@
             document.getElementById('tMapSub').innerText = t.mapSub;
             document.getElementById('tShare').innerText = t.share;
             document.getElementById('tContact').innerText = t.contact;
+            document.getElementById('tWallet').innerText = t.wallet;
             document.getElementById('tCustomize').innerText = t.customize;
+
+            document.getElementById('innoModalTitle').innerText = t.innoTitle;
+            document.getElementById('innoModalDesc').innerText = t.innoDesc;
+            document.getElementById('innoStep1').innerText = t.innoStep1;
+            document.getElementById('innoStep2').innerText = t.innoStep2;
+            document.getElementById('innoStep3').innerText = t.innoStep3;
+            document.getElementById('walletModalTitle').innerText = t.walletTitle;
+            document.getElementById('walletModalDesc').innerText = t.walletDesc;
 
             document.getElementById('uiSnap').innerText = EZWA_CONFIG.snapchat;
             document.getElementById('uiInsta').innerText = EZWA_CONFIG.instagram;
@@ -971,6 +1160,12 @@
                 });
             }
         }
+
+        function openInnovationModal() { document.getElementById('innovationModal').style.display = 'flex'; }
+        function closeInnovationModal() { document.getElementById('innovationModal').style.display = 'none'; }
+
+        function openWalletModal() { document.getElementById('walletModal').style.display = 'flex'; }
+        function closeWalletModal() { document.getElementById('walletModal').style.display = 'none'; }
 
         function openChoiceModal(type) {
             var modal = document.getElementById('choiceModal');
@@ -1014,7 +1209,7 @@
         function handleEmail(e) { e.preventDefault(); window.location.href = "mailto:" + EZWA_CONFIG.email; }
 
         function downloadVCard(e) {
-            e.preventDefault();
+            if(e) e.preventDefault();
             var vCardData = "BEGIN:VCARD\nVERSION:3.0\nFN:" + EZWA_CONFIG.brandAr + "\nTITLE:" + EZWA_CONFIG.roleAr + "\nNOTE:حي الديرة، الرياض - الرمز البريدي 12633 - فرع البطحاء\nTEL:" + EZWA_CONFIG.phone1.replace(/[^0-9+]/g, '') + "\nTEL:" + EZWA_CONFIG.phone2.replace(/[^0-9+]/g, '') + "\nEMAIL:" + EZWA_CONFIG.email + "\nEND:VCARD";
             var blob = new Blob([vCardData], { type: 'text/vcard' });
             var url = window.URL.createObjectURL(blob);
@@ -1076,12 +1271,18 @@
 
         function showToast(msg) {
             var toast = document.getElementById('toastMsg');
-            toast.innerText = msg;
+            var textElem = document.getElementById('toastMsgText');
+            if (textElem) textElem.innerText = msg;
             toast.classList.add('show');
-            setTimeout(function() { toast.classList.remove('show'); }, 3000);
+            setTimeout(function() { toast.classList.remove('show'); }, 3200);
         }
 
-        window.onload = updateUI;
+        window.onload = function() {
+            updateUI();
+            setTimeout(function() {
+                showToast(TRANSLATIONS[currentLang].toastNfc);
+            }, 600);
+        };
     </script>
 </body>
 </html>
