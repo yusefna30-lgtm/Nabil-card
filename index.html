@@ -116,7 +116,7 @@
                 transparent 360deg
             );
             animation: rotateShimmer 6s linear infinite;
-            pointer-events: none;
+            pointer-events: none !important;
             z-index: 1;
             opacity: 0.75;
         }
@@ -126,7 +126,7 @@
             inset: 1.5px;
             border-radius: 40px;
             background: rgba(12, 12, 16, 0.94);
-            pointer-events: none;
+            pointer-events: none !important;
             z-index: 2;
         }
 
@@ -137,7 +137,7 @@
 
         .card-content-layer {
             position: relative;
-            z-index: 3;
+            z-index: 10;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -147,32 +147,36 @@
         /* زر تبديل اللغة الفوري */
         .lang-switch-btn {
             position: absolute;
-            top: 4px;
-            left: 4px;
-            background: rgba(20, 20, 26, 0.8);
-            border: 1px solid rgba(223, 177, 91, 0.5);
+            top: 2px;
+            left: 2px;
+            background: rgba(25, 25, 32, 0.92);
+            border: 1.2px solid rgba(223, 177, 91, 0.7);
             color: var(--gold-primary);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 11px;
+            padding: 6px 12px;
+            border-radius: 14px;
+            font-size: 11.5px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.25s ease;
             display: flex;
             align-items: center;
-            gap: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            gap: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            z-index: 99 !important;
+            pointer-events: auto !important;
+            user-select: none;
         }
 
         .lang-switch-btn:hover {
-            background: rgba(223, 177, 91, 0.2);
-            color: #fff;
+            background: rgba(223, 177, 91, 0.25);
+            color: #ffffff;
+            border-color: var(--gold-light);
             transform: scale(1.05);
         }
 
         html[dir="ltr"] .lang-switch-btn {
             left: auto;
-            right: 4px;
+            right: 2px;
         }
 
         /* الترويسة العلوية */
@@ -232,8 +236,8 @@
 
         html[dir="ltr"] .brand-name-ar {
             font-family: 'Montserrat', sans-serif;
-            font-size: 19px;
-            letter-spacing: 1.5px;
+            font-size: 18px;
+            letter-spacing: 1px;
         }
 
         .brand-role {
@@ -246,7 +250,7 @@
         html[dir="ltr"] .brand-role {
             font-family: 'Montserrat', sans-serif;
             font-size: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         /* عبارة الابتكار */
@@ -697,15 +701,15 @@
     <!-- حاوية الكارت مع تأثير توهج الحواف ومستشعر الميلان -->
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- طبقة التوهج الدوري (Border Shimmer) -->
+        <!-- طبقة التوهج الدوري (Border Shimmer) بدون حجب اللمس -->
         <div class="shimmer-border"></div>
         <div class="shimmer-mask"></div>
 
         <!-- محتوى الكارت الفاخر -->
         <div class="card-content-layer">
             
-            <!-- زر تبديل اللغة الفوري -->
-            <button class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
+            <!-- زر تبديل اللغة الفوري المتاح دائماً للنقر -->
+            <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
                 <span>🌐</span>
                 <span id="langText">EN</span>
             </button>
@@ -888,9 +892,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        let currentLang = 'ar';
+        var currentLang = 'ar';
 
-        let EZWA_CONFIG = {
+        var EZWA_CONFIG = {
             brandAr: "نبيل النمر",
             brandEn: "NABIL ALNAMER",
             roleAr: "اختصاصي تسويق",
@@ -907,7 +911,7 @@
             cardUrl: window.location.href
         };
 
-        const TRANSLATIONS = {
+        var TRANSLATIONS = {
             ar: {
                 langBtn: "EN",
                 call: "إتصال مباشر",
@@ -946,18 +950,24 @@
 
         function toggleLanguage() {
             currentLang = (currentLang === 'ar') ? 'en' : 'ar';
-            document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
-            document.documentElement.lang = currentLang;
+            document.documentElement.setAttribute('dir', (currentLang === 'ar') ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', currentLang);
             updateUI();
         }
 
         function updateUI() {
-            const t = TRANSLATIONS[currentLang];
-            document.getElementById('langText').innerText = t.langBtn;
+            var t = TRANSLATIONS[currentLang];
+            var langElem = document.getElementById('langText');
+            if (langElem) langElem.innerText = t.langBtn;
 
-            document.getElementById('uiBrandName').innerText = (currentLang === 'ar') ? EZWA_CONFIG.brandAr : EZWA_CONFIG.brandEn;
-            document.getElementById('uiRole').innerText = (currentLang === 'ar') ? EZWA_CONFIG.roleAr : EZWA_CONFIG.roleEn;
-            document.getElementById('uiSlogan').innerText = (currentLang === 'ar') ? EZWA_CONFIG.sloganAr : EZWA_CONFIG.sloganEn;
+            var brandElem = document.getElementById('uiBrandName');
+            if (brandElem) brandElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.brandAr : EZWA_CONFIG.brandEn;
+
+            var roleElem = document.getElementById('uiRole');
+            if (roleElem) roleElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.roleAr : EZWA_CONFIG.roleEn;
+
+            var sloganElem = document.getElementById('uiSlogan');
+            if (sloganElem) sloganElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.sloganAr : EZWA_CONFIG.sloganEn;
 
             document.getElementById('tCall').innerText = t.call;
             document.getElementById('tWhatsapp').innerText = t.whatsapp;
@@ -976,77 +986,79 @@
             document.getElementById('uiX').innerText = EZWA_CONFIG.x;
             document.getElementById('uiFooterBrand').innerText = "NABIL ALNAMER";
 
-            document.getElementById('linkSnap').href = "https://www.snapchat.com/add/" + EZWA_CONFIG.snapchat + "?share_id=83FM5o5vRls&locale=ar-SA";
-            document.getElementById('linkInsta').href = "https://www.instagram.com/" + EZWA_CONFIG.instagram + "/?vrfl=bnV2Nm9vNGxheno5";
+            document.getElementById('linkSnap').href = "https://www.snapchat.com/add/" + EZWA_CONFIG.snapchat;
+            document.getElementById('linkInsta').href = "https://www.instagram.com/" + EZWA_CONFIG.instagram;
             document.getElementById('linkX').href = "https://x.com/" + EZWA_CONFIG.x;
 
-            const qrContainer = document.getElementById('qrContainer');
-            qrContainer.innerHTML = "";
-            new QRCode(qrContainer, {
-                text: EZWA_CONFIG.cardUrl,
-                width: 36,
-                height: 36,
-                colorDark: "#020204",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.M
-            });
+            var qrContainer = document.getElementById('qrContainer');
+            if (qrContainer) {
+                qrContainer.innerHTML = "";
+                new QRCode(qrContainer, {
+                    text: EZWA_CONFIG.cardUrl,
+                    width: 36,
+                    height: 36,
+                    colorDark: "#020204",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
         }
 
         /* تفاعل ثلاثي الأبعاد مع حركة الماوس والموبايل */
-        const card = document.getElementById('ezwaCard');
+        var card = document.getElementById('ezwaCard');
 
-        document.addEventListener('mousemove', (e) => {
+        document.addEventListener('mousemove', function(e) {
             if (window.innerWidth < 768) return;
-            const x = (window.innerWidth / 2 - e.pageX) / 30;
-            const y = (window.innerHeight / 2 - e.pageY) / 30;
-            card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+            var x = (window.innerWidth / 2 - e.pageX) / 30;
+            var y = (window.innerHeight / 2 - e.pageY) / 30;
+            if (card) card.style.transform = "rotateY(" + x + "deg) rotateX(" + (-y) + "deg)";
         });
 
-        document.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        document.addEventListener('mouseleave', function() {
+            if (card) card.style.transform = 'rotateY(0deg) rotateX(0deg)';
         });
 
         if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', (e) => {
+            window.addEventListener('deviceorientation', function(e) {
                 if (!e.gamma || !e.beta) return;
-                const tiltX = Math.min(Math.max(e.gamma, -20), 20) / 2;
-                const tiltY = Math.min(Math.max(e.beta - 45, -20), 20) / 2;
-                card.style.transform = `rotateY(${tiltX}deg) rotateX(${-tiltY}deg)`;
+                var tiltX = Math.min(Math.max(e.gamma, -20), 20) / 2;
+                var tiltY = Math.min(Math.max(e.beta - 45, -20), 20) / 2;
+                if (card) card.style.transform = "rotateY(" + tiltX + "deg) rotateX(" + (-tiltY) + "deg)";
             });
         }
 
         function openChoiceModal(type) {
-            const modal = document.getElementById('choiceModal');
-            const titleElem = document.getElementById('choiceModalTitle');
-            const container = document.getElementById('choiceButtonsContainer');
+            var modal = document.getElementById('choiceModal');
+            var titleElem = document.getElementById('choiceModalTitle');
+            var container = document.getElementById('choiceButtonsContainer');
             container.innerHTML = "";
 
             if (type === 'call') {
                 titleElem.innerText = (currentLang === 'ar') ? "اختر الرقم للإتصال" : "Select Phone Number";
-                container.innerHTML = `
-                    <a href="tel:${EZWA_CONFIG.phone1.replace(/[^0-9+]/g, '')}" class="choice-btn" onclick="closeChoiceModal()">
-                        <span>${(currentLang === 'ar') ? "اتصال" : "Call"}</span>
-                        <span style="direction: ltr; color: var(--gold-primary);">${EZWA_CONFIG.phone1}</span>
-                    </a>
-                    <a href="tel:${EZWA_CONFIG.phone2.replace(/[^0-9+]/g, '')}" class="choice-btn" onclick="closeChoiceModal()">
-                        <span>${(currentLang === 'ar') ? "اتصال" : "Call"}</span>
-                        <span style="direction: ltr; color: var(--gold-primary);">${EZWA_CONFIG.phone2}</span>
-                    </a>
-                `;
+                container.innerHTML = '\
+                    <a href="tel:' + EZWA_CONFIG.phone1.replace(/[^0-9+]/g, '') + '" class="choice-btn" onclick="closeChoiceModal()">\
+                        <span>' + ((currentLang === 'ar') ? "اتصال" : "Call") + '</span>\
+                        <span style="direction: ltr; color: var(--gold-primary);">' + EZWA_CONFIG.phone1 + '</span>\
+                    </a>\
+                    <a href="tel:' + EZWA_CONFIG.phone2.replace(/[^0-9+]/g, '') + '" class="choice-btn" onclick="closeChoiceModal()">\
+                        <span>' + ((currentLang === 'ar') ? "اتصال" : "Call") + '</span>\
+                        <span style="direction: ltr; color: var(--gold-primary);">' + EZWA_CONFIG.phone2 + '</span>\
+                    </a>\
+                ';
             } else if (type === 'whatsapp') {
                 titleElem.innerText = (currentLang === 'ar') ? "اختر الرقم للواتساب" : "Select WhatsApp Number";
-                const num1Clean = EZWA_CONFIG.phone1.replace(/[^0-9]/g, '');
-                const num2Clean = EZWA_CONFIG.phone2.replace(/[^0-9]/g, '');
-                container.innerHTML = `
-                    <a href="https://wa.me/${num1Clean}?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()">
-                        <span>WhatsApp</span>
-                        <span style="direction: ltr; color: var(--gold-primary);">${EZWA_CONFIG.phone1}</span>
-                    </a>
-                    <a href="https://wa.me/${num2Clean}?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()">
-                        <span>WhatsApp</span>
-                        <span style="direction: ltr; color: var(--gold-primary);">${EZWA_CONFIG.phone2}</span>
-                    </a>
-                `;
+                var num1Clean = EZWA_CONFIG.phone1.replace(/[^0-9]/g, '');
+                var num2Clean = EZWA_CONFIG.phone2.replace(/[^0-9]/g, '');
+                container.innerHTML = '\
+                    <a href="https://wa.me/' + num1Clean + '?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()">\
+                        <span>WhatsApp</span>\
+                        <span style="direction: ltr; color: var(--gold-primary);">' + EZWA_CONFIG.phone1 + '</span>\
+                    </a>\
+                    <a href="https://wa.me/' + num2Clean + '?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()">\
+                        <span>WhatsApp</span>\
+                        <span style="direction: ltr; color: var(--gold-primary);">' + EZWA_CONFIG.phone2 + '</span>\
+                    </a>\
+                ';
             }
 
             modal.style.display = 'flex';
@@ -1054,21 +1066,21 @@
 
         function closeChoiceModal() { document.getElementById('choiceModal').style.display = 'none'; }
         function handleMap(e) { e.preventDefault(); window.open(EZWA_CONFIG.mapUrl, '_blank'); }
-        function handleEmail(e) { e.preventDefault(); window.location.href = `mailto:${EZWA_CONFIG.email}`; }
+        function handleEmail(e) { e.preventDefault(); window.location.href = "mailto:" + EZWA_CONFIG.email; }
 
         function downloadVCard(e) {
             e.preventDefault();
-            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:${EZWA_CONFIG.brandAr}\nTITLE:${EZWA_CONFIG.roleAr}\nNOTE:حي الديرة، الرياض - الرمز البريدي 12633 - فرع البطحاء\nTEL:${EZWA_CONFIG.phone1.replace(/[^0-9+]/g, '')}\nTEL:${EZWA_CONFIG.phone2.replace(/[^0-9+]/g, '')}\nEMAIL:${EZWA_CONFIG.email}\nEND:VCARD`;
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
+            var vCardData = "BEGIN:VCARD\nVERSION:3.0\nFN:" + EZWA_CONFIG.brandAr + "\nTITLE:" + EZWA_CONFIG.roleAr + "\nNOTE:حي الديرة، الرياض - الرمز البريدي 12633 - فرع البطحاء\nTEL:" + EZWA_CONFIG.phone1.replace(/[^0-9+]/g, '') + "\nTEL:" + EZWA_CONFIG.phone2.replace(/[^0-9+]/g, '') + "\nEMAIL:" + EZWA_CONFIG.email + "\nEND:VCARD";
+            var blob = new Blob([vCardData], { type: 'text/vcard' });
+            var url = window.URL.createObjectURL(blob);
+            var link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'Nabil_Alnamer.vcf');
             link.click();
             showToast(TRANSLATIONS[currentLang].toastVcf);
         }
 
-        async function shareCard(e) {
+        function shareCard(e) {
             e.preventDefault();
             if (navigator.share) {
                 navigator.share({ title: EZWA_CONFIG.brandAr, url: EZWA_CONFIG.cardUrl });
@@ -1078,9 +1090,9 @@
             }
         }
 
-        openQrModal = function() {
+        function openQrModal() {
             document.getElementById('qrModal').style.display = 'flex';
-            const largeContainer = document.getElementById('largeQrContainer');
+            var largeContainer = document.getElementById('largeQrContainer');
             largeContainer.innerHTML = "";
             new QRCode(largeContainer, { text: EZWA_CONFIG.cardUrl, width: 220, height: 220 });
         }
@@ -1118,10 +1130,10 @@
         }
 
         function showToast(msg) {
-            const toast = document.getElementById('toastMsg');
+            var toast = document.getElementById('toastMsg');
             toast.innerText = msg;
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
+            setTimeout(function() { toast.classList.remove('show'); }, 3000);
         }
 
         window.onload = updateUI;
