@@ -35,7 +35,6 @@
             padding: 20px 0;
         }
 
-        /* خلفية ليلية فاخرة وهادئة جداً */
         .cinema-background {
             position: fixed;
             top: 0;
@@ -43,59 +42,62 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background: radial-gradient(circle at 50% 20%, #121118 0%, #050507 80%);
+            background: radial-gradient(circle at 50% 25%, #14131d 0%, #050507 85%);
         }
 
-        /* الكارت الفخم باللون الأسود الملكي العميق والراقي */
+        /* حاوية الكارت: سواد ملكي مع توهج حواف ذهبي ناعم وبدون فراغ زائد بالأسفل */
         .ezwa-card-container {
             width: var(--card-width);
-            min-height: 870px;
-            background: #0c0c10;
-            border-radius: 42px;
-            border: 1.5px solid rgba(223, 177, 91, 0.45);
+            min-height: auto; /* إلغاء التمدد الزائد لتقليص الفراغ تحت الـ QR */
+            background: #0c0c11;
+            border-radius: 38px;
+            border: 1.5px solid rgba(223, 177, 91, 0.65);
+            /* توهج الحواف الذهبي النقي والساطع */
             box-shadow: 
-                0 0 30px rgba(223, 177, 91, 0.12),
+                0 0 35px rgba(223, 177, 91, 0.28),
+                0 0 75px rgba(223, 177, 91, 0.12),
                 0 30px 80px rgba(0, 0, 0, 0.95),
-                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+                inset 0 1px 2px rgba(255, 255, 255, 0.25),
+                inset 0 -1px 3px rgba(223, 177, 91, 0.3);
             position: relative;
-            padding: 22px 18px 16px 18px;
+            padding: 18px 18px 16px 18px; /* تقليص الحشو السفلي */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            gap: 10px;
+            gap: 9px;
         }
 
         .card-content-layer {
             position: relative;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 9px;
             width: 100%;
         }
 
-        /* زر تبديل اللغة الأنيق والصغير */
+        /* زر تبديل اللغة */
         .lang-switch-btn {
             position: absolute;
             top: 2px;
             left: 2px;
             background: #14141a;
-            border: 1px solid rgba(223, 177, 91, 0.4);
+            border: 1px solid rgba(223, 177, 91, 0.45);
             color: var(--gold-primary);
-            padding: 5px 11px;
+            padding: 4px 10px;
             border-radius: 12px;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.25s ease;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             z-index: 10;
         }
 
         .lang-switch-btn:hover {
             background: rgba(223, 177, 91, 0.15);
             color: #ffffff;
+            border-color: var(--gold-light);
         }
 
         html[dir="ltr"] .lang-switch-btn {
@@ -110,23 +112,23 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            min-height: 65px;
+            min-height: 62px;
             margin-top: 2px;
-            padding: 0 50px 0 0;
+            padding: 0 45px 0 0;
         }
 
         html[dir="ltr"] .card-header {
-            padding: 0 0 0 50px;
+            padding: 0 0 0 45px;
         }
 
         .monogram-box {
             position: absolute;
             right: 0;
-            width: 62px;
-            height: 62px;
-            border-radius: 15px;
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
             background: #121218;
-            border: 1.5px solid rgba(223, 177, 91, 0.6);
+            border: 1.5px solid rgba(223, 177, 91, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -152,27 +154,28 @@
             align-items: center;
             text-align: center;
             width: 100%;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .brand-name-ar {
             font-family: 'Amiri', serif;
-            font-size: 25px;
+            font-size: 24px;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.15;
         }
 
+        /* ضبط وتصغير الاسم بالإنجليزي ليكون متناسقاً ولا يتداخل */
         html[dir="ltr"] .brand-name-ar {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14.5px;
-            font-weight: 800;
-            letter-spacing: 1.2px;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
             white-space: nowrap;
         }
 
         .brand-role {
-            font-size: 11.5px;
+            font-size: 11px;
             color: var(--gold-primary);
             font-weight: 700;
             margin-top: 2px;
@@ -180,16 +183,16 @@
 
         html[dir="ltr"] .brand-role {
             font-family: 'Montserrat', sans-serif;
-            font-size: 9.5px;
+            font-size: 8.5px;
             font-weight: 600;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
         }
 
         /* عبارة الابتكار */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding: 5px 0;
             border-top: 1px solid rgba(223, 177, 91, 0.25);
             border-bottom: 1px solid rgba(223, 177, 91, 0.25);
@@ -204,7 +207,7 @@
             text-transform: uppercase;
         }
 
-        /* جسم الأزرار والتبويبات بالأسود الفاخر الصريح */
+        /* جسم الأزرار والتبويبات */
         .card-body {
             display: flex;
             flex-direction: column;
@@ -408,14 +411,15 @@
             transform: rotate(180deg);
         }
 
-        /* التذييل السفلي ورمز الـ QR */
+        /* التذييل السفلي: ملتصق بدون فراغ زائد تحت الـ QR */
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 6px;
             border-top: 1px solid rgba(223, 177, 91, 0.2);
             padding-top: 8px;
+            padding-bottom: 2px;
             direction: ltr;
         }
 
@@ -427,10 +431,10 @@
         }
 
         .footer-brand {
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 700;
             color: var(--text-muted);
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         .customize-trigger-btn {
@@ -618,7 +622,6 @@
 
     <div class="cinema-background"></div>
 
-    <!-- الكارت بنمط الأسود الملكي النقي والمريح -->
     <div class="ezwa-card-container" id="ezwaCard">
         
         <div class="card-content-layer">
@@ -740,7 +743,7 @@
                 </div>
             </div>
 
-            <!-- التذييل السفلي ورمز الـ QR -->
+            <!-- التذييل السفلي: مغلق مباشرة أسفل الـ QR -->
             <div class="card-footer">
                 <div class="footer-left-info">
                     <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
