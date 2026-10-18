@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نبيل النمر - الكارت الرقمي الفاخر</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #020204;
+            --bg-deep: #050507;
             --gold-primary: #dfb15b;
             --gold-light: #f5d69c;
             --text-main: #ffffff;
-            --text-muted: #b4b4be;
+            --text-muted: #a1a1aa;
             --card-width: min(420px, 92vw);
         }
 
@@ -33,10 +33,9 @@
             overflow-x: hidden;
             position: relative;
             padding: 20px 0;
-            perspective: 1000px;
         }
 
-        /* خلفية سينمائية هادئة وعميقة */
+        /* خلفية ليلية فاخرة وهادئة جداً */
         .cinema-background {
             position: fixed;
             top: 0;
@@ -44,141 +43,44 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background: 
-                radial-gradient(circle at 80% 15%, rgba(223, 177, 91, 0.3) 0%, transparent 45%),
-                radial-gradient(circle at 15% 85%, rgba(180, 130, 60, 0.22) 0%, transparent 55%),
-                linear-gradient(135deg, #010103 0%, #08080d 50%, #010102 100%);
-            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, #121118 0%, #050507 80%);
         }
 
-        .light-beam-1 {
-            position: absolute;
-            width: 480px;
-            height: 480px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.3) 0%, transparent 65%);
-            border-radius: 50%;
-            top: -10%;
-            left: 5%;
-            filter: blur(70px);
-            z-index: -1;
-            animation: smokeDrift1 12s ease-in-out infinite alternate;
-        }
-        .light-beam-2 {
-            position: absolute;
-            width: 520px;
-            height: 520px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.22) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -15%;
-            right: 0%;
-            filter: blur(80px);
-            z-index: -1;
-            animation: smokeDrift2 14s ease-in-out infinite alternate;
-        }
-
-        @keyframes smokeDrift1 {
-            0% { transform: scale(1) translate(0, 0); opacity: 0.7; }
-            100% { transform: scale(1.2) translate(30px, 20px); opacity: 0.95; }
-        }
-
-        @keyframes smokeDrift2 {
-            0% { transform: scale(1.1) translate(0, 0); opacity: 0.6; }
-            100% { transform: scale(0.95) translate(-25px, -20px); opacity: 0.85; }
-        }
-
-        /* حاوية الكارت: زجاج كريستالي فائق النقاء مع تنفس ضوئي هادئ */
+        /* الكارت الفخم باللون الأسود الملكي العميق والراقي */
         .ezwa-card-container {
             width: var(--card-width);
             min-height: 870px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 18, 25, 0.42) 40%, rgba(8, 8, 12, 0.65) 100%);
-            backdrop-filter: blur(35px) saturate(220%);
-            -webkit-backdrop-filter: blur(35px) saturate(220%);
+            background: #0c0c10;
             border-radius: 42px;
-            border: 1.5px solid rgba(223, 177, 91, 0.65);
+            border: 1.5px solid rgba(223, 177, 91, 0.45);
+            box-shadow: 
+                0 0 30px rgba(223, 177, 91, 0.12),
+                0 30px 80px rgba(0, 0, 0, 0.95),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
             position: relative;
             padding: 22px 18px 16px 18px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             gap: 10px;
-            transform-style: preserve-3d;
-            transition: transform 0.15s ease-out;
-            animation: crystalBreathe 6s ease-in-out infinite alternate;
-        }
-
-        /* تأثير تنفس الهالة الذهبية المتصاعد بهدوء وفخامة */
-        @keyframes crystalBreathe {
-            0% {
-                border-color: rgba(223, 177, 91, 0.45);
-                box-shadow: 
-                    0 0 35px rgba(223, 177, 91, 0.25),
-                    0 0 70px rgba(180, 130, 60, 0.12),
-                    0 40px 100px rgba(0, 0, 0, 0.85),
-                    inset 0 2px 5px rgba(255, 255, 255, 0.6),
-                    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
-            }
-            100% {
-                border-color: rgba(245, 214, 156, 0.85);
-                box-shadow: 
-                    0 0 55px rgba(223, 177, 91, 0.42),
-                    0 0 110px rgba(223, 177, 91, 0.2),
-                    0 45px 110px rgba(0, 0, 0, 0.95),
-                    inset 0 2px 7px rgba(255, 255, 255, 0.85),
-                    inset 0 -3px 8px rgba(0, 0, 0, 0.9);
-            }
-        }
-
-        /* طبقة الدخان والأورورا الذهبية المتموجة حول الإطار */
-        .smoke-aurora-layer {
-            position: absolute;
-            inset: -15px;
-            border-radius: 52px;
-            background: 
-                radial-gradient(circle at 20% 25%, rgba(223, 177, 91, 0.45) 0%, transparent 50%),
-                radial-gradient(circle at 80% 75%, rgba(245, 214, 156, 0.35) 0%, transparent 50%),
-                radial-gradient(circle at 60% 20%, rgba(180, 130, 60, 0.3) 0%, transparent 45%),
-                radial-gradient(circle at 30% 85%, rgba(223, 177, 91, 0.4) 0%, transparent 55%);
-            filter: blur(28px);
-            opacity: 0.65;
-            animation: smokeMorph 10s ease-in-out infinite alternate;
-            pointer-events: none !important;
-            z-index: 0;
-        }
-
-        @keyframes smokeMorph {
-            0% {
-                transform: scale(0.98) translate(0px, 0px);
-                opacity: 0.55;
-            }
-            50% {
-                transform: scale(1.03) translate(-8px, 6px);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1.01) translate(8px, -6px);
-                opacity: 0.65;
-            }
         }
 
         .card-content-layer {
             position: relative;
-            z-index: 10;
             display: flex;
             flex-direction: column;
             gap: 10px;
             width: 100%;
         }
 
-        /* زر تبديل اللغة بتصميم زجاجي كريستالي */
+        /* زر تبديل اللغة الأنيق والصغير */
         .lang-switch-btn {
             position: absolute;
-            top: 0px;
+            top: 2px;
             left: 2px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(223, 177, 91, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            color: var(--gold-light);
+            background: #14141a;
+            border: 1px solid rgba(223, 177, 91, 0.4);
+            color: var(--gold-primary);
             padding: 5px 11px;
             border-radius: 12px;
             font-size: 11px;
@@ -188,17 +90,12 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.3);
-            z-index: 99 !important;
-            pointer-events: auto !important;
-            user-select: none;
+            z-index: 10;
         }
 
         .lang-switch-btn:hover {
-            background: rgba(223, 177, 91, 0.25);
+            background: rgba(223, 177, 91, 0.15);
             color: #ffffff;
-            border-color: var(--gold-primary);
-            transform: scale(1.05);
         }
 
         html[dir="ltr"] .lang-switch-btn {
@@ -228,14 +125,12 @@
             width: 62px;
             height: 62px;
             border-radius: 15px;
-            background: rgba(15, 15, 22, 0.7);
-            border: 1.5px solid rgba(223, 177, 91, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #121218;
+            border: 1.5px solid rgba(223, 177, 91, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 1px 3px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
             overflow: hidden;
             padding: 2px;
         }
@@ -262,11 +157,10 @@
 
         .brand-name-ar {
             font-family: 'Amiri', serif;
-            font-size: 24px;
+            font-size: 25px;
             font-weight: 700;
-            color: #fff;
+            color: #ffffff;
             line-height: 1.15;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
         html[dir="ltr"] .brand-name-ar {
@@ -274,12 +168,11 @@
             font-size: 14.5px;
             font-weight: 800;
             letter-spacing: 1.2px;
-            line-height: 1.25;
             white-space: nowrap;
         }
 
         .brand-role {
-            font-size: 11px;
+            font-size: 11.5px;
             color: var(--gold-primary);
             font-weight: 700;
             margin-top: 2px;
@@ -287,10 +180,9 @@
 
         html[dir="ltr"] .brand-role {
             font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
+            font-size: 9.5px;
             font-weight: 600;
             letter-spacing: 0.8px;
-            margin-top: 2px;
         }
 
         /* عبارة الابتكار */
@@ -299,9 +191,9 @@
             text-align: center;
             margin-bottom: 12px;
             padding: 5px 0;
-            border-top: 1px solid rgba(223, 177, 91, 0.35);
-            border-bottom: 1px solid rgba(223, 177, 91, 0.35);
-            background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.12), transparent);
+            border-top: 1px solid rgba(223, 177, 91, 0.25);
+            border-bottom: 1px solid rgba(223, 177, 91, 0.25);
+            background: rgba(223, 177, 91, 0.04);
         }
 
         .brand-slogan {
@@ -312,7 +204,7 @@
             text-transform: uppercase;
         }
 
-        /* جسم الأزرار والتبويبات بخلفيات كريستالية شفافة */
+        /* جسم الأزرار والتبويبات بالأسود الفاخر الصريح */
         .card-body {
             display: flex;
             flex-direction: column;
@@ -323,10 +215,8 @@
         .action-pill-btn {
             width: 100%;
             height: 52px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(223, 177, 91, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: #13131a;
+            border: 1px solid rgba(223, 177, 91, 0.3);
             border-radius: 26px;
             display: flex;
             align-items: center;
@@ -334,16 +224,15 @@
             padding: 0 16px;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.35), inset 0 1px 2px rgba(255,255,255,0.25);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             cursor: pointer;
         }
 
         .action-pill-btn:hover {
-            background: rgba(223, 177, 91, 0.18);
-            border-color: rgba(223, 177, 91, 0.8);
+            background: #1c1c26;
+            border-color: rgba(223, 177, 91, 0.65);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(223, 177, 91, 0.25), inset 0 1px 3px rgba(255,255,255,0.4);
         }
 
         .btn-side-group {
@@ -356,14 +245,13 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.4) 0%, rgba(223, 177, 91, 0.1) 70%);
-            border: 1px solid rgba(223, 177, 91, 0.65);
+            background: rgba(223, 177, 91, 0.12);
+            border: 1px solid rgba(223, 177, 91, 0.45);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
             flex-shrink: 0;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
         }
 
         .btn-title {
@@ -376,7 +264,7 @@
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.04);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -397,10 +285,8 @@
         }
 
         .social-item-col {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(223, 177, 91, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: #13131a;
+            border: 1px solid rgba(223, 177, 91, 0.3);
             border-radius: 15px;
             padding: 8px 5px;
             display: flex;
@@ -408,13 +294,12 @@
             align-items: center;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+            transition: all 0.25s ease;
         }
 
         .social-item-col:hover {
-            background: rgba(223, 177, 91, 0.18);
-            border-color: rgba(223, 177, 91, 0.8);
+            background: #1c1c26;
+            border-color: rgba(223, 177, 91, 0.65);
             transform: translateY(-2px);
         }
 
@@ -422,8 +307,8 @@
             width: 32px;
             height: 32px;
             border-radius: 10px;
-            background: radial-gradient(circle, rgba(223, 177, 91, 0.35) 0%, rgba(223, 177, 91, 0.1) 70%);
-            border: 1.5px solid rgba(223, 177, 91, 0.7);
+            background: rgba(223, 177, 91, 0.12);
+            border: 1px solid rgba(223, 177, 91, 0.45);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -431,7 +316,6 @@
             font-size: 13px;
             font-weight: 900;
             margin-bottom: 2px;
-            box-shadow: inset 0 1px 3px rgba(255,255,255,0.35);
         }
 
         .social-name {
@@ -460,10 +344,8 @@
         }
 
         .action-box-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(223, 177, 91, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: #13131a;
+            border: 1px solid rgba(223, 177, 91, 0.3);
             border-radius: 15px;
             padding: 8px 10px;
             display: flex;
@@ -471,13 +353,12 @@
             justify-content: space-between;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s ease;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+            transition: all 0.25s ease;
         }
 
         .action-box-btn:hover {
-            background: rgba(223, 177, 91, 0.18);
-            border-color: rgba(223, 177, 91, 0.8);
+            background: #1c1c26;
+            border-color: rgba(223, 177, 91, 0.65);
             transform: translateY(-2px);
         }
 
@@ -491,13 +372,12 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: rgba(223, 177, 91, 0.22);
-            border: 1px solid rgba(223, 177, 91, 0.5);
+            background: rgba(223, 177, 91, 0.12);
+            border: 1px solid rgba(223, 177, 91, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
         }
 
         .box-titles {
@@ -534,7 +414,7 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
-            border-top: 1px solid rgba(223, 177, 91, 0.28);
+            border-top: 1px solid rgba(223, 177, 91, 0.2);
             padding-top: 8px;
             direction: ltr;
         }
@@ -544,6 +424,13 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 2px;
+        }
+
+        .footer-brand {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
         }
 
         .customize-trigger-btn {
@@ -575,22 +462,12 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .qr-frame img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
-
-        .qr-frame::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border: 1px dashed rgba(223, 177, 91, 0.5);
-            border-radius: 10px;
-            pointer-events: none;
         }
 
         .nfc-indicator {
@@ -612,12 +489,12 @@
             text-transform: uppercase;
         }
 
-        /* المودال */
+        /* النوافذ المنبثقة */
         .modal-overlay {
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             display: none;
             align-items: center;
@@ -626,13 +503,13 @@
         }
 
         .modal-content {
-            background: #111115;
-            border: 1px solid rgba(223, 177, 91, 0.5);
+            background: #111116;
+            border: 1px solid rgba(223, 177, 91, 0.45);
             border-radius: 24px;
             width: 100%;
             max-width: 400px;
             padding: 24px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
             text-align: inherit;
         }
 
@@ -661,8 +538,8 @@
 
         .choice-btn {
             width: 100%;
-            background: rgba(20, 20, 26, 0.9);
-            border: 1px solid rgba(223, 177, 91, 0.4);
+            background: #181822;
+            border: 1px solid rgba(223, 177, 91, 0.35);
             color: #fff;
             padding: 14px 18px;
             border-radius: 14px;
@@ -673,13 +550,12 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .choice-btn:hover {
             background: rgba(223, 177, 91, 0.15);
             border-color: var(--gold-primary);
-            transform: translateY(-2px);
         }
 
         .form-group {
@@ -695,7 +571,7 @@
 
         .form-group input {
             width: 100%;
-            background: #1a1a20;
+            background: #181822;
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 10px;
             padding: 10px 14px;
@@ -723,15 +599,15 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: rgba(20, 20, 26, 0.95);
+            background: #14141c;
             border: 1px solid rgba(223, 177, 91, 0.5);
             color: #fff;
             padding: 12px 24px;
             border-radius: 30px;
             font-size: 13px;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
             z-index: 2000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
         .toast-notification.show {
             transform: translateX(-50%) translateY(0);
@@ -740,21 +616,14 @@
 </head>
 <body>
 
-    <div class="cinema-background">
-        <div class="light-beam-1"></div>
-        <div class="light-beam-2"></div>
-    </div>
+    <div class="cinema-background"></div>
 
-    <!-- حاوية الكارت مع طبقة الدخان والأورورا الذهبية الناعمة -->
+    <!-- الكارت بنمط الأسود الملكي النقي والمريح -->
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- هالة الدخان والأورورا الانسيابية الهادئة -->
-        <div class="smoke-aurora-layer"></div>
-
-        <!-- محتوى الكارت الكريستالي -->
         <div class="card-content-layer">
             
-            <!-- زر تبديل اللغة الفوري -->
+            <!-- زر تبديل اللغة -->
             <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
                 <span>🌐</span>
                 <span id="langText">EN</span>
@@ -800,12 +669,12 @@
 
                 <div class="social-grid-3">
                     <a href="#" class="social-item-col" id="linkX" target="_blank">
-                        <div class="social-icon-box" style="background: rgba(255,255,255,0.06);">𝕏</div>
+                        <div class="social-icon-box">𝕏</div>
                         <span class="social-name" id="tX">منصة X</span>
                         <span class="social-handle" id="uiX">nabilalnamer</span>
                     </a>
                     <a href="#" class="social-item-col" id="linkInsta" target="_blank">
-                        <div class="social-icon-box" style="background: rgba(255,255,255,0.06); color: var(--gold-primary);">
+                        <div class="social-icon-box" style="color: var(--gold-primary);">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </div>
                         <span class="social-name" id="tInsta">إنستغرام</span>
@@ -1048,29 +917,6 @@
                     correctLevel: QRCode.CorrectLevel.M
                 });
             }
-        }
-
-        /* تفاعل ثلاثي الأبعاد مع حركة الماوس والموبايل */
-        var card = document.getElementById('ezwaCard');
-
-        document.addEventListener('mousemove', function(e) {
-            if (window.innerWidth < 768) return;
-            var x = (window.innerWidth / 2 - e.pageX) / 32;
-            var y = (window.innerHeight / 2 - e.pageY) / 32;
-            if (card) card.style.transform = "rotateY(" + x + "deg) rotateX(" + (-y) + "deg)";
-        });
-
-        document.addEventListener('mouseleave', function() {
-            if (card) card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-        });
-
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', function(e) {
-                if (!e.gamma || !e.beta) return;
-                var tiltX = Math.min(Math.max(e.gamma, -20), 20) / 2.2;
-                var tiltY = Math.min(Math.max(e.beta - 45, -20), 20) / 2.2;
-                if (card) card.style.transform = "rotateY(" + tiltX + "deg) rotateX(" + (-tiltY) + "deg)";
-            });
         }
 
         function openChoiceModal(type) {
