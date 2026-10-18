@@ -45,29 +45,59 @@
             background: radial-gradient(circle at 50% 25%, #14131d 0%, #050507 85%);
         }
 
-        /* حاوية الكارت: سواد ملكي مع توهج حواف ذهبي ناعم وبدون فراغ زائد بالأسفل */
+        /* حاوية الكارت مع دوران التوهج الذهبي حول الإطار */
         .ezwa-card-container {
             width: var(--card-width);
-            min-height: auto; /* إلغاء التمدد الزائد لتقليص الفراغ تحت الـ QR */
+            min-height: auto;
             background: #0c0c11;
             border-radius: 38px;
-            border: 1.5px solid rgba(223, 177, 91, 0.65);
-            /* توهج الحواف الذهبي النقي والساطع */
-            box-shadow: 
-                0 0 35px rgba(223, 177, 91, 0.28),
-                0 0 75px rgba(223, 177, 91, 0.12),
-                0 30px 80px rgba(0, 0, 0, 0.95),
-                inset 0 1px 2px rgba(255, 255, 255, 0.25),
-                inset 0 -1px 3px rgba(223, 177, 91, 0.3);
             position: relative;
-            padding: 18px 18px 16px 18px; /* تقليص الحشو السفلي */
+            padding: 18px 18px 16px 18px;
             display: flex;
             flex-direction: column;
             gap: 9px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 35px rgba(223, 177, 91, 0.25),
+                0 30px 80px rgba(0, 0, 0, 0.95);
+        }
+
+        /* شعاع التوهج الدوار حول الإطار */
+        .rotating-glow-border {
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 70deg,
+                rgba(223, 177, 91, 0.9) 90deg,
+                rgba(255, 255, 255, 0.95) 95deg,
+                rgba(223, 177, 91, 0.9) 100deg,
+                transparent 120deg,
+                transparent 360deg
+            );
+            animation: rotateGlow 5s linear infinite;
+            pointer-events: none !important;
+            z-index: 1;
+        }
+
+        .card-inner-mask {
+            position: absolute;
+            inset: 1.5px;
+            border-radius: 36.5px;
+            background: #0c0c11;
+            pointer-events: none !important;
+            z-index: 2;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .card-content-layer {
             position: relative;
+            z-index: 10;
             display: flex;
             flex-direction: column;
             gap: 9px;
@@ -80,7 +110,7 @@
             top: 2px;
             left: 2px;
             background: #14141a;
-            border: 1px solid rgba(223, 177, 91, 0.45);
+            border: 1px solid rgba(223, 177, 91, 0.5);
             color: var(--gold-primary);
             padding: 4px 10px;
             border-radius: 12px;
@@ -91,7 +121,8 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            z-index: 10;
+            z-index: 20;
+            box-shadow: 0 0 10px rgba(223, 177, 91, 0.2);
         }
 
         .lang-switch-btn:hover {
@@ -112,13 +143,8 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            min-height: 62px;
+            min-height: 64px;
             margin-top: 2px;
-            padding: 0 45px 0 0;
-        }
-
-        html[dir="ltr"] .card-header {
-            padding: 0 0 0 45px;
         }
 
         .monogram-box {
@@ -128,11 +154,13 @@
             height: 58px;
             border-radius: 14px;
             background: #121218;
-            border: 1.5px solid rgba(223, 177, 91, 0.65);
+            border: 1.5px solid rgba(223, 177, 91, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            box-shadow: 
+                0 0 15px rgba(223, 177, 91, 0.3),
+                0 4px 15px rgba(0,0,0,0.6);
             overflow: hidden;
             padding: 2px;
         }
@@ -148,37 +176,39 @@
             object-fit: contain;
         }
 
+        /* توسيط الاسم والمسمى الوظيفي بدقة متناهية */
         .brand-titles-center {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             width: 100%;
-            padding: 0 10px;
+            padding: 0 65px;
         }
 
         .brand-name-ar {
             font-family: 'Amiri', serif;
-            font-size: 24px;
+            font-size: 25px;
             font-weight: 700;
             color: #ffffff;
             line-height: 1.15;
+            margin-bottom: 5px; /* توسيع المسافة بين الاسم والمسمى الوظيفي */
         }
 
-        /* ضبط وتصغير الاسم بالإنجليزي ليكون متناسقاً ولا يتداخل */
         html[dir="ltr"] .brand-name-ar {
             font-family: 'Montserrat', sans-serif;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.8px;
             white-space: nowrap;
+            margin-bottom: 4px;
         }
 
         .brand-role {
-            font-size: 11px;
+            font-size: 11.5px;
             color: var(--gold-primary);
             font-weight: 700;
-            margin-top: 2px;
         }
 
         html[dir="ltr"] .brand-role {
@@ -244,17 +274,21 @@
             gap: 14px;
         }
 
+        /* هالة ذهبية متوهجة للأيقونات الدائرية الكبيرة */
         .btn-icon-circle {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: rgba(223, 177, 91, 0.12);
-            border: 1px solid rgba(223, 177, 91, 0.45);
+            background: rgba(223, 177, 91, 0.15);
+            border: 1.2px solid rgba(223, 177, 91, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
             flex-shrink: 0;
+            box-shadow: 
+                0 0 12px rgba(223, 177, 91, 0.4),
+                inset 0 0 6px rgba(223, 177, 91, 0.25);
         }
 
         .btn-title {
@@ -306,12 +340,13 @@
             transform: translateY(-2px);
         }
 
+        /* هالة ذهبية متوهجة لأيقونات السوشال ميديا */
         .social-icon-box {
             width: 32px;
             height: 32px;
             border-radius: 10px;
-            background: rgba(223, 177, 91, 0.12);
-            border: 1px solid rgba(223, 177, 91, 0.45);
+            background: rgba(223, 177, 91, 0.15);
+            border: 1.2px solid rgba(223, 177, 91, 0.65);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -319,6 +354,9 @@
             font-size: 13px;
             font-weight: 900;
             margin-bottom: 2px;
+            box-shadow: 
+                0 0 12px rgba(223, 177, 91, 0.4),
+                inset 0 0 6px rgba(223, 177, 91, 0.2);
         }
 
         .social-name {
@@ -371,16 +409,20 @@
             gap: 7px;
         }
 
+        /* هالة ذهبية متوهجة لأيقونات الصناديق الثنائية */
         .box-icon {
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: rgba(223, 177, 91, 0.12);
-            border: 1px solid rgba(223, 177, 91, 0.4);
+            background: rgba(223, 177, 91, 0.15);
+            border: 1.2px solid rgba(223, 177, 91, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gold-primary);
+            box-shadow: 
+                0 0 10px rgba(223, 177, 91, 0.35),
+                inset 0 0 5px rgba(223, 177, 91, 0.2);
         }
 
         .box-titles {
@@ -466,6 +508,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            box-shadow: 0 0 12px rgba(223, 177, 91, 0.3);
         }
 
         .qr-frame img {
@@ -624,6 +667,10 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
+        <!-- دوران التوهج حول الإطار -->
+        <div class="rotating-glow-border"></div>
+        <div class="card-inner-mask"></div>
+
         <div class="card-content-layer">
             
             <!-- زر تبديل اللغة -->
@@ -683,8 +730,13 @@
                         <span class="social-name" id="tInsta">إنستغرام</span>
                         <span class="social-handle" id="uiInsta">alnamer.nabeel</span>
                     </a>
+                    <!-- أيقونة السناب شات: الشبح الأصلي بهالة ذهبية متوهجة -->
                     <a href="#" class="social-item-col" id="linkSnap" target="_blank">
-                        <div class="social-icon-box">S</div>
+                        <div class="social-icon-box" style="color: var(--gold-primary);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.69 2 6 4.69 6 8c0 .24.01.48.04.71C5.17 9.07 4 10.37 4 12c0 1.25.7 2.33 1.73 2.76-.08.31-.13.63-.13.96 0 1.94 1.45 3.53 3.33 3.73.4.74 1.14 1.34 2.07 1.55.33.07.67.1.99.1.33 0 .66-.03.99-.1.93-.21 1.67-.81 2.07-1.55 1.88-.2 3.33-1.79 3.33-3.73 0-.33-.05-.65-.13-.96C19.3 14.33 20 13.25 20 12c0-1.63-1.17-2.93-2.04-3.29.03-.23.04-.47.04-.71 0-3.31-2.69-6-6-6zm0 1.8c2.32 0 4.2 1.88 4.2 4.2 0 .39-.06.77-.16 1.13-.12.44.11.9.52 1.05.69.25 1.44 1.05 1.44 1.82 0 .71-.58 1.35-1.29 1.47-.46.08-.79.47-.79.93.05.27.08.54.08.8 0 1.22-.99 2.2-2.2 2.2-.42 0-.82-.12-1.16-.33-.37-.23-.84-.23-1.22 0-.35.21-.74.33-1.16.33-1.22 0-2.2-.99-2.2-2.2 0-.26.03-.53.08-.8 0-.46-.33-.85-.79-.93-.71-.12-1.29-.76-1.29-1.47 0-.77.75-1.57 1.44-1.82.41-.15.64-.61.52-1.05-.1-.36-.16-.74-.16-1.13 0-2.32 1.88-4.2 4.2-4.2z"/>
+                            </svg>
+                        </div>
                         <span class="social-name" id="tSnap">سناب شات</span>
                         <span class="social-handle" id="uiSnap">nabilalnamer</span>
                     </a>
@@ -743,7 +795,7 @@
                 </div>
             </div>
 
-            <!-- التذييل السفلي: مغلق مباشرة أسفل الـ QR -->
+            <!-- التذييل السفلي: ملتصق بدون فراغ زائد تحت الـ QR -->
             <div class="card-footer">
                 <div class="footer-left-info">
                     <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
