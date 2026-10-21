@@ -196,7 +196,7 @@
             font-weight: 700;
             color: #ffffff;
             line-height: 1.15;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         html[dir="ltr"] .brand-name-ar {
@@ -205,13 +205,14 @@
             font-weight: 700;
             letter-spacing: 0.8px;
             white-space: nowrap;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .brand-role {
             font-size: 11.5px;
             color: var(--gold-primary);
             font-weight: 700;
+            margin-bottom: 6px;
         }
 
         html[dir="ltr"] .brand-role {
@@ -219,6 +220,33 @@
             font-size: 8.5px;
             font-weight: 600;
             letter-spacing: 0.6px;
+            margin-bottom: 6px;
+        }
+
+        /* زر الرسالة الترحيبية الصوتية الأنيق */
+        .voice-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(223, 177, 91, 0.12);
+            border: 1px solid rgba(223, 177, 91, 0.45);
+            color: var(--gold-light);
+            padding: 5px 14px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 4px;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 12px rgba(223, 177, 91, 0.15);
+        }
+
+        .voice-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+            border-color: var(--gold-light);
+            transform: scale(1.03);
         }
 
         /* عبارة الابتكار التفاعلية */
@@ -780,6 +808,13 @@
                 <div class="brand-titles-center">
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
+                    
+                    <!-- زر تشغيل الرسالة الترحيبية الصوتية -->
+                    <button class="voice-btn" onclick="toggleAudio()">
+                        <span id="speaker-icon">▶️</span> <span id="voice-text">رسالة ترحيبية</span>
+                    </button>
+                    <!-- ملف الصوت الحقيقي (nabil-voice.mp3) -->
+                    <audio id="nabilAudio" src="nabil-voice.mp3" onended="audioEnded()"></audio>
                 </div>
                 
                 <div class="monogram-box">
@@ -1062,7 +1097,7 @@
                 innoDesc: "أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
                 innoStep1: "مرر أعلى هاتفك بالقرب من شعار التيشيرت",
                 innoStep2: "تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",
-                innoStep3: "مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",
+                innoStep3: "مقاومة للغسيل الحرارة وبأعلى جودة ستريت وير",
                 walletTitle: "المحفظة الرقمية",
                 walletDesc: "احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت."
             },
@@ -1159,6 +1194,31 @@
                     correctLevel: QRCode.CorrectLevel.M
                 });
             }
+        }
+
+        // تحكم في مشغل الصوت الترحيبي
+        const audio = document.getElementById('nabilAudio');
+        const speakerIcon = document.getElementById('speaker-icon');
+        const voiceText = document.getElementById('voice-text');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    speakerIcon.textContent = "⏸️";
+                    voiceText.textContent = "إيقاف الصوت";
+                }).catch(error => {
+                    alert("تأكد من رفع ملف الصوت nabil-voice.mp3 في المستودع.");
+                });
+            } else {
+                audio.pause();
+                speakerIcon.textContent = "▶️";
+                voiceText.textContent = "رسالة ترحيبية";
+            }
+        }
+
+        function audioEnded() {
+            speakerIcon.textContent = "▶️";
+            voiceText.textContent = "رسالة ترحيبية";
         }
 
         function openInnovationModal() { document.getElementById('innovationModal').style.display = 'flex'; }
@@ -1263,7 +1323,7 @@
             EZWA_CONFIG.instagram = document.getElementById('inputInsta').value;
             EZWA_CONFIG.x = document.getElementById('inputX').value;
             EZWA_CONFIG.email = document.getElementById('inputEmail').value;
-            EZWA_CONFIG.mapUrl = document.getElementById('inputMap').value;
+            EZWA_CONFIG.mapUrl = document.getElementById('inputMap.value') || document.getElementById('inputMap').value;
             updateUI();
             closeCustomizeModal();
             showToast(TRANSLATIONS[currentLang].toastSaved);
