@@ -151,6 +151,68 @@
             margin-top: 2px;
         }
 
+        /* ختم الهولوجرام الفاخر (VIP Hologram Stamp) */
+        .hologram-badge {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(223,177,91,0.25), rgba(255,255,255,0.4), rgba(59,130,246,0.3));
+            border: 1.5px solid rgba(223, 177, 91, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(223, 177, 91, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            animation: hologramShift 4s ease-in-out infinite alternate;
+            cursor: pointer;
+        }
+
+        html[dir="ltr"] .hologram-badge {
+            left: auto;
+            right: 0;
+        }
+
+        .hologram-badge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(0deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(30deg);
+            animation: holoSweep 3s linear infinite;
+        }
+
+        @keyframes holoSweep {
+            0% { transform: translateY(-100%) rotate(30deg); }
+            100% { transform: translateY(100%) rotate(30deg); }
+        }
+
+        @keyframes hologramShift {
+            0% { filter: hue-rotate(0deg) brightness(1); }
+            100% { filter: hue-rotate(40deg) brightness(1.2); }
+        }
+
+        .holo-text-vip {
+            font-size: 8px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            text-shadow: 0 0 4px rgba(0,0,0,0.8);
+        }
+
+        .holo-symbol {
+            font-size: 13px;
+            z-index: 3;
+            color: var(--gold-light);
+        }
+
         .monogram-box {
             position: absolute;
             right: 0;
@@ -187,7 +249,7 @@
             justify-content: center;
             text-align: center;
             width: 100%;
-            padding: 0 65px;
+            padding: 0 55px;
         }
 
         .brand-name-ar {
@@ -805,6 +867,12 @@
 
             <!-- الترويسة العلوية -->
             <div class="card-header">
+                <!-- ختم الهولوجرام الفاخر (VIP Hologram Stamp) -->
+                <div class="hologram-badge" title="ختم الهولوجرام الملكي للنخبة">
+                    <span class="holo-symbol">🛡️</span>
+                    <span class="holo-text-vip">VIP ELITE</span>
+                </div>
+
                 <div class="brand-titles-center">
                     <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                     <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
@@ -1097,7 +1165,7 @@
                 innoDesc: "أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
                 innoStep1: "مرر أعلى هاتفك بالقرب من شعار التيشيرت",
                 innoStep2: "تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",
-                innoStep3: "مقاومة للغسيل الحرارة وبأعلى جودة ستريت وير",
+                innoStep3: "مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",
                 walletTitle: "المحفظة الرقمية",
                 walletDesc: "احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت."
             },
