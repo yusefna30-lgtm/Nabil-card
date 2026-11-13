@@ -24,7 +24,7 @@
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
 body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=11');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=12');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -128,7 +128,7 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 
 /* النوافذ المنبثقة */
 .modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.88);backdrop-filter:blur(12px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
-.modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:400px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
+.modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:410px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border-bottom:1px solid rgba(0,243,255,0.2);padding-bottom:10px;}
 .modal-title{font-size:15.5px;font-weight:800;color:var(--gold-primary);}
 html[dir="ltr"] .modal-title{font-size:12px;letter-spacing:0.5px;}
@@ -147,16 +147,16 @@ html[dir="ltr"] .modal-title{font-size:12px;letter-spacing:0.5px;}
 @keyframes botSpeakBar{0%,100%{height:5px;}50%{height:22px;}}
 .bot-mute-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(223,177,91,0.45);color:var(--gold-light);width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
 
-.bot-chat-log{background:rgba(4,9,20,0.85);border:1px solid rgba(0,243,255,0.22);border-radius:16px;padding:10px;max-height:175px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
-.bot-msg{padding:9px 12px;border-radius:14px;font-size:12px;line-height:1.55;max-width:92%;}
+.bot-chat-log{background:rgba(4,9,20,0.85);border:1px solid rgba(0,243,255,0.22);border-radius:16px;padding:10px;max-height:195px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.bot-msg{padding:9px 12px;border-radius:14px;font-size:12px;line-height:1.6;max-width:94%;}
 html[dir="ltr"] .bot-msg{font-size:10px;}
 .bot-msg.ai{background:rgba(12,24,46,0.92);border:1px solid rgba(223,177,91,0.35);color:#f1f5f9;align-self:flex-start;}
 .bot-msg.user{background:rgba(0,243,255,0.15);border:1px solid rgba(0,243,255,0.45);color:#cffafe;align-self:flex-end;}
 .bot-inline-action{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
-.bot-inline-input{display:flex;gap:5px;}
-.bot-inline-input input{flex:1;background:#040a16;border:1px solid rgba(0,243,255,0.4);border-radius:8px;padding:6px 9px;color:#fff;font-size:11px;}
-.bot-inline-btn{background:linear-gradient(135deg,var(--gold-primary),#b88935);color:#020611;border:none;border-radius:8px;padding:7px 11px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;}
+.bot-sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.bot-inline-btn{background:linear-gradient(135deg,var(--gold-primary),#b88935);color:#020611;border:none;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;}
 .bot-inline-btn.cyan{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);}
+html[dir="ltr"] .bot-inline-btn{font-size:9px;}
 
 .bot-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
 .bot-chip{background:rgba(10,20,38,0.9);border:1px solid rgba(223,177,91,0.35);color:var(--gold-light);border-radius:11px;padding:8px 8px;font-size:10.5px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.2s;line-height:1.35;}
@@ -200,7 +200,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 <canvas id="quantum-canvas"></canvas>
 
 <!-- الروبوت العائم والمتنقل (قابل للسحب لأي مكان على الشاشة) -->
-<div class="floating-bot-orb" id="floatingBotOrb" title="المساعد الناطق NAMER-IO AI">
+<div class="floating-bot-orb" id="floatingBotOrb" title="المساعد الذكي NAMER-IO AI">
     <span class="floating-bot-badge">AI</span>
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
         <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
@@ -367,7 +367,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 <div class="modal-overlay" id="talkingBotModal" onclick="closeTalkingBot()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="modal-header">
-            <h3 class="modal-title" id="botModalTitle">🤖 المساعد الناطق NAMER-IO</h3>
+            <h3 class="modal-title" id="botModalTitle">🤖 مستشار NAMER-IO الذكي</h3>
             <button class="modal-close" onclick="closeTalkingBot()">×</button>
         </div>
 
@@ -390,17 +390,17 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
         <!-- سجل المحادثة التفاعلية -->
         <div class="bot-chat-log" id="botChatLog"></div>
 
-        <!-- الأسئلة السريعة بصياغتها الجديدة الواضحة -->
+        <!-- الأسئلة الأربعة المعتمدة -->
         <div class="bot-quick-grid">
-            <button type="button" class="bot-chip" id="chipSaveNote" onclick="botTriggerAction('note')">📍 حفظ رقمك مع تذكير بمكان لقائنا</button>
-            <button type="button" class="bot-chip" id="chipQuickWa" onclick="botTriggerAction('wa')">💬 مراسلتك على واتساب برسالة جاهزة</button>
-            <button type="button" class="bot-chip" id="chipCalendar" onclick="botTriggerAction('cal')">📅 تذكيري بالتواصل معك غداً</button>
-            <button type="button" class="bot-chip" id="chipNfcTech" onclick="botTriggerAction('nfc')">◈ ما هي تقنية NFC في الأزياء؟</button>
+            <button type="button" class="bot-chip" id="chipIntegrate" onclick="botAskQuestion('integrate')">◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟</button>
+            <button type="button" class="bot-chip" id="chipCompare" onclick="botAskQuestion('compare')">⚡ لماذا يتفوق الـ NFC على الـ QR؟</button>
+            <button type="button" class="bot-chip" id="chipChannel" onclick="botAskQuestion('channel')">💡 كيف تتحول القطعة لقناة تسويق وتوثيق حية؟</button>
+            <button type="button" class="bot-chip" id="chipSector" onclick="botAskQuestion('sector')">🧮 كيف أستفيد من التقنية حسب مجال عملي؟</button>
         </div>
 
         <!-- حقل السؤال المباشر -->
         <form class="bot-input-bar" onsubmit="handleBotUserSubmit(event)">
-            <input type="text" id="botUserInput" placeholder="اكتب سؤالك أو أين التقينا اليوم...">
+            <input type="text" id="botUserInput" placeholder="اكتب مجال عملك أو استفسارك هنا...">
             <button type="submit" class="bot-send-btn">↗</button>
         </form>
     </div>
@@ -440,7 +440,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             <div class="innovation-steps">
                 <div class="step-item"><span class="step-icon">1.</span> <span id="innoStep1">مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت</span></div>
                 <div class="step-item"><span class="step-icon">2.</span> <span id="innoStep2">تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة</span></div>
-                <div class="step-item"><span class="step-icon">3.</span> <span id="innoStep3">مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير</span></div>
+                <div class="step-item"><span class="step-icon">3.</span> <span id="innoStep3">متانة عالية ومقاومة للحرارة بأعلى جودة ستريت وير</span></div>
             </div>
         </div>
     </div>
@@ -516,14 +516,47 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-/* 1. تسجيل Web App Manifest لتثبيت البطاقة كتطبيق مستقل */
-(function initPwaManifest(){
+/* 1. تسجيل Web App Manifest + Service Worker للعمل بدون إنترنت (Offline Mode) */
+(function initPwaAndOffline(){
     try{
         const base=window.location.href.substring(0,window.location.href.lastIndexOf('/')+1);
         const manifest={name:"نبيل النمر | NAMER-IO",short_name:"Nabil Alnamer",start_url:window.location.href,display:"standalone",background_color:"#020611",theme_color:"#020611",icons:[{src:base+"logo1.png",sizes:"512x512",type:"image/png"}]};
         const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
         document.getElementById('pwa-manifest').href=URL.createObjectURL(blob);
     }catch(e){}
+
+    if('serviceWorker' in navigator){
+        const swCode=`
+            const CACHE_NAME='nabil-card-offline-v1';
+            const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
+            self.addEventListener('install',e=>{
+                e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
+                self.skipWaiting();
+            });
+            self.addEventListener('activate',e=>{
+                e.waitUntil(self.clients.claim());
+            });
+            self.addEventListener('fetch',e=>{
+                if(e.request.method!=='GET')return;
+                e.respondWith(
+                    caches.match(e.request).then(cached=>{
+                        const networkFetch=fetch(e.request).then(res=>{
+                            if(res&&res.status===200){
+                                const clone=res.clone();
+                                caches.open(CACHE_NAME).then(c=>c.put(e.request,clone));
+                            }
+                            return res;
+                        }).catch(()=>cached);
+                        return cached||networkFetch;
+                    })
+                );
+            });
+        `;
+        try{
+            const swBlob=new Blob([swCode],{type:'application/javascript'});
+            navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(()=>{});
+        }catch(e){}
+    }
 })();
 
 /* 2. التفاعل الحي مع إمالة الهاتف ثلاثي الأبعاد (3D Gyroscope Depth Parallax) + البصمة الضوئية */
@@ -635,7 +668,7 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v8');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v9');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
@@ -644,14 +677,13 @@ var TRANSLATIONS={
         social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
-        botTitle:"🤖 المساعد الناطق NAMER-IO",
-        botPlaceholder:"اكتب سؤالك أو أين التقينا اليوم...",
-        chipNote:"📍 حفظ رقمك مع تذكير بمكان لقائنا",
-        chipWa:"💬 مراسلتك على واتساب برسالة جاهزة",
-        chipCal:"📅 تذكيري بالتواصل معك غداً",
-        chipNfc:"◈ ما هي تقنية NFC في الأزياء؟",
-        botWelcome:"أهلاً بك في بطاقة الأستاذ نبيل النمر. أنا مساعدك الذكي؛ كيف أسهل عليك اليوم؟ اختر أحد الخيارات السريعة أو اكتب سؤالك مباشرة.",
-        toastCal:"تم تجهيز تذكير المتابعة في تقويم جوالك 📅",
+        botTitle:"🤖 مستشار NAMER-IO الذكي",
+        botPlaceholder:"اكتب مجال عملك أو استفسارك هنا...",
+        chipIntegrate:"◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟",
+        chipCompare:"⚡ لماذا يتفوق الـ NFC على الـ QR؟",
+        chipChannel:"💡 كيف تتحول القطعة لقناة تسويق وتوثيق حية؟",
+        chipSector:"🧮 كيف أستفيد من التقنية حسب مجال عملي؟",
+        botWelcome:"أهلاً بك في منظومة NAMER-IO. أنا مستشارك الذكي لتقنيات الـ NFC التفاعلية؛ اختر أحد المحاور الأربعة أدناه أو اكتب مجال عملك لأقترح عليك تطبيقات عملية مخصصة.",
         pinTitle:"حماية الإعدادات",pinDesc:"أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",
         pinBtn:"فتح التخصيص",pinError:"الرقم السري غير صحيح، حاول مرة أخرى",
         toastSaved:"تم تحديث البيانات وحفظها بنجاح",toastCopied:"تم نسخ الرابط إلى الحافظة",
@@ -660,7 +692,7 @@ var TRANSLATIONS={
         innoDesc:"أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-IO، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
         innoStep1:"مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت",
         innoStep2:"تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",
-        innoStep3:"مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",
+        innoStep3:"متانة عالية ومقاومة للحرارة بأعلى جودة ستريت وير",
         walletTitle:"المحفظة الرقمية",
         walletDesc:"احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، أو أضفها للشاشة الرئيسية كتطبيق مستقل."
     },
@@ -670,14 +702,13 @@ var TRANSLATIONS={
         social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
-        botTitle:"🤖 NAMER-IO Talking Assistant",
-        botPlaceholder:"Ask a question or type where we met...",
-        chipNote:"📍 Save contact with meeting reminder",
-        chipWa:"💬 Message on WhatsApp (ready text)",
-        chipCal:"📅 Remind me to follow up tomorrow",
-        chipNfc:"◈ What is NFC fashion tech?",
-        botWelcome:"Welcome to Nabil Alnamer's card. I am your smart assistant; how can I make things easier for you today? Pick a quick option or type below.",
-        toastCal:"Follow-up calendar reminder downloaded 📅",
+        botTitle:"🤖 NAMER-IO Smart Advisor",
+        botPlaceholder:"Type your industry or question...",
+        chipIntegrate:"◈ How to integrate NFC into my brand?",
+        chipCompare:"⚡ Why does NFC outperform QR codes?",
+        chipChannel:"💡 How does a product become a live channel?",
+        chipSector:"🧮 Practical NFC ideas for my industry",
+        botWelcome:"Welcome to NAMER-IO. I am your smart NFC advisor; pick one of the four topics below or type your industry for tailored practical applications.",
         pinTitle:"Security Lock",pinDesc:"Enter owner PIN to unlock card customization:",
         pinBtn:"Unlock Settings",pinError:"Incorrect PIN, please try again",
         toastSaved:"Settings saved successfully",toastCopied:"Link copied to clipboard",
@@ -686,7 +717,7 @@ var TRANSLATIONS={
         innoDesc:"The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric under NAMER-IO, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",
         innoStep1:"Tap the top of your phone near the Sadu garment emblem",
         innoStep2:"Instant launch of your digital card without any app",
-        innoStep3:"Fully waterproof, wash-proof, and premium streetwear grade",
+        innoStep3:"High durability and heat resistance in premium streetwear grade",
         walletTitle:"Digital Wallet",
         walletDesc:"Save Nabil Alnamer's digital profile directly to your phone contacts & wallet, or add to Home Screen as a standalone app."
     }
@@ -728,10 +759,10 @@ function updateUI(){
     /* نصوص الروبوت الناطق */
     document.getElementById('botModalTitle').innerText=t.botTitle;
     document.getElementById('botUserInput').placeholder=t.botPlaceholder;
-    document.getElementById('chipSaveNote').innerText=t.chipNote;
-    document.getElementById('chipQuickWa').innerText=t.chipWa;
-    document.getElementById('chipCalendar').innerText=t.chipCal;
-    document.getElementById('chipNfcTech').innerText=t.chipNfc;
+    document.getElementById('chipIntegrate').innerText=t.chipIntegrate;
+    document.getElementById('chipCompare').innerText=t.chipCompare;
+    document.getElementById('chipChannel').innerText=t.chipChannel;
+    document.getElementById('chipSector').innerText=t.chipSector;
 
     document.getElementById('pinModalTitle').innerText=t.pinTitle;
     document.getElementById('pinModalDesc').innerText=t.pinDesc;
@@ -750,18 +781,19 @@ function updateUI(){
 }
 
 /* =========================================================
-   منظومة الروبوت الناطق الحي NAMER-IO AI (صوت + تنفيذ عملي)
+   منظومة الروبوت الناطق الحي NAMER-IO AI
 ========================================================= */
 let botVoiceEnabled=true;
 let lastBotSpokenText="";
 
 function speakBotText(text){
-    lastBotSpokenText=text;
+    const cleanText=text.replace(/<[^>]*>/g,' ');
+    lastBotSpokenText=cleanText;
     const waves=document.getElementById('botVoiceWaves');
     if(!botVoiceEnabled||!('speechSynthesis' in window))return;
     try{
         window.speechSynthesis.cancel();
-        const utter=new SpeechSynthesisUtterance(text);
+        const utter=new SpeechSynthesisUtterance(cleanText);
         utter.lang=(currentLang==='ar')?'ar-SA':'en-US';
         utter.rate=1.02;
         utter.pitch=1.0;
@@ -785,14 +817,14 @@ function toggleBotSpeech(){
     }
 }
 
-function appendBotMsg(sender,text,actionHtml){
+function appendBotMsg(sender,htmlText,actionHtml){
     const log=document.getElementById('botChatLog');
     const div=document.createElement('div');
     div.className='bot-msg '+sender;
-    div.innerHTML='<div>'+text+'</div>'+(actionHtml?('<div class="bot-inline-action">'+actionHtml+'</div>'):'');
+    div.innerHTML='<div>'+htmlText+'</div>'+(actionHtml?('<div class="bot-inline-action">'+actionHtml+'</div>'):'');
     log.appendChild(div);
     log.scrollTop=log.scrollHeight;
-    if(sender==='ai')speakBotText(text);
+    if(sender==='ai')speakBotText(htmlText);
 }
 
 function openTalkingBot(e){
@@ -812,56 +844,78 @@ function closeTalkingBot(){
     document.getElementById('botVoiceWaves').classList.remove('speaking');
 }
 
-function botTriggerAction(type){
-    if(type==='note'){
-        const userTxt=TRANSLATIONS[currentLang].chipNote;
-        appendBotMsg('user',userTxt);
-        const reply=(currentLang==='ar')?"اكتب أين التقينا اليوم وسأحفظ الرقم في جوالك مع هذه الملاحظة لتتذكرني بسهولة:":"Type where we met today and I will save the contact with this note in your phone:";
-        const ph=(currentLang==='ar')?"مثال: معرض الرياض / مقهى":"e.g. Riyadh Expo / Coffee Shop";
-        const btnTxt=(currentLang==='ar')?"حفظ الرقم في الجوال 📥":"Save Contact 📥";
-        const uid='note_'+Date.now();
-        const html='<div class="bot-inline-input"><input type="text" id="'+uid+'" placeholder="'+ph+'"><button type="button" class="bot-inline-btn" onclick="saveVCardFromBot(\''+uid+'\')">'+btnTxt+'</button></div>';
+function getConsultWaLink(topicAr,topicEn){
+    const waNum=EZWA_CONFIG.phone1.replace(/[^0-9]/g,'');
+    const msg=(currentLang==='ar')?("مرحباً أستاذ نبيل، أرغب في الاستفسار حول: "+topicAr):("Hello Mr. Nabil, I would like to inquire about: "+topicEn);
+    return "https://wa.me/"+waNum+"?text="+encodeURIComponent(msg);
+}
+
+function botAskQuestion(type){
+    if(type==='integrate'){
+        appendBotMsg('user',TRANSLATIONS[currentLang].chipIntegrate);
+        const reply=(currentLang==='ar')
+            ?"يتم الدمج عبر منظومة <b>NAMER-IO</b> في 3 خطوات سلسة: برمجة شرائح NFC مشفّرة، دمجها مخفياً داخل نسيج الملابس أو التغليف أو البطاقات، وربطها بلوحة تحكم سحابية تتيح لك تحديث المحتوى في أي وقت."
+            :"Integration via <b>NAMER-IO</b> takes 3 seamless steps: encoding encrypted NFC chips, invisibly embedding them inside fabric, packaging, or cards, and linking them to a cloud dashboard for instant content updates.";
+        const btnTxt=(currentLang==='ar')?"💬 اطلب استشارة أو عينة لـمشروعك":"💬 Request a consultation or sample";
+        const html='<a class="bot-inline-btn cyan" target="_blank" href="'+getConsultWaLink("دمج تقنية الـ NFC في مشروعي","NFC integration for my brand")+'">'+btnTxt+'</a>';
         appendBotMsg('ai',reply,html);
-    }else if(type==='wa'){
-        const userTxt=TRANSLATIONS[currentLang].chipWa;
-        appendBotMsg('user',userTxt);
-        const reply=(currentLang==='ar')?"اختر الرسالة المناسبة ليفتح واتساب وهي جاهزة للإرسال مباشرة:":"Choose a message below to open WhatsApp ready to send:";
-        const waNum=EZWA_CONFIG.phone1.replace(/[^0-9]/g,'');
-        const m1=(currentLang==='ar')?"مرحباً أستاذ نبيل، تشرفت بلقائك اليوم والاطلاع على بطاقتك الرقمية NAMER-IO.":"Hello Mr. Nabil, pleasure meeting you today and viewing your NAMER-IO digital card.";
-        const m2=(currentLang==='ar')?"مرحباً أستاذ نبيل، أرغب في تنسيق مكالمة عمل سريعة معك.":"Hello Mr. Nabil, I would like to schedule a quick business call with you.";
-        const m3=(currentLang==='ar')?"مرحباً أستاذ نبيل، لدي استفسار بخصوص تقنية NFC في الأزياء.":"Hello Mr. Nabil, I have an inquiry regarding NFC fashion integration.";
-        const l1=(currentLang==='ar')?"🤝 تشرفت بلقائك اليوم":"🤝 Pleasure meeting you today";
-        const l2=(currentLang==='ar')?"📞 تنسيق مكالمة عمل":"📞 Schedule a quick call";
-        const l3=(currentLang==='ar')?"◈ استفسار تقنية NFC":"◈ NFC tech inquiry";
-        const html='<a class="bot-inline-btn cyan" target="_blank" href="https://wa.me/'+waNum+'?text='+encodeURIComponent(m1)+'">'+l1+'</a>'+
-                   '<a class="bot-inline-btn" target="_blank" href="https://wa.me/'+waNum+'?text='+encodeURIComponent(m2)+'">'+l2+'</a>'+
-                   '<a class="bot-inline-btn cyan" target="_blank" href="https://wa.me/'+waNum+'?text='+encodeURIComponent(m3)+'">'+l3+'</a>';
-        appendBotMsg('ai',reply,html);
-    }else if(type==='cal'){
-        const userTxt=TRANSLATIONS[currentLang].chipCal;
-        appendBotMsg('user',userTxt);
-        downloadFollowUpReminder();
-        const reply=(currentLang==='ar')?"تم تجهيز تذكير في تقويم جوالك لغداً الساعة العاشرة صباحاً، مرفقاً برقم الجوال ورابط البطاقة.":"A reminder for tomorrow at 10:00 AM has been added to your phone calendar with phone number and card link.";
+    }else if(type==='compare'){
+        appendBotMsg('user',TRANSLATIONS[currentLang].chipCompare);
+        const reply=(currentLang==='ar')
+            ?"يتفوق الـ NFC على الـ QR في <b>الفخامة، سرعة الاستجابة الفورية، حماية التصميم من التشويه البصري، سهولة الإخفاء التام داخل المنتج، عدم بهتان الألوان مع الزمن، عدم الحاجة لأي بطارية أو شحن، وإمكانية تحديث الرابط سحابياً دون إعادة طباعة أو إنتاج</b>."
+            :"NFC outperforms QR codes in <b>luxury feel, instant tap response, preserving design aesthetics without visual clutter, complete concealment inside the product, zero color fading over time, requiring no battery or charging, and cloud link updates without reprinting</b>.";
         appendBotMsg('ai',reply);
-    }else if(type==='nfc'){
-        const userTxt=TRANSLATIONS[currentLang].chipNfc;
-        appendBotMsg('user',userTxt);
-        const reply=(currentLang==='ar')?"هي تقنية رائدة ابتكرها الأستاذ نبيل النمر لدمج شرائح NFC الذكية داخل الأزياء الرجالية تحت منظومة NAMER-IO؛ تتيح مشاركة هويتك الرقمية بمجرد ملامسة الجوال للقطعة وبدون تطبيقات.":"Pioneered by Nabil Alnamer under NAMER-IO, it seamlessly embeds smart NFC chips into menswear fabric—sharing your digital identity with a single phone tap and zero apps.";
-        const btnLabel=(currentLang==='ar')?"استكشف تفاصيل الابتكار ◈":"Explore Innovation Details ◈";
-        const html='<button type="button" class="bot-inline-btn cyan" onclick="closeTalkingBot();openInnovationModal();">'+btnLabel+'</button>';
+    }else if(type==='channel'){
+        appendBotMsg('user',TRANSLATIONS[currentLang].chipChannel);
+        const reply=(currentLang==='ar')
+            ?"تمنح الشريحة المدمجة كل قطعة <b>هوية رقمية مشفّرة</b> تحمي علامتك من التقليد وتوثّق ملكية العميل سحابياً، وتُبقيك على تواصل مباشر معه بعد البيع عبر تحديث العروض والمحتوى الحصري بلمسة واحدة."
+            :"The embedded chip gives every item an <b>encrypted digital identity</b> that prevents counterfeiting, verifies ownership in the cloud, and keeps your brand connected post-purchase with updatable exclusive content.";
+        appendBotMsg('ai',reply);
+    }else if(type==='sector'){
+        appendBotMsg('user',TRANSLATIONS[currentLang].chipSector);
+        const reply=(currentLang==='ar')?"اختر مجال عملك لأقترح عليك 3 تطبيقات عملية مخصصة لنشاطك فوراً:":"Select your industry below for 3 tailored practical NFC applications:";
+        const html='<div class="bot-sector-grid">'+
+            '<button type="button" class="bot-inline-btn cyan" onclick="botSelectSector(\'fashion\')">'+((currentLang==='ar')?"👕 الأزياء والعلامات":"👕 Fashion & Brands")+'</button>'+
+            '<button type="button" class="bot-inline-btn" onclick="botSelectSector(\'corporate\')">'+((currentLang==='ar')?"🏢 الشركات والأعمال":"🏢 Corporate & B2B")+'</button>'+
+            '<button type="button" class="bot-inline-btn" onclick="botSelectSector(\'hospitality\')">'+((currentLang==='ar')?"☕ الضيافة والمقاهي":"☕ Hospitality & Cafes")+'</button>'+
+            '<button type="button" class="bot-inline-btn cyan" onclick="botSelectSector(\'events\')">'+((currentLang==='ar')?"🏛️ الفعاليات والسياحة":"🏛️ Events & Tourism")+'</button>'+
+        '</div>';
         appendBotMsg('ai',reply,html);
     }
 }
 
-function saveVCardFromBot(inputId){
-    const el=document.getElementById(inputId);
-    const customNote=el?el.value.trim():"";
-    const todayStr=new Date().toLocaleDateString('en-CA');
-    const noteLine=customNote?("التقينا في: "+customNote+" ("+todayStr+") - حي الديرة، الرياض"):"حي الديرة، الرياض - الرمز البريدي 12633 - فرع البطحاء";
-    const vCardData="BEGIN:VCARD\nVERSION:3.0\nFN:"+EZWA_CONFIG.brandAr+"\nTITLE:"+EZWA_CONFIG.roleAr+"\nNOTE:"+noteLine+"\nTEL:"+EZWA_CONFIG.phone1.replace(/[^0-9+]/g,'')+"\nTEL:"+EZWA_CONFIG.phone2.replace(/[^0-9+]/g,'')+"\nEMAIL:"+EZWA_CONFIG.email+"\nURL:"+EZWA_CONFIG.namerUrl+"\nEND:VCARD";
-    const blob=new Blob([vCardData],{type:'text/vcard'}),url=window.URL.createObjectURL(blob),link=document.createElement('a');
-    link.href=url;link.setAttribute('download','Nabil_Alnamer.vcf');link.click();
-    showToast(TRANSLATIONS[currentLang].toastVcf);
+function botSelectSector(sector){
+    const data={
+        fashion:{
+            arTitle:"👕 قطاع الأزياء والعلامات التجارية",
+            enTitle:"👕 Fashion & Brands",
+            arBody:"<b>3 تطبيقات عملية لعلامتك:</b><br>1. <b>شهادة أصالة رقمية:</b> يتحقق العميل فوراً أن القطعة أصلية برقم إصدارها.<br>2. <b>تجربة ما بعد البيع:</b> فتح محتوى حصري وقصة التصميم للملاك فقط.<br>3. <b>بوابة ولاء مباشرة:</b> ربط القطعة بمتجرك دون أي رموز تشوّه القماش.",
+            enBody:"<b>3 Practical Applications:</b><br>1. <b>Digital Authenticity:</b> Instant verification of genuine items & edition numbers.<br>2. <b>Post-Purchase Exclusives:</b> Unlocking design stories & VIP perks for owners.<br>3. <b>Direct Loyalty Portal:</b> Linking garments to your store with zero visual clutter."
+        },
+        corporate:{
+            arTitle:"🏢 قطاع الشركات ورواد الأعمال",
+            enTitle:"🏢 Corporate & Business",
+            arBody:"<b>3 تطبيقات عملية لشركتك:</b><br>1. <b>بطاقات تنفيذية ذكية:</b> مشاركة الهوية وتحديث المناصب سحابياً دون إعادة طباعة.<br>2. <b>أتمتة جمع العملاء في المعارض:</b> توجيه الزائر لنموذج اهتمام أو اجتماع خلال ثانيتين.<br>3. <b>تصاريح وهوية رقمية:</b> دمج الشريحة في البطاقة أو الزي الرسمي للتحقق السريع.",
+            enBody:"<b>3 Practical Applications:</b><br>1. <b>Smart Executive Cards:</b> Share profiles & update titles in the cloud without reprinting.<br>2. <b>Expo Lead Capture:</b> Direct visitors to booking or inquiry forms in 2 seconds.<br>3. <b>Smart Staff ID:</b> Embedded chips in badges or uniforms for instant verification."
+        },
+        hospitality:{
+            arTitle:"☕ قطاع الضيافة والمقاهي والمطاعم",
+            enTitle:"☕ Hospitality & Cafes",
+            arBody:"<b>3 تطبيقات عملية لمشروعك:</b><br>1. <b>طاولات خدمة ذكية:</b> فتح القائمة وطلب الفاتورة بلمسة واحدة دون ملصقات باهتة.<br>2. <b>مضاعفة تقييمات جوجل:</b> توجيه العميل لصفحة التقييم بلمسة عند المغادرة.<br>3. <b>بطاقات ولاء مدمجة:</b> منح كبار العملاء بطاقة ذكية بعروض وخصومات حصرية.",
+            enBody:"<b>3 Practical Applications:</b><br>1. <b>Smart Service Tables:</b> Instant menu & bill requests without faded stickers.<br>2. <b>Boost Google Reviews:</b> One-tap review redirection as satisfied guests leave.<br>3. <b>VIP Loyalty Passes:</b> Smart cards unlocking exclusive member rewards."
+        },
+        events:{
+            arTitle:"🏛️ قطاع الفعاليات والمعارض والسياحة",
+            enTitle:"🏛️ Events & Tourism",
+            arBody:"<b>3 تطبيقات عملية لفعاليتك:</b><br>1. <b>الدليل التراثي غير المرئي:</b> تفعيل القصص والشرح الصوتي للمعالم بلمسة دون تشويه المكان.<br>2. <b>تذاكر وأساور ذكية:</b> تسهيل الدخول وعرض جدول الفعالية المحدّث لحظياً.<br>3. <b>تحديات وتفاعل حي:</b> إطلاق مسابقات وسحوبات فورية عند مسح الشريحة في الجناح.",
+            enBody:"<b>3 Practical Applications:</b><br>1. <b>Invisible Heritage Guide:</b> Trigger audio stories at landmarks without visual signage clutter.<br>2. <b>Smart Passes & Wristbands:</b> Seamless entry & live-updated event schedules.<br>3. <b>Live Audience Challenges:</b> Instant giveaways & trivia upon tapping booth chips."
+        }
+    };
+    const item=data[sector];
+    appendBotMsg('user',(currentLang==='ar')?item.arTitle:item.enTitle);
+    const btnTxt=(currentLang==='ar')?"💬 ناقش تطبيق هذه الأفكار مع أ. نبيل":"💬 Discuss implementing these ideas";
+    const html='<a class="bot-inline-btn cyan" target="_blank" href="'+getConsultWaLink(item.arTitle,item.enTitle)+'">'+btnTxt+'</a>';
+    appendBotMsg('ai',(currentLang==='ar')?item.arBody:item.enBody,html);
 }
 
 function handleBotUserSubmit(e){
@@ -873,38 +927,21 @@ function handleBotUserSubmit(e){
     appendBotMsg('user',q);
     const low=q.toLowerCase();
 
-    if(low.includes('واتس')||low.includes('رسالة')||low.includes('تواصل')||low.includes('whatsapp')||low.includes('message')){
-        botTriggerAction('wa');
-    }else if(low.includes('تذكير')||low.includes('موعد')||low.includes('تقويم')||low.includes('بكرة')||low.includes('calendar')||low.includes('remind')){
-        botTriggerAction('cal');
-    }else if(low.includes('nfc')||low.includes('ابتكار')||low.includes('تيشيرت')||low.includes('ملابس')||low.includes('أزياء')||low.includes('namer')){
-        botTriggerAction('nfc');
-    }else if(low.includes('حفظ')||low.includes('رقم')||low.includes('معرض')||low.includes('مقهى')||low.includes('اجتماع')||low.includes('save')||low.includes('contact')){
-        const todayStr=new Date().toLocaleDateString('en-CA');
-        const noteLine="التقينا في: "+q+" ("+todayStr+") - حي الديرة، الرياض";
-        const vCardData="BEGIN:VCARD\nVERSION:3.0\nFN:"+EZWA_CONFIG.brandAr+"\nTITLE:"+EZWA_CONFIG.roleAr+"\nNOTE:"+noteLine+"\nTEL:"+EZWA_CONFIG.phone1.replace(/[^0-9+]/g,'')+"\nTEL:"+EZWA_CONFIG.phone2.replace(/[^0-9+]/g,'')+"\nEMAIL:"+EZWA_CONFIG.email+"\nURL:"+EZWA_CONFIG.namerUrl+"\nEND:VCARD";
-        const blob=new Blob([vCardData],{type:'text/vcard'}),url=window.URL.createObjectURL(blob),link=document.createElement('a');
-        link.href=url;link.setAttribute('download','Nabil_Alnamer.vcf');link.click();
-        showToast(TRANSLATIONS[currentLang].toastVcf);
-        appendBotMsg('ai',(currentLang==='ar')?"تم حفظ الرقم في جوالك وإضافة ملاحظة مكان اللقاء تلقائياً.":"Contact saved to your phone with your meeting note automatically.");
+    if(low.includes('أزياء')||low.includes('ملابس')||low.includes('تيشيرت')||low.includes('براند')||low.includes('متجر')||low.includes('fashion')||low.includes('brand')){
+        botSelectSector('fashion');
+    }else if(low.includes('شركة')||low.includes('شركات')||low.includes('أعمال')||low.includes('مكتب')||low.includes('corporate')||low.includes('business')){
+        botSelectSector('corporate');
+    }else if(low.includes('مقهى')||low.includes('مطعم')||low.includes('كافيه')||low.includes('ضيافة')||low.includes('فندق')||low.includes('cafe')||low.includes('hospitality')){
+        botSelectSector('hospitality');
+    }else if(low.includes('فعالية')||low.includes('معرض')||low.includes('سياحة')||low.includes('تراث')||low.includes('event')||low.includes('tourism')){
+        botSelectSector('events');
+    }else if(low.includes('qr')||low.includes('مقارنة')||low.includes('فرق')||low.includes('بطارية')||low.includes('ألوان')){
+        botAskQuestion('compare');
+    }else if(low.includes('دمج')||low.includes('مشروع')||low.includes('كيف')||low.includes('integrate')){
+        botAskQuestion('integrate');
     }else{
-        appendBotMsg('ai',(currentLang==='ar')?"يسعدني خدمتك؛ يمكنك اختيار أحد الخيارات السريعة أعلاه لحفظ الرقم مع مكان لقائنا، أو مراسلة واتساب، أو معرفة تقنية NFC في الأزياء.":"Happy to assist! Pick any quick option above to save contact with a meeting note, message on WhatsApp, or explore NFC fashion tech.");
+        botAskQuestion('sector');
     }
-}
-
-function downloadFollowUpReminder(){
-    var now=new Date();
-    now.setDate(now.getDate()+1);
-    now.setHours(10,0,0,0);
-    var pad=n=>String(n).padStart(2,'0');
-    var dtStart=now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+"T100000";
-    var dtEnd=now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+"T103000";
-    var summary=(currentLang==='ar')?"التواصل مع أ. نبيل النمر (NAMER-IO)":"Follow up with Nabil Alnamer (NAMER-IO)";
-    var desc=(currentLang==='ar')?("تذكير بالمتابعة - الجوال: "+EZWA_CONFIG.phone1+" | البطاقة: "+EZWA_CONFIG.cardUrl):("Follow-up reminder - Phone: "+EZWA_CONFIG.phone1+" | Card: "+EZWA_CONFIG.cardUrl);
-    var icsContent="BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nDTSTART:"+dtStart+"\nDTEND:"+dtEnd+"\nSUMMARY:"+summary+"\nDESCRIPTION:"+desc+"\nEND:VEVENT\nEND:VCALENDAR";
-    var blob=new Blob([icsContent],{type:'text/calendar;charset=utf-8'}),url=window.URL.createObjectURL(blob),link=document.createElement('a');
-    link.href=url;link.setAttribute('download','FollowUp_Nabil_Alnamer.ics');link.click();
-    showToast(TRANSLATIONS[currentLang].toastCal);
 }
 
 function openPinModal(e){triggerShockwave(e);document.getElementById('pinInput').value='';document.getElementById('pinErrorMsg').style.display='none';document.getElementById('pinModal').style.display='flex';setTimeout(()=>document.getElementById('pinInput').focus(),100);}
@@ -981,7 +1018,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v8',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v9',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
