@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="logo1.png">
 <link rel="icon" type="image/png" href="logo1.png">
 <link id="pwa-manifest" rel="manifest">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Orbitron:wght@500;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Readex+Pro:wght@600;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 @property --border-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
 :root{--bg-void:#020611;--cyan-glow:#00f3ff;--gold-primary:#dfb15b;--gold-light:#f5d69c;--text-main:#ffffff;--card-width:min(425px,93vw);--foil-x:50%;--foil-y:30%;--tilt-x:0deg;--tilt-y:0deg;--logo-tx:0px;--logo-ty:0px;}
@@ -24,7 +24,7 @@
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
 body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=10');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=11');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -37,13 +37,13 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 @keyframes magneticPulseOut{0%{width:20px;height:20px;opacity:1;transform:translate(-50%,-50%) scale(0.2);}60%{border-color:var(--gold-light);opacity:0.75;}100%{width:560px;height:560px;opacity:0;transform:translate(-50%,-50%) scale(1.15);}}
 
 /* الحاوية الرئيسية للبطاقة مع عمق ثلاثي الأبعاد 3D Parallax */
-.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:8.5px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out;}
+.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out;}
 .rotating-glow-border{position:absolute;inset:0;border-radius:36px;padding:2px;background:conic-gradient(from var(--border-angle),rgba(223,177,91,0.18) 0deg,rgba(0,243,255,0.25) 65deg,#00f3ff 82deg,#ffffff 90deg,#dfb15b 98deg,rgba(223,177,91,0.2) 115deg,rgba(0,243,255,0.15) 245deg,#dfb15b 265deg,#ffffff 272deg,#00f3ff 280deg,rgba(223,177,91,0.18) 300deg,rgba(223,177,91,0.18) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinEdgeGlint 12s linear infinite;pointer-events:none!important;z-index:4;}
 @keyframes spinEdgeGlint{to{--border-angle:360deg;}}
 .card-inner-mask{position:absolute;inset:2px;border-radius:34px;background:linear-gradient(170deg,rgba(6,12,24,0.78) 0%,rgba(3,7,15,0.86) 100%);background-image:radial-gradient(rgba(0,243,255,0.12) 1px,transparent 1px),linear-gradient(to right,rgba(223,177,91,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(223,177,91,0.03) 1px,transparent 1px);background-size:22px 22px,44px 44px,44px 44px;pointer-events:none!important;z-index:2;}
 .gold-foil-reflection{position:absolute;inset:0;border-radius:36px;background:radial-gradient(circle 220px at var(--foil-x) var(--foil-y),rgba(245,214,156,0.12) 0%,rgba(0,243,255,0.05) 45%,transparent 75%);pointer-events:none!important;z-index:5;transition:background 0.12s ease-out;}
 
-.card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:8.5px;width:100%;}
+.card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:9px;width:100%;}
 
 /* الشريط العلوي الصافي تماماً */
 .top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px 4px;border-bottom:1px solid rgba(223,177,91,0.22);direction:ltr;}
@@ -53,32 +53,26 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .lang-switch-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(0,243,255,0.4);color:var(--cyan-glow);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.25s ease;display:flex;align-items:center;gap:4px;}
 .lang-switch-btn:hover{background:rgba(0,243,255,0.15);color:#ffffff;border-color:var(--gold-primary);}
 
-.card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:66px;margin-top:2px;}
-.monogram-box{position:absolute;right:0;width:60px;height:60px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out;}
+/* الرأس المبسّط بروح الخط الفضائي */
+.card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:74px;margin-top:2px;padding-bottom:6px;border-bottom:1px solid rgba(223,177,91,0.16);}
+.monogram-box{position:absolute;right:0;width:62px;height:62px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out;}
 html[dir="ltr"] .monogram-box{right:auto;left:0;}
 .monogram-box img{width:100%;height:100%;object-fit:contain;}
-.brand-titles-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;padding:0 66px;}
-.brand-name-ar{font-family:'Amiri',serif;font-size:26px;font-weight:700;color:#ffffff;line-height:1.15;margin-bottom:2px;}
-html[dir="ltr"] .brand-name-ar{font-family:'Orbitron',sans-serif!important;font-size:13.5px;font-weight:900;letter-spacing:1px;white-space:nowrap;margin-bottom:3px;}
-.brand-role{font-size:11.5px;background:linear-gradient(90deg,var(--gold-light),var(--cyan-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;margin-bottom:6px;}
+.brand-titles-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;padding-right:70px;padding-left:6px;}
+html[dir="ltr"] .brand-titles-center{padding-left:70px;padding-right:6px;}
+
+.brand-name-ar{font-family:'Readex Pro',sans-serif!important;font-size:22px;font-weight:700;letter-spacing:0.6px;background:linear-gradient(180deg,#ffffff 25%,#f5d69c 75%,#dfb15b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 8px rgba(0,243,255,0.22));line-height:1.2;margin-bottom:3px;}
+html[dir="ltr"] .brand-name-ar{font-family:'Orbitron',sans-serif!important;font-size:14px;font-weight:900;letter-spacing:1.2px;white-space:nowrap;margin-bottom:4px;}
+
+.brand-role{font-size:11.5px;color:var(--cyan-glow);font-weight:700;margin-bottom:4px;letter-spacing:0.3px;}
 html[dir="ltr"] .brand-role{font-family:'Orbitron',sans-serif!important;font-size:8.5px;font-weight:700;letter-spacing:0.9px;}
-.voice-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(8,18,34,0.85);border:1px solid rgba(0,243,255,0.45);color:#cffafe;padding:5px 14px;border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;margin-bottom:2px;transition:all 0.25s ease;}
-html[dir="ltr"] .voice-btn{font-size:9.5px;letter-spacing:0.5px;}
-.voice-btn:hover{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;border-color:var(--gold-light);}
-.voice-bars{display:flex;align-items:center;gap:2px;height:12px;}
-.voice-bars span{width:2.5px;height:5px;background:var(--gold-primary);border-radius:99px;transition:height 0.15s;}
-.voice-btn.playing .voice-bars span:nth-child(1){animation:waveBar 0.45s infinite 0s;background:#00f3ff;}
-.voice-btn.playing .voice-bars span:nth-child(2){animation:waveBar 0.45s infinite 0.15s;background:#dfb15b;}
-.voice-btn.playing .voice-bars span:nth-child(3){animation:waveBar 0.45s infinite 0.3s;background:#00f3ff;}
-@keyframes waveBar{0%,100%{height:4px;}50%{height:12px;}}
-.slogan-divider-area{width:100%;text-align:center;margin-bottom:4px;padding:8px 12px;border:1px solid rgba(223,177,91,0.35);background:linear-gradient(135deg,rgba(10,20,38,0.72),rgba(18,24,38,0.65));cursor:pointer;transition:all 0.3s ease;border-radius:16px;}
-.slogan-divider-area:hover{border-color:var(--cyan-glow);background:rgba(12,26,48,0.85);transform:translateY(-1px);}
-.brand-slogan{font-size:9.5px;color:var(--gold-light);letter-spacing:0.2px;font-weight:700;line-height:1.5;display:block;}
-.brand-slogan .namer-highlight{font-family:'Orbitron',sans-serif!important;color:var(--cyan-glow);font-weight:900;letter-spacing:0.8px;}
-html[dir="ltr"] .brand-slogan{font-size:8.5px;letter-spacing:0.4px;line-height:1.5;}
-.slogan-explore-hint{display:block;font-size:8px;color:var(--cyan-glow);margin-top:3px;font-weight:700;letter-spacing:0.4px;}
-html[dir="ltr"] .slogan-explore-hint{font-size:7.5px;letter-spacing:0.6px;}
-.card-body{display:flex;flex-direction:column;gap:7.5px;justify-content:flex-start;}
+
+.brand-bio-inline{font-size:9.8px;color:var(--gold-light);font-weight:600;line-height:1.45;cursor:pointer;transition:color 0.2s ease;}
+.brand-bio-inline:hover{color:#ffffff;}
+.brand-bio-inline .namer-highlight{font-family:'Orbitron',sans-serif!important;color:var(--cyan-glow);font-weight:900;letter-spacing:0.7px;}
+html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-height:1.45;}
+
+.card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
 
 /* تبويب منصة NAMER-IO الرئيسي */
 .namer-portal-pill{width:100%;height:52px;background:linear-gradient(135deg,rgba(0,243,255,0.16) 0%,rgba(10,20,38,0.9) 50%,rgba(223,177,91,0.2) 100%);border:1.5px solid rgba(0,243,255,0.65);border-radius:26px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:#ffffff;transition:all 0.25s ease;cursor:pointer;box-shadow:0 4px 18px rgba(0,243,255,0.14);}
@@ -94,16 +88,9 @@ html[dir="ltr"] .namer-pill-sub{font-size:7.5px;}
 html[dir="ltr"] .btn-title{font-size:11px;letter-spacing:0.6px;}
 .btn-arrow{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,243,255,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan-glow);font-size:12px;flex-shrink:0;}
 html[dir="ltr"] .btn-arrow{transform:rotate(180deg);}
-.social-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;width:100%;}
-.social-item-col{background:rgba(8,16,30,0.76);border:1px solid rgba(223,177,91,0.32);border-radius:16px;padding:8px 5px;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;}
-.social-item-col:hover{background:rgba(14,28,52,0.92);border-color:var(--cyan-glow);transform:translateY(-2px);}
-.social-icon-box{width:32px;height:32px;border-radius:10px;background:rgba(0,243,255,0.1);border:1.2px solid rgba(223,177,91,0.65);display:flex;align-items:center;justify-content:center;color:var(--gold-primary);font-size:13px;font-weight:900;margin-bottom:3px;}
-.social-name{font-size:10px;font-weight:700;color:#fff;margin-bottom:1px;}
-html[dir="ltr"] .social-name{font-size:8.5px;letter-spacing:0.4px;}
-.social-handle{font-size:8px;color:#7dd3fc;text-align:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;}
-html[dir="ltr"] .social-handle{font-size:7px;}
+
 .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%;}
-.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
+.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:9px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-box-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .box-content-side{display:flex;align-items:center;gap:7px;overflow:hidden;}
 .box-icon{width:28px;height:28px;border-radius:50%;background:rgba(223,177,91,0.12);border:1.2px solid rgba(0,243,255,0.5);display:flex;align-items:center;justify-content:center;color:var(--gold-primary);flex-shrink:0;}
@@ -119,19 +106,10 @@ html[dir="ltr"] .box-arrow{transform:rotate(180deg);}
 .wallet-pill-btn:hover{background:linear-gradient(90deg,rgba(0,243,255,0.24),rgba(223,177,91,0.28));border-color:var(--cyan-glow);transform:translateY(-2px);}
 html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 
-/* الشريط السفلي مع أيقونة الروبوت الناطق الحي */
 .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:4px;border-top:1px solid rgba(223,177,91,0.22);padding-top:10px;padding-bottom:2px;direction:ltr;}
 .footer-left-info{display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
 .footer-brand{font-family:'Orbitron',sans-serif;font-size:10.5px;font-weight:800;color:var(--gold-light);letter-spacing:1px;}
 .customize-trigger-btn{background:transparent;border:none;color:var(--cyan-glow);font-size:9.5px;cursor:pointer;text-decoration:underline;opacity:0.9;text-align:left;display:flex;align-items:center;gap:4px;}
-
-/* أيقونة الروبوت الناطق الحي في الأسفل */
-.talking-bot-dock{display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;}
-.talking-bot-orb{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#12284c 0%,#050b18 85%);border:1.8px solid var(--gold-primary);box-shadow:0 0 18px rgba(0,243,255,0.35),inset 0 0 12px rgba(223,177,91,0.35);display:flex;align-items:center;justify-content:center;position:relative;transition:all 0.3s ease;}
-.talking-bot-orb:hover{transform:scale(1.08);border-color:var(--cyan-glow);box-shadow:0 0 25px rgba(0,243,255,0.65);}
-.talking-bot-orb::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px dashed rgba(0,243,255,0.55);animation:botOrbitSpin 10s linear infinite;}
-@keyframes botOrbitSpin{to{transform:rotate(360deg);}}
-.bot-dock-label{font-family:'Orbitron',sans-serif;font-size:7px;font-weight:800;color:var(--cyan-glow);letter-spacing:0.8px;margin-top:4px;}
 
 .qr-bottom-wrapper{display:flex;flex-direction:column;align-items:center;cursor:pointer;}
 .qr-frame{width:46px;height:46px;background:#fff;padding:3px;border-radius:10px;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;position:relative;}
@@ -139,6 +117,14 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .nfc-indicator{display:flex;align-items:center;gap:3px;margin-top:3px;}
 .nfc-icon{font-size:7.5px;color:var(--cyan-glow);}
 .nfc-text{font-family:'Orbitron',sans-serif;font-size:6.5px;font-weight:700;color:var(--gold-primary);letter-spacing:0.8px;}
+
+/* الروبوت العائم والمتنقل (Floating Draggable Bot) */
+.floating-bot-orb{position:fixed;bottom:24px;left:22px;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#142d54 0%,#040916 85%);border:2px solid var(--gold-primary);box-shadow:0 10px 28px rgba(0,0,0,0.85),0 0 22px rgba(0,243,255,0.45),inset 0 0 14px rgba(223,177,91,0.35);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:grab;z-index:900;touch-action:none;user-select:none;animation:botFloatBob 3.4s ease-in-out infinite;}
+.floating-bot-orb:active{cursor:grabbing;animation:none;transform:scale(1.06);}
+.floating-bot-orb::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed rgba(0,243,255,0.6);animation:botOrbitSpin 11s linear infinite;pointer-events:none;}
+.floating-bot-badge{position:absolute;top:-4px;right:-2px;background:var(--cyan-glow);color:#020611;font-family:'Orbitron',sans-serif!important;font-size:7.5px;font-weight:900;padding:1.5px 5px;border-radius:8px;box-shadow:0 0 8px var(--cyan-glow);pointer-events:none;}
+@keyframes botFloatBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes botOrbitSpin{to{transform:rotate(360deg);}}
 
 /* النوافذ المنبثقة */
 .modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.88);backdrop-filter:blur(12px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
@@ -148,7 +134,7 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 html[dir="ltr"] .modal-title{font-size:12px;letter-spacing:0.5px;}
 .modal-close{background:rgba(255,255,255,0.06);border:none;color:#fff;width:28px;height:28px;border-radius:8px;font-size:18px;cursor:pointer;}
 
-/* واجهة الروبوت الناطق NAMER-IO AI */
+/* واجهة الروبوت الناطق الحي NAMER-IO AI */
 .bot-holo-stage{background:radial-gradient(circle at center,rgba(0,243,255,0.12) 0%,rgba(5,11,24,0.95) 80%);border:1px solid rgba(223,177,91,0.45);border-radius:18px;padding:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .bot-avatar-ring{width:46px;height:46px;border-radius:50%;background:#061022;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 15px rgba(0,243,255,0.3);}
 .bot-voice-waves{display:flex;align-items:center;gap:3px;height:22px;flex:1;justify-content:center;}
@@ -173,7 +159,7 @@ html[dir="ltr"] .bot-msg{font-size:10px;}
 .bot-inline-btn.cyan{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);}
 
 .bot-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
-.bot-chip{background:rgba(10,20,38,0.9);border:1px solid rgba(223,177,91,0.35);color:var(--gold-light);border-radius:11px;padding:7px 8px;font-size:10.5px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.2s;}
+.bot-chip{background:rgba(10,20,38,0.9);border:1px solid rgba(223,177,91,0.35);color:var(--gold-light);border-radius:11px;padding:8px 8px;font-size:10.5px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.2s;line-height:1.35;}
 html[dir="ltr"] .bot-chip{font-size:8.5px;}
 .bot-chip:hover{border-color:var(--cyan-glow);color:#fff;background:rgba(0,243,255,0.12);}
 
@@ -213,6 +199,19 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 <div class="cyber-heritage-backdrop"></div>
 <canvas id="quantum-canvas"></canvas>
 
+<!-- الروبوت العائم والمتنقل (قابل للسحب لأي مكان على الشاشة) -->
+<div class="floating-bot-orb" id="floatingBotOrb" title="المساعد الناطق NAMER-IO AI">
+    <span class="floating-bot-badge">AI</span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+        <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
+        <circle cx="9.5" cy="12.5" r="1.4" fill="#00f3ff"/>
+        <circle cx="14.5" cy="12.5" r="1.4" fill="#00f3ff"/>
+        <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
+        <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
+        <path d="M2 11v3M22 11v3" stroke="#00f3ff" stroke-linecap="round"/>
+    </svg>
+</div>
+
 <div class="ezwa-card-container" id="ezwaCard">
     <div class="rotating-glow-border"></div>
     <div class="card-inner-mask"></div>
@@ -231,25 +230,16 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </button>
         </div>
 
+        <!-- الرأس المبسّط بدون زر صوت أو مربع وصف مزدحم -->
         <div class="card-header">
             <div class="brand-titles-center">
                 <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                 <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
-                <button class="voice-btn" id="voiceBtn" onclick="toggleAudio(event)">
-                    <span id="speaker-icon">▶️</span>
-                    <span id="voice-text">رسالة ترحيبية</span>
-                    <div class="voice-bars"><span></span><span></span><span></span></div>
-                </button>
-                <audio id="nabilAudio" src="nabil-voice.mp3" onended="audioEnded()"></audio>
+                <p class="brand-bio-inline" id="uiSlogan" onclick="openInnovationModal(event)">مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة <span class="namer-highlight">NAMER-IO</span></p>
             </div>
             <div class="monogram-box">
-                <img src="logo1.png" alt="شعار نبيل النمر" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><text x=\'50%\' y=\'55%\' font-family=\'Amiri\' font-size=\'45\' font-weight=\'bold\' fill=\'%23dfb15b\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ن</text></svg>';">
+                <img src="logo1.png" alt="شعار نبيل النمر" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><text x=\'50%\' y=\'55%\' font-family=\'Readex Pro\' font-size=\'45\' font-weight=\'bold\' fill=\'%23dfb15b\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ن</text></svg>';">
             </div>
-        </div>
-
-        <div class="slogan-divider-area" onclick="openInnovationModal(event)" title="انقر لمعرفة قصة الابتكار">
-            <span class="brand-slogan" id="uiSlogan">مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة <span class="namer-highlight">NAMER-IO</span></span>
-            <span class="slogan-explore-hint" id="uiSloganHint">◈ اضغط لاستكشاف تقنية التراث الرقمي ◈</span>
         </div>
 
         <div class="card-body">
@@ -267,6 +257,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </a>
 
+            <!-- تبويب الاتصال المباشر -->
             <div class="action-pill-btn" onclick="openChoiceModal('call', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle">
@@ -277,6 +268,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
+            <!-- تبويب واتساب -->
             <div class="action-pill-btn" onclick="openChoiceModal('whatsapp', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="color:var(--gold-primary);">
@@ -287,28 +279,18 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
-            <div class="social-grid-3">
-                <a href="#" class="social-item-col" id="linkX" target="_blank" onclick="triggerShockwave(event)">
-                    <div class="social-icon-box">𝕏</div>
-                    <span class="social-name" id="tX">منصة X</span>
-                    <span class="social-handle" id="uiX">nabilalnamer</span>
-                </a>
-                <a href="#" class="social-item-col" id="linkInsta" target="_blank" onclick="triggerShockwave(event)">
-                    <div class="social-icon-box">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <!-- تبويب التواصل الاجتماعي المدمج (منصة X + سناب شات) -->
+            <div class="action-pill-btn" onclick="openChoiceModal('social', event)">
+                <div class="btn-side-group">
+                    <div class="btn-icon-circle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
                     </div>
-                    <span class="social-name" id="tInsta">إنستغرام</span>
-                    <span class="social-handle" id="uiInsta">alnamer.nabeel</span>
-                </a>
-                <a href="#" class="social-item-col" id="linkSnap" target="_blank" onclick="triggerShockwave(event)">
-                    <div class="social-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.69 2 6 4.69 6 8c0 .24.01.48.04.71C5.17 9.07 4 10.37 4 12c0 1.25.7 2.33 1.73 2.76-.08.31-.13.63-.13.96 0 1.94 1.45 3.53 3.33 3.73.4.74 1.14 1.34 2.07 1.55.33.07.67.1.99.1.33 0 .66-.03.99-.1.93-.21 1.67-.81 2.07-1.55 1.88-.2 3.33-1.79 3.33-3.73 0-.33-.05-.65-.13-.96C19.3 14.33 20 13.25 20 12c0-1.63-1.17-2.93-2.04-3.29.03-.23.04-.47.04-.71 0-3.31-2.69-6-6-6zm0 1.8c2.32 0 4.2 1.88 4.2 4.2 0 .39-.06.77-.16 1.13-.12.44.11.9.52 1.05.69.25 1.44 1.05 1.44 1.82 0 .71-.58 1.35-1.29 1.47-.46.08-.79.47-.79.93.05.27.08.54.08.8 0 1.22-.99 2.2-2.2 2.2-.42 0-.82-.12-1.16-.33-.37-.23-.84-.23-1.22 0-.35.21-.74.33-1.16.33-1.22 0-2.2-.99-2.2-2.2 0-.26.03-.53.08-.8 0-.46-.33-.85-.79-.93-.71-.12-1.29-.76-1.29-1.47 0-.77.75-1.57 1.44-1.82.41-.15.64-.61.52-1.05-.1-.36-.16-.74-.16-1.13 0-2.32 1.88-4.2 4.2-4.2z"/></svg>
-                    </div>
-                    <span class="social-name" id="tSnap">سناب شات</span>
-                    <span class="social-handle" id="uiSnap">nabilalnamer</span>
-                </a>
+                    <span class="btn-title" id="tSocial">التواصل الاجتماعي</span>
+                </div>
+                <div class="btn-arrow">‹</div>
             </div>
 
+            <!-- البريد الإلكتروني والموقع -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="handleEmail(event)">
                     <div class="box-content-side">
@@ -333,6 +315,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 </a>
             </div>
 
+            <!-- مشاركة الكارت وحفظ جهة الاتصال -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="shareCard(event)">
                     <div class="box-content-side">
@@ -357,6 +340,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 </a>
             </div>
 
+            <!-- إضافة للمحفظة الرقمية -->
             <div class="wallet-pill-btn" onclick="openWalletModal(event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;">💳</div>
@@ -366,28 +350,11 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
-        <!-- الشريط السفلي مع أيقونة الروبوت الناطق الحي في المنتصف -->
         <div class="card-footer">
             <div class="footer-left-info">
                 <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
                 <button class="customize-trigger-btn" id="tCustomize" onclick="openPinModal(event)">⚙️ تخصيص البيانات 🔒</button>
             </div>
-
-            <!-- أيقونة الروبوت الناطق الحي -->
-            <div class="talking-bot-dock" onclick="openTalkingBot(event)" title="المساعد الناطق NAMER-IO AI">
-                <div class="talking-bot-orb">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.8">
-                        <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
-                        <circle cx="9.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-                        <circle cx="14.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-                        <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
-                        <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
-                        <path d="M2 11v3M22 11v3" stroke="#00f3ff" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <span class="bot-dock-label">NAMER AI</span>
-            </div>
-
             <div class="qr-bottom-wrapper" onclick="openQrModal(event)" title="QR Code">
                 <div class="qr-frame" id="qrContainer"></div>
                 <div class="nfc-indicator"><span class="nfc-icon">◈</span><span class="nfc-text">NFC VERIFIED</span></div>
@@ -423,12 +390,12 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
         <!-- سجل المحادثة التفاعلية -->
         <div class="bot-chat-log" id="botChatLog"></div>
 
-        <!-- أزرار الخدمات الأربع العملية بلمسة واحدة -->
+        <!-- الأسئلة السريعة بصياغتها الجديدة الواضحة -->
         <div class="bot-quick-grid">
-            <button type="button" class="bot-chip" id="chipSaveNote" onclick="botTriggerAction('note')">📍 حفظ الرقم + مكان اللقاء</button>
-            <button type="button" class="bot-chip" id="chipQuickWa" onclick="botTriggerAction('wa')">💬 رسالة واتساب جاهزة</button>
-            <button type="button" class="bot-chip" id="chipCalendar" onclick="botTriggerAction('cal')">📅 تذكير بالمتابعة</button>
-            <button type="button" class="bot-chip" id="chipLocation" onclick="botTriggerAction('loc')">🗺️ نسخ العنوان والموقع</button>
+            <button type="button" class="bot-chip" id="chipSaveNote" onclick="botTriggerAction('note')">📍 حفظ رقمك مع تذكير بمكان لقائنا</button>
+            <button type="button" class="bot-chip" id="chipQuickWa" onclick="botTriggerAction('wa')">💬 مراسلتك على واتساب برسالة جاهزة</button>
+            <button type="button" class="bot-chip" id="chipCalendar" onclick="botTriggerAction('cal')">📅 تذكيري بالتواصل معك غداً</button>
+            <button type="button" class="bot-chip" id="chipNfcTech" onclick="botTriggerAction('nfc')">◈ ما هي تقنية NFC في الأزياء؟</button>
         </div>
 
         <!-- حقل السؤال المباشر -->
@@ -501,11 +468,11 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
     </div>
 </div>
 
-<!-- نافذة اختيار الرقم -->
+<!-- نافذة الاختيار (اتصال / واتساب / التواصل الاجتماعي) -->
 <div class="modal-overlay" id="choiceModal" onclick="closeChoiceModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
         <div class="modal-header">
-            <h3 class="modal-title" id="choiceModalTitle">اختر الرقم</h3>
+            <h3 class="modal-title" id="choiceModalTitle">اختر</h3>
             <button class="modal-close" onclick="closeChoiceModal()">×</button>
         </div>
         <div id="choiceButtonsContainer"></div>
@@ -521,13 +488,12 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
         </div>
         <div class="form-group"><label>الاسم (عربي):</label><input type="text" id="inputBrandAr" value="نبيل النمر"></div>
         <div class="form-group"><label>المسمى الوظيفي:</label><input type="text" id="inputRole" value="اختصاصي تسويق"></div>
-        <div class="form-group"><label>العبارة الفاصلة:</label><input type="text" id="inputSlogan" value="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-IO"></div>
+        <div class="form-group"><label>الوصف التعريفي:</label><input type="text" id="inputSlogan" value="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-IO"></div>
         <div class="form-group"><label>رابط منصة NAMER-IO:</label><input type="text" id="inputNamerUrl" class="ltr-input" value="https://namer-io.github.io"></div>
         <div class="form-group"><label>الرقم الأول:</label><input type="text" id="inputPhone1" class="ltr-input" value="+966 50 277 7884"></div>
         <div class="form-group"><label>الرقم الثاني:</label><input type="text" id="inputPhone2" class="ltr-input" value="+966 56 056 4719"></div>
         <div class="form-group"><label>سناب شات:</label><input type="text" id="inputSnap" class="ltr-input" value="nabilalnamer"></div>
-        <div class="form-group"><label>إنستغرام:</label><input type="text" id="inputInsta" class="ltr-input" value="alnamer.nabeel"></div>
-        <div class="form-group"><label>منصة X:</label><input type="text" id="inputX" class="ltr-input" value="nabilalnamer"></div>
+        <div class="form-group"><label>منصة X (تويتر):</label><input type="text" id="inputX" class="ltr-input" value="nabilalnamer"></div>
         <div class="form-group"><label>البريد الإلكتروني:</label><input type="email" id="inputEmail" class="ltr-input" value="Ibn.alnamer@gmail.com"></div>
         <div class="form-group"><label>رابط الخريطة:</label><input type="text" id="inputMap" class="ltr-input" value="https://www.google.com/maps/dir/?api=1&destination=24.6356470116456%2C46.716702606949"></div>
         <button class="modal-save-btn" onclick="saveCustomData()">حفظ التعديلات</button>
@@ -595,7 +561,41 @@ window.addEventListener('deviceorientation',e=>{
     }
 });
 
-/* 3. تأثير نبض القلب الكهرومغناطيسي عند اللمس (Magnetic Touch Shockwave) */
+/* 3. سحب وتحريك الروبوت العائم بحرية على الشاشة (Draggable Floating Orb) */
+(function initDraggableBot(){
+    const orb=document.getElementById('floatingBotOrb');
+    let isDragging=false,hasMoved=false,startX=0,startY=0,origLeft=0,origTop=0;
+
+    orb.addEventListener('pointerdown',e=>{
+        isDragging=true;hasMoved=false;
+        const rect=orb.getBoundingClientRect();
+        startX=e.clientX;startY=e.clientY;
+        origLeft=rect.left;origTop=rect.top;
+        orb.style.bottom='auto';orb.style.right='auto';
+        orb.style.left=origLeft+'px';orb.style.top=origTop+'px';
+        orb.setPointerCapture(e.pointerId);
+        e.stopPropagation();
+    });
+
+    orb.addEventListener('pointermove',e=>{
+        if(!isDragging)return;
+        const dx=e.clientX-startX,dy=e.clientY-startY;
+        if(Math.hypot(dx,dy)>5)hasMoved=true;
+        const maxLeft=window.innerWidth-orb.offsetWidth-8;
+        const maxTop=window.innerHeight-orb.offsetHeight-8;
+        orb.style.left=Math.max(8,Math.min(maxLeft,origLeft+dx))+'px';
+        orb.style.top=Math.max(8,Math.min(maxTop,origTop+dy))+'px';
+    });
+
+    orb.addEventListener('pointerup',e=>{
+        if(!isDragging)return;
+        isDragging=false;
+        orb.releasePointerCapture(e.pointerId);
+        if(!hasMoved)openTalkingBot(e);
+    });
+})();
+
+/* 4. تأثير نبض القلب الكهرومغناطيسي عند اللمس (Magnetic Touch Shockwave) */
 function triggerShockwave(e){
     if(navigator.vibrate){try{navigator.vibrate(18);}catch(err){}}
     if(!e)return;
@@ -611,7 +611,7 @@ function triggerShockwave(e){
     setTimeout(()=>wave.remove(),900);
 }
 
-/* 4. الكشف التلقائي الذكي للغة هاتف الزائر (Auto-Locale Detection) */
+/* 5. الكشف التلقائي الذكي للغة هاتف الزائر (Auto-Locale Detection) */
 var deviceLang=(navigator.language||navigator.userLanguage||'ar').toLowerCase();
 var currentLang=deviceLang.startsWith('ar')?'ar':'en';
 document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');
@@ -629,35 +629,33 @@ var DEFAULT_CONFIG={
     phone1:"+966 50 277 7884",
     phone2:"+966 56 056 4719",
     snapchat:"nabilalnamer",
-    instagram:"alnamer.nabeel",
     x:"nabilalnamer",
     email:"Ibn.alnamer@gmail.com",
     mapUrl:"https://www.google.com/maps/dir/?api=1&destination=24.6356470116456%2C46.716702606949",
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v7');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v8');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
-        langBtn:"EN",sloganHint:"◈ اضغط لاستكشاف تقنية التراث الرقمي ◈",
+        langBtn:"EN",
         namerPortal:"منصة NAMER-IO الرقمية",call:"إتصال مباشر",whatsapp:"واتساب",
-        x:"منصة X",insta:"إنستغرام",snap:"سناب شات",email:"البريد الإلكتروني",
+        social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
         botTitle:"🤖 المساعد الناطق NAMER-IO",
         botPlaceholder:"اكتب سؤالك أو أين التقينا اليوم...",
-        chipNote:"📍 حفظ الرقم + مكان اللقاء",
-        chipWa:"💬 رسالة واتساب جاهزة",
-        chipCal:"📅 تذكير بالمتابعة",
-        chipLoc:"🗺️ نسخ العنوان والموقع",
-        botWelcome:"أهلاً بك في بطاقة الأستاذ نبيل النمر. أنا مساعدك الذكي؛ أخبرني كيف أسهل عليك اليوم؟ يمكنك حفظ الرقم مع مكان لقائنا، أو إرسال رسالة واتساب جاهزة، أو إضافة تذكير للمتابعة.",
+        chipNote:"📍 حفظ رقمك مع تذكير بمكان لقائنا",
+        chipWa:"💬 مراسلتك على واتساب برسالة جاهزة",
+        chipCal:"📅 تذكيري بالتواصل معك غداً",
+        chipNfc:"◈ ما هي تقنية NFC في الأزياء؟",
+        botWelcome:"أهلاً بك في بطاقة الأستاذ نبيل النمر. أنا مساعدك الذكي؛ كيف أسهل عليك اليوم؟ اختر أحد الخيارات السريعة أو اكتب سؤالك مباشرة.",
         toastCal:"تم تجهيز تذكير المتابعة في تقويم جوالك 📅",
-        toastLoc:"تم نسخ العنوان ورابط الموقع بنجاح 🗺️",
         pinTitle:"حماية الإعدادات",pinDesc:"أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",
         pinBtn:"فتح التخصيص",pinError:"الرقم السري غير صحيح، حاول مرة أخرى",
         toastSaved:"تم تحديث البيانات وحفظها بنجاح",toastCopied:"تم نسخ الرابط إلى الحافظة",
-        toastVcf:"تم تحميل بطاقة الاتصال مع الملاحظة بنجاح",toastNfc:"تم الاتصال بنجاح عبر تقنية NFC ◈",
+        toastVcf:"تم تحميل بطاقة الاتصال بنجاح",toastNfc:"تم الاتصال بنجاح عبر تقنية NFC ◈",
         innoTitle:"ابتكار الأزياء التفاعلية",
         innoDesc:"أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-IO، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
         innoStep1:"مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت",
@@ -667,24 +665,23 @@ var TRANSLATIONS={
         walletDesc:"احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، أو أضفها للشاشة الرئيسية كتطبيق مستقل."
     },
     en:{
-        langBtn:"عربي",sloganHint:"◈ Tap to Explore Digital Heritage Tech ◈",
+        langBtn:"عربي",
         namerPortal:"NAMER-IO Digital Portal",call:"Direct Call",whatsapp:"WhatsApp",
-        x:"X Platform",insta:"Instagram",snap:"Snapchat",email:"Email Address",
+        social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
         botTitle:"🤖 NAMER-IO Talking Assistant",
         botPlaceholder:"Ask a question or type where we met...",
-        chipNote:"📍 Save Contact + Meeting Note",
-        chipWa:"💬 Quick WhatsApp Message",
-        chipCal:"📅 Follow-Up Reminder",
-        chipLoc:"🗺️ Copy Address & Map",
-        botWelcome:"Welcome to Nabil Alnamer's card. I am your smart assistant; how can I make things easier for you today? Save contact with a meeting note, send a quick WhatsApp, or set a follow-up reminder.",
+        chipNote:"📍 Save contact with meeting reminder",
+        chipWa:"💬 Message on WhatsApp (ready text)",
+        chipCal:"📅 Remind me to follow up tomorrow",
+        chipNfc:"◈ What is NFC fashion tech?",
+        botWelcome:"Welcome to Nabil Alnamer's card. I am your smart assistant; how can I make things easier for you today? Pick a quick option or type below.",
         toastCal:"Follow-up calendar reminder downloaded 📅",
-        toastLoc:"Address & Google Maps link copied 🗺️",
         pinTitle:"Security Lock",pinDesc:"Enter owner PIN to unlock card customization:",
         pinBtn:"Unlock Settings",pinError:"Incorrect PIN, please try again",
         toastSaved:"Settings saved successfully",toastCopied:"Link copied to clipboard",
-        toastVcf:"Contact file downloaded with note",toastNfc:"Connected successfully via NFC ◈",
+        toastVcf:"Contact file downloaded",toastNfc:"Connected successfully via NFC ◈",
         innoTitle:"NFC Fashion Innovation",
         innoDesc:"The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric under NAMER-IO, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",
         innoStep1:"Tap the top of your phone near the Sadu garment emblem",
@@ -714,15 +711,12 @@ function updateUI(){
     document.getElementById('uiBrandName').innerText=(currentLang==='ar')?EZWA_CONFIG.brandAr:EZWA_CONFIG.brandEn;
     document.getElementById('uiRole').innerText=(currentLang==='ar')?EZWA_CONFIG.roleAr:EZWA_CONFIG.roleEn;
     document.getElementById('uiSlogan').innerHTML=formatSloganWithHighlight((currentLang==='ar')?EZWA_CONFIG.sloganAr:EZWA_CONFIG.sloganEn);
-    document.getElementById('uiSloganHint').innerText=t.sloganHint;
     document.getElementById('tNamerPortal').innerText=t.namerPortal;
     document.getElementById('linkNamerPortal').href=EZWA_CONFIG.namerUrl;
     document.getElementById('uiNamerUrl').innerText=EZWA_CONFIG.namerUrl.replace(/^https?:\/\//,'');
     document.getElementById('tCall').innerText=t.call;
     document.getElementById('tWhatsapp').innerText=t.whatsapp;
-    document.getElementById('tX').innerText=t.x;
-    document.getElementById('tInsta').innerText=t.insta;
-    document.getElementById('tSnap').innerText=t.snap;
+    document.getElementById('tSocial').innerText=t.social;
     document.getElementById('tEmail').innerText=t.email;
     document.getElementById('tMap').innerText=t.map;
     document.getElementById('tMapSub').innerText=t.mapSub;
@@ -737,13 +731,12 @@ function updateUI(){
     document.getElementById('chipSaveNote').innerText=t.chipNote;
     document.getElementById('chipQuickWa').innerText=t.chipWa;
     document.getElementById('chipCalendar').innerText=t.chipCal;
-    document.getElementById('chipLocation').innerText=t.chipLoc;
+    document.getElementById('chipNfcTech').innerText=t.chipNfc;
 
     document.getElementById('pinModalTitle').innerText=t.pinTitle;
     document.getElementById('pinModalDesc').innerText=t.pinDesc;
     document.getElementById('pinSubmitBtn').innerText=t.pinBtn;
     document.getElementById('pinErrorMsg').innerText=t.pinError;
-    if(audio.paused)document.getElementById('voice-text').innerText=(currentLang==='ar')?"رسالة ترحيبية":"Welcome Voice";
     document.getElementById('innoModalTitle').innerText=t.innoTitle;
     document.getElementById('innoModalDesc').innerText=t.innoDesc;
     document.getElementById('innoStep1').innerText=t.innoStep1;
@@ -751,41 +744,10 @@ function updateUI(){
     document.getElementById('innoStep3').innerText=t.innoStep3;
     document.getElementById('walletModalTitle').innerText=t.walletTitle;
     document.getElementById('walletModalDesc').innerText=t.walletDesc;
-    document.getElementById('uiSnap').innerText=EZWA_CONFIG.snapchat;
-    document.getElementById('uiInsta').innerText=EZWA_CONFIG.instagram;
-    document.getElementById('uiX').innerText=EZWA_CONFIG.x;
     document.getElementById('uiFooterBrand').innerText="NABIL ALNAMER";
-    document.getElementById('linkSnap').href="https://www.snapchat.com/add/"+EZWA_CONFIG.snapchat;
-    document.getElementById('linkInsta').href="https://www.instagram.com/"+EZWA_CONFIG.instagram;
-    document.getElementById('linkX').href="https://x.com/"+EZWA_CONFIG.x;
     var qrContainer=document.getElementById('qrContainer');
     if(qrContainer){qrContainer.innerHTML="";new QRCode(qrContainer,{text:EZWA_CONFIG.cardUrl,width:38,height:38,colorDark:"#020611",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}
 }
-
-const audio=document.getElementById('nabilAudio'),speakerIcon=document.getElementById('speaker-icon'),voiceText=document.getElementById('voice-text'),voiceBtn=document.getElementById('voiceBtn');
-function toggleAudio(e){
-    triggerShockwave(e);
-    if(audio.paused){
-        audio.src=(currentLang==='en')?'nabil-voice-en.mp3':'nabil-voice.mp3';
-        audio.play().then(()=>{
-            speakerIcon.textContent="⏸️";
-            voiceText.textContent=(currentLang==='ar')?"إيقاف الصوت":"Pause";
-            voiceBtn.classList.add('playing');
-        }).catch(()=>{
-            if(currentLang==='en'){
-                audio.src='nabil-voice.mp3';
-                audio.play().then(()=>{
-                    speakerIcon.textContent="⏸️";
-                    voiceText.textContent="Pause";
-                    voiceBtn.classList.add('playing');
-                }).catch(()=>showToast("Audio file nabil-voice.mp3 not found"));
-            }else{
-                showToast("تأكد من وجود ملف الصوت nabil-voice.mp3");
-            }
-        });
-    }else{audio.pause();audioEnded();}
-}
-function audioEnded(){speakerIcon.textContent="▶️";voiceText.textContent=(currentLang==='ar')?"رسالة ترحيبية":"Welcome Voice";voiceBtn.classList.remove('playing');}
 
 /* =========================================================
    منظومة الروبوت الناطق الحي NAMER-IO AI (صوت + تنفيذ عملي)
@@ -852,18 +814,18 @@ function closeTalkingBot(){
 
 function botTriggerAction(type){
     if(type==='note'){
-        const userTxt=(currentLang==='ar')?"أريد حفظ الرقم مع مكان اللقاء":"Save contact with meeting note";
+        const userTxt=TRANSLATIONS[currentLang].chipNote;
         appendBotMsg('user',userTxt);
-        const reply=(currentLang==='ar')?"بكل سرور، اكتب أين التقينا اليوم وسأحفظها داخل ملاحظات جهة الاتصال في جوالك فوراً:":"Gladly! Type where we met today and I will save it inside your phone's contact notes:";
+        const reply=(currentLang==='ar')?"اكتب أين التقينا اليوم وسأحفظ الرقم في جوالك مع هذه الملاحظة لتتذكرني بسهولة:":"Type where we met today and I will save the contact with this note in your phone:";
         const ph=(currentLang==='ar')?"مثال: معرض الرياض / مقهى":"e.g. Riyadh Expo / Coffee Shop";
         const btnTxt=(currentLang==='ar')?"حفظ الرقم في الجوال 📥":"Save Contact 📥";
         const uid='note_'+Date.now();
         const html='<div class="bot-inline-input"><input type="text" id="'+uid+'" placeholder="'+ph+'"><button type="button" class="bot-inline-btn" onclick="saveVCardFromBot(\''+uid+'\')">'+btnTxt+'</button></div>';
         appendBotMsg('ai',reply,html);
     }else if(type==='wa'){
-        const userTxt=(currentLang==='ar')?"تجهيز رسالة واتساب سريعة":"Prepare quick WhatsApp message";
+        const userTxt=TRANSLATIONS[currentLang].chipWa;
         appendBotMsg('user',userTxt);
-        const reply=(currentLang==='ar')?"اختر الرسالة المناسبة ليفتح واتساب وهي مكتوبة وجاهزة للإرسال مباشرة:":"Choose a message below to open WhatsApp with your text pre-filled:";
+        const reply=(currentLang==='ar')?"اختر الرسالة المناسبة ليفتح واتساب وهي جاهزة للإرسال مباشرة:":"Choose a message below to open WhatsApp ready to send:";
         const waNum=EZWA_CONFIG.phone1.replace(/[^0-9]/g,'');
         const m1=(currentLang==='ar')?"مرحباً أستاذ نبيل، تشرفت بلقائك اليوم والاطلاع على بطاقتك الرقمية NAMER-IO.":"Hello Mr. Nabil, pleasure meeting you today and viewing your NAMER-IO digital card.";
         const m2=(currentLang==='ar')?"مرحباً أستاذ نبيل، أرغب في تنسيق مكالمة عمل سريعة معك.":"Hello Mr. Nabil, I would like to schedule a quick business call with you.";
@@ -876,17 +838,18 @@ function botTriggerAction(type){
                    '<a class="bot-inline-btn cyan" target="_blank" href="https://wa.me/'+waNum+'?text='+encodeURIComponent(m3)+'">'+l3+'</a>';
         appendBotMsg('ai',reply,html);
     }else if(type==='cal'){
-        const userTxt=(currentLang==='ar')?"إضافة تذكير بالمتابعة في التقويم":"Add follow-up reminder to calendar";
+        const userTxt=TRANSLATIONS[currentLang].chipCal;
         appendBotMsg('user',userTxt);
         downloadFollowUpReminder();
-        const reply=(currentLang==='ar')?"تم تجهيز تذكير المتابعة في تقويم جوالك لغداً الساعة العاشرة صباحاً، مرفقاً برقم الجوال ورابط البطاقة.":"A follow-up reminder for tomorrow at 10:00 AM has been generated for your phone calendar with phone number and card link.";
+        const reply=(currentLang==='ar')?"تم تجهيز تذكير في تقويم جوالك لغداً الساعة العاشرة صباحاً، مرفقاً برقم الجوال ورابط البطاقة.":"A reminder for tomorrow at 10:00 AM has been added to your phone calendar with phone number and card link.";
         appendBotMsg('ai',reply);
-    }else if(type==='loc'){
-        const userTxt=(currentLang==='ar')?"نسخ العنوان ورابط الموقع":"Copy address and map link";
+    }else if(type==='nfc'){
+        const userTxt=TRANSLATIONS[currentLang].chipNfc;
         appendBotMsg('user',userTxt);
-        copyLocationDetails();
-        const reply=(currentLang==='ar')?"تم نسخ عنوان حي الديرة بالرياض مع رابط خرائط جوجل المباشر إلى الحافظة؛ يمكنك لصقه ومشاركته الآن بسهولة.":"Al Deerah Riyadh address and Google Maps link copied to clipboard; ready to paste and share.";
-        appendBotMsg('ai',reply);
+        const reply=(currentLang==='ar')?"هي تقنية رائدة ابتكرها الأستاذ نبيل النمر لدمج شرائح NFC الذكية داخل الأزياء الرجالية تحت منظومة NAMER-IO؛ تتيح مشاركة هويتك الرقمية بمجرد ملامسة الجوال للقطعة وبدون تطبيقات.":"Pioneered by Nabil Alnamer under NAMER-IO, it seamlessly embeds smart NFC chips into menswear fabric—sharing your digital identity with a single phone tap and zero apps.";
+        const btnLabel=(currentLang==='ar')?"استكشف تفاصيل الابتكار ◈":"Explore Innovation Details ◈";
+        const html='<button type="button" class="bot-inline-btn cyan" onclick="closeTalkingBot();openInnovationModal();">'+btnLabel+'</button>';
+        appendBotMsg('ai',reply,html);
     }
 }
 
@@ -912,10 +875,10 @@ function handleBotUserSubmit(e){
 
     if(low.includes('واتس')||low.includes('رسالة')||low.includes('تواصل')||low.includes('whatsapp')||low.includes('message')){
         botTriggerAction('wa');
-    }else if(low.includes('موقع')||low.includes('عنوان')||low.includes('مكان')||low.includes('خريطة')||low.includes('location')||low.includes('map')){
-        botTriggerAction('loc');
     }else if(low.includes('تذكير')||low.includes('موعد')||low.includes('تقويم')||low.includes('بكرة')||low.includes('calendar')||low.includes('remind')){
         botTriggerAction('cal');
+    }else if(low.includes('nfc')||low.includes('ابتكار')||low.includes('تيشيرت')||low.includes('ملابس')||low.includes('أزياء')||low.includes('namer')){
+        botTriggerAction('nfc');
     }else if(low.includes('حفظ')||low.includes('رقم')||low.includes('معرض')||low.includes('مقهى')||low.includes('اجتماع')||low.includes('save')||low.includes('contact')){
         const todayStr=new Date().toLocaleDateString('en-CA');
         const noteLine="التقينا في: "+q+" ("+todayStr+") - حي الديرة، الرياض";
@@ -924,10 +887,8 @@ function handleBotUserSubmit(e){
         link.href=url;link.setAttribute('download','Nabil_Alnamer.vcf');link.click();
         showToast(TRANSLATIONS[currentLang].toastVcf);
         appendBotMsg('ai',(currentLang==='ar')?"تم حفظ الرقم في جوالك وإضافة ملاحظة مكان اللقاء تلقائياً.":"Contact saved to your phone with your meeting note automatically.");
-    }else if(low.includes('nfc')||low.includes('ابتكار')||low.includes('تيشيرت')||low.includes('ملابس')||low.includes('namer')){
-        appendBotMsg('ai',(currentLang==='ar')?"الأستاذ نبيل النمر هو مبتكر تقنية دمج شرائح الـ NFC الذكية داخل الأزياء الرجالية في السعودية ومؤسس منظومة NAMER-IO، بحيث يفتح ملفك الرقمي بمجرد تقريب الجوال من القطعة بدون أي تطبيقات.":"Nabil Alnamer is the pioneer of NFC-integrated menswear in Saudi Arabia and founder of NAMER-IO, enabling instant digital identity sharing with a single tap.");
     }else{
-        appendBotMsg('ai',(currentLang==='ar')?"يسعدني خدمتك؛ يمكنك اختيار أحد الأزرار السريعة أعلاه لحفظ الرقم مع مكان لقائنا، أو إرسال رسالة واتساب جاهزة، أو إضافة تذكير للمتابعة.":"Happy to assist! Use the quick actions above to save contact with a meeting note, send a ready WhatsApp message, or set a follow-up reminder.");
+        appendBotMsg('ai',(currentLang==='ar')?"يسعدني خدمتك؛ يمكنك اختيار أحد الخيارات السريعة أعلاه لحفظ الرقم مع مكان لقائنا، أو مراسلة واتساب، أو معرفة تقنية NFC في الأزياء.":"Happy to assist! Pick any quick option above to save contact with a meeting note, message on WhatsApp, or explore NFC fashion tech.");
     }
 }
 
@@ -944,12 +905,6 @@ function downloadFollowUpReminder(){
     var blob=new Blob([icsContent],{type:'text/calendar;charset=utf-8'}),url=window.URL.createObjectURL(blob),link=document.createElement('a');
     link.href=url;link.setAttribute('download','FollowUp_Nabil_Alnamer.ics');link.click();
     showToast(TRANSLATIONS[currentLang].toastCal);
-}
-
-function copyLocationDetails(){
-    var locText=(currentLang==='ar')?("موقع أ. نبيل النمر - حي الديرة، الرياض:\n"+EZWA_CONFIG.mapUrl):("Nabil Alnamer Location - Al Deerah, Riyadh:\n"+EZWA_CONFIG.mapUrl);
-    navigator.clipboard.writeText(locText);
-    showToast(TRANSLATIONS[currentLang].toastLoc);
 }
 
 function openPinModal(e){triggerShockwave(e);document.getElementById('pinInput').value='';document.getElementById('pinErrorMsg').style.display='none';document.getElementById('pinModal').style.display='flex';setTimeout(()=>document.getElementById('pinInput').focus(),100);}
@@ -972,6 +927,10 @@ function openChoiceModal(type,e){
         titleElem.innerText=(currentLang==='ar')?"اختر الرقم للواتساب":"Select WhatsApp Number";
         var n1=EZWA_CONFIG.phone1.replace(/[^0-9]/g,''),n2=EZWA_CONFIG.phone2.replace(/[^0-9]/g,'');
         container.innerHTML='<a href="https://wa.me/'+n1+'?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()"><span>WhatsApp</span><span style="direction:ltr;color:var(--cyan-glow);">'+EZWA_CONFIG.phone1+'</span></a><a href="https://wa.me/'+n2+'?text=مرحباً أستاذ نبيل، أود التواصل معك" target="_blank" class="choice-btn" onclick="closeChoiceModal()"><span>WhatsApp</span><span style="direction:ltr;color:var(--gold-primary);">'+EZWA_CONFIG.phone2+'</span></a>';
+    }else if(type==='social'){
+        titleElem.innerText=(currentLang==='ar')?"التواصل الاجتماعي":"Social Channels";
+        container.innerHTML='<a href="https://x.com/'+EZWA_CONFIG.x+'" target="_blank" class="choice-btn" onclick="closeChoiceModal()"><span>𝕏 '+((currentLang==='ar')?"منصة X (تويتر)":"X Platform")+'</span><span style="direction:ltr;color:var(--cyan-glow);">@'+EZWA_CONFIG.x+'</span></a>'+
+                            '<a href="https://www.snapchat.com/add/'+EZWA_CONFIG.snapchat+'" target="_blank" class="choice-btn" onclick="closeChoiceModal()"><span>👻 '+((currentLang==='ar')?"سناب شات":"Snapchat")+'</span><span style="direction:ltr;color:var(--gold-primary);">@'+EZWA_CONFIG.snapchat+'</span></a>';
     }
     modal.style.display='flex';
 }
@@ -1004,7 +963,6 @@ function openCustomizeModal(){
     document.getElementById('inputPhone1').value=EZWA_CONFIG.phone1;
     document.getElementById('inputPhone2').value=EZWA_CONFIG.phone2;
     document.getElementById('inputSnap').value=EZWA_CONFIG.snapchat;
-    document.getElementById('inputInsta').value=EZWA_CONFIG.instagram;
     document.getElementById('inputX').value=EZWA_CONFIG.x;
     document.getElementById('inputEmail').value=EZWA_CONFIG.email;
     document.getElementById('inputMap').value=EZWA_CONFIG.mapUrl;
@@ -1020,11 +978,10 @@ function saveCustomData(){
     EZWA_CONFIG.phone1=document.getElementById('inputPhone1').value;
     EZWA_CONFIG.phone2=document.getElementById('inputPhone2').value;
     EZWA_CONFIG.snapchat=document.getElementById('inputSnap').value;
-    EZWA_CONFIG.instagram=document.getElementById('inputInsta').value;
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v7',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v8',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
