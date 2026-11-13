@@ -10,6 +10,12 @@
 <meta property="og:image" content="logo1.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#020611">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Nabil Alnamer">
+<link rel="apple-touch-icon" href="logo1.png">
+<link rel="icon" type="image/png" href="logo1.png">
+<link id="pwa-manifest" rel="manifest">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Orbitron:wght@500;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 @property --border-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
@@ -18,7 +24,7 @@
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
 body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=5');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=6');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 .water-ripple-ring{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0.1);border:1.5px solid rgba(0,243,255,0.85);box-shadow:0 0 10px rgba(0,243,255,0.4);z-index:9999;animation:waterRippleExpand 1.1s cubic-bezier(0.16,1,0.3,1) forwards;}
 .water-ripple-ring.gold-ring{border-color:rgba(223,177,91,0.85);}
@@ -29,9 +35,12 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .card-inner-mask{position:absolute;inset:2px;border-radius:34px;background:linear-gradient(170deg,rgba(6,12,24,0.78) 0%,rgba(3,7,15,0.86) 100%);background-image:radial-gradient(rgba(0,243,255,0.12) 1px,transparent 1px),linear-gradient(to right,rgba(223,177,91,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(223,177,91,0.03) 1px,transparent 1px);background-size:22px 22px,44px 44px,44px 44px;pointer-events:none!important;z-index:2;}
 .card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:8px;width:100%;}
 .top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px 4px;border-bottom:1px solid rgba(223,177,91,0.2);direction:ltr;}
-.portal-tag{font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--cyan-glow);display:flex;align-items:center;gap:5px;}
+.portal-tag{font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.4px;color:var(--cyan-glow);display:flex;align-items:center;gap:5px;}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;animation:pingDot 1.8s infinite;}
 @keyframes pingDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
+.top-controls-group{display:flex;align-items:center;gap:6px;}
+.radar-trigger-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(223,177,91,0.55);color:var(--gold-light);padding:3px 9px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.25s ease;display:flex;align-items:center;gap:4px;}
+.radar-trigger-btn:hover{border-color:var(--cyan-glow);color:var(--cyan-glow);}
 .lang-switch-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(0,243,255,0.4);color:var(--cyan-glow);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.25s ease;display:flex;align-items:center;gap:4px;}
 .lang-switch-btn:hover{background:rgba(0,243,255,0.15);color:#ffffff;border-color:var(--gold-primary);}
 .card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:66px;margin-top:2px;}
@@ -60,13 +69,10 @@ html[dir="ltr"] .brand-slogan{font-size:8.5px;letter-spacing:0.4px;line-height:1
 .slogan-explore-hint{display:block;font-size:8px;color:var(--cyan-glow);margin-top:3px;font-weight:700;letter-spacing:0.4px;}
 html[dir="ltr"] .slogan-explore-hint{font-size:7.5px;letter-spacing:0.6px;}
 .card-body{display:flex;flex-direction:column;gap:7px;justify-content:flex-start;}
-
-/* تبويب منصة NAMER-IO الرئيسي المميز */
 .namer-portal-pill{width:100%;height:52px;background:linear-gradient(135deg,rgba(0,243,255,0.16) 0%,rgba(10,20,38,0.9) 50%,rgba(223,177,91,0.2) 100%);border:1.5px solid rgba(0,243,255,0.65);border-radius:26px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:#ffffff;transition:all 0.25s ease;cursor:pointer;box-shadow:0 4px 18px rgba(0,243,255,0.14);}
 .namer-portal-pill:hover{border-color:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,243,255,0.26);}
 .namer-pill-sub{display:block;font-size:9px;color:#7dd3fc;font-weight:600;margin-top:1px;direction:ltr;}
 html[dir="ltr"] .namer-pill-sub{font-size:7.5px;}
-
 .action-pill-btn{width:100%;height:48px;background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.28);border-radius:24px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-pill-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .btn-side-group{display:flex;align-items:center;gap:12px;}
@@ -84,17 +90,23 @@ html[dir="ltr"] .social-name{font-size:8.5px;letter-spacing:0.4px;}
 .social-handle{font-size:8px;color:#7dd3fc;text-align:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;}
 html[dir="ltr"] .social-handle{font-size:7px;}
 .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%;}
-.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;}
+.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-box-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .box-content-side{display:flex;align-items:center;gap:7px;overflow:hidden;}
 .box-icon{width:28px;height:28px;border-radius:50%;background:rgba(223,177,91,0.12);border:1.2px solid rgba(0,243,255,0.5);display:flex;align-items:center;justify-content:center;color:var(--gold-primary);flex-shrink:0;}
 .box-titles{display:flex;flex-direction:column;text-align:inherit;overflow:hidden;}
 .box-title{font-size:11px;font-weight:700;color:#fff;white-space:nowrap;}
-html[dir="ltr"] .box-title{font-size:9px;letter-spacing:0.4px;}
+html[dir="ltr"] .box-title{font-size:8.5px;letter-spacing:0.3px;}
 .box-subtitle{font-size:8px;color:#93c5fd;margin-top:1px;direction:ltr;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-html[dir="ltr"] .box-subtitle{font-size:7px;}
+html[dir="ltr"] .box-subtitle{font-size:6.8px;}
 .box-arrow{font-size:11px;color:var(--cyan-glow);}
 html[dir="ltr"] .box-arrow{transform:rotate(180deg);}
+
+/* زر تبادل البيانات السريع (اترك لي بياناتك) */
+.exchange-pill-btn{width:100%;height:44px;background:rgba(10,22,42,0.85);border:1px dashed rgba(0,243,255,0.55);border-radius:22px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;color:#cffafe;transition:all 0.25s ease;cursor:pointer;}
+.exchange-pill-btn:hover{background:rgba(0,243,255,0.12);border-style:solid;border-color:var(--cyan-glow);transform:translateY(-2px);}
+html[dir="ltr"] #tExchange{font-size:9px!important;letter-spacing:0.4px;}
+
 .wallet-pill-btn{width:100%;height:45px;background:linear-gradient(90deg,rgba(0,243,255,0.14),rgba(223,177,91,0.18));border:1.2px solid rgba(223,177,91,0.65);border-radius:23px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .wallet-pill-btn:hover{background:linear-gradient(90deg,rgba(0,243,255,0.24),rgba(223,177,91,0.28));border-color:var(--cyan-glow);transform:translateY(-2px);}
 html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
@@ -108,16 +120,18 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .nfc-indicator{display:flex;align-items:center;gap:3px;margin-top:3px;}
 .nfc-icon{font-size:7.5px;color:var(--cyan-glow);}
 .nfc-text{font-family:'Orbitron',sans-serif;font-size:6.5px;font-weight:700;color:var(--gold-primary);letter-spacing:0.8px;}
-.modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.85);backdrop-filter:blur(10px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+
+/* النوافذ المنبثقة */
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.88);backdrop-filter:blur(12px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
 .modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:400px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;border-bottom:1px solid rgba(0,243,255,0.2);padding-bottom:12px;}
 .modal-title{font-size:16px;font-weight:800;color:var(--gold-primary);}
-html[dir="ltr"] .modal-title{font-size:13px;letter-spacing:0.5px;}
+html[dir="ltr"] .modal-title{font-size:12.5px;letter-spacing:0.5px;}
 .modal-close{background:rgba(255,255,255,0.06);border:none;color:#fff;width:28px;height:28px;border-radius:8px;font-size:18px;cursor:pointer;}
 .innovation-body{display:flex;flex-direction:column;gap:14px;text-align:center;}
 .innovation-badge{width:56px;height:56px;border-radius:50%;background:rgba(0,243,255,0.12);border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;margin:0 auto;color:var(--gold-primary);font-size:22px;}
 .innovation-text{font-size:12.5px;color:#e2e8f0;line-height:1.7;}
-html[dir="ltr"] .innovation-text{font-size:10.5px;line-height:1.75;}
+html[dir="ltr"] .innovation-text{font-size:10px;line-height:1.75;}
 .innovation-steps{background:rgba(13,25,48,0.8);border-radius:16px;border:1px solid rgba(223,177,91,0.35);padding:12px 14px;display:flex;flex-direction:column;gap:8px;text-align:start;}
 .step-item{display:flex;align-items:center;gap:10px;font-size:11.5px;color:#cffafe;}
 html[dir="ltr"] .step-item{font-size:9.5px;}
@@ -125,12 +139,26 @@ html[dir="ltr"] .step-item{font-size:9.5px;}
 .choice-btn{width:100%;background:rgba(13,25,48,0.9);border:1px solid rgba(0,243,255,0.35);color:#fff;padding:14px 18px;border-radius:14px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;font-size:14px;font-weight:700;transition:all 0.25s ease;}
 html[dir="ltr"] .choice-btn{font-size:11px;}
 .choice-btn:hover{background:rgba(0,243,255,0.15);border-color:var(--gold-primary);}
-.form-group{margin-bottom:12px;}
+.form-group{margin-bottom:12px;text-align:start;}
 .form-group label{display:block;font-size:11.5px;color:#93c5fd;margin-bottom:5px;}
-.form-group input{width:100%;background:#0b162c;border:1px solid rgba(0,243,255,0.3);border-radius:10px;padding:10px 14px;color:#fff;font-size:13px;direction:ltr;text-align:right;}
+html[dir="ltr"] .form-group label{font-size:9.5px;}
+.form-group input{width:100%;background:#0b162c;border:1px solid rgba(0,243,255,0.3);border-radius:10px;padding:10px 14px;color:#fff;font-size:13px;}
+.form-group input.ltr-input{direction:ltr;text-align:right;}
+html[dir="ltr"] .form-group input.ltr-input{text-align:left;}
 .pin-input-field{text-align:center!important;font-family:'Orbitron',sans-serif!important;font-size:20px!important;letter-spacing:8px;border-color:var(--gold-primary)!important;}
 .pin-error-msg{color:#f87171;font-size:11.5px;font-weight:700;margin-top:8px;display:none;}
 .modal-save-btn{width:100%;background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;font-weight:800;border:none;border-radius:12px;padding:12px;cursor:pointer;margin-top:10px;font-size:14px;}
+html[dir="ltr"] .modal-save-btn{font-size:11.5px;}
+
+/* رادار البث الحي للـ NFC */
+.nfc-radar-stage{position:relative;width:180px;height:180px;margin:10px auto;display:flex;align-items:center;justify-content:center;}
+.radar-ring{position:absolute;border-radius:50%;border:1.5px solid var(--cyan-glow);animation:radarPulse 2.6s ease-out infinite;}
+.radar-ring:nth-child(1){width:70px;height:70px;animation-delay:0s;}
+.radar-ring:nth-child(2){width:120px;height:120px;animation-delay:0.8s;border-color:var(--gold-primary);}
+.radar-ring:nth-child(3){width:175px;height:175px;animation-delay:1.6s;}
+@keyframes radarPulse{0%{transform:scale(0.6);opacity:0.95;}100%{transform:scale(1.25);opacity:0;}}
+.radar-core{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#081428,#020611);border:2px solid var(--gold-primary);display:flex;align-items:center;justify-content:center;font-size:26px;z-index:2;box-shadow:0 0 25px rgba(0,243,255,0.4);}
+
 .toast-notification{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:12px 24px;border-radius:30px;font-size:12.5px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
 html[dir="ltr"] .toast-notification{font-size:10.5px;}
 .toast-notification.show{transform:translateX(-50%) translateY(0);}
@@ -151,10 +179,16 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <span class="pulse-dot"></span>
                 <span>NAMER-IO // NFC ID</span>
             </div>
-            <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
-                <span>🌐</span>
-                <span id="langText">EN</span>
-            </button>
+            <div class="top-controls-group">
+                <button type="button" class="radar-trigger-btn" onclick="openRadarModal()" title="وضع البث الحي للـ NFC">
+                    <span>📡</span>
+                    <span>NFC LIVE</span>
+                </button>
+                <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
+                    <span>🌐</span>
+                    <span id="langText">EN</span>
+                </button>
+            </div>
         </div>
 
         <div class="card-header">
@@ -180,7 +214,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 
         <div class="card-body">
             <!-- تبويب منصة NAMER-IO الرئيسي -->
-            <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" class="namer-portal-pill">
+            <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerHaptic()" class="namer-portal-pill">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="background:rgba(0,243,255,0.18);border-color:var(--cyan-glow);">
                         <span class="font-tech" style="font-size:14px;font-weight:900;color:var(--gold-light);">N</span>
@@ -214,19 +248,19 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
 
             <div class="social-grid-3">
-                <a href="#" class="social-item-col" id="linkX" target="_blank">
+                <a href="#" class="social-item-col" id="linkX" target="_blank" onclick="triggerHaptic()">
                     <div class="social-icon-box">𝕏</div>
                     <span class="social-name" id="tX">منصة X</span>
                     <span class="social-handle" id="uiX">nabilalnamer</span>
                 </a>
-                <a href="#" class="social-item-col" id="linkInsta" target="_blank">
+                <a href="#" class="social-item-col" id="linkInsta" target="_blank" onclick="triggerHaptic()">
                     <div class="social-icon-box">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </div>
                     <span class="social-name" id="tInsta">إنستغرام</span>
                     <span class="social-handle" id="uiInsta">alnamer.nabeel</span>
                 </a>
-                <a href="#" class="social-item-col" id="linkSnap" target="_blank">
+                <a href="#" class="social-item-col" id="linkSnap" target="_blank" onclick="triggerHaptic()">
                     <div class="social-icon-box">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.69 2 6 4.69 6 8c0 .24.01.48.04.71C5.17 9.07 4 10.37 4 12c0 1.25.7 2.33 1.73 2.76-.08.31-.13.63-.13.96 0 1.94 1.45 3.53 3.33 3.73.4.74 1.14 1.34 2.07 1.55.33.07.67.1.99.1.33 0 .66-.03.99-.1.93-.21 1.67-.81 2.07-1.55 1.88-.2 3.33-1.79 3.33-3.73 0-.33-.05-.65-.13-.96C19.3 14.33 20 13.25 20 12c0-1.63-1.17-2.93-2.04-3.29.03-.23.04-.47.04-.71 0-3.31-2.69-6-6-6zm0 1.8c2.32 0 4.2 1.88 4.2 4.2 0 .39-.06.77-.16 1.13-.12.44.11.9.52 1.05.69.25 1.44 1.05 1.44 1.82 0 .71-.58 1.35-1.29 1.47-.46.08-.79.47-.79.93.05.27.08.54.08.8 0 1.22-.99 2.2-2.2 2.2-.42 0-.82-.12-1.16-.33-.37-.23-.84-.23-1.22 0-.35.21-.74.33-1.16.33-1.22 0-2.2-.99-2.2-2.2 0-.26.03-.53.08-.8 0-.46-.33-.85-.79-.93-.71-.12-1.29-.76-1.29-1.47 0-.77.75-1.57 1.44-1.82.41-.15.64-.61.52-1.05-.1-.36-.16-.74-.16-1.13 0-2.32 1.88-4.2 4.2-4.2z"/></svg>
                     </div>
@@ -283,6 +317,15 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 </a>
             </div>
 
+            <!-- زر تبادل البيانات السريع (اترك لي بياناتك) -->
+            <div class="exchange-pill-btn" onclick="openExchangeModal()">
+                <div class="btn-side-group">
+                    <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;border-color:var(--cyan-glow);">🤝</div>
+                    <span class="btn-title" id="tExchange" style="font-size:12px;color:var(--cyan-glow);">اترك لي بياناتك للتواصل المباشر</span>
+                </div>
+                <div class="btn-arrow" style="width:22px;height:22px;">‹</div>
+            </div>
+
             <div class="wallet-pill-btn" onclick="openWalletModal()">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;">💳</div>
@@ -302,6 +345,51 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="nfc-indicator"><span class="nfc-icon">◈</span><span class="nfc-text">NFC VERIFIED</span></div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- نافذة تبادل البيانات السريع (اترك لي بياناتك) -->
+<div class="modal-overlay" id="exchangeModal" onclick="closeExchangeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h3 class="modal-title" id="exchModalTitle">تبادل البيانات السريع</h3>
+            <button class="modal-close" onclick="closeExchangeModal()">×</button>
+        </div>
+        <p class="innovation-text" id="exchModalDesc" style="margin-bottom:14px;text-align:start;">أدخل بياناتك لإرسالها مباشرة إلى واتساب أ. نبيل النمر وحفظ التواصل بيننا:</p>
+        <form onsubmit="sendVisitorContact(event)">
+            <div class="form-group">
+                <label id="exchNameLabel">الاسم الكريم:</label>
+                <input type="text" id="visitorName" required placeholder="مثال: عبدالله العتيبي">
+            </div>
+            <div class="form-group">
+                <label id="exchPhoneLabel">رقم الجوال:</label>
+                <input type="tel" id="visitorPhone" class="ltr-input" required placeholder="05XXXXXXXX">
+            </div>
+            <div class="form-group">
+                <label id="exchFieldLabel">الجهة / مجال العمل (اختياري):</label>
+                <input type="text" id="visitorField" placeholder="مثال: علامة أزياء / مستثمر / جهة سياحية">
+            </div>
+            <button type="submit" class="modal-save-btn" id="exchSubmitBtn">إرسال بياناتي عبر واتساب ↗</button>
+        </form>
+    </div>
+</div>
+
+<!-- نافذة رادار البث الحي للـ NFC -->
+<div class="modal-overlay" id="radarModal" onclick="closeRadarModal()">
+    <div class="modal-content" style="text-align:center;" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h3 class="modal-title" id="radarModalTitle">وضع البث الحي (NFC RADAR)</h3>
+            <button class="modal-close" onclick="closeRadarModal()">×</button>
+        </div>
+        <div class="nfc-radar-stage">
+            <div class="radar-ring"></div>
+            <div class="radar-ring"></div>
+            <div class="radar-ring"></div>
+            <div class="radar-core">📡</div>
+        </div>
+        <p dir="ltr" class="font-tech" style="color:var(--cyan-glow);font-size:12px;font-weight:900;letter-spacing:2px;margin-bottom:6px;">READY TO TAP // 13.56 MHz</p>
+        <p class="innovation-text" id="radarModalDesc">قرّب الهاتف من شريحة NFC المدمجة في نسيج القطعة أو البطاقة لنقل الهوية الرقمية فوراً.</p>
+        <button class="modal-save-btn" onclick="closeRadarModal()" id="radarCloseBtn">إغلاق الرادار</button>
     </div>
 </div>
 
@@ -354,7 +442,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
         </div>
         <div class="innovation-body">
             <div class="innovation-badge"></div>
-            <p class="innovation-text" id="walletModalDesc">احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت.</p>
+            <p class="innovation-text" id="walletModalDesc">احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، أو أضفها للشاشة الرئيسية كتطبيق مستقل.</p>
             <a href="#" class="choice-btn" onclick="downloadVCard(event);closeWalletModal();">
                 <span>🍏 حفظ كبطاقة اتصال في آبل وجوجل</span>
                 <span style="color:var(--cyan-glow);">vCard</span>
@@ -388,14 +476,14 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
         <div class="form-group"><label>الاسم (عربي):</label><input type="text" id="inputBrandAr" value="نبيل النمر"></div>
         <div class="form-group"><label>المسمى الوظيفي:</label><input type="text" id="inputRole" value="اختصاصي تسويق"></div>
         <div class="form-group"><label>العبارة الفاصلة:</label><input type="text" id="inputSlogan" value="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-IO"></div>
-        <div class="form-group"><label>رابط منصة NAMER-IO:</label><input type="text" id="inputNamerUrl" value="https://namer-io.github.io"></div>
-        <div class="form-group"><label>الرقم الأول:</label><input type="text" id="inputPhone1" value="+966 50 277 7884"></div>
-        <div class="form-group"><label>الرقم الثاني:</label><input type="text" id="inputPhone2" value="+966 56 056 4719"></div>
-        <div class="form-group"><label>سناب شات:</label><input type="text" id="inputSnap" value="nabilalnamer"></div>
-        <div class="form-group"><label>إنستغرام:</label><input type="text" id="inputInsta" value="alnamer.nabeel"></div>
-        <div class="form-group"><label>منصة X:</label><input type="text" id="inputX" value="nabilalnamer"></div>
-        <div class="form-group"><label>البريد الإلكتروني:</label><input type="email" id="inputEmail" value="Ibn.alnamer@gmail.com"></div>
-        <div class="form-group"><label>رابط الخريطة:</label><input type="text" id="inputMap" value="https://www.google.com/maps/dir/?api=1&destination=24.6356470116456%2C46.716702606949"></div>
+        <div class="form-group"><label>رابط منصة NAMER-IO:</label><input type="text" id="inputNamerUrl" class="ltr-input" value="https://namer-io.github.io"></div>
+        <div class="form-group"><label>الرقم الأول:</label><input type="text" id="inputPhone1" class="ltr-input" value="+966 50 277 7884"></div>
+        <div class="form-group"><label>الرقم الثاني:</label><input type="text" id="inputPhone2" class="ltr-input" value="+966 56 056 4719"></div>
+        <div class="form-group"><label>سناب شات:</label><input type="text" id="inputSnap" class="ltr-input" value="nabilalnamer"></div>
+        <div class="form-group"><label>إنستغرام:</label><input type="text" id="inputInsta" class="ltr-input" value="alnamer.nabeel"></div>
+        <div class="form-group"><label>منصة X:</label><input type="text" id="inputX" class="ltr-input" value="nabilalnamer"></div>
+        <div class="form-group"><label>البريد الإلكتروني:</label><input type="email" id="inputEmail" class="ltr-input" value="Ibn.alnamer@gmail.com"></div>
+        <div class="form-group"><label>رابط الخريطة:</label><input type="text" id="inputMap" class="ltr-input" value="https://www.google.com/maps/dir/?api=1&destination=24.6356470116456%2C46.716702606949"></div>
         <button class="modal-save-btn" onclick="saveCustomData()">حفظ التعديلات</button>
     </div>
 </div>
@@ -416,6 +504,29 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
+/* تسجيل Web App Manifest لتثبيت البطاقة كتطبيق مستقل على الشاشة الرئيسية */
+(function initPwaManifest(){
+    try{
+        const base=window.location.href.substring(0,window.location.href.lastIndexOf('/')+1);
+        const manifest={
+            name:"نبيل النمر | NAMER-IO",
+            short_name:"Nabil Alnamer",
+            start_url:window.location.href,
+            display:"standalone",
+            background_color:"#020611",
+            theme_color:"#020611",
+            icons:[{src:base+"logo1.png",sizes:"512x512",type:"image/png"}]
+        };
+        const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+        document.getElementById('pwa-manifest').href=URL.createObjectURL(blob);
+    }catch(e){}
+})();
+
+/* الاهتزاز التفاعلي الحسي (Haptic Feedback) */
+function triggerHaptic(){
+    if(navigator.vibrate){try{navigator.vibrate(18);}catch(e){}}
+}
+
 var currentLang='ar';
 var ADMIN_PIN="7884";
 var DEFAULT_CONFIG={
@@ -436,11 +547,11 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v2');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v3');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
-    ar:{langBtn:"EN",sloganHint:"◈ اضغط لاستكشاف تقنية التراث الرقمي ◈",namerPortal:"منصة NAMER-IO الرقمية",call:"إتصال مباشر",whatsapp:"واتساب",x:"منصة X",insta:"إنستغرام",snap:"سناب شات",email:"البريد الإلكتروني",map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",pinTitle:"حماية الإعدادات",pinDesc:"أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",pinBtn:"فتح التخصيص",pinError:"الرقم السري غير صحيح، حاول مرة أخرى",toastSaved:"تم تحديث البيانات وحفظها بنجاح",toastCopied:"تم نسخ الرابط إلى الحافظة",toastVcf:"تم تحميل vCard بنجاح",toastNfc:"تم الاتصال بنجاح عبر تقنية NFC ◈",innoTitle:"ابتكار الأزياء التفاعلية",innoDesc:"أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-IO، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",innoStep1:"مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت",innoStep2:"تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",innoStep3:"مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",walletTitle:"المحفظة الرقمية",walletDesc:"احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، حتى في وضع عدم الاتصال بالإنترنت."},
-    en:{langBtn:"عربي",sloganHint:"◈ Tap to Explore Digital Heritage Tech ◈",namerPortal:"NAMER-IO Digital Portal",call:"Direct Call",whatsapp:"WhatsApp",x:"X Platform",insta:"Instagram",snap:"Snapchat",email:"Email Address",map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",pinTitle:"Security Lock",pinDesc:"Enter owner PIN to unlock card customization:",pinBtn:"Unlock Settings",pinError:"Incorrect PIN, please try again",toastSaved:"Settings saved successfully",toastCopied:"Link copied to clipboard",toastVcf:"Contact file downloaded",toastNfc:"Connected successfully via NFC ◈",innoTitle:"NFC Fashion Innovation",innoDesc:"The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric under NAMER-IO, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",innoStep1:"Tap the top of your phone near the Sadu garment emblem",innoStep2:"Instant launch of your digital card without any app",innoStep3:"Fully waterproof, wash-proof, and premium streetwear grade",walletTitle:"Digital Wallet",walletDesc:"Save Nabil Alnamer's digital profile directly to your phone contacts & wallet to keep it accessible anytime, even offline."}
+    ar:{langBtn:"EN",sloganHint:"◈ اضغط لاستكشاف تقنية التراث الرقمي ◈",namerPortal:"منصة NAMER-IO الرقمية",call:"إتصال مباشر",whatsapp:"واتساب",x:"منصة X",insta:"إنستغرام",snap:"سناب شات",email:"البريد الإلكتروني",map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",exchange:"اترك لي بياناتك للتواصل المباشر",wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",exchTitle:"تبادل البيانات السريع",exchDesc:"أدخل بياناتك لإرسالها مباشرة إلى واتساب أ. نبيل النمر وحفظ التواصل بيننا:",exchName:"الاسم الكريم:",exchPhone:"رقم الجوال:",exchField:"الجهة / مجال العمل (اختياري):",exchBtn:"إرسال بياناتي عبر واتساب ↗",radarTitle:"وضع البث الحي (NFC RADAR)",radarDesc:"قرّب الهاتف من شريحة NFC المدمجة في نسيج القطعة أو البطاقة لنقل الهوية الرقمية فوراً.",radarClose:"إغلاق الرادار",pinTitle:"حماية الإعدادات",pinDesc:"أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",pinBtn:"فتح التخصيص",pinError:"الرقم السري غير صحيح، حاول مرة أخرى",toastSaved:"تم تحديث البيانات وحفظها بنجاح",toastCopied:"تم نسخ الرابط إلى الحافظة",toastVcf:"تم تحميل vCard بنجاح",toastNfc:"تم الاتصال بنجاح عبر تقنية NFC ◈",innoTitle:"ابتكار الأزياء التفاعلية",innoDesc:"أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-IO، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",innoStep1:"مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت",innoStep2:"تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",innoStep3:"مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",walletTitle:"المحفظة الرقمية",walletDesc:"احفظ بطاقة نبيل النمر الرقمية على هاتفك لتكون معك دائماً في جهات الاتصال والمحفظة، أو أضفها للشاشة الرئيسية كتطبيق مستقل."},
+    en:{langBtn:"عربي",sloganHint:"◈ Tap to Explore Digital Heritage Tech ◈",namerPortal:"NAMER-IO Digital Portal",call:"Direct Call",whatsapp:"WhatsApp",x:"X Platform",insta:"Instagram",snap:"Snapchat",email:"Email Address",map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",exchange:"Leave Your Contact Info",wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",exchTitle:"Two-Way Contact Exchange",exchDesc:"Enter your details to send directly to Nabil Alnamer on WhatsApp:",exchName:"Full Name:",exchPhone:"Mobile Number:",exchField:"Company / Industry (Optional):",exchBtn:"Send via WhatsApp ↗",radarTitle:"Live NFC Broadcast Mode",radarDesc:"Tap your phone near the embedded NFC fabric tag or smart card for instant transfer.",radarClose:"Close Radar",pinTitle:"Security Lock",pinDesc:"Enter owner PIN to unlock card customization:",pinBtn:"Unlock Settings",pinError:"Incorrect PIN, please try again",toastSaved:"Settings saved successfully",toastCopied:"Link copied to clipboard",toastVcf:"Contact file downloaded",toastNfc:"Connected successfully via NFC ◈",innoTitle:"NFC Fashion Innovation",innoDesc:"The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric under NAMER-IO, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",innoStep1:"Tap the top of your phone near the Sadu garment emblem",innoStep2:"Instant launch of your digital card without any app",innoStep3:"Fully waterproof, wash-proof, and premium streetwear grade",walletTitle:"Digital Wallet",walletDesc:"Save Nabil Alnamer's digital profile directly to your phone contacts & wallet, or add to Home Screen as a standalone app."}
 };
 
 function spawnWaterRipple(x,y){for(let i=0;i<2;i++){setTimeout(()=>{const r=document.createElement('div');r.className='water-ripple-ring'+(i===1?' gold-ring':'');r.style.left=x+'px';r.style.top=y+'px';document.body.appendChild(r);setTimeout(()=>r.remove(),1150);},i*120);}}
@@ -453,7 +564,7 @@ for(let i=0;i<30;i++)particles.push({x:Math.random()*canvas.width,y:Math.random(
 function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.gold?'rgba(223,177,91,0.65)':'rgba(0,243,255,0.55)';ctx.fill();for(let j=i+1;j<particles.length;j++){const p2=particles[j],d=Math.hypot(p.x-p2.x,p.y-p2.y);if(d<95){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p2.x,p2.y);ctx.strokeStyle=`rgba(0,243,255,${0.1*(1-d/95)})`;ctx.lineWidth=0.5;ctx.stroke();}}});requestAnimationFrame(animateParticles);}
 animateParticles();
 
-function toggleLanguage(){currentLang=(currentLang==='ar')?'en':'ar';document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');document.documentElement.setAttribute('lang',currentLang);updateUI();}
+function toggleLanguage(){triggerHaptic();currentLang=(currentLang==='ar')?'en':'ar';document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');document.documentElement.setAttribute('lang',currentLang);updateUI();}
 function formatSloganWithHighlight(text){return text.replace(/NAMER-IO/gi,'<span class="namer-highlight">NAMER-IO</span>');}
 
 function updateUI(){
@@ -476,8 +587,18 @@ function updateUI(){
     document.getElementById('tMapSub').innerText=t.mapSub;
     document.getElementById('tShare').innerText=t.share;
     document.getElementById('tContact').innerText=t.contact;
+    document.getElementById('tExchange').innerText=t.exchange;
     document.getElementById('tWallet').innerText=t.wallet;
     document.getElementById('tCustomize').innerText=t.customize;
+    document.getElementById('exchModalTitle').innerText=t.exchTitle;
+    document.getElementById('exchModalDesc').innerText=t.exchDesc;
+    document.getElementById('exchNameLabel').innerText=t.exchName;
+    document.getElementById('exchPhoneLabel').innerText=t.exchPhone;
+    document.getElementById('exchFieldLabel').innerText=t.exchField;
+    document.getElementById('exchSubmitBtn').innerText=t.exchBtn;
+    document.getElementById('radarModalTitle').innerText=t.radarTitle;
+    document.getElementById('radarModalDesc').innerText=t.radarDesc;
+    document.getElementById('radarCloseBtn').innerText=t.radarClose;
     document.getElementById('pinModalTitle').innerText=t.pinTitle;
     document.getElementById('pinModalDesc').innerText=t.pinDesc;
     document.getElementById('pinSubmitBtn').innerText=t.pinBtn;
@@ -502,19 +623,38 @@ function updateUI(){
 }
 
 const audio=document.getElementById('nabilAudio'),speakerIcon=document.getElementById('speaker-icon'),voiceText=document.getElementById('voice-text'),voiceBtn=document.getElementById('voiceBtn');
-function toggleAudio(){if(audio.paused){audio.play().then(()=>{speakerIcon.textContent="⏸️";voiceText.textContent=(currentLang==='ar')?"إيقاف الصوت":"Pause";voiceBtn.classList.add('playing');}).catch(()=>{showToast((currentLang==='ar')?"تأكد من وجود ملف الصوت nabil-voice.mp3":"Audio file nabil-voice.mp3 not found");});}else{audio.pause();audioEnded();}}
+function toggleAudio(){triggerHaptic();if(audio.paused){audio.play().then(()=>{speakerIcon.textContent="⏸️";voiceText.textContent=(currentLang==='ar')?"إيقاف الصوت":"Pause";voiceBtn.classList.add('playing');}).catch(()=>{showToast((currentLang==='ar')?"تأكد من وجود ملف الصوت nabil-voice.mp3":"Audio file nabil-voice.mp3 not found");});}else{audio.pause();audioEnded();}}
 function audioEnded(){speakerIcon.textContent="▶️";voiceText.textContent=(currentLang==='ar')?"رسالة ترحيبية":"Welcome Voice";voiceBtn.classList.remove('playing');}
 
-function openPinModal(){document.getElementById('pinInput').value='';document.getElementById('pinErrorMsg').style.display='none';document.getElementById('pinModal').style.display='flex';setTimeout(()=>document.getElementById('pinInput').focus(),100);}
-function closePinModal(){document.getElementById('pinModal').style.display='none';}
-function verifyPin(e){e.preventDefault();if(document.getElementById('pinInput').value.trim()===ADMIN_PIN){closePinModal();openCustomizeModal();}else{document.getElementById('pinErrorMsg').style.display='block';document.getElementById('pinInput').value='';document.getElementById('pinInput').focus();}}
+/* تبادل البيانات السريع عبر واتساب */
+function openExchangeModal(){triggerHaptic();document.getElementById('exchangeModal').style.display='flex';}
+function closeExchangeModal(){document.getElementById('exchangeModal').style.display='none';}
+function sendVisitorContact(e){
+    e.preventDefault();triggerHaptic();
+    var vName=document.getElementById('visitorName').value.trim();
+    var vPhone=document.getElementById('visitorPhone').value.trim();
+    var vField=document.getElementById('visitorField').value.trim();
+    var msg="مرحباً أستاذ نبيل، تشرفت بالاطلاع على بطاقتك الرقمية NAMER-IO، وهذه بياناتي للتواصل:\n• الاسم: "+vName+"\n• الجوال: "+vPhone+(vField?"\n• المجال/الجهة: "+vField:"");
+    var waNum=EZWA_CONFIG.phone1.replace(/[^0-9]/g,'');
+    window.open("https://wa.me/"+waNum+"?text="+encodeURIComponent(msg),'_blank');
+    closeExchangeModal();
+}
 
-function openInnovationModal(){document.getElementById('innovationModal').style.display='flex';}
+/* وضع البث الحي للـ NFC */
+function openRadarModal(){triggerHaptic();document.getElementById('radarModal').style.display='flex';}
+function closeRadarModal(){document.getElementById('radarModal').style.display='none';}
+
+function openPinModal(){triggerHaptic();document.getElementById('pinInput').value='';document.getElementById('pinErrorMsg').style.display='none';document.getElementById('pinModal').style.display='flex';setTimeout(()=>document.getElementById('pinInput').focus(),100);}
+function closePinModal(){document.getElementById('pinModal').style.display='none';}
+function verifyPin(e){e.preventDefault();triggerHaptic();if(document.getElementById('pinInput').value.trim()===ADMIN_PIN){closePinModal();openCustomizeModal();}else{document.getElementById('pinErrorMsg').style.display='block';document.getElementById('pinInput').value='';document.getElementById('pinInput').focus();}}
+
+function openInnovationModal(){triggerHaptic();document.getElementById('innovationModal').style.display='flex';}
 function closeInnovationModal(){document.getElementById('innovationModal').style.display='none';}
-function openWalletModal(){document.getElementById('walletModal').style.display='flex';}
+function openWalletModal(){triggerHaptic();document.getElementById('walletModal').style.display='flex';}
 function closeWalletModal(){document.getElementById('walletModal').style.display='none';}
 
 function openChoiceModal(type){
+    triggerHaptic();
     var modal=document.getElementById('choiceModal'),titleElem=document.getElementById('choiceModalTitle'),container=document.getElementById('choiceButtonsContainer');
     container.innerHTML="";
     if(type==='call'){
@@ -528,11 +668,11 @@ function openChoiceModal(type){
     modal.style.display='flex';
 }
 function closeChoiceModal(){document.getElementById('choiceModal').style.display='none';}
-function handleMap(e){e.preventDefault();window.open(EZWA_CONFIG.mapUrl,'_blank');}
-function handleEmail(e){e.preventDefault();window.location.href="mailto:"+EZWA_CONFIG.email;}
+function handleMap(e){e.preventDefault();triggerHaptic();window.open(EZWA_CONFIG.mapUrl,'_blank');}
+function handleEmail(e){e.preventDefault();triggerHaptic();window.location.href="mailto:"+EZWA_CONFIG.email;}
 
 function downloadVCard(e){
-    if(e)e.preventDefault();
+    if(e)e.preventDefault();triggerHaptic();
     var vCardData="BEGIN:VCARD\nVERSION:3.0\nFN:"+EZWA_CONFIG.brandAr+"\nTITLE:"+EZWA_CONFIG.roleAr+"\nNOTE:حي الديرة، الرياض - الرمز البريدي 12633 - فرع البطحاء\nTEL:"+EZWA_CONFIG.phone1.replace(/[^0-9+]/g,'')+"\nTEL:"+EZWA_CONFIG.phone2.replace(/[^0-9+]/g,'')+"\nEMAIL:"+EZWA_CONFIG.email+"\nURL:"+EZWA_CONFIG.namerUrl+"\nEND:VCARD";
     var blob=new Blob([vCardData],{type:'text/vcard'}),url=window.URL.createObjectURL(blob),link=document.createElement('a');
     link.href=url;link.setAttribute('download','Nabil_Alnamer.vcf');link.click();
@@ -540,12 +680,12 @@ function downloadVCard(e){
 }
 
 function shareCard(e){
-    e.preventDefault();
+    e.preventDefault();triggerHaptic();
     if(navigator.share){navigator.share({title:EZWA_CONFIG.brandAr,url:EZWA_CONFIG.cardUrl});}
     else{navigator.clipboard.writeText(EZWA_CONFIG.cardUrl);showToast(TRANSLATIONS[currentLang].toastCopied);}
 }
 
-function openQrModal(){document.getElementById('qrModal').style.display='flex';var lc=document.getElementById('largeQrContainer');lc.innerHTML="";new QRCode(lc,{text:EZWA_CONFIG.cardUrl,width:220,height:220,colorDark:"#020611",colorLight:"#ffffff"});}
+function openQrModal(){triggerHaptic();document.getElementById('qrModal').style.display='flex';var lc=document.getElementById('largeQrContainer');lc.innerHTML="";new QRCode(lc,{text:EZWA_CONFIG.cardUrl,width:220,height:220,colorDark:"#020611",colorLight:"#ffffff"});}
 function closeQrModal(){document.getElementById('qrModal').style.display='none';}
 
 function openCustomizeModal(){
@@ -565,6 +705,7 @@ function openCustomizeModal(){
 function closeCustomizeModal(){document.getElementById('customizeModal').style.display='none';}
 
 function saveCustomData(){
+    triggerHaptic();
     EZWA_CONFIG.brandAr=document.getElementById('inputBrandAr').value;
     EZWA_CONFIG.roleAr=document.getElementById('inputRole').value;
     EZWA_CONFIG.sloganAr=document.getElementById('inputSlogan').value;
@@ -576,7 +717,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v2',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v3',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
