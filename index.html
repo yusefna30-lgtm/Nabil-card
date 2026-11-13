@@ -38,6 +38,11 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* تطبيق الخط الفضائي Orbitron على كافة عناصر الشق الإنجليزي */
+        html[dir="ltr"] * {
+            font-family: 'Orbitron', sans-serif !important;
+        }
+
         body {
             background-color: var(--bg-void);
             color: var(--text-main);
@@ -52,7 +57,7 @@
 
         .font-tech { font-family: 'Orbitron', sans-serif; }
 
-        /* صورة الخلفية الحقيقية صافية 100% بدون هالة تغطيها */
+        /* صورة الخلفية الحقيقية صافية 100% */
         .cyber-heritage-backdrop {
             position: fixed;
             inset: 0;
@@ -97,7 +102,7 @@
             100% { width: 140px; height: 140px; opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
         }
 
-        /* الحاوية الرئيسية للبطاقة بدون أي هالة ضبابية خارجية */
+        /* الحاوية الرئيسية للبطاقة */
         .ezwa-card-container {
             width: var(--card-width);
             background: rgba(5, 10, 20, 0.68);
@@ -113,7 +118,7 @@
             box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
         }
 
-        /* لمعة رفيعة وحادة تدور على حواف الإطار فقط */
+        /* لمعة هادئة وبطيئة تدور على حواف الإطار فقط (12 ثانية للدورة) */
         .rotating-glow-border {
             position: absolute;
             inset: 0;
@@ -137,7 +142,7 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            animation: spinEdgeGlint 5.5s linear infinite;
+            animation: spinEdgeGlint 12s linear infinite;
             pointer-events: none !important;
             z-index: 4;
         }
@@ -146,7 +151,7 @@
             to { --border-angle: 360deg; }
         }
 
-        /* خلفية البطاقة الداخلية الجديدة (نسيج شبكي تقني ناعم بدلاً من المربعات السابقة) */
+        /* خلفية البطاقة الداخلية الشبكية */
         .card-inner-mask {
             position: absolute;
             inset: 2px;
@@ -282,12 +287,12 @@
         }
 
         html[dir="ltr"] .brand-name-ar {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Orbitron', sans-serif !important;
             font-size: 13.5px;
-            font-weight: 800;
-            letter-spacing: 0.8px;
+            font-weight: 900;
+            letter-spacing: 1px;
             white-space: nowrap;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .brand-role {
@@ -300,10 +305,10 @@
         }
 
         html[dir="ltr"] .brand-role {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Orbitron', sans-serif !important;
             font-size: 8.5px;
             font-weight: 700;
-            letter-spacing: 0.7px;
+            letter-spacing: 0.9px;
         }
 
         /* زر الرسالة الترحيبية الصوتية */
@@ -322,6 +327,11 @@
             cursor: pointer;
             margin-bottom: 2px;
             transition: all 0.25s ease;
+        }
+
+        html[dir="ltr"] .voice-btn {
+            font-size: 9.5px;
+            letter-spacing: 0.5px;
         }
 
         .voice-btn:hover {
@@ -351,7 +361,7 @@
             50% { height: 12px; }
         }
 
-        /* بطاقة عبارة الابتكار بتصميم زجاجي أنيق */
+        /* بطاقة عبارة الابتكار */
         .slogan-divider-area {
             width: 100%;
             text-align: center;
@@ -379,6 +389,12 @@
             display: block;
         }
 
+        html[dir="ltr"] .brand-slogan {
+            font-size: 8.5px;
+            letter-spacing: 0.4px;
+            line-height: 1.5;
+        }
+
         .slogan-explore-hint {
             display: block;
             font-size: 8px;
@@ -388,6 +404,11 @@
             letter-spacing: 0.4px;
         }
 
+        html[dir="ltr"] .slogan-explore-hint {
+            font-size: 7.5px;
+            letter-spacing: 0.6px;
+        }
+
         .card-body {
             display: flex;
             flex-direction: column;
@@ -395,7 +416,7 @@
             justify-content: flex-start;
         }
 
-        /* الأزرار الرئيسية بتصميم زجاجي مصقول */
+        /* الأزرار الرئيسية */
         .action-pill-btn {
             width: 100%;
             height: 50px;
@@ -441,6 +462,11 @@
             font-size: 13.5px;
             font-weight: 700;
             color: #fff;
+        }
+
+        html[dir="ltr"] .btn-title {
+            font-size: 11.5px;
+            letter-spacing: 0.6px;
         }
 
         .btn-arrow {
@@ -509,6 +535,11 @@
             margin-bottom: 1px;
         }
 
+        html[dir="ltr"] .social-name {
+            font-size: 8.5px;
+            letter-spacing: 0.4px;
+        }
+
         .social-handle {
             font-size: 8px;
             color: #7dd3fc;
@@ -518,6 +549,10 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             direction: ltr;
+        }
+
+        html[dir="ltr"] .social-handle {
+            font-size: 7px;
         }
 
         .dual-grid {
@@ -580,6 +615,11 @@
             white-space: nowrap;
         }
 
+        html[dir="ltr"] .box-title {
+            font-size: 9px;
+            letter-spacing: 0.4px;
+        }
+
         .box-subtitle {
             font-size: 8px;
             color: #93c5fd;
@@ -588,6 +628,10 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        html[dir="ltr"] .box-subtitle {
+            font-size: 7px;
         }
 
         .box-arrow {
@@ -620,6 +664,11 @@
             background: linear-gradient(90deg, rgba(0, 243, 255, 0.24), rgba(223, 177, 91, 0.28));
             border-color: var(--cyan-glow);
             transform: translateY(-2px);
+        }
+
+        html[dir="ltr"] #tWallet {
+            font-size: 9.5px !important;
+            letter-spacing: 0.4px;
         }
 
         /* التذييل السفلي */
@@ -747,6 +796,11 @@
             color: var(--gold-primary);
         }
 
+        html[dir="ltr"] .modal-title {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
         .modal-close {
             background: rgba(255,255,255,0.06);
             border: none;
@@ -786,6 +840,11 @@
             font-weight: 400;
         }
 
+        html[dir="ltr"] .innovation-text {
+            font-size: 10.5px;
+            line-height: 1.75;
+        }
+
         .innovation-steps {
             background: rgba(13, 25, 48, 0.8);
             border-radius: 16px;
@@ -803,6 +862,10 @@
             gap: 10px;
             font-size: 11.5px;
             color: #cffafe;
+        }
+
+        html[dir="ltr"] .step-item {
+            font-size: 9.5px;
         }
 
         .step-icon {
@@ -825,6 +888,10 @@
             font-size: 14px;
             font-weight: 700;
             transition: all 0.25s ease;
+        }
+
+        html[dir="ltr"] .choice-btn {
+            font-size: 11px;
         }
 
         .choice-btn:hover {
@@ -888,6 +955,11 @@
             gap: 8px;
             white-space: nowrap;
         }
+
+        html[dir="ltr"] .toast-notification {
+            font-size: 10.5px;
+        }
+
         .toast-notification.show {
             transform: translateX(-50%) translateY(0);
         }
@@ -901,7 +973,7 @@
 
     <div class="ezwa-card-container" id="ezwaCard">
         
-        <!-- اللمعة التي تدور على حواف الإطار فقط -->
+        <!-- اللمعة الهادئة التي تدور على حواف الإطار فقط -->
         <div class="rotating-glow-border"></div>
         <div class="card-inner-mask"></div>
 
@@ -1346,6 +1418,11 @@
             document.getElementById('tContact').innerText = t.contact;
             document.getElementById('tWallet').innerText = t.wallet;
             document.getElementById('tCustomize').innerText = t.customize;
+
+            var voiceTextElem = document.getElementById('voice-text');
+            if (voiceTextElem && audio.paused) {
+                voiceTextElem.innerText = (currentLang === 'ar') ? "رسالة ترحيبية" : "Welcome Voice";
+            }
 
             document.getElementById('innoModalTitle').innerText = t.innoTitle;
             document.getElementById('innoModalDesc').innerText = t.innoDesc;
