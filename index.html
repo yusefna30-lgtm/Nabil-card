@@ -46,17 +46,17 @@
 
         .font-tech { font-family: 'Orbitron', sans-serif; }
 
-        /* الخلفية الفضائية بالسدو والدوائر الإلكترونية المتحركة */
+        /* الخلفية الفضائية بالسدو والدوائر الإلكترونية الواضحة */
         .cyber-heritage-backdrop {
             position: fixed;
-            inset: -6%;
-            width: 112%;
-            height: 112%;
+            inset: -5%;
+            width: 110%;
+            height: 110%;
             z-index: -3;
             background-color: var(--bg-void);
             background-image:
-                radial-gradient(circle at 50% 45%, rgba(2, 6, 17, 0.35) 0%, rgba(2, 6, 17, 0.9) 88%),
-                url('portal-bg.webp');
+                radial-gradient(circle at 50% 45%, rgba(2, 6, 17, 0.18) 0%, rgba(2, 6, 17, 0.82) 92%),
+                url('portal-bg.webp?v=2');
             background-size: cover;
             background-position: center;
             animation: heritageDrift 20s ease-in-out infinite alternate;
@@ -64,12 +64,11 @@
         }
 
         @keyframes heritageDrift {
-            0% { transform: scale(1) translate(0, 0); filter: brightness(0.95); }
-            50% { transform: scale(1.05) translate(-5px, -5px); filter: brightness(1.18); }
-            100% { transform: scale(1.02) translate(5px, 4px); filter: brightness(1.02); }
+            0% { transform: scale(1) translate(0, 0); filter: brightness(1); }
+            50% { transform: scale(1.04) translate(-4px, -4px); filter: brightness(1.22); }
+            100% { transform: scale(1.02) translate(4px, 3px); filter: brightness(1.06); }
         }
 
-        /* هالة ضوئية خلفية هادئة وصافية بدون تشويه */
         .nebula-aura {
             position: fixed;
             inset: 0;
@@ -109,12 +108,12 @@
             100% { width: 140px; height: 140px; opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
         }
 
-        /* الحاوية الرئيسية للبطاقة الهولوجرامية */
+        /* الحاوية الرئيسية للبطاقة مع الهالة اللامعة على حواف الإطار */
         .ezwa-card-container {
             width: var(--card-width);
-            background: linear-gradient(160deg, rgba(8, 16, 32, 0.88) 0%, rgba(4, 8, 18, 0.96) 100%);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
+            background: linear-gradient(160deg, rgba(8, 16, 32, 0.84) 0%, rgba(4, 8, 18, 0.94) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 38px;
             position: relative;
             padding: 18px 18px 16px 18px;
@@ -122,51 +121,67 @@
             flex-direction: column;
             gap: 9px;
             overflow: hidden;
+            /* هالة لامعة متوهجة حول حواف الإطار الخارجي */
             box-shadow:
-                0 0 35px rgba(0, 243, 255, 0.14),
-                0 0 22px rgba(223, 177, 91, 0.18),
-                0 30px 80px rgba(0, 0, 0, 0.95);
+                0 0 18px rgba(0, 243, 255, 0.45),
+                0 0 38px rgba(223, 177, 91, 0.35),
+                0 0 65px rgba(0, 243, 255, 0.18),
+                0 28px 75px rgba(0, 0, 0, 0.95);
+            animation: outerHaloBreath 4.5s ease-in-out infinite alternate;
         }
 
-        /* إضاءة محيطية متناغمة تتنفس بنعومة حول إطار البطاقة الطولية دون دوران مشوّه */
+        @keyframes outerHaloBreath {
+            0% {
+                box-shadow:
+                    0 0 15px rgba(0, 243, 255, 0.4),
+                    0 0 32px rgba(223, 177, 91, 0.3),
+                    0 0 55px rgba(0, 243, 255, 0.15),
+                    0 28px 75px rgba(0, 0, 0, 0.95);
+            }
+            100% {
+                box-shadow:
+                    0 0 24px rgba(223, 177, 91, 0.65),
+                    0 0 46px rgba(0, 243, 255, 0.45),
+                    0 0 80px rgba(223, 177, 91, 0.25),
+                    0 28px 75px rgba(0, 0, 0, 0.95);
+            }
+        }
+
+        /* خط الإطار اللامع الملتف بدقة على الحواف فقط */
         .rotating-glow-border {
             position: absolute;
             inset: 0;
             border-radius: 38px;
-            padding: 1.5px;
-            background: linear-gradient(145deg, rgba(0, 243, 255, 0.85), rgba(223, 177, 91, 0.45), rgba(223, 177, 91, 0.9), rgba(0, 243, 255, 0.6));
+            padding: 2px;
+            background: linear-gradient(135deg, #00f3ff 0%, #dfb15b 35%, #ffffff 50%, #dfb15b 65%, #00f3ff 100%);
+            background-size: 250% 250%;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            animation: borderPulseGlow 4s ease-in-out infinite alternate;
+            animation: rimShimmer 5s ease-in-out infinite alternate;
             pointer-events: none !important;
-            z-index: 3;
+            z-index: 4;
+        }
+
+        @keyframes rimShimmer {
+            0% { background-position: 0% 50%; opacity: 0.85; }
+            100% { background-position: 100% 50%; opacity: 1; }
         }
 
         .card-inner-mask {
             position: absolute;
-            inset: 1.5px;
-            border-radius: 36.5px;
-            background: linear-gradient(165deg, rgba(7, 15, 30, 0.94) 0%, rgba(3, 7, 16, 0.98) 100%);
+            inset: 2px;
+            border-radius: 36px;
+            background: linear-gradient(165deg, rgba(7, 15, 30, 0.91) 0%, rgba(3, 7, 16, 0.96) 100%);
             background-image:
-                linear-gradient(45deg, rgba(223, 177, 91, 0.03) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(223, 177, 91, 0.03) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(0, 243, 255, 0.03) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(0, 243, 255, 0.03) 75%);
+                linear-gradient(45deg, rgba(223, 177, 91, 0.035) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(223, 177, 91, 0.035) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(0, 243, 255, 0.035) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(0, 243, 255, 0.035) 75%);
             background-size: 30px 30px;
+            box-shadow: inset 0 0 22px rgba(0, 243, 255, 0.14);
             pointer-events: none !important;
             z-index: 2;
-        }
-
-        @keyframes borderPulseGlow {
-            0% {
-                opacity: 0.55;
-                filter: drop-shadow(0 0 6px rgba(0, 243, 255, 0.3));
-            }
-            100% {
-                opacity: 1;
-                filter: drop-shadow(0 0 14px rgba(223, 177, 91, 0.55));
-            }
         }
 
         .card-content-layer {
@@ -184,7 +199,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 4px 6px 4px;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.18);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.22);
             direction: ltr;
         }
 
@@ -251,7 +266,7 @@
             height: 60px;
             border-radius: 16px;
             background: linear-gradient(145deg, #0b162c, #040812);
-            border: 1.5px solid rgba(223, 177, 91, 0.75);
+            border: 1.5px solid rgba(223, 177, 91, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -622,7 +637,7 @@
             transform: rotate(180deg);
         }
 
-        /* زر المحفظة الرقمية الفاخر في سطر واحد مستقيم */
+        /* زر المحفظة الرقمية الفاخر في سطر واحد */
         .wallet-pill-btn {
             width: 100%;
             height: 46px;
