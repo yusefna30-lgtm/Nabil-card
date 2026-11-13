@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>نبيل النمر | Nabil Alnamer — NAMER-IO</title>
+    <title>نبيل النمر | Nabil Alnamer — NAMER-OI</title>
 
-    <meta name="description" content="نبيل النمر - اختصاصي تسويق، صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط.">
+    <meta name="description" content="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-OI">
     <meta property="og:title" content="نبيل النمر | Nabil Alnamer">
-    <meta property="og:description" content="صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط">
+    <meta property="og:description" content="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-OI">
     <meta property="og:image" content="logo1.png">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#020611">
@@ -118,7 +118,7 @@
             box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
         }
 
-        /* لمعة هادئة وبطيئة تدور على حواف الإطار فقط (12 ثانية للدورة) */
+        /* لمعة هادئة وبطيئة تدور على حواف الإطار فقط */
         .rotating-glow-border {
             position: absolute;
             inset: 0;
@@ -385,8 +385,15 @@
             color: var(--gold-light);
             letter-spacing: 0.2px;
             font-weight: 700;
-            line-height: 1.45;
+            line-height: 1.5;
             display: block;
+        }
+
+        .brand-slogan .namer-highlight {
+            font-family: 'Orbitron', sans-serif !important;
+            color: var(--cyan-glow);
+            font-weight: 900;
+            letter-spacing: 0.8px;
         }
 
         html[dir="ltr"] .brand-slogan {
@@ -707,6 +714,9 @@
             text-decoration: underline;
             opacity: 0.9;
             text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .qr-bottom-wrapper {
@@ -922,6 +932,22 @@
             text-align: right;
         }
 
+        .pin-input-field {
+            text-align: center !important;
+            font-family: 'Orbitron', sans-serif !important;
+            font-size: 20px !important;
+            letter-spacing: 8px;
+            border-color: var(--gold-primary) !important;
+        }
+
+        .pin-error-msg {
+            color: #f87171;
+            font-size: 11.5px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: none;
+        }
+
         .modal-save-btn {
             width: 100%;
             background: linear-gradient(135deg, var(--cyan-glow), #0284c7);
@@ -983,7 +1009,7 @@
             <div class="top-telemetry-bar">
                 <div class="portal-tag">
                     <span class="pulse-dot"></span>
-                    <span>NAMER-IO // NFC ID</span>
+                    <span>NAMER-OI // NFC ID</span>
                 </div>
                 <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage()">
                     <span>🌐</span>
@@ -1013,9 +1039,9 @@
                 </div>
             </div>
 
-            <!-- عبارة الابتكار التفاعلية -->
+            <!-- عبارة الابتكار التفاعلية المحدثة -->
             <div class="slogan-divider-area" onclick="openInnovationModal()" title="انقر لمعرفة قصة الابتكار">
-                <span class="brand-slogan" id="uiSlogan">صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط</span>
+                <span class="brand-slogan" id="uiSlogan">مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة <span class="namer-highlight">NAMER-OI</span></span>
                 <span class="slogan-explore-hint" id="uiSloganHint">◈ اضغط لاستكشاف تقنية التراث الرقمي ◈</span>
             </div>
 
@@ -1134,7 +1160,7 @@
             <div class="card-footer">
                 <div class="footer-left-info">
                     <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
-                    <button class="customize-trigger-btn" id="tCustomize" onclick="openCustomizeModal()">⚙️ تخصيص البيانات</button>
+                    <button class="customize-trigger-btn" id="tCustomize" onclick="openPinModal()">⚙️ تخصيص البيانات 🔒</button>
                 </div>
 
                 <div class="qr-bottom-wrapper" onclick="openQrModal()" title="QR Code">
@@ -1149,6 +1175,29 @@
 
     </div>
 
+    <!-- نافذة التحقق من الرقم السري لتخصيص البيانات -->
+    <div class="modal-overlay" id="pinModal" onclick="closePinModal()">
+        <div class="modal-content" style="max-width: 340px; text-align: center;" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title" id="pinModalTitle">حماية الإعدادات</h3>
+                <button class="modal-close" onclick="closePinModal()">×</button>
+            </div>
+            <div class="innovation-body">
+                <div class="innovation-badge">🔒</div>
+                <p class="innovation-text" id="pinModalDesc">
+                    أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:
+                </p>
+                <form onsubmit="verifyPin(event)">
+                    <div class="form-group" style="margin-bottom: 6px;">
+                        <input type="password" id="pinInput" class="pin-input-field" maxlength="8" inputmode="numeric" placeholder="••••" autocomplete="off" />
+                    </div>
+                    <div id="pinErrorMsg" class="pin-error-msg">الرقم السري غير صحيح، حاول مرة أخرى</div>
+                    <button type="submit" class="modal-save-btn" id="pinSubmitBtn">فتح التخصيص</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- نافذة استكشف الابتكار -->
     <div class="modal-overlay" id="innovationModal" onclick="closeInnovationModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
@@ -1159,7 +1208,7 @@
             <div class="innovation-body">
                 <div class="innovation-badge">◈</div>
                 <p class="innovation-text" id="innoModalDesc">
-                    أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.
+                    أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-OI، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.
                 </p>
                 <div class="innovation-steps">
                     <div class="step-item"><span class="step-icon">1.</span> <span id="innoStep1">مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت</span></div>
@@ -1205,7 +1254,7 @@
         </div>
     </div>
 
-    <!-- نافذة التخصيص -->
+    <!-- نافذة التخصيص (تفتح فقط بعد إدخال الرقم السري الصحيح) -->
     <div class="modal-overlay" id="customizeModal">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
@@ -1214,7 +1263,7 @@
             </div>
             <div class="form-group"><label>الاسم (عربي):</label><input type="text" id="inputBrandAr" value="نبيل النمر"></div>
             <div class="form-group"><label>المسمى الوظيفي:</label><input type="text" id="inputRole" value="اختصاصي تسويق"></div>
-            <div class="form-group"><label>العبارة الفاصلة:</label><input type="text" id="inputSlogan" value="صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط"></div>
+            <div class="form-group"><label>العبارة الفاصلة:</label><input type="text" id="inputSlogan" value="مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-OI"></div>
             <div class="form-group"><label>الرقم الأول:</label><input type="text" id="inputPhone1" value="+966 50 277 7884"></div>
             <div class="form-group"><label>الرقم الثاني:</label><input type="text" id="inputPhone2" value="+966 56 056 4719"></div>
             <div class="form-group"><label>سناب شات:</label><input type="text" id="inputSnap" value="nabilalnamer"></div>
@@ -1246,14 +1295,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         var currentLang = 'ar';
+        /* الرقم السري لإغلاق وتأمين لوحة تخصيص البيانات */
+        var ADMIN_PIN = "7884";
 
-        var EZWA_CONFIG = {
+        var DEFAULT_CONFIG = {
             brandAr: "نبيل النمر",
             brandEn: "NABIL ALNAMER",
             roleAr: "اختصاصي تسويق",
             roleEn: "MARKETING SPECIALIST",
-            sloganAr: "صاحب أول ابتكار لدمج الـ NFC بالأزياء في السعودية والشرق الأوسط",
-            sloganEn: "Pioneer of the 1st NFC Fashion Integration in Saudi Arabia & the Middle East",
+            sloganAr: "مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة NAMER-OI",
+            sloganEn: "Innovator of NFC Menswear Integration in Saudi Arabia & Founder of NAMER-OI",
             phone1: "+966 50 277 7884",
             phone2: "+966 56 056 4719",
             snapchat: "nabilalnamer",
@@ -1263,6 +1314,15 @@
             mapUrl: "https://www.google.com/maps/dir/?api=1&destination=24.6356470116456%2C46.716702606949",
             cardUrl: window.location.href
         };
+
+        /* استعادة البيانات المحفوظة إن وجدت */
+        var EZWA_CONFIG = Object.assign({}, DEFAULT_CONFIG);
+        try {
+            var saved = localStorage.getItem('namer_card_config_v1');
+            if (saved) {
+                EZWA_CONFIG = Object.assign(EZWA_CONFIG, JSON.parse(saved));
+            }
+        } catch (e) {}
 
         var TRANSLATIONS = {
             ar: {
@@ -1279,13 +1339,17 @@
                 share: "مشاركة الكارت",
                 contact: "حفظ جهة الاتصال",
                 wallet: "إضافة للمحفظة الرقمية (Apple / Google)",
-                customize: "⚙️ تخصيص البيانات",
-                toastSaved: "تم تحديث البيانات بنجاح",
+                customize: "⚙️ تخصيص البيانات 🔒",
+                pinTitle: "حماية الإعدادات",
+                pinDesc: "أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",
+                pinBtn: "فتح التخصيص",
+                pinError: "الرقم السري غير صحيح، حاول مرة أخرى",
+                toastSaved: "تم تحديث البيانات وحفظها بنجاح",
                 toastCopied: "تم نسخ الرابط إلى الحافظة",
                 toastVcf: "تم تحميل vCard بنجاح",
                 toastNfc: "تم الاتصال بنجاح عبر تقنية NFC ◈",
                 innoTitle: "ابتكار الأزياء التفاعلية",
-                innoDesc: "أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
+                innoDesc: "أول تجربة ملابس ذكية في الشرق الأوسط تدمج شريحة NFC المبرمجة بالكامل داخل النسيج ضمن منظومة NAMER-OI، لتسمح بمشاركة الهوية الرقمية، الكروت، أو المحتوى بمجرد ملامسة الهاتف للتيشيرت مباشرة وبدون تطبيقات.",
                 innoStep1: "مرر أعلى هاتفك بالقرب من شعار السدو في التيشيرت",
                 innoStep2: "تظهر بطاقتك وتجربتك الرقمية فورياً على الشاشة",
                 innoStep3: "مقاومة للغسيل والحرارة وبأعلى جودة ستريت وير",
@@ -1306,13 +1370,17 @@
                 share: "Share Card",
                 contact: "Save Contact",
                 wallet: "Add to Digital Wallet (Apple / Google)",
-                customize: "⚙️ Customize",
+                customize: "⚙️ Customize 🔒",
+                pinTitle: "Security Lock",
+                pinDesc: "Enter owner PIN to unlock card customization:",
+                pinBtn: "Unlock Settings",
+                pinError: "Incorrect PIN, please try again",
                 toastSaved: "Settings saved successfully",
                 toastCopied: "Link copied to clipboard",
                 toastVcf: "Contact file downloaded",
                 toastNfc: "Connected successfully via NFC ◈",
                 innoTitle: "NFC Fashion Innovation",
-                innoDesc: "The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",
+                innoDesc: "The Middle East's first smart streetwear seamlessly integrating embedded NFC chips within garment fabric under NAMER-OI, allowing instantaneous profile, contact, or digital asset sharing simply by tapping your phone.",
                 innoStep1: "Tap the top of your phone near the Sadu garment emblem",
                 innoStep2: "Instant launch of your digital card without any app",
                 innoStep3: "Fully waterproof, wash-proof, and premium streetwear grade",
@@ -1391,6 +1459,10 @@
             updateUI();
         }
 
+        function formatSloganWithHighlight(text) {
+            return text.replace(/NAMER-OI/gi, '<span class="namer-highlight">NAMER-OI</span>');
+        }
+
         function updateUI() {
             var t = TRANSLATIONS[currentLang];
             var langElem = document.getElementById('langText');
@@ -1403,7 +1475,10 @@
             if (roleElem) roleElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.roleAr : EZWA_CONFIG.roleEn;
 
             var sloganElem = document.getElementById('uiSlogan');
-            if (sloganElem) sloganElem.innerText = (currentLang === 'ar') ? EZWA_CONFIG.sloganAr : EZWA_CONFIG.sloganEn;
+            if (sloganElem) {
+                var rawSlogan = (currentLang === 'ar') ? EZWA_CONFIG.sloganAr : EZWA_CONFIG.sloganEn;
+                sloganElem.innerHTML = formatSloganWithHighlight(rawSlogan);
+            }
 
             document.getElementById('uiSloganHint').innerText = t.sloganHint;
             document.getElementById('tCall').innerText = t.call;
@@ -1418,6 +1493,11 @@
             document.getElementById('tContact').innerText = t.contact;
             document.getElementById('tWallet').innerText = t.wallet;
             document.getElementById('tCustomize').innerText = t.customize;
+
+            document.getElementById('pinModalTitle').innerText = t.pinTitle;
+            document.getElementById('pinModalDesc').innerText = t.pinDesc;
+            document.getElementById('pinSubmitBtn').innerText = t.pinBtn;
+            document.getElementById('pinErrorMsg').innerText = t.pinError;
 
             var voiceTextElem = document.getElementById('voice-text');
             if (voiceTextElem && audio.paused) {
@@ -1479,6 +1559,33 @@
             speakerIcon.textContent = "▶️";
             voiceText.textContent = (currentLang === 'ar') ? "رسالة ترحيبية" : "Welcome Voice";
             voiceBtn.classList.remove('playing');
+        }
+
+        /* دوال الحماية بالرقم السري للتخصيص */
+        function openPinModal() {
+            document.getElementById('pinInput').value = '';
+            document.getElementById('pinErrorMsg').style.display = 'none';
+            document.getElementById('pinModal').style.display = 'flex';
+            setTimeout(function() {
+                document.getElementById('pinInput').focus();
+            }, 100);
+        }
+
+        function closePinModal() {
+            document.getElementById('pinModal').style.display = 'none';
+        }
+
+        function verifyPin(e) {
+            e.preventDefault();
+            var entered = document.getElementById('pinInput').value.trim();
+            if (entered === ADMIN_PIN) {
+                closePinModal();
+                openCustomizeModal();
+            } else {
+                document.getElementById('pinErrorMsg').style.display = 'block';
+                document.getElementById('pinInput').value = '';
+                document.getElementById('pinInput').focus();
+            }
         }
 
         function openInnovationModal() { document.getElementById('innovationModal').style.display = 'flex'; }
@@ -1584,6 +1691,9 @@
             EZWA_CONFIG.x = document.getElementById('inputX').value;
             EZWA_CONFIG.email = document.getElementById('inputEmail').value;
             EZWA_CONFIG.mapUrl = document.getElementById('inputMap').value;
+            try {
+                localStorage.setItem('namer_card_config_v1', JSON.stringify(EZWA_CONFIG));
+            } catch (e) {}
             updateUI();
             closeCustomizeModal();
             showToast(TRANSLATIONS[currentLang].toastSaved);
