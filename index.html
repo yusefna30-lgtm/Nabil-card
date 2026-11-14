@@ -24,7 +24,7 @@
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
 body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=12');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=13');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -39,25 +39,37 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 /* الحاوية الرئيسية للبطاقة مع عمق ثلاثي الأبعاد 3D Parallax */
 .ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out;}
 .rotating-glow-border{position:absolute;inset:0;border-radius:36px;padding:2px;background:conic-gradient(from var(--border-angle),rgba(223,177,91,0.18) 0deg,rgba(0,243,255,0.25) 65deg,#00f3ff 82deg,#ffffff 90deg,#dfb15b 98deg,rgba(223,177,91,0.2) 115deg,rgba(0,243,255,0.15) 245deg,#dfb15b 265deg,#ffffff 272deg,#00f3ff 280deg,rgba(223,177,91,0.18) 300deg,rgba(223,177,91,0.18) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinEdgeGlint 12s linear infinite;pointer-events:none!important;z-index:4;}
+.ezwa-card-container.neural-excited .rotating-glow-border{animation-duration:3s;filter:brightness(1.45);}
 @keyframes spinEdgeGlint{to{--border-angle:360deg;}}
 .card-inner-mask{position:absolute;inset:2px;border-radius:34px;background:linear-gradient(170deg,rgba(6,12,24,0.78) 0%,rgba(3,7,15,0.86) 100%);background-image:radial-gradient(rgba(0,243,255,0.12) 1px,transparent 1px),linear-gradient(to right,rgba(223,177,91,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(223,177,91,0.03) 1px,transparent 1px);background-size:22px 22px,44px 44px,44px 44px;pointer-events:none!important;z-index:2;}
 .gold-foil-reflection{position:absolute;inset:0;border-radius:36px;background:radial-gradient(circle 220px at var(--foil-x) var(--foil-y),rgba(245,214,156,0.12) 0%,rgba(0,243,255,0.05) 45%,transparent 75%);pointer-events:none!important;z-index:5;transition:background 0.12s ease-out;}
 
+/* بوابة السفر عبر الزمن والابتكار Chrono-Shift Portal */
+.chrono-sweep-beam{position:absolute;inset:0;border-radius:36px;background:linear-gradient(115deg,transparent 20%,rgba(0,243,255,0.35) 45%,rgba(245,214,156,0.5) 50%,rgba(0,243,255,0.35) 55%,transparent 80%);background-size:250% 250%;opacity:0;pointer-events:none;z-index:30;}
+.chrono-sweep-beam.active{animation:chronoFlash 0.65s cubic-bezier(0.16,1,0.3,1) forwards;}
+@keyframes chronoFlash{0%{opacity:1;background-position:150% 0%;}100%{opacity:0;background-position:-50% 0%;}}
+.chrono-dissolve{animation:textQuantumPulse 0.45s ease-out;}
+@keyframes textQuantumPulse{0%{filter:blur(4px) brightness(1.8);opacity:0.35;transform:scale(0.98);}100%{filter:blur(0) brightness(1);opacity:1;transform:scale(1);}}
+
 .card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:9px;width:100%;}
 
-/* الشريط العلوي الصافي تماماً */
+/* الشريط العلوي الصافي مع أيقونة الرادار الهولوغرامي */
 .top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px 4px;border-bottom:1px solid rgba(223,177,91,0.22);direction:ltr;}
 .portal-tag{font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--cyan-glow);display:flex;align-items:center;gap:5px;}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;animation:pingDot 1.8s infinite;}
 @keyframes pingDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
+.top-controls-group{display:flex;align-items:center;gap:6px;}
+.orbit-toggle-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(223,177,91,0.5);color:var(--gold-light);width:26px;height:24px;border-radius:10px;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.25s ease;}
+.orbit-toggle-btn:hover,.orbit-toggle-btn.active{border-color:var(--cyan-glow);color:var(--cyan-glow);box-shadow:0 0 10px rgba(0,243,255,0.35);}
 .lang-switch-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(0,243,255,0.4);color:var(--cyan-glow);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.25s ease;display:flex;align-items:center;gap:4px;}
 .lang-switch-btn:hover{background:rgba(0,243,255,0.15);color:#ffffff;border-color:var(--gold-primary);}
 
 /* الرأس المبسّط بروح الخط الفضائي */
 .card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:74px;margin-top:2px;padding-bottom:6px;border-bottom:1px solid rgba(223,177,91,0.16);}
-.monogram-box{position:absolute;right:0;width:62px;height:62px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out;}
+.monogram-box{position:absolute;right:0;width:62px;height:62px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;cursor:pointer;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out,border-color 0.25s;}
+.monogram-box:hover{border-color:var(--cyan-glow);}
 html[dir="ltr"] .monogram-box{right:auto;left:0;}
-.monogram-box img{width:100%;height:100%;object-fit:contain;}
+.monogram-box img{width:100%;height:100%;object-fit:contain;pointer-events:none;}
 .brand-titles-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;padding-right:70px;padding-left:6px;}
 html[dir="ltr"] .brand-titles-center{padding-left:70px;padding-right:6px;}
 
@@ -72,7 +84,29 @@ html[dir="ltr"] .brand-role{font-family:'Orbitron',sans-serif!important;font-siz
 .brand-bio-inline .namer-highlight{font-family:'Orbitron',sans-serif!important;color:var(--cyan-glow);font-weight:900;letter-spacing:0.7px;}
 html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-height:1.45;}
 
-.card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
+.card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;transition:opacity 0.35s ease,transform 0.35s ease;}
+.card-body.orbit-hidden{display:none;}
+
+/* شاشة الرادار الحيّة للروابط Holographic Orbit Launcher */
+.holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:335px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
+.holographic-orbit-stage.active{display:flex;}
+@keyframes orbitFadeIn{0%{opacity:0;transform:scale(0.85);}100%{opacity:1;transform:scale(1);}}
+.orbit-radar-arena{width:276px;height:276px;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;}
+.orbit-radar-arena:active{cursor:grabbing;}
+.orbit-ring-outer{position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(0,243,255,0.45);box-shadow:0 0 28px rgba(0,243,255,0.12),inset 0 0 28px rgba(223,177,91,0.1);pointer-events:none;}
+.orbit-ring-inner{position:absolute;inset:56px;border-radius:50%;border:1px solid rgba(223,177,91,0.32);pointer-events:none;}
+.orbit-radar-sweep{position:absolute;inset:8px;border-radius:50%;background:conic-gradient(from 0deg,rgba(0,243,255,0.22) 0deg,transparent 65deg);animation:radarSweepSpin 4.5s linear infinite;pointer-events:none;}
+@keyframes radarSweepSpin{to{transform:rotate(360deg);}}
+.orbit-core-hub{width:76px;height:76px;border-radius:50%;background:radial-gradient(circle,#102344 0%,#050b18 85%);border:2px solid var(--gold-primary);box-shadow:0 0 24px rgba(223,177,91,0.4),inset 0 0 14px rgba(0,243,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;cursor:pointer;text-align:center;padding:4px;}
+.orbit-core-hub span{font-family:'Orbitron',sans-serif!important;font-size:8px;font-weight:900;color:var(--cyan-glow);letter-spacing:0.6px;}
+.orbit-core-hub small{font-size:8.5px;color:var(--gold-light);font-weight:700;margin-top:2px;}
+.orbit-node-btn{position:absolute;width:54px;height:54px;margin-left:-27px;margin-top:-27px;border-radius:50%;background:rgba(7,15,30,0.94);border:1.5px solid rgba(0,243,255,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.85),0 0 12px rgba(0,243,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;cursor:pointer;z-index:8;transition:border-color 0.2s,box-shadow 0.2s;}
+.orbit-node-btn:hover{border-color:var(--gold-light);box-shadow:0 0 20px rgba(223,177,91,0.7);z-index:12;}
+.orbit-node-icon{font-size:15px;line-height:1;margin-bottom:2px;}
+.orbit-node-label{font-size:7.5px;font-weight:800;color:var(--gold-light);white-space:nowrap;}
+html[dir="ltr"] .orbit-node-label{font-size:6.5px;}
+.orbit-hint-bar{margin-top:10px;display:flex;align-items:center;gap:10px;font-size:10px;color:#7dd3fc;}
+.orbit-exit-btn{background:rgba(223,177,91,0.16);border:1px solid var(--gold-primary);color:var(--gold-light);padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;}
 
 /* تبويب منصة NAMER-IO الرئيسي */
 .namer-portal-pill{width:100%;height:52px;background:linear-gradient(135deg,rgba(0,243,255,0.16) 0%,rgba(10,20,38,0.9) 50%,rgba(223,177,91,0.2) 100%);border:1.5px solid rgba(0,243,255,0.65);border-radius:26px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:#ffffff;transition:all 0.25s ease;cursor:pointer;box-shadow:0 4px 18px rgba(0,243,255,0.14);}
@@ -110,6 +144,15 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .footer-left-info{display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
 .footer-brand{font-family:'Orbitron',sans-serif;font-size:10.5px;font-weight:800;color:var(--gold-light);letter-spacing:1px;}
 .customize-trigger-btn{background:transparent;border:none;color:var(--cyan-glow);font-size:9.5px;cursor:pointer;text-decoration:underline;opacity:0.9;text-align:left;display:flex;align-items:center;gap:4px;}
+
+/* مؤشر نبض الشريحة الحية Live Neural Heartbeat */
+.neural-ecg-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;}
+.ecg-svg{width:84px;height:22px;overflow:visible;}
+.ecg-line{fill:none;stroke:var(--gold-primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:140;stroke-dashoffset:140;animation:ecgSweep 2.6s linear infinite;filter:drop-shadow(0 0 4px rgba(223,177,91,0.65));transition:stroke 0.3s ease;}
+.ezwa-card-container.neural-excited .ecg-line{stroke:var(--cyan-glow);animation-duration:0.95s;filter:drop-shadow(0 0 7px rgba(0,243,255,0.95));}
+@keyframes ecgSweep{0%{stroke-dashoffset:140;opacity:0.3;}50%{opacity:1;}100%{stroke-dashoffset:0;opacity:0.3;}}
+.ecg-status-text{font-family:'Orbitron',sans-serif!important;font-size:6.5px;font-weight:700;letter-spacing:0.9px;color:var(--gold-primary);transition:color 0.3s;}
+.ezwa-card-container.neural-excited .ecg-status-text{color:var(--cyan-glow);}
 
 .qr-bottom-wrapper{display:flex;flex-direction:column;align-items:center;cursor:pointer;}
 .qr-frame{width:46px;height:46px;background:#fff;padding:3px;border-radius:10px;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;position:relative;}
@@ -216,33 +259,57 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
     <div class="rotating-glow-border"></div>
     <div class="card-inner-mask"></div>
     <div class="gold-foil-reflection" id="goldFoilLayer"></div>
+    <!-- شعاع السفر عبر الزمن والابتكار Chrono-Shift -->
+    <div class="chrono-sweep-beam" id="chronoBeam"></div>
 
-    <div class="card-content-layer">
-        <!-- الشريط العلوي الصافي تماماً -->
+    <div class="card-content-layer" id="cardContentLayer">
+        <!-- الشريط العلوي الصافي مع أيقونة الرادار الهولوغرامي -->
         <div class="top-telemetry-bar">
             <div class="portal-tag">
                 <span class="pulse-dot"></span>
                 <span>NAMER-IO // NFC ID</span>
             </div>
-            <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage(event)">
-                <span>🌐</span>
-                <span id="langText">EN</span>
-            </button>
+            <div class="top-controls-group">
+                <button type="button" class="orbit-toggle-btn" id="orbitToggleBtn" onclick="toggleOrbitMode(event)" title="الرادار الهولوغرامي للروابط">◎</button>
+                <button type="button" class="lang-switch-btn" id="langSwitchBtn" onclick="toggleLanguage(event)">
+                    <span>🌐</span>
+                    <span id="langText">EN</span>
+                </button>
+            </div>
         </div>
 
-        <!-- الرأس المبسّط بدون زر صوت أو مربع وصف مزدحم -->
+        <!-- الرأس المبسّط بروح الخط الفضائي (النقر المزدوج على الشعار يفتح المدار الهولوغرامي) -->
         <div class="card-header">
             <div class="brand-titles-center">
                 <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
                 <span class="brand-role" id="uiRole">اختصاصي تسويق</span>
                 <p class="brand-bio-inline" id="uiSlogan" onclick="openInnovationModal(event)">مبتكر تقنية دمج بطاقة الـ NFC بالأزياء الرجالية في السعودية ومؤسس منظومة <span class="namer-highlight">NAMER-IO</span></p>
             </div>
-            <div class="monogram-box">
+            <div class="monogram-box" id="monogramLogoBox" ondblclick="toggleOrbitMode(event)" title="انقر مرتين لتفعيل المدار الهولوغرامي">
                 <img src="logo1.png" alt="شعار نبيل النمر" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><text x=\'50%\' y=\'55%\' font-family=\'Readex Pro\' font-size=\'45\' font-weight=\'bold\' fill=\'%23dfb15b\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ن</text></svg>';">
             </div>
         </div>
 
-        <div class="card-body">
+        <!-- شاشة الرادار الحيّة للروابط (Holographic Orbit Launcher) -->
+        <div class="holographic-orbit-stage" id="holographicOrbitStage">
+            <div class="orbit-radar-arena" id="orbitRadarArena">
+                <div class="orbit-ring-outer"></div>
+                <div class="orbit-ring-inner"></div>
+                <div class="orbit-radar-sweep"></div>
+                <div class="orbit-core-hub" onclick="toggleOrbitMode(event)">
+                    <span>ORBIT</span>
+                    <small id="orbitCoreBack">العودة</small>
+                </div>
+                <div id="orbitNodesMount"></div>
+            </div>
+            <div class="orbit-hint-bar">
+                <span id="orbitHintText">◈ اسحب لتدوير المدار الهولوغرامي ◈</span>
+                <button type="button" class="orbit-exit-btn" id="orbitExitBtn" onclick="toggleOrbitMode(event)">البطاقة</button>
+            </div>
+        </div>
+
+        <!-- جسم البطاقة القياسي -->
+        <div class="card-body" id="standardCardBody">
             <!-- تبويب منصة NAMER-IO الرئيسي -->
             <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="namer-portal-pill">
                 <div class="btn-side-group">
@@ -350,11 +417,21 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
+        <!-- التذييل السفلي مع مؤشر نبض الشريحة الحية Live Neural Heartbeat -->
         <div class="card-footer">
             <div class="footer-left-info">
                 <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
                 <button class="customize-trigger-btn" id="tCustomize" onclick="openPinModal(event)">⚙️ تخصيص البيانات 🔒</button>
             </div>
+
+            <!-- مؤشر نبض الشريحة الحية ECG -->
+            <div class="neural-ecg-box" title="Live Neural Chip Pulse">
+                <svg class="ecg-svg" viewBox="0 0 100 26">
+                    <polyline class="ecg-line" points="0,13 24,13 30,13 35,3 41,24 47,6 52,18 57,13 100,13"/>
+                </svg>
+                <span class="ecg-status-text" id="ecgStatusLabel">CHIP PULSE // ACTIVE</span>
+            </div>
+
             <div class="qr-bottom-wrapper" onclick="openQrModal(event)" title="QR Code">
                 <div class="qr-frame" id="qrContainer"></div>
                 <div class="nfc-indicator"><span class="nfc-icon">◈</span><span class="nfc-text">NFC VERIFIED</span></div>
@@ -527,7 +604,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 
     if('serviceWorker' in navigator){
         const swCode=`
-            const CACHE_NAME='nabil-card-offline-v1';
+            const CACHE_NAME='nabil-card-offline-v2';
             const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
             self.addEventListener('install',e=>{
                 e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
@@ -628,8 +705,22 @@ window.addEventListener('deviceorientation',e=>{
     });
 })();
 
-/* 4. تأثير نبض القلب الكهرومغناطيسي عند اللمس (Magnetic Touch Shockwave) */
+/* 4. تأثير نبض القلب الكهرومغناطيسي + نبض الشريحة الحية (Live Neural Heartbeat) */
+let neuralPulseTimer=null;
+function exciteNeuralPulse(){
+    const card=document.getElementById('ezwaCard');
+    const lbl=document.getElementById('ecgStatusLabel');
+    card.classList.add('neural-excited');
+    if(lbl)lbl.innerText='NEURAL SYNC // SURGE';
+    clearTimeout(neuralPulseTimer);
+    neuralPulseTimer=setTimeout(()=>{
+        card.classList.remove('neural-excited');
+        if(lbl)lbl.innerText='CHIP PULSE // ACTIVE';
+    },2200);
+}
+
 function triggerShockwave(e){
+    exciteNeuralPulse();
     if(navigator.vibrate){try{navigator.vibrate(18);}catch(err){}}
     if(!e)return;
     const card=document.getElementById('ezwaCard');
@@ -644,7 +735,96 @@ function triggerShockwave(e){
     setTimeout(()=>wave.remove(),900);
 }
 
-/* 5. الكشف التلقائي الذكي للغة هاتف الزائر (Auto-Locale Detection) */
+/* 5. شاشة الرادار الحيّة للروابط (Holographic Orbit Launcher) */
+let orbitModeActive=false;
+let orbitAngleOffset=0;
+let orbitAnimFrame=null;
+let orbitDragging=false;
+let orbitStartAngle=0;
+
+function renderOrbitNodes(){
+    const mount=document.getElementById('orbitNodesMount');
+    if(!mount)return;
+    const nodes=[
+        {icon:'N',label:'NAMER-IO',action:()=>window.open(EZWA_CONFIG.namerUrl,'_blank')},
+        {icon:'📞',label:(currentLang==='ar')?'اتصال':'Call',action:()=>openChoiceModal('call')},
+        {icon:'💬',label:(currentLang==='ar')?'واتساب':'WhatsApp',action:()=>openChoiceModal('whatsapp')},
+        {icon:'𝕏',label:(currentLang==='ar')?'تواصل':'Social',action:()=>openChoiceModal('social')},
+        {icon:'✉️',label:(currentLang==='ar')?'بريد':'Email',action:()=>{window.location.href='mailto:'+EZWA_CONFIG.email;}},
+        {icon:'📍',label:(currentLang==='ar')?'الموقع':'Map',action:()=>window.open(EZWA_CONFIG.mapUrl,'_blank')},
+        {icon:'👤',label:(currentLang==='ar')?'حفظ':'Save',action:()=>downloadVCard()}
+    ];
+    mount.innerHTML='';
+    const radius=104;
+    const cx=138,cy=138;
+    nodes.forEach((n,idx)=>{
+        const angle=((idx/nodes.length)*Math.PI*2)+orbitAngleOffset;
+        const x=cx+Math.cos(angle)*radius;
+        const y=cy+Math.sin(angle)*radius;
+        const btn=document.createElement('button');
+        btn.type='button';
+        btn.className='orbit-node-btn';
+        btn.style.left=x+'px';
+        btn.style.top=y+'px';
+        btn.innerHTML='<span class="orbit-node-icon">'+n.icon+'</span><span class="orbit-node-label">'+n.label+'</span>';
+        btn.onclick=(ev)=>{ev.stopPropagation();triggerShockwave(ev);n.action();};
+        mount.appendChild(btn);
+    });
+}
+
+function stepOrbitAnimation(){
+    if(!orbitModeActive)return;
+    if(!orbitDragging)orbitAngleOffset+=0.0045;
+    renderOrbitNodes();
+    orbitAnimFrame=requestAnimationFrame(stepOrbitAnimation);
+}
+
+(function initOrbitDrag(){
+    const arena=document.getElementById('orbitRadarArena');
+    arena.addEventListener('pointerdown',e=>{
+        if(e.target.closest('.orbit-node-btn')||e.target.closest('.orbit-core-hub'))return;
+        orbitDragging=true;
+        const r=arena.getBoundingClientRect();
+        orbitStartAngle=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))-orbitAngleOffset;
+        arena.setPointerCapture(e.pointerId);
+    });
+    arena.addEventListener('pointermove',e=>{
+        if(!orbitDragging)return;
+        const r=arena.getBoundingClientRect();
+        const cur=Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2));
+        orbitAngleOffset=cur-orbitStartAngle;
+        renderOrbitNodes();
+    });
+    arena.addEventListener('pointerup',e=>{
+        if(!orbitDragging)return;
+        orbitDragging=false;
+        arena.releasePointerCapture(e.pointerId);
+    });
+})();
+
+function toggleOrbitMode(e){
+    if(e)e.stopPropagation();
+    triggerShockwave(e);
+    orbitModeActive=!orbitModeActive;
+    const bodyEl=document.getElementById('standardCardBody');
+    const stageEl=document.getElementById('holographicOrbitStage');
+    const btnEl=document.getElementById('orbitToggleBtn');
+    if(orbitModeActive){
+        bodyEl.classList.add('orbit-hidden');
+        stageEl.classList.add('active');
+        btnEl.classList.add('active');
+        renderOrbitNodes();
+        cancelAnimationFrame(orbitAnimFrame);
+        orbitAnimFrame=requestAnimationFrame(stepOrbitAnimation);
+    }else{
+        stageEl.classList.remove('active');
+        bodyEl.classList.remove('orbit-hidden');
+        btnEl.classList.remove('active');
+        cancelAnimationFrame(orbitAnimFrame);
+    }
+}
+
+/* 6. الكشف التلقائي الذكي للغة هاتف الزائر + بوابة السفر عبر الزمن Chrono-Shift */
 var deviceLang=(navigator.language||navigator.userLanguage||'ar').toLowerCase();
 var currentLang=deviceLang.startsWith('ar')?'ar':'en';
 document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');
@@ -668,7 +848,7 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v9');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v10');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
@@ -677,6 +857,7 @@ var TRANSLATIONS={
         social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
+        orbitCore:"العودة",orbitHint:"◈ اسحب لتدوير المدار الهولوغرامي ◈",orbitExit:"البطاقة",
         botTitle:"🤖 مستشار NAMER-IO الذكي",
         botPlaceholder:"اكتب مجال عملك أو استفسارك هنا...",
         chipIntegrate:"◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟",
@@ -702,6 +883,7 @@ var TRANSLATIONS={
         social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
+        orbitCore:"RETURN",orbitHint:"◈ Drag to rotate holographic orbit ◈",orbitExit:"Card View",
         botTitle:"🤖 NAMER-IO Smart Advisor",
         botPlaceholder:"Type your industry or question...",
         chipIntegrate:"◈ How to integrate NFC into my brand?",
@@ -733,7 +915,25 @@ for(let i=0;i<30;i++)particles.push({x:Math.random()*canvas.width,y:Math.random(
 function animateParticles(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.gold?'rgba(223,177,91,0.65)':'rgba(0,243,255,0.55)';ctx.fill();for(let j=i+1;j<particles.length;j++){const p2=particles[j],d=Math.hypot(p.x-p2.x,p.y-p2.y);if(d<95){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p2.x,p2.y);ctx.strokeStyle=`rgba(0,243,255,${0.1*(1-d/95)})`;ctx.lineWidth=0.5;ctx.stroke();}}});requestAnimationFrame(animateParticles);}
 animateParticles();
 
-function toggleLanguage(e){triggerShockwave(e);currentLang=(currentLang==='ar')?'en':'ar';document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');document.documentElement.setAttribute('lang',currentLang);updateUI();}
+function toggleLanguage(e){
+    triggerShockwave(e);
+    const beam=document.getElementById('chronoBeam');
+    const layer=document.getElementById('cardContentLayer');
+    beam.classList.remove('active');
+    layer.classList.remove('chrono-dissolve');
+    void beam.offsetWidth;
+    beam.classList.add('active');
+    layer.classList.add('chrono-dissolve');
+
+    setTimeout(()=>{
+        currentLang=(currentLang==='ar')?'en':'ar';
+        document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');
+        document.documentElement.setAttribute('lang',currentLang);
+        updateUI();
+        if(orbitModeActive)renderOrbitNodes();
+    },130);
+}
+
 function formatSloganWithHighlight(text){return text.replace(/NAMER-IO/gi,'<span class="namer-highlight">NAMER-IO</span>');}
 
 function updateUI(){
@@ -755,6 +955,9 @@ function updateUI(){
     document.getElementById('tContact').innerText=t.contact;
     document.getElementById('tWallet').innerText=t.wallet;
     document.getElementById('tCustomize').innerText=t.customize;
+    document.getElementById('orbitCoreBack').innerText=t.orbitCore;
+    document.getElementById('orbitHintText').innerText=t.orbitHint;
+    document.getElementById('orbitExitBtn').innerText=t.orbitExit;
 
     /* نصوص الروبوت الناطق */
     document.getElementById('botModalTitle').innerText=t.botTitle;
@@ -851,12 +1054,13 @@ function getConsultWaLink(topicAr,topicEn){
 }
 
 function botAskQuestion(type){
+    exciteNeuralPulse();
     if(type==='integrate'){
         appendBotMsg('user',TRANSLATIONS[currentLang].chipIntegrate);
         const reply=(currentLang==='ar')
             ?"يتم الدمج عبر منظومة <b>NAMER-IO</b> في 3 خطوات سلسة: برمجة شرائح NFC مشفّرة، دمجها مخفياً داخل نسيج الملابس أو التغليف أو البطاقات، وربطها بلوحة تحكم سحابية تتيح لك تحديث المحتوى في أي وقت."
             :"Integration via <b>NAMER-IO</b> takes 3 seamless steps: encoding encrypted NFC chips, invisibly embedding them inside fabric, packaging, or cards, and linking them to a cloud dashboard for instant content updates.";
-        const btnTxt=(currentLang==='ar')?"💬 اطلب استشارة أو عينة لـمشروعك":"💬 Request a consultation or sample";
+        const btnTxt=(currentLang==='ar')?"💬 اطلب استشارة أو عينة لمشروعك":"💬 Request a consultation or sample";
         const html='<a class="bot-inline-btn cyan" target="_blank" href="'+getConsultWaLink("دمج تقنية الـ NFC في مشروعي","NFC integration for my brand")+'">'+btnTxt+'</a>';
         appendBotMsg('ai',reply,html);
     }else if(type==='compare'){
@@ -885,6 +1089,7 @@ function botAskQuestion(type){
 }
 
 function botSelectSector(sector){
+    exciteNeuralPulse();
     const data={
         fashion:{
             arTitle:"👕 قطاع الأزياء والعلامات التجارية",
@@ -1018,7 +1223,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v9',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v10',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
