@@ -22,9 +22,9 @@
 :root{--bg-void:#020611;--cyan-glow:#00f3ff;--gold-primary:#dfb15b;--gold-light:#f5d69c;--text-main:#ffffff;--card-width:min(425px,93vw);--foil-x:50%;--foil-y:30%;--tilt-x:0deg;--tilt-y:0deg;--logo-tx:0px;--logo-ty:0px;}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Tajawal',sans-serif;-webkit-tap-highlight-color:transparent;}
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
-body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0 88px 0;perspective:1100px;}
+body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=15');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=16');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -88,6 +88,43 @@ html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-heigh
 .card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
 .card-body.orbit-hidden{display:none;}
 
+/* =========================================================
+   مسرح الأيقونات الهولوغرامية الأربع الصافية (تطفو في مكانها يمين ويسار)
+========================================================= */
+.holo-quad-stage{display:flex;flex-direction:column;gap:8px;padding:4px 6px;background:rgba(4,10,22,0.52);border:1px solid rgba(0,243,255,0.18);border-radius:24px;box-shadow:inset 0 0 22px rgba(0,243,255,0.06);}
+.holo-pair-row{display:flex;align-items:flex-end;justify-content:space-between;padding:2px 14px;}
+
+.holo-unit{width:76px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;cursor:pointer;text-decoration:none;user-select:none;transition:transform 0.2s ease;}
+.holo-unit:active{transform:scale(0.93);}
+
+/* شعاع الإسقاط الهولوغرامي لكل أيقونة */
+.holo-unit-cone{position:absolute;bottom:9px;width:58px;height:58px;clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
+.holo-unit.cyan-theme .holo-unit-cone{background:linear-gradient(to top,rgba(0,243,255,0.38) 0%,rgba(223,177,91,0.12) 55%,transparent 100%);}
+.holo-unit.gold-theme .holo-unit-cone{background:linear-gradient(to top,rgba(223,177,91,0.4) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);}
+
+/* قاعدة الإسقاط الضوئية */
+.holo-unit-pad{width:42px;height:10px;border-radius:50%;position:relative;pointer-events:none;}
+.holo-unit.cyan-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.4px solid var(--gold-primary);box-shadow:0 0 15px rgba(0,243,255,0.8),0 0 24px rgba(223,177,91,0.4);}
+.holo-unit.gold-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#dfb15b 0%,#140e04 75%);border:1.4px solid var(--cyan-glow);box-shadow:0 0 15px rgba(223,177,91,0.8),0 0 24px rgba(0,243,255,0.35);}
+.holo-unit-pad::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(0,243,255,0.5);animation:emitterPulseRing 2.1s infinite;}
+@keyframes emitterPulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.45);opacity:0;}}
+@keyframes holoBeamFlicker{0%,100%{opacity:0.82;}50%{opacity:1;}75%{opacity:0.65;}}
+
+/* المجسّم العائم في مكانه بانعدام وزن */
+.holo-orb-body{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px;overflow:hidden;pointer-events:none;}
+.holo-unit.cyan-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.86) 85%);border:1.6px solid rgba(0,243,255,0.85);box-shadow:0 0 20px rgba(0,243,255,0.55),inset 0 0 12px rgba(223,177,91,0.4);color:var(--cyan-glow);}
+.holo-unit.gold-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.3) 0%,rgba(12,18,32,0.88) 85%);border:1.6px solid var(--gold-light);box-shadow:0 0 20px rgba(223,177,91,0.6),inset 0 0 12px rgba(0,243,255,0.35);color:var(--gold-light);}
+.holo-orb-body::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.18) 3px);pointer-events:none;animation:scanlineScroll 4s linear infinite;}
+@keyframes scanlineScroll{from{background-position:0 0;}to{background-position:0 24px;}}
+
+/* إيقاعات طفو مستقلة في المكان لكل أيقونة */
+.float-rhythm-1{animation:zeroGravityFloatA 3.4s ease-in-out infinite;}
+.float-rhythm-2{animation:zeroGravityFloatB 3.8s ease-in-out infinite 0.5s;}
+.float-rhythm-3{animation:zeroGravityFloatB 3.5s ease-in-out infinite 0.9s;}
+.float-rhythm-4{animation:zeroGravityFloatA 3.9s ease-in-out infinite 0.3s;}
+@keyframes zeroGravityFloatA{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-8px) rotate(2deg);}}
+@keyframes zeroGravityFloatB{0%,100%{transform:translateY(-6px) rotate(2deg);}50%{transform:translateY(2px) rotate(-2deg);}}
+
 /* شاشة الرادار الحيّة للروابط */
 .holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:310px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
 .holographic-orbit-stage.active{display:flex;}
@@ -107,12 +144,7 @@ html[dir="ltr"] .orbit-node-label{font-size:6.5px;}
 .orbit-hint-bar{margin-top:10px;display:flex;align-items:center;gap:10px;font-size:10px;color:#7dd3fc;}
 .orbit-exit-btn{background:rgba(223,177,91,0.16);border:1px solid var(--gold-primary);color:var(--gold-light);padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;}
 
-/* الأزرار القياسية */
-.namer-portal-pill{width:100%;height:52px;background:linear-gradient(135deg,rgba(0,243,255,0.16) 0%,rgba(10,20,38,0.9) 50%,rgba(223,177,91,0.2) 100%);border:1.5px solid rgba(0,243,255,0.65);border-radius:26px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:#ffffff;transition:all 0.25s ease;cursor:pointer;box-shadow:0 4px 18px rgba(0,243,255,0.14);}
-.namer-portal-pill:hover{border-color:var(--gold-light);transform:translateY(-2px);}
-.namer-pill-sub{display:block;font-size:9px;color:#7dd3fc;font-weight:600;margin-top:1px;direction:ltr;}
-html[dir="ltr"] .namer-pill-sub{font-size:7.5px;}
-
+/* الأزرار المتبقية في البطاقة */
 .action-pill-btn{width:100%;height:48px;background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.28);border-radius:24px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-pill-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .btn-side-group{display:flex;align-items:center;gap:12px;}
@@ -161,37 +193,7 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .nfc-text{font-family:'Orbitron',sans-serif;font-size:6.5px;font-weight:700;color:var(--gold-primary);letter-spacing:0.8px;}
 
 /* =========================================================
-   1. الروبوت الهولوغرامي الطافي (مستقل في الأسفل يساراً وقابل للسحب)
-========================================================= */
-.holo-emitter-dock{position:fixed;bottom:14px;left:18px;width:74px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:920;touch-action:none;user-select:none;cursor:grab;}
-.holo-emitter-dock:active{cursor:grabbing;}
-.holo-beam-cone{position:absolute;bottom:12px;width:62px;height:66px;background:linear-gradient(to top,rgba(0,243,255,0.42) 0%,rgba(223,177,91,0.14) 55%,transparent 100%);clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
-.holo-emitter-pad{width:44px;height:11px;border-radius:50%;background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.5px solid var(--gold-primary);box-shadow:0 0 18px rgba(0,243,255,0.85),0 0 30px rgba(223,177,91,0.45);position:relative;}
-.holo-emitter-pad::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(0,243,255,0.55);animation:emitterPulseRing 2s infinite;}
-@keyframes emitterPulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.45);opacity:0;}}
-@keyframes holoBeamFlicker{0%,100%{opacity:0.82;}50%{opacity:1;}75%{opacity:0.65;}}
-
-.holo-bot-figure{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.82) 85%);border:1.6px solid rgba(0,243,255,0.85);box-shadow:0 0 22px rgba(0,243,255,0.6),inset 0 0 14px rgba(223,177,91,0.45);display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:14px;overflow:hidden;animation:zeroGravityFloat 3.6s ease-in-out infinite;}
-.holo-bot-figure::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.22) 3px);pointer-events:none;animation:scanlineScroll 4s linear infinite;}
-@keyframes scanlineScroll{from{background-position:0 0;}to{background-position:0 24px;}}
-@keyframes zeroGravityFloat{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-9px) rotate(2deg);}}
-.holo-tag-pill{position:absolute;top:2px;right:4px;background:rgba(2,6,17,0.9);border:1px solid var(--gold-primary);color:var(--cyan-glow);font-family:'Orbitron',sans-serif!important;font-size:7px;font-weight:900;padding:1px 5px;border-radius:7px;box-shadow:0 0 8px rgba(0,243,255,0.5);pointer-events:none;}
-
-/* =========================================================
-   2. زر الاتصال الهولوغرامي الطافي (مستقل في الأسفل يميناً وقابل للسحب)
-========================================================= */
-.holo-call-dock{position:fixed;bottom:14px;right:18px;width:74px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:920;touch-action:none;cursor:grab;user-select:none;}
-.holo-call-dock:active{cursor:grabbing;}
-.holo-call-cone{position:absolute;bottom:12px;width:58px;height:62px;background:linear-gradient(to top,rgba(223,177,91,0.42) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);clip-path:polygon(14% 0%,86% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 3.1s infinite alternate-reverse;}
-.holo-call-pad{width:42px;height:10px;border-radius:50%;background:radial-gradient(ellipse at center,#dfb15b 0%,#120d05 80%);border:1.5px solid var(--cyan-glow);box-shadow:0 0 18px rgba(223,177,91,0.85),0 0 28px rgba(0,243,255,0.35);position:relative;}
-.holo-call-pad::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(223,177,91,0.55);animation:emitterPulseRing 2.2s infinite 0.5s;}
-.holo-call-capsule{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.32) 0%,rgba(12,18,32,0.86) 85%);border:1.6px solid var(--gold-light);box-shadow:0 0 22px rgba(223,177,91,0.65),inset 0 0 12px rgba(0,243,255,0.35);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;margin-bottom:14px;overflow:hidden;animation:zeroGravityFloat 3.2s ease-in-out infinite 0.7s;}
-.holo-call-capsule::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(223,177,91,0.2) 3px);pointer-events:none;}
-.holo-call-lbl{font-size:8px;font-weight:800;color:var(--gold-light);margin-top:2px;letter-spacing:0.2px;}
-html[dir="ltr"] .holo-call-lbl{font-size:6.5px;}
-
-/* =========================================================
-   3. شعاع الإسقاط الهولوغرامي الكبير تحت نوافذ الأرقام والروبوت
+   شعاع الإسقاط الهولوغرامي الكبير تحت نوافذ الأرقام والروبوت
 ========================================================= */
 .holo-projected-wrapper{display:flex;flex-direction:column;align-items:center;width:100%;max-width:410px;position:relative;}
 .holo-stage-beam{width:76%;height:68px;margin-top:-6px;background:linear-gradient(to top,rgba(0,243,255,0.34) 0%,rgba(223,177,91,0.14) 55%,transparent 100%);clip-path:polygon(6% 0%,94% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
@@ -201,7 +203,7 @@ html[dir="ltr"] .holo-call-lbl{font-size:6.5px;}
 .holo-stage-emitter::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,243,255,0.55);animation:emitterPulseRing 2s infinite;}
 
 /* =========================================================
-   4. مسرح الإسقاط الهولوغرامي للأسئلة الطافية في الفضاء
+   مسرح الإسقاط الهولوغرامي للأسئلة الطافية في الفضاء
 ========================================================= */
 .holo-space-overlay{position:fixed;inset:0;background:radial-gradient(circle at center,rgba(4,14,32,0.86) 0%,rgba(1,4,12,0.94) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:1100;display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px;overflow-y:auto;}
 .holo-space-overlay.active{display:flex;animation:holoStageReveal 0.4s cubic-bezier(0.16,1,0.3,1);}
@@ -210,7 +212,7 @@ html[dir="ltr"] .holo-call-lbl{font-size:6.5px;}
 .holo-close-trigger{position:fixed;top:18px;right:18px;background:rgba(8,18,36,0.85);border:1.5px solid rgba(0,243,255,0.55);color:var(--cyan-glow);padding:6px 14px;border-radius:18px;font-size:11px;font-weight:800;cursor:pointer;z-index:1120;box-shadow:0 0 15px rgba(0,243,255,0.25);}
 
 .holo-center-projector{display:flex;flex-direction:column;align-items:center;margin-bottom:12px;position:relative;}
-.holo-center-avatar{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(0,243,255,0.3) 0%,rgba(5,12,28,0.88) 80%);border:2px solid var(--cyan-glow);box-shadow:0 0 32px rgba(0,243,255,0.7),inset 0 0 18px rgba(223,177,91,0.5);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;animation:zeroGravityFloat 3.5s ease-in-out infinite;}
+.holo-center-avatar{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(0,243,255,0.3) 0%,rgba(5,12,28,0.88) 80%);border:2px solid var(--cyan-glow);box-shadow:0 0 32px rgba(0,243,255,0.7),inset 0 0 18px rgba(223,177,91,0.5);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;animation:zeroGravityFloatA 3.5s ease-in-out infinite;}
 .holo-center-avatar::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.25) 3px);pointer-events:none;}
 .holo-center-ring{position:absolute;inset:-10px;border-radius:50%;border:1.5px dashed var(--gold-primary);animation:botOrbitSpin 9s linear infinite;pointer-events:none;}
 @keyframes botOrbitSpin{to{transform:rotate(360deg);}}
@@ -239,7 +241,7 @@ html[dir="ltr"] .holo-q-card{font-size:8.8px;}
 @keyframes cardZeroG2{0%,100%{transform:translateY(-4px) rotate(0.8deg);}50%{transform:translateY(4px) rotate(-0.8deg);}}
 
 /* لوح الرد الهولوغرامي المعلق في الهواء */
-.holo-response-panel{width:min(410px,94vw);background:linear-gradient(160deg,rgba(8,22,46,0.78) 0%,rgba(4,10,22,0.86) 100%);backdrop-filter:blur(10px);border:1.5px solid rgba(223,177,91,0.65);box-shadow:0 0 30px rgba(0,243,255,0.22),inset 0 0 18px rgba(0,243,255,0.12);border-radius:22px;padding:13px 15px;color:#f8fafc;font-size:12px;line-height:1.65;margin-bottom:10px;position:relative;animation:zeroGravityFloat 5s ease-in-out infinite;}
+.holo-response-panel{width:min(410px,94vw);background:linear-gradient(160deg,rgba(8,22,46,0.78) 0%,rgba(4,10,22,0.86) 100%);backdrop-filter:blur(10px);border:1.5px solid rgba(223,177,91,0.65);box-shadow:0 0 30px rgba(0,243,255,0.22),inset 0 0 18px rgba(0,243,255,0.12);border-radius:22px;padding:13px 15px;color:#f8fafc;font-size:12px;line-height:1.65;margin-bottom:10px;position:relative;animation:zeroGravityFloatA 5s ease-in-out infinite;}
 html[dir="ltr"] .holo-response-panel{font-size:10px;}
 .holo-sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;}
 .holo-action-chip{background:linear-gradient(135deg,rgba(0,243,255,0.24),rgba(223,177,91,0.26));border:1px solid var(--cyan-glow);color:#ffffff;border-radius:11px;padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;margin-top:8px;transition:all 0.2s;}
@@ -255,7 +257,7 @@ html[dir="ltr"] .holo-action-chip{font-size:9px;}
 .modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:400px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
 
 /* مربع الأرقام الهولوغرامي الطافي فوق الشعاع */
-.holo-choice-card{background:linear-gradient(160deg,rgba(8,22,46,0.82) 0%,rgba(4,10,22,0.9) 100%);backdrop-filter:blur(12px);border:1.5px solid rgba(223,177,91,0.7);box-shadow:0 0 35px rgba(0,243,255,0.28),inset 0 0 20px rgba(223,177,91,0.16);border-radius:26px;width:100%;max-width:385px;padding:20px;position:relative;z-index:5;animation:zeroGravityFloat 4.2s ease-in-out infinite;}
+.holo-choice-card{background:linear-gradient(160deg,rgba(8,22,46,0.82) 0%,rgba(4,10,22,0.9) 100%);backdrop-filter:blur(12px);border:1.5px solid rgba(223,177,91,0.7);box-shadow:0 0 35px rgba(0,243,255,0.28),inset 0 0 20px rgba(223,177,91,0.16);border-radius:26px;width:100%;max-width:385px;padding:20px;position:relative;z-index:5;animation:zeroGravityFloatA 4.2s ease-in-out infinite;}
 .holo-choice-card::after{content:'';position:absolute;inset:0;border-radius:26px;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(0,243,255,0.05) 4px);pointer-events:none;}
 
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border-bottom:1px solid rgba(0,243,255,0.2);padding-bottom:10px;}
@@ -285,7 +287,7 @@ html[dir="ltr"] .form-group input.ltr-input{text-align:left;}
 .modal-save-btn{width:100%;background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;font-weight:800;border:none;border-radius:12px;padding:12px;cursor:pointer;margin-top:10px;font-size:14px;}
 html[dir="ltr"] .modal-save-btn{font-size:11.5px;}
 
-.toast-notification{position:fixed;bottom:98px;left:50%;transform:translateX(-50%) translateY(120px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:10px 22px;border-radius:30px;font-size:12px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.toast-notification{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(120px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:10px 22px;border-radius:30px;font-size:12px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
 html[dir="ltr"] .toast-notification{font-size:10px;}
 .toast-notification.show{transform:translateX(-50%) translateY(0);}
 </style>
@@ -295,33 +297,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
 <div class="cyber-heritage-backdrop"></div>
 <canvas id="quantum-canvas"></canvas>
 
-<!-- 1. الروبوت الهولوغرامي الطافي (مستقل في الأسفل يساراً وقابل للسحب) -->
-<div class="holo-emitter-dock" id="floatingBotOrb" title="المستشار الهولوغرامي NAMER-IO AI">
-    <span class="holo-tag-pill">HOLO AI</span>
-    <div class="holo-beam-cone"></div>
-    <div class="holo-bot-figure">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
-            <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
-            <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
-            <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
-            <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
-            <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
-        </svg>
-    </div>
-    <div class="holo-emitter-pad"></div>
-</div>
-
-<!-- 2. زر الاتصال الهولوغرامي الطافي (مستقل في الأسفل يميناً وقابل للسحب الحر) -->
-<div class="holo-call-dock" id="floatingCallOrb" title="اتصال مباشر">
-    <div class="holo-call-cone"></div>
-    <div class="holo-call-capsule">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span class="holo-call-lbl" id="holoCallLabel">اتصال</span>
-    </div>
-    <div class="holo-call-pad"></div>
-</div>
-
-<!-- 3. مسرح الإسقاط الهولوغرامي للأسئلة الطافية مع شعاع الإسقاط السفلي -->
+<!-- مسرح الإسقاط الهولوغرامي للأسئلة الطافية مع شعاع الإسقاط السفلي -->
 <div class="holo-space-overlay" id="holoSpaceStage" onclick="closeHoloSpace()">
     <button type="button" class="holo-close-trigger" onclick="closeHoloSpace()" id="holoCloseBtn">✕ إغلاق الهولوغرام</button>
 
@@ -417,39 +393,62 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
         </div>
 
         <div class="card-body" id="standardCardBody">
-            <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="namer-portal-pill">
-                <div class="btn-side-group">
-                    <div class="btn-icon-circle" style="background:rgba(0,243,255,0.18);border-color:var(--cyan-glow);">
-                        <span class="font-tech" style="font-size:14px;font-weight:900;color:var(--gold-light);">N</span>
-                    </div>
-                    <div>
-                        <span class="btn-title" id="tNamerPortal">منصة NAMER-IO الرقمية</span>
-                        <span class="namer-pill-sub" id="uiNamerUrl">namer-io.github.io</span>
-                    </div>
-                </div>
-                <div class="btn-arrow">‹</div>
-            </a>
+            <!-- مسرح الأيقونات الهولوغرامية الأربع الصافية (تطفو مكانها يمين ويسار بدون نصوص) -->
+            <div class="holo-quad-stage">
+                <!-- الصف الأول: منصة NAMER-IO يميناً + الروبوت الناطق يساراً -->
+                <div class="holo-pair-row">
+                    <!-- الطرف الأيمن: منصة NAMER-IO -->
+                    <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="holo-unit gold-theme" aria-label="NAMER-IO">
+                        <div class="holo-unit-cone"></div>
+                        <div class="holo-orb-body float-rhythm-1">
+                            <span class="font-tech" style="font-size:21px;font-weight:900;color:var(--gold-light);text-shadow:0 0 12px rgba(223,177,91,0.85);">N</span>
+                        </div>
+                        <div class="holo-unit-pad"></div>
+                    </a>
 
-            <div class="action-pill-btn" onclick="openChoiceModal('call', event)">
-                <div class="btn-side-group">
-                    <div class="btn-icon-circle">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <!-- الطرف الأيسر: الروبوت الهولوغرامي -->
+                    <div class="holo-unit cyan-theme" onclick="openHoloSpace(event)" role="button" tabindex="0" aria-label="AI Assistant">
+                        <div class="holo-unit-cone"></div>
+                        <div class="holo-orb-body float-rhythm-2">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+                                <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
+                                <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                                <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                                <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
+                                <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
+                            </svg>
+                        </div>
+                        <div class="holo-unit-pad"></div>
                     </div>
-                    <span class="btn-title" id="tCall">إتصال مباشر</span>
                 </div>
-                <div class="btn-arrow">‹</div>
+
+                <!-- الصف الثاني: الاتصال يميناً + الواتساب يساراً -->
+                <div class="holo-pair-row">
+                    <!-- الطرف الأيمن: الاتصال المباشر -->
+                    <div class="holo-unit cyan-theme" onclick="openChoiceModal('call', event)" role="button" tabindex="0" aria-label="Direct Call">
+                        <div class="holo-unit-cone"></div>
+                        <div class="holo-orb-body float-rhythm-3">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.1">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="holo-unit-pad"></div>
+                    </div>
+
+                    <!-- الطرف الأيسر: واتساب -->
+                    <div class="holo-unit gold-theme" onclick="openChoiceModal('whatsapp', event)" role="button" tabindex="0" aria-label="WhatsApp">
+                        <div class="holo-unit-cone"></div>
+                        <div class="holo-orb-body float-rhythm-4">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5d69c" stroke-width="2.1">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                        <div class="holo-unit-pad"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="action-pill-btn" onclick="openChoiceModal('whatsapp', event)">
-                <div class="btn-side-group">
-                    <div class="btn-icon-circle" style="color:var(--gold-primary);">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    </div>
-                    <span class="btn-title" id="tWhatsapp">واتساب</span>
-                </div>
-                <div class="btn-arrow">‹</div>
-            </div>
-
+            <!-- التواصل الاجتماعي (X + سناب شات) -->
             <div class="action-pill-btn" onclick="openChoiceModal('social', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle">
@@ -460,6 +459,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
+            <!-- البريد الإلكتروني والموقع -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="handleEmail(event)">
                     <div class="box-content-side">
@@ -484,6 +484,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                 </a>
             </div>
 
+            <!-- مشاركة الكارت وحفظ جهة الاتصال -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="shareCard(event)">
                     <div class="box-content-side">
@@ -508,6 +509,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                 </a>
             </div>
 
+            <!-- إضافة للمحفظة الرقمية -->
             <div class="wallet-pill-btn" onclick="openWalletModal(event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;">💳</div>
@@ -664,7 +666,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
 
     if('serviceWorker' in navigator){
         const swCode=`
-            const CACHE_NAME='nabil-card-offline-v4';
+            const CACHE_NAME='nabil-card-offline-v5';
             const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
             self.addEventListener('install',e=>{
                 e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
@@ -731,44 +733,7 @@ window.addEventListener('deviceorientation',e=>{
     }
 });
 
-/* 3. دالة موحّدة للسحب الحر على الشاشة لكل من الروبوت الطافي وزر الاتصال الطافي */
-function makeElementDraggable(el,onTapCallback){
-    if(!el)return;
-    let isDragging=false,hasMoved=false,startX=0,startY=0,origLeft=0,origTop=0;
-
-    el.addEventListener('pointerdown',e=>{
-        isDragging=true;hasMoved=false;
-        const rect=el.getBoundingClientRect();
-        startX=e.clientX;startY=e.clientY;
-        origLeft=rect.left;origTop=rect.top;
-        el.style.bottom='auto';el.style.right='auto';
-        el.style.left=origLeft+'px';el.style.top=origTop+'px';
-        el.setPointerCapture(e.pointerId);
-        e.stopPropagation();
-    });
-
-    el.addEventListener('pointermove',e=>{
-        if(!isDragging)return;
-        const dx=e.clientX-startX,dy=e.clientY-startY;
-        if(Math.hypot(dx,dy)>5)hasMoved=true;
-        const maxLeft=window.innerWidth-el.offsetWidth-8;
-        const maxTop=window.innerHeight-el.offsetHeight-8;
-        el.style.left=Math.max(8,Math.min(maxLeft,origLeft+dx))+'px';
-        el.style.top=Math.max(8,Math.min(maxTop,origTop+dy))+'px';
-    });
-
-    el.addEventListener('pointerup',e=>{
-        if(!isDragging)return;
-        isDragging=false;
-        el.releasePointerCapture(e.pointerId);
-        if(!hasMoved&&onTapCallback)onTapCallback(e);
-    });
-}
-
-makeElementDraggable(document.getElementById('floatingBotOrb'),e=>openHoloSpace(e));
-makeElementDraggable(document.getElementById('floatingCallOrb'),e=>openChoiceModal('call',e));
-
-/* 4. تأثير نبض القلب الكهرومغناطيسي + نبض الشريحة الحية */
+/* 3. تأثير نبض القلب الكهرومغناطيسي + نبض الشريحة الحية */
 let neuralPulseTimer=null;
 function exciteNeuralPulse(){
     const card=document.getElementById('ezwaCard');
@@ -798,7 +763,7 @@ function triggerShockwave(e){
     setTimeout(()=>wave.remove(),900);
 }
 
-/* 5. شاشة الرادار الحيّة للروابط */
+/* 4. شاشة الرادار الحيّة للروابط */
 let orbitModeActive=false;
 let orbitAngleOffset=0;
 let orbitAnimFrame=null;
@@ -887,7 +852,7 @@ function toggleOrbitMode(e){
     }
 }
 
-/* 6. الكشف التلقائي للغة + بوابة السفر عبر الزمن */
+/* 5. الكشف التلقائي للغة + بوابة السفر عبر الزمن */
 var deviceLang=(navigator.language||navigator.userLanguage||'ar').toLowerCase();
 var currentLang=deviceLang.startsWith('ar')?'ar':'en';
 document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');
@@ -911,16 +876,15 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v12');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v13');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
         langBtn:"EN",
-        namerPortal:"منصة NAMER-IO الرقمية",call:"إتصال مباشر",whatsapp:"واتساب",
         social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
-        holoCall:"اتصال",holoClose:"✕ إغلاق الهولوغرام",
+        holoClose:"✕ إغلاق الهولوغرام",
         orbitCore:"العودة",orbitHint:"◈ اسحب لتدوير المدار الهولوغرامي ◈",orbitExit:"البطاقة",
         botPlaceholder:"اكتب مجال عملك أو سؤالك في الفضاء...",
         chipIntegrate:"◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟",
@@ -942,11 +906,10 @@ var TRANSLATIONS={
     },
     en:{
         langBtn:"عربي",
-        namerPortal:"NAMER-IO Digital Portal",call:"Direct Call",whatsapp:"WhatsApp",
         social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
-        holoCall:"CALL",holoClose:"✕ Close Hologram",
+        holoClose:"✕ Close Hologram",
         orbitCore:"RETURN",orbitHint:"◈ Drag to rotate holographic orbit ◈",orbitExit:"Card View",
         botPlaceholder:"Type your industry or question...",
         chipIntegrate:"◈ How to integrate NFC into my brand?",
@@ -1005,11 +968,7 @@ function updateUI(){
     document.getElementById('uiBrandName').innerText=(currentLang==='ar')?EZWA_CONFIG.brandAr:EZWA_CONFIG.brandEn;
     document.getElementById('uiRole').innerText=(currentLang==='ar')?EZWA_CONFIG.roleAr:EZWA_CONFIG.roleEn;
     document.getElementById('uiSlogan').innerHTML=formatSloganWithHighlight((currentLang==='ar')?EZWA_CONFIG.sloganAr:EZWA_CONFIG.sloganEn);
-    document.getElementById('tNamerPortal').innerText=t.namerPortal;
     document.getElementById('linkNamerPortal').href=EZWA_CONFIG.namerUrl;
-    document.getElementById('uiNamerUrl').innerText=EZWA_CONFIG.namerUrl.replace(/^https?:\/\//,'');
-    document.getElementById('tCall').innerText=t.call;
-    document.getElementById('tWhatsapp').innerText=t.whatsapp;
     document.getElementById('tSocial').innerText=t.social;
     document.getElementById('tEmail').innerText=t.email;
     document.getElementById('tMap').innerText=t.map;
@@ -1018,7 +977,6 @@ function updateUI(){
     document.getElementById('tContact').innerText=t.contact;
     document.getElementById('tWallet').innerText=t.wallet;
     document.getElementById('tCustomize').innerText=t.customize;
-    document.getElementById('holoCallLabel').innerText=t.holoCall;
     document.getElementById('holoCloseBtn').innerText=t.holoClose;
     document.getElementById('orbitCoreBack').innerText=t.orbitCore;
     document.getElementById('orbitHintText').innerText=t.orbitHint;
@@ -1278,7 +1236,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v12',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v13',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
