@@ -24,7 +24,7 @@
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
 body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=16');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=17');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -89,31 +89,31 @@ html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-heigh
 .card-body.orbit-hidden{display:none;}
 
 /* =========================================================
-   مسرح الأيقونات الهولوغرامية الأربع الصافية (تطفو في مكانها يمين ويسار)
+   الأيقونات الهولوغرامية الأربع الصافية بدون أي إطار أو صندوق (مُصغّرة وأنيقة)
 ========================================================= */
-.holo-quad-stage{display:flex;flex-direction:column;gap:8px;padding:4px 6px;background:rgba(4,10,22,0.52);border:1px solid rgba(0,243,255,0.18);border-radius:24px;box-shadow:inset 0 0 22px rgba(0,243,255,0.06);}
-.holo-pair-row{display:flex;align-items:flex-end;justify-content:space-between;padding:2px 14px;}
+.holo-quad-free{display:flex;flex-direction:column;gap:4px;padding:2px 0;}
+.holo-pair-row{display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px;}
 
-.holo-unit{width:76px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;cursor:pointer;text-decoration:none;user-select:none;transition:transform 0.2s ease;}
-.holo-unit:active{transform:scale(0.93);}
+.holo-unit{width:54px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;cursor:pointer;text-decoration:none;user-select:none;transition:transform 0.2s ease;}
+.holo-unit:active{transform:scale(0.92);}
 
 /* شعاع الإسقاط الهولوغرامي لكل أيقونة */
-.holo-unit-cone{position:absolute;bottom:9px;width:58px;height:58px;clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
-.holo-unit.cyan-theme .holo-unit-cone{background:linear-gradient(to top,rgba(0,243,255,0.38) 0%,rgba(223,177,91,0.12) 55%,transparent 100%);}
-.holo-unit.gold-theme .holo-unit-cone{background:linear-gradient(to top,rgba(223,177,91,0.4) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);}
+.holo-unit-cone{position:absolute;bottom:6px;width:42px;height:40px;clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
+.holo-unit.cyan-theme .holo-unit-cone{background:linear-gradient(to top,rgba(0,243,255,0.4) 0%,rgba(223,177,91,0.12) 55%,transparent 100%);}
+.holo-unit.gold-theme .holo-unit-cone{background:linear-gradient(to top,rgba(223,177,91,0.42) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);}
 
 /* قاعدة الإسقاط الضوئية */
-.holo-unit-pad{width:42px;height:10px;border-radius:50%;position:relative;pointer-events:none;}
-.holo-unit.cyan-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.4px solid var(--gold-primary);box-shadow:0 0 15px rgba(0,243,255,0.8),0 0 24px rgba(223,177,91,0.4);}
-.holo-unit.gold-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#dfb15b 0%,#140e04 75%);border:1.4px solid var(--cyan-glow);box-shadow:0 0 15px rgba(223,177,91,0.8),0 0 24px rgba(0,243,255,0.35);}
-.holo-unit-pad::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(0,243,255,0.5);animation:emitterPulseRing 2.1s infinite;}
+.holo-unit-pad{width:30px;height:7px;border-radius:50%;position:relative;pointer-events:none;}
+.holo-unit.cyan-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.2px solid var(--gold-primary);box-shadow:0 0 12px rgba(0,243,255,0.85),0 0 18px rgba(223,177,91,0.4);}
+.holo-unit.gold-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#dfb15b 0%,#140e04 75%);border:1.2px solid var(--cyan-glow);box-shadow:0 0 12px rgba(223,177,91,0.85),0 0 18px rgba(0,243,255,0.35);}
+.holo-unit-pad::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(0,243,255,0.45);animation:emitterPulseRing 2.1s infinite;}
 @keyframes emitterPulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.45);opacity:0;}}
 @keyframes holoBeamFlicker{0%,100%{opacity:0.82;}50%{opacity:1;}75%{opacity:0.65;}}
 
-/* المجسّم العائم في مكانه بانعدام وزن */
-.holo-orb-body{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px;overflow:hidden;pointer-events:none;}
-.holo-unit.cyan-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.86) 85%);border:1.6px solid rgba(0,243,255,0.85);box-shadow:0 0 20px rgba(0,243,255,0.55),inset 0 0 12px rgba(223,177,91,0.4);color:var(--cyan-glow);}
-.holo-unit.gold-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.3) 0%,rgba(12,18,32,0.88) 85%);border:1.6px solid var(--gold-light);box-shadow:0 0 20px rgba(223,177,91,0.6),inset 0 0 12px rgba(0,243,255,0.35);color:var(--gold-light);}
+/* المجسّم العائم في مكانه بانعدام وزن (مُصغّر 38px) */
+.holo-orb-body{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:8px;overflow:hidden;pointer-events:none;}
+.holo-unit.cyan-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.86) 85%);border:1.4px solid rgba(0,243,255,0.85);box-shadow:0 0 15px rgba(0,243,255,0.55),inset 0 0 9px rgba(223,177,91,0.4);color:var(--cyan-glow);}
+.holo-unit.gold-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.3) 0%,rgba(12,18,32,0.88) 85%);border:1.4px solid var(--gold-light);box-shadow:0 0 15px rgba(223,177,91,0.6),inset 0 0 9px rgba(0,243,255,0.35);color:var(--gold-light);}
 .holo-orb-body::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.18) 3px);pointer-events:none;animation:scanlineScroll 4s linear infinite;}
 @keyframes scanlineScroll{from{background-position:0 0;}to{background-position:0 24px;}}
 
@@ -122,8 +122,8 @@ html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-heigh
 .float-rhythm-2{animation:zeroGravityFloatB 3.8s ease-in-out infinite 0.5s;}
 .float-rhythm-3{animation:zeroGravityFloatB 3.5s ease-in-out infinite 0.9s;}
 .float-rhythm-4{animation:zeroGravityFloatA 3.9s ease-in-out infinite 0.3s;}
-@keyframes zeroGravityFloatA{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-8px) rotate(2deg);}}
-@keyframes zeroGravityFloatB{0%,100%{transform:translateY(-6px) rotate(2deg);}50%{transform:translateY(2px) rotate(-2deg);}}
+@keyframes zeroGravityFloatA{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-6px) rotate(2deg);}}
+@keyframes zeroGravityFloatB{0%,100%{transform:translateY(-5px) rotate(2deg);}50%{transform:translateY(1px) rotate(-2deg);}}
 
 /* شاشة الرادار الحيّة للروابط */
 .holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:310px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
@@ -393,15 +393,15 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
         </div>
 
         <div class="card-body" id="standardCardBody">
-            <!-- مسرح الأيقونات الهولوغرامية الأربع الصافية (تطفو مكانها يمين ويسار بدون نصوص) -->
-            <div class="holo-quad-stage">
+            <!-- الأيقونات الهولوغرامية الأربع الصافية (بدون أي إطار أو صندوق، تطفو مكانها يمين ويسار) -->
+            <div class="holo-quad-free">
                 <!-- الصف الأول: منصة NAMER-IO يميناً + الروبوت الناطق يساراً -->
                 <div class="holo-pair-row">
                     <!-- الطرف الأيمن: منصة NAMER-IO -->
                     <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="holo-unit gold-theme" aria-label="NAMER-IO">
                         <div class="holo-unit-cone"></div>
                         <div class="holo-orb-body float-rhythm-1">
-                            <span class="font-tech" style="font-size:21px;font-weight:900;color:var(--gold-light);text-shadow:0 0 12px rgba(223,177,91,0.85);">N</span>
+                            <span class="font-tech" style="font-size:16px;font-weight:900;color:var(--gold-light);text-shadow:0 0 10px rgba(223,177,91,0.85);">N</span>
                         </div>
                         <div class="holo-unit-pad"></div>
                     </a>
@@ -410,7 +410,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                     <div class="holo-unit cyan-theme" onclick="openHoloSpace(event)" role="button" tabindex="0" aria-label="AI Assistant">
                         <div class="holo-unit-cone"></div>
                         <div class="holo-orb-body float-rhythm-2">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
                                 <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
                                 <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
                                 <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
@@ -428,7 +428,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                     <div class="holo-unit cyan-theme" onclick="openChoiceModal('call', event)" role="button" tabindex="0" aria-label="Direct Call">
                         <div class="holo-unit-cone"></div>
                         <div class="holo-orb-body float-rhythm-3">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.1">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.1">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
                         </div>
@@ -439,7 +439,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
                     <div class="holo-unit gold-theme" onclick="openChoiceModal('whatsapp', event)" role="button" tabindex="0" aria-label="WhatsApp">
                         <div class="holo-unit-cone"></div>
                         <div class="holo-orb-body float-rhythm-4">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5d69c" stroke-width="2.1">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f5d69c" stroke-width="2.1">
                                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                             </svg>
                         </div>
@@ -666,7 +666,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
 
     if('serviceWorker' in navigator){
         const swCode=`
-            const CACHE_NAME='nabil-card-offline-v5';
+            const CACHE_NAME='nabil-card-offline-v6';
             const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
             self.addEventListener('install',e=>{
                 e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
@@ -876,7 +876,7 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v13');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v14');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
@@ -1236,7 +1236,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v13',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v14',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
