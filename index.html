@@ -22,9 +22,9 @@
 :root{--bg-void:#020611;--cyan-glow:#00f3ff;--gold-primary:#dfb15b;--gold-light:#f5d69c;--text-main:#ffffff;--card-width:min(425px,93vw);--foil-x:50%;--foil-y:30%;--tilt-x:0deg;--tilt-y:0deg;--logo-tx:0px;--logo-ty:0px;}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Tajawal',sans-serif;-webkit-tap-highlight-color:transparent;}
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
-body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
+body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:16px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=17');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=18');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -36,8 +36,8 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .magnetic-shockwave{position:absolute;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0);border:2px solid var(--cyan-glow);box-shadow:0 0 22px rgba(0,243,255,0.65),inset 0 0 16px rgba(223,177,91,0.45);z-index:25;animation:magneticPulseOut 0.85s cubic-bezier(0.16,1,0.3,1) forwards;}
 @keyframes magneticPulseOut{0%{width:20px;height:20px;opacity:1;transform:translate(-50%,-50%) scale(0.2);}60%{border-color:var(--gold-light);opacity:0.75;}100%{width:560px;height:560px;opacity:0;transform:translate(-50%,-50%) scale(1.15);}}
 
-/* الحاوية الرئيسية للبطاقة مع عمق ثلاثي الأبعاد */
-.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out,filter 0.4s ease,opacity 0.4s ease;}
+/* الحاوية الرئيسية للبطاقة المدمجة المتوازنة */
+.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:16px 18px 15px 18px;display:flex;flex-direction:column;gap:8px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out,filter 0.4s ease,opacity 0.4s ease;}
 .ezwa-card-container.holo-dimmed{filter:brightness(0.35) blur(3px);pointer-events:none;}
 .rotating-glow-border{position:absolute;inset:0;border-radius:36px;padding:2px;background:conic-gradient(from var(--border-angle),rgba(223,177,91,0.18) 0deg,rgba(0,243,255,0.25) 65deg,#00f3ff 82deg,#ffffff 90deg,#dfb15b 98deg,rgba(223,177,91,0.2) 115deg,rgba(0,243,255,0.15) 245deg,#dfb15b 265deg,#ffffff 272deg,#00f3ff 280deg,rgba(223,177,91,0.18) 300deg,rgba(223,177,91,0.18) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinEdgeGlint 12s linear infinite;pointer-events:none!important;z-index:4;}
 .ezwa-card-container.neural-excited .rotating-glow-border{animation-duration:3s;filter:brightness(1.45);}
@@ -52,10 +52,10 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .chrono-dissolve{animation:textQuantumPulse 0.45s ease-out;}
 @keyframes textQuantumPulse{0%{filter:blur(4px) brightness(1.8);opacity:0.35;transform:scale(0.98);}100%{filter:blur(0) brightness(1);opacity:1;transform:scale(1);}}
 
-.card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:9px;width:100%;}
+.card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:8px;width:100%;}
 
 /* الشريط العلوي */
-.top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px 4px;border-bottom:1px solid rgba(223,177,91,0.22);direction:ltr;}
+.top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 5px 4px;border-bottom:1px solid rgba(223,177,91,0.22);direction:ltr;}
 .portal-tag{font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--cyan-glow);display:flex;align-items:center;gap:5px;}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;animation:pingDot 1.8s infinite;}
 @keyframes pingDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
@@ -66,52 +66,57 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .lang-switch-btn:hover{background:rgba(0,243,255,0.15);color:#ffffff;border-color:var(--gold-primary);}
 
 /* الرأس */
-.card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:74px;margin-top:2px;padding-bottom:6px;border-bottom:1px solid rgba(223,177,91,0.16);}
-.monogram-box{position:absolute;right:0;width:62px;height:62px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;cursor:pointer;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out,border-color 0.25s;}
+.card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:70px;margin-top:1px;padding-bottom:6px;border-bottom:1px solid rgba(223,177,91,0.16);}
+.monogram-box{position:absolute;right:0;width:60px;height:60px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;cursor:pointer;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out,border-color 0.25s;}
 .monogram-box:hover{border-color:var(--cyan-glow);}
 html[dir="ltr"] .monogram-box{right:auto;left:0;}
 .monogram-box img{width:100%;height:100%;object-fit:contain;pointer-events:none;}
-.brand-titles-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;padding-right:70px;padding-left:6px;}
-html[dir="ltr"] .brand-titles-center{padding-left:70px;padding-right:6px;}
+.brand-titles-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;width:100%;padding-right:68px;padding-left:6px;}
+html[dir="ltr"] .brand-titles-center{padding-left:68px;padding-right:6px;}
 
-.brand-name-ar{font-family:'Readex Pro',sans-serif!important;font-size:22px;font-weight:700;letter-spacing:0.6px;background:linear-gradient(180deg,#ffffff 25%,#f5d69c 75%,#dfb15b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 8px rgba(0,243,255,0.22));line-height:1.2;margin-bottom:3px;}
-html[dir="ltr"] .brand-name-ar{font-family:'Orbitron',sans-serif!important;font-size:14px;font-weight:900;letter-spacing:1.2px;white-space:nowrap;margin-bottom:4px;}
+.brand-name-ar{font-family:'Readex Pro',sans-serif!important;font-size:21px;font-weight:700;letter-spacing:0.6px;background:linear-gradient(180deg,#ffffff 25%,#f5d69c 75%,#dfb15b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 8px rgba(0,243,255,0.22));line-height:1.2;margin-bottom:2px;}
+html[dir="ltr"] .brand-name-ar{font-family:'Orbitron',sans-serif!important;font-size:14px;font-weight:900;letter-spacing:1.2px;white-space:nowrap;margin-bottom:3px;}
 
-.brand-role{font-size:11.5px;color:var(--cyan-glow);font-weight:700;margin-bottom:4px;letter-spacing:0.3px;}
+.brand-role{font-size:11px;color:var(--cyan-glow);font-weight:700;margin-bottom:3px;letter-spacing:0.3px;}
 html[dir="ltr"] .brand-role{font-family:'Orbitron',sans-serif!important;font-size:8.5px;font-weight:700;letter-spacing:0.9px;}
 
-.brand-bio-inline{font-size:9.8px;color:var(--gold-light);font-weight:600;line-height:1.45;cursor:pointer;transition:color 0.2s ease;}
+.brand-bio-inline{font-size:9.6px;color:var(--gold-light);font-weight:600;line-height:1.4;cursor:pointer;transition:color 0.2s ease;}
 .brand-bio-inline:hover{color:#ffffff;}
 .brand-bio-inline .namer-highlight{font-family:'Orbitron',sans-serif!important;color:var(--cyan-glow);font-weight:900;letter-spacing:0.7px;}
-html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-height:1.45;}
+html[dir="ltr"] .brand-bio-inline{font-size:7.8px;letter-spacing:0.35px;line-height:1.4;}
 
 .card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
 .card-body.orbit-hidden{display:none;}
 
 /* =========================================================
-   الأيقونات الهولوغرامية الأربع الصافية بدون أي إطار أو صندوق (مُصغّرة وأنيقة)
+   صف أفقي واحد متوازن للأيقونات الهولوغرامية الأربع (بدون إطار أو فراغ)
 ========================================================= */
-.holo-quad-free{display:flex;flex-direction:column;gap:4px;padding:2px 0;}
-.holo-pair-row{display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px;}
+.holo-single-row{display:grid;grid-template-columns:repeat(4,1fr);align-items:end;justify-items:center;padding:4px 4px 2px 4px;width:100%;}
 
-.holo-unit{width:54px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;cursor:pointer;text-decoration:none;user-select:none;transition:transform 0.2s ease;}
+.holo-unit{width:100%;height:74px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;cursor:pointer;text-decoration:none;user-select:none;transition:transform 0.2s ease;}
 .holo-unit:active{transform:scale(0.92);}
 
 /* شعاع الإسقاط الهولوغرامي لكل أيقونة */
-.holo-unit-cone{position:absolute;bottom:6px;width:42px;height:40px;clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
+.holo-unit-cone{position:absolute;bottom:19px;width:44px;height:42px;clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
 .holo-unit.cyan-theme .holo-unit-cone{background:linear-gradient(to top,rgba(0,243,255,0.4) 0%,rgba(223,177,91,0.12) 55%,transparent 100%);}
 .holo-unit.gold-theme .holo-unit-cone{background:linear-gradient(to top,rgba(223,177,91,0.42) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);}
 
 /* قاعدة الإسقاط الضوئية */
-.holo-unit-pad{width:30px;height:7px;border-radius:50%;position:relative;pointer-events:none;}
+.holo-unit-pad{width:32px;height:7px;border-radius:50%;position:relative;pointer-events:none;}
 .holo-unit.cyan-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.2px solid var(--gold-primary);box-shadow:0 0 12px rgba(0,243,255,0.85),0 0 18px rgba(223,177,91,0.4);}
 .holo-unit.gold-theme .holo-unit-pad{background:radial-gradient(ellipse at center,#dfb15b 0%,#140e04 75%);border:1.2px solid var(--cyan-glow);box-shadow:0 0 12px rgba(223,177,91,0.85),0 0 18px rgba(0,243,255,0.35);}
 .holo-unit-pad::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(0,243,255,0.45);animation:emitterPulseRing 2.1s infinite;}
 @keyframes emitterPulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.45);opacity:0;}}
 @keyframes holoBeamFlicker{0%,100%{opacity:0.82;}50%{opacity:1;}75%{opacity:0.65;}}
 
-/* المجسّم العائم في مكانه بانعدام وزن (مُصغّر 38px) */
-.holo-orb-body{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:8px;overflow:hidden;pointer-events:none;}
+/* التسمية الدقيقة المشعّة تحت القاعدة */
+.holo-unit-tag{margin-top:4px;font-size:9px;font-weight:700;letter-spacing:0.2px;white-space:nowrap;pointer-events:none;}
+.holo-unit.cyan-theme .holo-unit-tag{color:#a5f3fc;text-shadow:0 0 8px rgba(0,243,255,0.45);}
+.holo-unit.gold-theme .holo-unit-tag{color:var(--gold-light);text-shadow:0 0 8px rgba(223,177,91,0.45);}
+html[dir="ltr"] .holo-unit-tag{font-size:7px;letter-spacing:0.4px;}
+
+/* المجسّم العائم في مكانه بانعدام وزن */
+.holo-orb-body{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:8px;overflow:hidden;pointer-events:none;}
 .holo-unit.cyan-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.86) 85%);border:1.4px solid rgba(0,243,255,0.85);box-shadow:0 0 15px rgba(0,243,255,0.55),inset 0 0 9px rgba(223,177,91,0.4);color:var(--cyan-glow);}
 .holo-unit.gold-theme .holo-orb-body{background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.3) 0%,rgba(12,18,32,0.88) 85%);border:1.4px solid var(--gold-light);box-shadow:0 0 15px rgba(223,177,91,0.6),inset 0 0 9px rgba(0,243,255,0.35);color:var(--gold-light);}
 .holo-orb-body::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.18) 3px);pointer-events:none;animation:scanlineScroll 4s linear infinite;}
@@ -120,42 +125,42 @@ html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-heigh
 /* إيقاعات طفو مستقلة في المكان لكل أيقونة */
 .float-rhythm-1{animation:zeroGravityFloatA 3.4s ease-in-out infinite;}
 .float-rhythm-2{animation:zeroGravityFloatB 3.8s ease-in-out infinite 0.5s;}
-.float-rhythm-3{animation:zeroGravityFloatB 3.5s ease-in-out infinite 0.9s;}
-.float-rhythm-4{animation:zeroGravityFloatA 3.9s ease-in-out infinite 0.3s;}
+.float-rhythm-3{animation:zeroGravityFloatA 3.5s ease-in-out infinite 0.9s;}
+.float-rhythm-4{animation:zeroGravityFloatB 3.9s ease-in-out infinite 0.3s;}
 @keyframes zeroGravityFloatA{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-6px) rotate(2deg);}}
 @keyframes zeroGravityFloatB{0%,100%{transform:translateY(-5px) rotate(2deg);}50%{transform:translateY(1px) rotate(-2deg);}}
 
 /* شاشة الرادار الحيّة للروابط */
-.holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:310px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
+.holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:290px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
 .holographic-orbit-stage.active{display:flex;}
 @keyframes orbitFadeIn{0%{opacity:0;transform:scale(0.85);}100%{opacity:1;transform:scale(1);}}
-.orbit-radar-arena{width:268px;height:268px;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;}
+.orbit-radar-arena{width:256px;height:256px;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;}
 .orbit-ring-outer{position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(0,243,255,0.45);box-shadow:0 0 28px rgba(0,243,255,0.12),inset 0 0 28px rgba(223,177,91,0.1);pointer-events:none;}
-.orbit-ring-inner{position:absolute;inset:54px;border-radius:50%;border:1px solid rgba(223,177,91,0.32);pointer-events:none;}
+.orbit-ring-inner{position:absolute;inset:52px;border-radius:50%;border:1px solid rgba(223,177,91,0.32);pointer-events:none;}
 .orbit-radar-sweep{position:absolute;inset:8px;border-radius:50%;background:conic-gradient(from 0deg,rgba(0,243,255,0.22) 0deg,transparent 65deg);animation:radarSweepSpin 4.5s linear infinite;pointer-events:none;}
 @keyframes radarSweepSpin{to{transform:rotate(360deg);}}
-.orbit-core-hub{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,#102344 0%,#050b18 85%);border:2px solid var(--gold-primary);box-shadow:0 0 24px rgba(223,177,91,0.4),inset 0 0 14px rgba(0,243,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;cursor:pointer;text-align:center;padding:4px;}
+.orbit-core-hub{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,#102344 0%,#050b18 85%);border:2px solid var(--gold-primary);box-shadow:0 0 24px rgba(223,177,91,0.4),inset 0 0 14px rgba(0,243,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;cursor:pointer;text-align:center;padding:4px;}
 .orbit-core-hub span{font-family:'Orbitron',sans-serif!important;font-size:8px;font-weight:900;color:var(--cyan-glow);letter-spacing:0.6px;}
 .orbit-core-hub small{font-size:8.5px;color:var(--gold-light);font-weight:700;margin-top:2px;}
-.orbit-node-btn{position:absolute;width:52px;height:52px;margin-left:-26px;margin-top:-26px;border-radius:50%;background:rgba(7,15,30,0.94);border:1.5px solid rgba(0,243,255,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.85),0 0 12px rgba(0,243,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;cursor:pointer;z-index:8;}
-.orbit-node-icon{font-size:14px;line-height:1;margin-bottom:2px;}
-.orbit-node-label{font-size:7.5px;font-weight:800;color:var(--gold-light);white-space:nowrap;}
-html[dir="ltr"] .orbit-node-label{font-size:6.5px;}
-.orbit-hint-bar{margin-top:10px;display:flex;align-items:center;gap:10px;font-size:10px;color:#7dd3fc;}
+.orbit-node-btn{position:absolute;width:50px;height:50px;margin-left:-25px;margin-top:-25px;border-radius:50%;background:rgba(7,15,30,0.94);border:1.5px solid rgba(0,243,255,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.85),0 0 12px rgba(0,243,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;cursor:pointer;z-index:8;}
+.orbit-node-icon{font-size:13px;line-height:1;margin-bottom:2px;}
+.orbit-node-label{font-size:7.2px;font-weight:800;color:var(--gold-light);white-space:nowrap;}
+html[dir="ltr"] .orbit-node-label{font-size:6.2px;}
+.orbit-hint-bar{margin-top:8px;display:flex;align-items:center;gap:10px;font-size:10px;color:#7dd3fc;}
 .orbit-exit-btn{background:rgba(223,177,91,0.16);border:1px solid var(--gold-primary);color:var(--gold-light);padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;}
 
 /* الأزرار المتبقية في البطاقة */
-.action-pill-btn{width:100%;height:48px;background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.28);border-radius:24px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
+.action-pill-btn{width:100%;height:46px;background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.28);border-radius:23px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-pill-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .btn-side-group{display:flex;align-items:center;gap:12px;}
-.btn-icon-circle{width:34px;height:34px;border-radius:50%;background:rgba(0,243,255,0.1);border:1.2px solid rgba(223,177,91,0.75);display:flex;align-items:center;justify-content:center;color:var(--cyan-glow);flex-shrink:0;}
-.btn-title{font-size:13.5px;font-weight:700;color:#fff;}
-html[dir="ltr"] .btn-title{font-size:11px;letter-spacing:0.6px;}
-.btn-arrow{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,243,255,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan-glow);font-size:12px;flex-shrink:0;}
+.btn-icon-circle{width:32px;height:32px;border-radius:50%;background:rgba(0,243,255,0.1);border:1.2px solid rgba(223,177,91,0.75);display:flex;align-items:center;justify-content:center;color:var(--cyan-glow);flex-shrink:0;}
+.btn-title{font-size:13px;font-weight:700;color:#fff;}
+html[dir="ltr"] .btn-title{font-size:10.5px;letter-spacing:0.6px;}
+.btn-arrow{width:23px;height:23px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,243,255,0.2);display:flex;align-items:center;justify-content:center;color:var(--cyan-glow);font-size:12px;flex-shrink:0;}
 html[dir="ltr"] .btn-arrow{transform:rotate(180deg);}
 
 .dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%;}
-.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:9px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
+.action-box-btn{background:rgba(8,16,30,0.76);border:1px solid rgba(0,243,255,0.25);border-radius:16px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .action-box-btn:hover{background:rgba(14,28,52,0.92);border-color:var(--gold-primary);transform:translateY(-2px);}
 .box-content-side{display:flex;align-items:center;gap:7px;overflow:hidden;}
 .box-icon{width:28px;height:28px;border-radius:50%;background:rgba(223,177,91,0.12);border:1.2px solid rgba(0,243,255,0.5);display:flex;align-items:center;justify-content:center;color:var(--gold-primary);flex-shrink:0;}
@@ -167,11 +172,11 @@ html[dir="ltr"] .box-subtitle{font-size:6.8px;}
 .box-arrow{font-size:11px;color:var(--cyan-glow);}
 html[dir="ltr"] .box-arrow{transform:rotate(180deg);}
 
-.wallet-pill-btn{width:100%;height:46px;background:linear-gradient(90deg,rgba(0,243,255,0.14),rgba(223,177,91,0.18));border:1.2px solid rgba(223,177,91,0.65);border-radius:23px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
+.wallet-pill-btn{width:100%;height:44px;background:linear-gradient(90deg,rgba(0,243,255,0.14),rgba(223,177,91,0.18));border:1.2px solid rgba(223,177,91,0.65);border-radius:22px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;text-decoration:none;color:var(--text-main);transition:all 0.25s ease;cursor:pointer;}
 .wallet-pill-btn:hover{background:linear-gradient(90deg,rgba(0,243,255,0.24),rgba(223,177,91,0.28));border-color:var(--cyan-glow);transform:translateY(-2px);}
 html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 
-.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:4px;border-top:1px solid rgba(223,177,91,0.22);padding-top:10px;padding-bottom:2px;direction:ltr;}
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:2px;border-top:1px solid rgba(223,177,91,0.22);padding-top:9px;padding-bottom:1px;direction:ltr;}
 .footer-left-info{display:flex;flex-direction:column;align-items:flex-start;gap:3px;}
 .footer-brand{font-family:'Orbitron',sans-serif;font-size:10.5px;font-weight:800;color:var(--gold-light);letter-spacing:1px;}
 .customize-trigger-btn{background:transparent;border:none;color:var(--cyan-glow);font-size:9.5px;cursor:pointer;text-decoration:underline;opacity:0.9;text-align:left;display:flex;align-items:center;gap:4px;}
@@ -186,7 +191,7 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .ezwa-card-container.neural-excited .ecg-status-text{color:var(--cyan-glow);}
 
 .qr-bottom-wrapper{display:flex;flex-direction:column;align-items:center;cursor:pointer;}
-.qr-frame{width:46px;height:46px;background:#fff;padding:3px;border-radius:10px;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;position:relative;}
+.qr-frame{width:44px;height:44px;background:#fff;padding:3px;border-radius:10px;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;position:relative;}
 .qr-frame img{width:100%;height:100%;object-fit:contain;}
 .nfc-indicator{display:flex;align-items:center;gap:3px;margin-top:3px;}
 .nfc-icon{font-size:7.5px;color:var(--cyan-glow);}
@@ -287,7 +292,7 @@ html[dir="ltr"] .form-group input.ltr-input{text-align:left;}
 .modal-save-btn{width:100%;background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;font-weight:800;border:none;border-radius:12px;padding:12px;cursor:pointer;margin-top:10px;font-size:14px;}
 html[dir="ltr"] .modal-save-btn{font-size:11.5px;}
 
-.toast-notification{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(120px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:10px 22px;border-radius:30px;font-size:12px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.toast-notification{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:10px 22px;border-radius:30px;font-size:12px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
 html[dir="ltr"] .toast-notification{font-size:10px;}
 .toast-notification.show{transform:translateX(-50%) translateY(0);}
 </style>
@@ -341,7 +346,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
     </div>
 </div>
 
-<!-- البطاقة الرئيسية -->
+<!-- البطاقة الرئيسية المدمجة -->
 <div class="ezwa-card-container" id="ezwaCard">
     <div class="rotating-glow-border"></div>
     <div class="card-inner-mask"></div>
@@ -393,58 +398,56 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
         </div>
 
         <div class="card-body" id="standardCardBody">
-            <!-- الأيقونات الهولوغرامية الأربع الصافية (بدون أي إطار أو صندوق، تطفو مكانها يمين ويسار) -->
-            <div class="holo-quad-free">
-                <!-- الصف الأول: منصة NAMER-IO يميناً + الروبوت الناطق يساراً -->
-                <div class="holo-pair-row">
-                    <!-- الطرف الأيمن: منصة NAMER-IO -->
-                    <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="holo-unit gold-theme" aria-label="NAMER-IO">
-                        <div class="holo-unit-cone"></div>
-                        <div class="holo-orb-body float-rhythm-1">
-                            <span class="font-tech" style="font-size:16px;font-weight:900;color:var(--gold-light);text-shadow:0 0 10px rgba(223,177,91,0.85);">N</span>
-                        </div>
-                        <div class="holo-unit-pad"></div>
-                    </a>
-
-                    <!-- الطرف الأيسر: الروبوت الهولوغرامي -->
-                    <div class="holo-unit cyan-theme" onclick="openHoloSpace(event)" role="button" tabindex="0" aria-label="AI Assistant">
-                        <div class="holo-unit-cone"></div>
-                        <div class="holo-orb-body float-rhythm-2">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
-                                <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
-                                <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
-                                <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
-                                <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
-                                <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
-                            </svg>
-                        </div>
-                        <div class="holo-unit-pad"></div>
+            <!-- صف أفقي واحد متوازن للأيقونات الهولوغرامية الأربع بدون إطار أو فراغ -->
+            <div class="holo-single-row">
+                <!-- 1. منصة NAMER-IO -->
+                <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="holo-unit gold-theme" aria-label="NAMER-IO">
+                    <div class="holo-unit-cone"></div>
+                    <div class="holo-orb-body float-rhythm-1">
+                        <span class="font-tech" style="font-size:17px;font-weight:900;color:var(--gold-light);text-shadow:0 0 10px rgba(223,177,91,0.85);">N</span>
                     </div>
+                    <div class="holo-unit-pad"></div>
+                    <span class="holo-unit-tag" id="tagPortal">المنصة</span>
+                </a>
+
+                <!-- 2. المستشار الذكي AI -->
+                <div class="holo-unit cyan-theme" onclick="openHoloSpace(event)" role="button" tabindex="0" aria-label="AI Assistant">
+                    <div class="holo-unit-cone"></div>
+                    <div class="holo-orb-body float-rhythm-2">
+                        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+                            <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
+                            <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                            <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                            <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
+                            <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
+                        </svg>
+                    </div>
+                    <div class="holo-unit-pad"></div>
+                    <span class="holo-unit-tag" id="tagBot">المساعد</span>
                 </div>
 
-                <!-- الصف الثاني: الاتصال يميناً + الواتساب يساراً -->
-                <div class="holo-pair-row">
-                    <!-- الطرف الأيمن: الاتصال المباشر -->
-                    <div class="holo-unit cyan-theme" onclick="openChoiceModal('call', event)" role="button" tabindex="0" aria-label="Direct Call">
-                        <div class="holo-unit-cone"></div>
-                        <div class="holo-orb-body float-rhythm-3">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.1">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                        </div>
-                        <div class="holo-unit-pad"></div>
+                <!-- 3. اتصال مباشر -->
+                <div class="holo-unit cyan-theme" onclick="openChoiceModal('call', event)" role="button" tabindex="0" aria-label="Direct Call">
+                    <div class="holo-unit-cone"></div>
+                    <div class="holo-orb-body float-rhythm-3">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.1">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
                     </div>
+                    <div class="holo-unit-pad"></div>
+                    <span class="holo-unit-tag" id="tagCall">اتصال</span>
+                </div>
 
-                    <!-- الطرف الأيسر: واتساب -->
-                    <div class="holo-unit gold-theme" onclick="openChoiceModal('whatsapp', event)" role="button" tabindex="0" aria-label="WhatsApp">
-                        <div class="holo-unit-cone"></div>
-                        <div class="holo-orb-body float-rhythm-4">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#f5d69c" stroke-width="2.1">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                            </svg>
-                        </div>
-                        <div class="holo-unit-pad"></div>
+                <!-- 4. واتساب -->
+                <div class="holo-unit gold-theme" onclick="openChoiceModal('whatsapp', event)" role="button" tabindex="0" aria-label="WhatsApp">
+                    <div class="holo-unit-cone"></div>
+                    <div class="holo-orb-body float-rhythm-4">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5d69c" stroke-width="2.1">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
                     </div>
+                    <div class="holo-unit-pad"></div>
+                    <span class="holo-unit-tag" id="tagWhatsapp">واتساب</span>
                 </div>
             </div>
 
@@ -452,7 +455,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
             <div class="action-pill-btn" onclick="openChoiceModal('social', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
                     </div>
                     <span class="btn-title" id="tSocial">التواصل الاجتماعي</span>
                 </div>
@@ -512,7 +515,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
             <!-- إضافة للمحفظة الرقمية -->
             <div class="wallet-pill-btn" onclick="openWalletModal(event)">
                 <div class="btn-side-group">
-                    <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;">💳</div>
+                    <div class="btn-icon-circle" style="width:27px;height:27px;font-size:13px;">💳</div>
                     <span class="btn-title" id="tWallet" style="font-size:12px;white-space:nowrap;">إضافة للمحفظة الرقمية (Apple / Google)</span>
                 </div>
                 <div class="btn-arrow" style="width:22px;height:22px;">‹</div>
@@ -666,7 +669,7 @@ html[dir="ltr"] .toast-notification{font-size:10px;}
 
     if('serviceWorker' in navigator){
         const swCode=`
-            const CACHE_NAME='nabil-card-offline-v6';
+            const CACHE_NAME='nabil-card-offline-v7';
             const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
             self.addEventListener('install',e=>{
                 e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
@@ -783,8 +786,8 @@ function renderOrbitNodes(){
         {icon:'👤',label:(currentLang==='ar')?'حفظ':'Save',action:()=>downloadVCard()}
     ];
     mount.innerHTML='';
-    const radius=100;
-    const cx=134,cy=134;
+    const radius=96;
+    const cx=128,cy=128;
     nodes.forEach((n,idx)=>{
         const angle=((idx/nodes.length)*Math.PI*2)+orbitAngleOffset;
         const x=cx+Math.cos(angle)*radius;
@@ -876,11 +879,12 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v14');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v15');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
         langBtn:"EN",
+        tagPortal:"المنصة",tagBot:"المساعد",tagCall:"اتصال",tagWhatsapp:"واتساب",
         social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
@@ -906,6 +910,7 @@ var TRANSLATIONS={
     },
     en:{
         langBtn:"عربي",
+        tagPortal:"PORTAL",tagBot:"AI BOT",tagCall:"CALL",tagWhatsapp:"WHATSAPP",
         social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
@@ -969,6 +974,10 @@ function updateUI(){
     document.getElementById('uiRole').innerText=(currentLang==='ar')?EZWA_CONFIG.roleAr:EZWA_CONFIG.roleEn;
     document.getElementById('uiSlogan').innerHTML=formatSloganWithHighlight((currentLang==='ar')?EZWA_CONFIG.sloganAr:EZWA_CONFIG.sloganEn);
     document.getElementById('linkNamerPortal').href=EZWA_CONFIG.namerUrl;
+    document.getElementById('tagPortal').innerText=t.tagPortal;
+    document.getElementById('tagBot').innerText=t.tagBot;
+    document.getElementById('tagCall').innerText=t.tagCall;
+    document.getElementById('tagWhatsapp').innerText=t.tagWhatsapp;
     document.getElementById('tSocial').innerText=t.social;
     document.getElementById('tEmail').innerText=t.email;
     document.getElementById('tMap').innerText=t.map;
@@ -1002,7 +1011,7 @@ function updateUI(){
     document.getElementById('walletModalDesc').innerText=t.walletDesc;
     document.getElementById('uiFooterBrand').innerText="NABIL ALNAMER";
     var qrContainer=document.getElementById('qrContainer');
-    if(qrContainer){qrContainer.innerHTML="";new QRCode(qrContainer,{text:EZWA_CONFIG.cardUrl,width:38,height:38,colorDark:"#020611",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}
+    if(qrContainer){qrContainer.innerHTML="";new QRCode(qrContainer,{text:EZWA_CONFIG.cardUrl,width:36,height:36,colorDark:"#020611",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});}
 }
 
 /* =========================================================
@@ -1236,7 +1245,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v14',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v15',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
