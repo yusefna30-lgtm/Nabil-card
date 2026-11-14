@@ -22,9 +22,9 @@
 :root{--bg-void:#020611;--cyan-glow:#00f3ff;--gold-primary:#dfb15b;--gold-light:#f5d69c;--text-main:#ffffff;--card-width:min(425px,93vw);--foil-x:50%;--foil-y:30%;--tilt-x:0deg;--tilt-y:0deg;--logo-tx:0px;--logo-ty:0px;}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Tajawal',sans-serif;-webkit-tap-highlight-color:transparent;}
 html[dir="ltr"] *{font-family:'Orbitron',sans-serif!important;}
-body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0;perspective:1100px;}
+body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow-x:hidden;position:relative;padding:20px 0 88px 0;perspective:1100px;}
 .font-tech{font-family:'Orbitron',sans-serif;}
-.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=13');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
+.cyber-heritage-backdrop{position:fixed;inset:0;width:100vw;height:100vh;z-index:-3;background-color:var(--bg-void);background-image:linear-gradient(to bottom,rgba(2,6,17,0.25),rgba(2,6,17,0.45)),url('portal-bg.webp?v=14');background-size:cover;background-position:center center;background-repeat:no-repeat;pointer-events:none;}
 #quantum-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
 
 /* تموّجات الماء الضوئية عند لمس الشاشة */
@@ -32,19 +32,20 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .water-ripple-ring.gold-ring{border-color:rgba(223,177,91,0.85);}
 @keyframes waterRippleExpand{0%{width:10px;height:10px;opacity:0.95;transform:translate(-50%,-50%) scale(0.2);}100%{width:140px;height:140px;opacity:0;transform:translate(-50%,-50%) scale(1.2);}}
 
-/* موجة النبض الكهرومغناطيسي عند لمس الأزرار Magnetic Touch Shockwave */
+/* موجة النبض الكهرومغناطيسي عند لمس الأزرار */
 .magnetic-shockwave{position:absolute;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0);border:2px solid var(--cyan-glow);box-shadow:0 0 22px rgba(0,243,255,0.65),inset 0 0 16px rgba(223,177,91,0.45);z-index:25;animation:magneticPulseOut 0.85s cubic-bezier(0.16,1,0.3,1) forwards;}
 @keyframes magneticPulseOut{0%{width:20px;height:20px;opacity:1;transform:translate(-50%,-50%) scale(0.2);}60%{border-color:var(--gold-light);opacity:0.75;}100%{width:560px;height:560px;opacity:0;transform:translate(-50%,-50%) scale(1.15);}}
 
-/* الحاوية الرئيسية للبطاقة مع عمق ثلاثي الأبعاد 3D Parallax */
-.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out;}
+/* الحاوية الرئيسية للبطاقة مع عمق ثلاثي الأبعاد */
+.ezwa-card-container{width:var(--card-width);background:rgba(5,10,20,0.68);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:36px;position:relative;padding:18px 18px 16px 18px;display:flex;flex-direction:column;gap:9px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.88);transform-style:preserve-3d;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transition:transform 0.16s ease-out,filter 0.4s ease,opacity 0.4s ease;}
+.ezwa-card-container.holo-dimmed{filter:brightness(0.35) blur(3px);pointer-events:none;}
 .rotating-glow-border{position:absolute;inset:0;border-radius:36px;padding:2px;background:conic-gradient(from var(--border-angle),rgba(223,177,91,0.18) 0deg,rgba(0,243,255,0.25) 65deg,#00f3ff 82deg,#ffffff 90deg,#dfb15b 98deg,rgba(223,177,91,0.2) 115deg,rgba(0,243,255,0.15) 245deg,#dfb15b 265deg,#ffffff 272deg,#00f3ff 280deg,rgba(223,177,91,0.18) 300deg,rgba(223,177,91,0.18) 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinEdgeGlint 12s linear infinite;pointer-events:none!important;z-index:4;}
 .ezwa-card-container.neural-excited .rotating-glow-border{animation-duration:3s;filter:brightness(1.45);}
 @keyframes spinEdgeGlint{to{--border-angle:360deg;}}
 .card-inner-mask{position:absolute;inset:2px;border-radius:34px;background:linear-gradient(170deg,rgba(6,12,24,0.78) 0%,rgba(3,7,15,0.86) 100%);background-image:radial-gradient(rgba(0,243,255,0.12) 1px,transparent 1px),linear-gradient(to right,rgba(223,177,91,0.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(223,177,91,0.03) 1px,transparent 1px);background-size:22px 22px,44px 44px,44px 44px;pointer-events:none!important;z-index:2;}
 .gold-foil-reflection{position:absolute;inset:0;border-radius:36px;background:radial-gradient(circle 220px at var(--foil-x) var(--foil-y),rgba(245,214,156,0.12) 0%,rgba(0,243,255,0.05) 45%,transparent 75%);pointer-events:none!important;z-index:5;transition:background 0.12s ease-out;}
 
-/* بوابة السفر عبر الزمن والابتكار Chrono-Shift Portal */
+/* بوابة السفر عبر الزمن والابتكار Chrono-Shift */
 .chrono-sweep-beam{position:absolute;inset:0;border-radius:36px;background:linear-gradient(115deg,transparent 20%,rgba(0,243,255,0.35) 45%,rgba(245,214,156,0.5) 50%,rgba(0,243,255,0.35) 55%,transparent 80%);background-size:250% 250%;opacity:0;pointer-events:none;z-index:30;}
 .chrono-sweep-beam.active{animation:chronoFlash 0.65s cubic-bezier(0.16,1,0.3,1) forwards;}
 @keyframes chronoFlash{0%{opacity:1;background-position:150% 0%;}100%{opacity:0;background-position:-50% 0%;}}
@@ -53,7 +54,7 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 
 .card-content-layer{position:relative;z-index:10;display:flex;flex-direction:column;gap:9px;width:100%;}
 
-/* الشريط العلوي الصافي مع أيقونة الرادار الهولوغرامي */
+/* الشريط العلوي */
 .top-telemetry-bar{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px 4px;border-bottom:1px solid rgba(223,177,91,0.22);direction:ltr;}
 .portal-tag{font-family:'Orbitron',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;color:var(--cyan-glow);display:flex;align-items:center;gap:5px;}
 .pulse-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;animation:pingDot 1.8s infinite;}
@@ -64,7 +65,7 @@ body{background-color:var(--bg-void);color:var(--text-main);min-height:100vh;dis
 .lang-switch-btn{background:rgba(8,16,32,0.85);border:1px solid rgba(0,243,255,0.4);color:var(--cyan-glow);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.25s ease;display:flex;align-items:center;gap:4px;}
 .lang-switch-btn:hover{background:rgba(0,243,255,0.15);color:#ffffff;border-color:var(--gold-primary);}
 
-/* الرأس المبسّط بروح الخط الفضائي */
+/* الرأس */
 .card-header{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:74px;margin-top:2px;padding-bottom:6px;border-bottom:1px solid rgba(223,177,91,0.16);}
 .monogram-box{position:absolute;right:0;width:62px;height:62px;border-radius:16px;background:rgba(6,12,24,0.9);border:1.5px solid rgba(223,177,91,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.65),inset 0 0 12px rgba(223,177,91,0.2);overflow:hidden;padding:3px;cursor:pointer;transform:translate3d(var(--logo-tx),var(--logo-ty),18px);transition:transform 0.16s ease-out,border-color 0.25s;}
 .monogram-box:hover{border-color:var(--cyan-glow);}
@@ -84,33 +85,31 @@ html[dir="ltr"] .brand-role{font-family:'Orbitron',sans-serif!important;font-siz
 .brand-bio-inline .namer-highlight{font-family:'Orbitron',sans-serif!important;color:var(--cyan-glow);font-weight:900;letter-spacing:0.7px;}
 html[dir="ltr"] .brand-bio-inline{font-size:8px;letter-spacing:0.35px;line-height:1.45;}
 
-.card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;transition:opacity 0.35s ease,transform 0.35s ease;}
+.card-body{display:flex;flex-direction:column;gap:8px;justify-content:flex-start;}
 .card-body.orbit-hidden{display:none;}
 
-/* شاشة الرادار الحيّة للروابط Holographic Orbit Launcher */
-.holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:335px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
+/* شاشة الرادار الحيّة للروابط */
+.holographic-orbit-stage{display:none;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;min-height:310px;position:relative;animation:orbitFadeIn 0.45s cubic-bezier(0.16,1,0.3,1);}
 .holographic-orbit-stage.active{display:flex;}
 @keyframes orbitFadeIn{0%{opacity:0;transform:scale(0.85);}100%{opacity:1;transform:scale(1);}}
-.orbit-radar-arena{width:276px;height:276px;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;}
-.orbit-radar-arena:active{cursor:grabbing;}
+.orbit-radar-arena{width:268px;height:268px;position:relative;display:flex;align-items:center;justify-content:center;touch-action:none;cursor:grab;}
 .orbit-ring-outer{position:absolute;inset:8px;border-radius:50%;border:1.5px dashed rgba(0,243,255,0.45);box-shadow:0 0 28px rgba(0,243,255,0.12),inset 0 0 28px rgba(223,177,91,0.1);pointer-events:none;}
-.orbit-ring-inner{position:absolute;inset:56px;border-radius:50%;border:1px solid rgba(223,177,91,0.32);pointer-events:none;}
+.orbit-ring-inner{position:absolute;inset:54px;border-radius:50%;border:1px solid rgba(223,177,91,0.32);pointer-events:none;}
 .orbit-radar-sweep{position:absolute;inset:8px;border-radius:50%;background:conic-gradient(from 0deg,rgba(0,243,255,0.22) 0deg,transparent 65deg);animation:radarSweepSpin 4.5s linear infinite;pointer-events:none;}
 @keyframes radarSweepSpin{to{transform:rotate(360deg);}}
-.orbit-core-hub{width:76px;height:76px;border-radius:50%;background:radial-gradient(circle,#102344 0%,#050b18 85%);border:2px solid var(--gold-primary);box-shadow:0 0 24px rgba(223,177,91,0.4),inset 0 0 14px rgba(0,243,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;cursor:pointer;text-align:center;padding:4px;}
+.orbit-core-hub{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,#102344 0%,#050b18 85%);border:2px solid var(--gold-primary);box-shadow:0 0 24px rgba(223,177,91,0.4),inset 0 0 14px rgba(0,243,255,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;cursor:pointer;text-align:center;padding:4px;}
 .orbit-core-hub span{font-family:'Orbitron',sans-serif!important;font-size:8px;font-weight:900;color:var(--cyan-glow);letter-spacing:0.6px;}
 .orbit-core-hub small{font-size:8.5px;color:var(--gold-light);font-weight:700;margin-top:2px;}
-.orbit-node-btn{position:absolute;width:54px;height:54px;margin-left:-27px;margin-top:-27px;border-radius:50%;background:rgba(7,15,30,0.94);border:1.5px solid rgba(0,243,255,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.85),0 0 12px rgba(0,243,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;cursor:pointer;z-index:8;transition:border-color 0.2s,box-shadow 0.2s;}
-.orbit-node-btn:hover{border-color:var(--gold-light);box-shadow:0 0 20px rgba(223,177,91,0.7);z-index:12;}
-.orbit-node-icon{font-size:15px;line-height:1;margin-bottom:2px;}
+.orbit-node-btn{position:absolute;width:52px;height:52px;margin-left:-26px;margin-top:-26px;border-radius:50%;background:rgba(7,15,30,0.94);border:1.5px solid rgba(0,243,255,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.85),0 0 12px rgba(0,243,255,0.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-decoration:none;cursor:pointer;z-index:8;}
+.orbit-node-icon{font-size:14px;line-height:1;margin-bottom:2px;}
 .orbit-node-label{font-size:7.5px;font-weight:800;color:var(--gold-light);white-space:nowrap;}
 html[dir="ltr"] .orbit-node-label{font-size:6.5px;}
 .orbit-hint-bar{margin-top:10px;display:flex;align-items:center;gap:10px;font-size:10px;color:#7dd3fc;}
 .orbit-exit-btn{background:rgba(223,177,91,0.16);border:1px solid var(--gold-primary);color:var(--gold-light);padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;cursor:pointer;}
 
-/* تبويب منصة NAMER-IO الرئيسي */
+/* الأزرار القياسية */
 .namer-portal-pill{width:100%;height:52px;background:linear-gradient(135deg,rgba(0,243,255,0.16) 0%,rgba(10,20,38,0.9) 50%,rgba(223,177,91,0.2) 100%);border:1.5px solid rgba(0,243,255,0.65);border-radius:26px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-decoration:none;color:#ffffff;transition:all 0.25s ease;cursor:pointer;box-shadow:0 4px 18px rgba(0,243,255,0.14);}
-.namer-portal-pill:hover{border-color:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,243,255,0.26);}
+.namer-portal-pill:hover{border-color:var(--gold-light);transform:translateY(-2px);}
 .namer-pill-sub{display:block;font-size:9px;color:#7dd3fc;font-weight:600;margin-top:1px;direction:ltr;}
 html[dir="ltr"] .namer-pill-sub{font-size:7.5px;}
 
@@ -145,7 +144,7 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .footer-brand{font-family:'Orbitron',sans-serif;font-size:10.5px;font-weight:800;color:var(--gold-light);letter-spacing:1px;}
 .customize-trigger-btn{background:transparent;border:none;color:var(--cyan-glow);font-size:9.5px;cursor:pointer;text-decoration:underline;opacity:0.9;text-align:left;display:flex;align-items:center;gap:4px;}
 
-/* مؤشر نبض الشريحة الحية Live Neural Heartbeat */
+/* مؤشر نبض الشريحة الحية */
 .neural-ecg-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;}
 .ecg-svg{width:84px;height:22px;overflow:visible;}
 .ecg-line{fill:none;stroke:var(--gold-primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:140;stroke-dashoffset:140;animation:ecgSweep 2.6s linear infinite;filter:drop-shadow(0 0 4px rgba(223,177,91,0.65));transition:stroke 0.3s ease;}
@@ -161,54 +160,93 @@ html[dir="ltr"] #tWallet{font-size:9px!important;letter-spacing:0.4px;}
 .nfc-icon{font-size:7.5px;color:var(--cyan-glow);}
 .nfc-text{font-family:'Orbitron',sans-serif;font-size:6.5px;font-weight:700;color:var(--gold-primary);letter-spacing:0.8px;}
 
-/* الروبوت العائم والمتنقل (Floating Draggable Bot) */
-.floating-bot-orb{position:fixed;bottom:24px;left:22px;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#142d54 0%,#040916 85%);border:2px solid var(--gold-primary);box-shadow:0 10px 28px rgba(0,0,0,0.85),0 0 22px rgba(0,243,255,0.45),inset 0 0 14px rgba(223,177,91,0.35);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:grab;z-index:900;touch-action:none;user-select:none;animation:botFloatBob 3.4s ease-in-out infinite;}
-.floating-bot-orb:active{cursor:grabbing;animation:none;transform:scale(1.06);}
-.floating-bot-orb::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed rgba(0,243,255,0.6);animation:botOrbitSpin 11s linear infinite;pointer-events:none;}
-.floating-bot-badge{position:absolute;top:-4px;right:-2px;background:var(--cyan-glow);color:#020611;font-family:'Orbitron',sans-serif!important;font-size:7.5px;font-weight:900;padding:1.5px 5px;border-radius:8px;box-shadow:0 0 8px var(--cyan-glow);pointer-events:none;}
-@keyframes botFloatBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-@keyframes botOrbitSpin{to{transform:rotate(360deg);}}
+/* =========================================================
+   1. الروبوت الهولوغرامي الطافي (مستقل في الأسفل يساراً)
+========================================================= */
+.holo-emitter-dock{position:fixed;bottom:14px;left:18px;width:74px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:920;touch-action:none;user-select:none;cursor:grab;}
+.holo-emitter-dock:active{cursor:grabbing;}
+.holo-beam-cone{position:absolute;bottom:12px;width:62px;height:66px;background:linear-gradient(to top,rgba(0,243,255,0.42) 0%,rgba(223,177,91,0.14) 55%,transparent 100%);clip-path:polygon(12% 0%,88% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 2.8s infinite alternate;}
+.holo-emitter-pad{width:44px;height:11px;border-radius:50%;background:radial-gradient(ellipse at center,#00f3ff 0%,#061326 75%);border:1.5px solid var(--gold-primary);box-shadow:0 0 18px rgba(0,243,255,0.85),0 0 30px rgba(223,177,91,0.45);position:relative;}
+.holo-emitter-pad::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(0,243,255,0.55);animation:emitterPulseRing 2s infinite;}
+@keyframes emitterPulseRing{0%{transform:scale(0.85);opacity:0.9;}100%{transform:scale(1.45);opacity:0;}}
+@keyframes holoBeamFlicker{0%,100%{opacity:0.82;}50%{opacity:1;}75%{opacity:0.65;}}
 
-/* النوافذ المنبثقة */
-.modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.88);backdrop-filter:blur(12px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
-.modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:410px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
+.holo-bot-figure{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(0,243,255,0.28) 0%,rgba(6,16,34,0.82) 85%);border:1.6px solid rgba(0,243,255,0.85);box-shadow:0 0 22px rgba(0,243,255,0.6),inset 0 0 14px rgba(223,177,91,0.45);display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:14px;overflow:hidden;animation:zeroGravityFloat 3.6s ease-in-out infinite;}
+/* خطوط المسح الهولوغرامي Scanlines */
+.holo-bot-figure::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.22) 3px);pointer-events:none;animation:scanlineScroll 4s linear infinite;}
+@keyframes scanlineScroll{from{background-position:0 0;}to{background-position:0 24px;}}
+@keyframes zeroGravityFloat{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-9px) rotate(2deg);}}
+.holo-tag-pill{position:absolute;top:2px;right:4px;background:rgba(2,6,17,0.9);border:1px solid var(--gold-primary);color:var(--cyan-glow);font-family:'Orbitron',sans-serif!important;font-size:7px;font-weight:900;padding:1px 5px;border-radius:7px;box-shadow:0 0 8px rgba(0,243,255,0.5);}
+
+/* =========================================================
+   2. زر الاتصال الهولوغرامي الطافي (مستقل تماماً في الأسفل يميناً)
+========================================================= */
+.holo-call-dock{position:fixed;bottom:14px;right:18px;width:74px;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:920;cursor:pointer;user-select:none;}
+.holo-call-cone{position:absolute;bottom:12px;width:58px;height:62px;background:linear-gradient(to top,rgba(223,177,91,0.42) 0%,rgba(0,243,255,0.12) 55%,transparent 100%);clip-path:polygon(14% 0%,86% 0%,68% 100%,32% 100%);pointer-events:none;animation:holoBeamFlicker 3.1s infinite alternate-reverse;}
+.holo-call-pad{width:42px;height:10px;border-radius:50%;background:radial-gradient(ellipse at center,#dfb15b 0%,#120d05 80%);border:1.5px solid var(--cyan-glow);box-shadow:0 0 18px rgba(223,177,91,0.85),0 0 28px rgba(0,243,255,0.35);position:relative;}
+.holo-call-capsule{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(223,177,91,0.32) 0%,rgba(12,18,32,0.86) 85%);border:1.6px solid var(--gold-light);box-shadow:0 0 22px rgba(223,177,91,0.65),inset 0 0 12px rgba(0,243,255,0.35);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;margin-bottom:14px;overflow:hidden;animation:zeroGravityFloat 3.2s ease-in-out infinite 0.7s;}
+.holo-call-capsule::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(223,177,91,0.2) 3px);pointer-events:none;}
+.holo-call-lbl{font-size:8px;font-weight:800;color:var(--gold-light);margin-top:2px;letter-spacing:0.2px;}
+html[dir="ltr"] .holo-call-lbl{font-size:6.5px;}
+
+/* =========================================================
+   3. مسرح الهولوغرام الطافي في الفضاء (Zero-Gravity Holo-Projection Stage)
+========================================================= */
+.holo-space-overlay{position:fixed;inset:0;background:radial-gradient(circle at center,rgba(4,14,32,0.86) 0%,rgba(1,4,12,0.94) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:1100;display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px;overflow-y:auto;}
+.holo-space-overlay.active{display:flex;animation:holoStageReveal 0.4s cubic-bezier(0.16,1,0.3,1);}
+@keyframes holoStageReveal{0%{opacity:0;transform:scale(0.92);}100%{opacity:1;transform:scale(1);}}
+
+.holo-close-trigger{position:fixed;top:18px;right:18px;background:rgba(8,18,36,0.85);border:1.5px solid rgba(0,243,255,0.55);color:var(--cyan-glow);padding:6px 14px;border-radius:18px;font-size:11px;font-weight:800;cursor:pointer;z-index:1120;box-shadow:0 0 15px rgba(0,243,255,0.25);}
+
+/* مجسم الروبوت في مركز الفضاء الهولوغرامي */
+.holo-center-projector{display:flex;flex-direction:column;align-items:center;margin-bottom:14px;position:relative;}
+.holo-center-avatar{width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,rgba(0,243,255,0.3) 0%,rgba(5,12,28,0.88) 80%);border:2px solid var(--cyan-glow);box-shadow:0 0 32px rgba(0,243,255,0.7),inset 0 0 18px rgba(223,177,91,0.5);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;animation:zeroGravityFloat 3.5s ease-in-out infinite;}
+.holo-center-avatar::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 2px,rgba(0,243,255,0.25) 3px);pointer-events:none;}
+.holo-center-ring{position:absolute;inset:-10px;border-radius:50%;border:1.5px dashed var(--gold-primary);animation:botOrbitSpin 9s linear infinite;pointer-events:none;}
+@keyframes botOrbitSpin{to{transform:rotate(360deg);}}
+.holo-audio-bar{display:flex;align-items:center;gap:8px;margin-top:10px;background:rgba(6,16,34,0.78);border:1px solid rgba(223,177,91,0.45);padding:4px 12px;border-radius:16px;}
+.holo-waves{display:flex;align-items:center;gap:3px;height:16px;}
+.holo-waves span{width:2.5px;height:4px;background:var(--gold-primary);border-radius:99px;}
+.holo-waves.speaking span:nth-child(1){animation:botSpeakBar 0.45s infinite 0.0s;background:var(--cyan-glow);}
+.holo-waves.speaking span:nth-child(2){animation:botSpeakBar 0.45s infinite 0.1s;background:var(--gold-light);}
+.holo-waves.speaking span:nth-child(3){animation:botSpeakBar 0.45s infinite 0.2s;background:var(--cyan-glow);}
+.holo-waves.speaking span:nth-child(4){animation:botSpeakBar 0.45s infinite 0.3s;background:var(--gold-light);}
+.holo-waves.speaking span:nth-child(5){animation:botSpeakBar 0.45s infinite 0.15s;background:var(--cyan-glow);}
+@keyframes botSpeakBar{0%,100%{height:4px;}50%{height:16px;}}
+.holo-mute-toggle{background:transparent;border:none;color:var(--gold-light);font-size:14px;cursor:pointer;}
+
+/* البطاقات الهولوغرامية الطافية للأسئلة الأربعة */
+.holo-floating-questions{width:min(410px,94vw);display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.holo-q-card{background:linear-gradient(145deg,rgba(0,243,255,0.12) 0%,rgba(6,16,34,0.72) 100%);backdrop-filter:blur(8px);border:1.3px solid rgba(0,243,255,0.55);box-shadow:0 10px 26px rgba(0,0,0,0.75),0 0 16px rgba(0,243,255,0.2),inset 0 0 12px rgba(223,177,91,0.18);border-radius:18px;padding:11px 10px;color:#e0f2fe;font-size:11px;font-weight:700;line-height:1.4;text-align:center;cursor:pointer;position:relative;overflow:hidden;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;}
+html[dir="ltr"] .holo-q-card{font-size:8.8px;}
+.holo-q-card::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(0,243,255,0.08) 4px);pointer-events:none;}
+.holo-q-card:hover{border-color:var(--gold-light);box-shadow:0 0 24px rgba(223,177,91,0.55);color:#ffffff;}
+.holo-q-card:nth-child(1){animation:cardZeroG1 4.1s ease-in-out infinite;}
+.holo-q-card:nth-child(2){animation:cardZeroG2 4.6s ease-in-out infinite 0.4s;}
+.holo-q-card:nth-child(3){animation:cardZeroG2 4.3s ease-in-out infinite 0.8s;}
+.holo-q-card:nth-child(4){animation:cardZeroG1 4.8s ease-in-out infinite 0.2s;}
+@keyframes cardZeroG1{0%,100%{transform:translateY(0px) rotate(-0.8deg);}50%{transform:translateY(-6px) rotate(0.8deg);}}
+@keyframes cardZeroG2{0%,100%{transform:translateY(-4px) rotate(0.8deg);}50%{transform:translateY(4px) rotate(-0.8deg);}}
+
+/* لوح الرد الهولوغرامي المعلق في الهواء */
+.holo-response-panel{width:min(410px,94vw);background:linear-gradient(160deg,rgba(8,22,46,0.78) 0%,rgba(4,10,22,0.86) 100%);backdrop-filter:blur(10px);border:1.5px solid rgba(223,177,91,0.65);box-shadow:0 0 30px rgba(0,243,255,0.22),inset 0 0 18px rgba(0,243,255,0.12);border-radius:22px;padding:14px 16px;color:#f8fafc;font-size:12px;line-height:1.65;margin-bottom:12px;position:relative;animation:zeroGravityFloat 5s ease-in-out infinite;}
+html[dir="ltr"] .holo-response-panel{font-size:10px;}
+.holo-sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;}
+.holo-action-chip{background:linear-gradient(135deg,rgba(0,243,255,0.24),rgba(223,177,91,0.26));border:1px solid var(--cyan-glow);color:#ffffff;border-radius:11px;padding:8px 10px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;margin-top:8px;transition:all 0.2s;}
+.holo-action-chip:hover{background:var(--cyan-glow);color:#020611;}
+html[dir="ltr"] .holo-action-chip{font-size:9px;}
+
+.holo-ask-bar{width:min(410px,94vw);display:flex;gap:6px;}
+.holo-ask-bar input{flex:1;background:rgba(6,16,34,0.85);border:1.2px solid rgba(0,243,255,0.5);border-radius:14px;padding:10px 14px;color:#fff;font-size:12px;}
+.holo-ask-bar button{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;border:none;border-radius:14px;padding:0 16px;font-weight:900;font-size:14px;cursor:pointer;}
+
+/* النوافذ المنبثقة الأخرى */
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,17,0.88);backdrop-filter:blur(12px);z-index:1150;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-content{background:#081020;border:1.5px solid rgba(0,243,255,0.5);border-radius:26px;width:100%;max-width:400px;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,0.95);text-align:inherit;max-height:90vh;overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border-bottom:1px solid rgba(0,243,255,0.2);padding-bottom:10px;}
 .modal-title{font-size:15.5px;font-weight:800;color:var(--gold-primary);}
 html[dir="ltr"] .modal-title{font-size:12px;letter-spacing:0.5px;}
 .modal-close{background:rgba(255,255,255,0.06);border:none;color:#fff;width:28px;height:28px;border-radius:8px;font-size:18px;cursor:pointer;}
-
-/* واجهة الروبوت الناطق الحي NAMER-IO AI */
-.bot-holo-stage{background:radial-gradient(circle at center,rgba(0,243,255,0.12) 0%,rgba(5,11,24,0.95) 80%);border:1px solid rgba(223,177,91,0.45);border-radius:18px;padding:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
-.bot-avatar-ring{width:46px;height:46px;border-radius:50%;background:#061022;border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 15px rgba(0,243,255,0.3);}
-.bot-voice-waves{display:flex;align-items:center;gap:3px;height:22px;flex:1;justify-content:center;}
-.bot-voice-waves span{width:3px;height:5px;background:var(--gold-primary);border-radius:99px;transition:height 0.15s;}
-.bot-voice-waves.speaking span:nth-child(1){animation:botSpeakBar 0.45s infinite 0.0s;background:var(--cyan-glow);}
-.bot-voice-waves.speaking span:nth-child(2){animation:botSpeakBar 0.45s infinite 0.1s;background:var(--gold-light);}
-.bot-voice-waves.speaking span:nth-child(3){animation:botSpeakBar 0.45s infinite 0.2s;background:var(--cyan-glow);}
-.bot-voice-waves.speaking span:nth-child(4){animation:botSpeakBar 0.45s infinite 0.3s;background:var(--gold-light);}
-.bot-voice-waves.speaking span:nth-child(5){animation:botSpeakBar 0.45s infinite 0.15s;background:var(--cyan-glow);}
-@keyframes botSpeakBar{0%,100%{height:5px;}50%{height:22px;}}
-.bot-mute-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(223,177,91,0.45);color:var(--gold-light);width:32px;height:32px;border-radius:10px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
-
-.bot-chat-log{background:rgba(4,9,20,0.85);border:1px solid rgba(0,243,255,0.22);border-radius:16px;padding:10px;max-height:195px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
-.bot-msg{padding:9px 12px;border-radius:14px;font-size:12px;line-height:1.6;max-width:94%;}
-html[dir="ltr"] .bot-msg{font-size:10px;}
-.bot-msg.ai{background:rgba(12,24,46,0.92);border:1px solid rgba(223,177,91,0.35);color:#f1f5f9;align-self:flex-start;}
-.bot-msg.user{background:rgba(0,243,255,0.15);border:1px solid rgba(0,243,255,0.45);color:#cffafe;align-self:flex-end;}
-.bot-inline-action{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
-.bot-sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
-.bot-inline-btn{background:linear-gradient(135deg,var(--gold-primary),#b88935);color:#020611;border:none;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;}
-.bot-inline-btn.cyan{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);}
-html[dir="ltr"] .bot-inline-btn{font-size:9px;}
-
-.bot-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
-.bot-chip{background:rgba(10,20,38,0.9);border:1px solid rgba(223,177,91,0.35);color:var(--gold-light);border-radius:11px;padding:8px 8px;font-size:10.5px;font-weight:700;cursor:pointer;text-align:center;transition:all 0.2s;line-height:1.35;}
-html[dir="ltr"] .bot-chip{font-size:8.5px;}
-.bot-chip:hover{border-color:var(--cyan-glow);color:#fff;background:rgba(0,243,255,0.12);}
-
-.bot-input-bar{display:flex;gap:6px;}
-.bot-input-bar input{flex:1;background:#0b162c;border:1px solid rgba(0,243,255,0.35);border-radius:12px;padding:9px 12px;color:#fff;font-size:12px;}
-.bot-send-btn{background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;border:none;border-radius:12px;padding:0 14px;font-weight:900;font-size:13px;cursor:pointer;}
 
 .innovation-body{display:flex;flex-direction:column;gap:14px;text-align:center;}
 .innovation-badge{width:56px;height:56px;border-radius:50%;background:rgba(0,243,255,0.12);border:1.5px solid var(--cyan-glow);display:flex;align-items:center;justify-content:center;margin:0 auto;color:var(--gold-primary);font-size:22px;}
@@ -232,8 +270,8 @@ html[dir="ltr"] .form-group input.ltr-input{text-align:left;}
 .modal-save-btn{width:100%;background:linear-gradient(135deg,var(--cyan-glow),#0284c7);color:#020611;font-weight:800;border:none;border-radius:12px;padding:12px;cursor:pointer;margin-top:10px;font-size:14px;}
 html[dir="ltr"] .modal-save-btn{font-size:11.5px;}
 
-.toast-notification{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:12px 24px;border-radius:30px;font-size:12.5px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
-html[dir="ltr"] .toast-notification{font-size:10.5px;}
+.toast-notification{position:fixed;bottom:98px;left:50%;transform:translateX(-50%) translateY(120px);background:#091326;border:1px solid var(--cyan-glow);color:#fff;padding:10px 22px;border-radius:30px;font-size:12px;font-weight:700;transition:transform 0.35s ease;z-index:2000;box-shadow:0 10px 30px rgba(0,0,0,0.8);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+html[dir="ltr"] .toast-notification{font-size:10px;}
 .toast-notification.show{transform:translateX(-50%) translateY(0);}
 </style>
 </head>
@@ -242,28 +280,78 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 <div class="cyber-heritage-backdrop"></div>
 <canvas id="quantum-canvas"></canvas>
 
-<!-- الروبوت العائم والمتنقل (قابل للسحب لأي مكان على الشاشة) -->
-<div class="floating-bot-orb" id="floatingBotOrb" title="المساعد الذكي NAMER-IO AI">
-    <span class="floating-bot-badge">AI</span>
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
-        <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
-        <circle cx="9.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-        <circle cx="14.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-        <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
-        <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
-        <path d="M2 11v3M22 11v3" stroke="#00f3ff" stroke-linecap="round"/>
-    </svg>
+<!-- 1. الروبوت الهولوغرامي الطافي (مستقل في الأسفل يساراً وقابل للسحب) -->
+<div class="holo-emitter-dock" id="floatingBotOrb" title="المستشار الهولوغرامي NAMER-IO AI">
+    <span class="holo-tag-pill">HOLO AI</span>
+    <div class="holo-beam-cone"></div>
+    <div class="holo-bot-figure">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+            <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
+            <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+            <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+            <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
+            <circle cx="12" cy="2.5" r="1.2" fill="#dfb15b"/>
+        </svg>
+    </div>
+    <div class="holo-emitter-pad"></div>
 </div>
 
+<!-- 2. زر الاتصال الهولوغرامي الطافي (مستقل ومنفصل تماماً في الأسفل يميناً) -->
+<div class="holo-call-dock" id="floatingCallOrb" onclick="openChoiceModal('call', event)" title="اتصال مباشر">
+    <div class="holo-call-cone"></div>
+    <div class="holo-call-capsule">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="holo-call-lbl" id="holoCallLabel">اتصال</span>
+    </div>
+    <div class="holo-call-pad"></div>
+</div>
+
+<!-- 3. مسرح الإسقاط الهولوغرامي للأسئلة الطافية في الفضاء -->
+<div class="holo-space-overlay" id="holoSpaceStage" onclick="closeHoloSpace()">
+    <button type="button" class="holo-close-trigger" onclick="closeHoloSpace()" id="holoCloseBtn">✕ إغلاق الهولوغرام</button>
+
+    <div class="holo-center-projector" onclick="event.stopPropagation()">
+        <div class="holo-center-avatar">
+            <div class="holo-center-ring"></div>
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.9">
+                <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
+                <circle cx="9.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                <circle cx="14.5" cy="12.5" r="1.5" fill="#00f3ff"/>
+                <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="holo-audio-bar">
+            <div class="holo-waves" id="botVoiceWaves"><span></span><span></span><span></span><span></span><span></span></div>
+            <button type="button" class="holo-mute-toggle" id="botMuteBtn" onclick="toggleBotSpeech()">🔊</button>
+        </div>
+    </div>
+
+    <!-- البطاقات الأربع الطافية بانعدام وزن -->
+    <div class="holo-floating-questions" onclick="event.stopPropagation()">
+        <div class="holo-q-card" id="chipIntegrate" onclick="botAskQuestion('integrate')">◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟</div>
+        <div class="holo-q-card" id="chipCompare" onclick="botAskQuestion('compare')">⚡ لماذا يتفوق الـ NFC على الـ QR؟</div>
+        <div class="holo-q-card" id="chipChannel" onclick="botAskQuestion('channel')">💡 كيف تتحول القطعة لقناة تسويق وتوثيق حية؟</div>
+        <div class="holo-q-card" id="chipSector" onclick="botAskQuestion('sector')">🧮 كيف أستفيد من التقنية حسب مجال عملي؟</div>
+    </div>
+
+    <!-- لوح الرد الهولوغرامي المعلّق في الهواء -->
+    <div class="holo-response-panel" id="holoResponsePanel" onclick="event.stopPropagation()"></div>
+
+    <!-- حقل التفاعل المباشر -->
+    <form class="holo-ask-bar" onsubmit="handleBotUserSubmit(event)" onclick="event.stopPropagation()">
+        <input type="text" id="botUserInput" placeholder="اكتب مجال عملك أو سؤالك في الفضاء...">
+        <button type="submit">↗</button>
+    </form>
+</div>
+
+<!-- البطاقة الرئيسية -->
 <div class="ezwa-card-container" id="ezwaCard">
     <div class="rotating-glow-border"></div>
     <div class="card-inner-mask"></div>
     <div class="gold-foil-reflection" id="goldFoilLayer"></div>
-    <!-- شعاع السفر عبر الزمن والابتكار Chrono-Shift -->
     <div class="chrono-sweep-beam" id="chronoBeam"></div>
 
     <div class="card-content-layer" id="cardContentLayer">
-        <!-- الشريط العلوي الصافي مع أيقونة الرادار الهولوغرامي -->
         <div class="top-telemetry-bar">
             <div class="portal-tag">
                 <span class="pulse-dot"></span>
@@ -278,7 +366,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
-        <!-- الرأس المبسّط بروح الخط الفضائي (النقر المزدوج على الشعار يفتح المدار الهولوغرامي) -->
         <div class="card-header">
             <div class="brand-titles-center">
                 <h1 class="brand-name-ar" id="uiBrandName">نبيل النمر</h1>
@@ -290,7 +377,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
-        <!-- شاشة الرادار الحيّة للروابط (Holographic Orbit Launcher) -->
+        <!-- شاشة الرادار الحيّة للروابط -->
         <div class="holographic-orbit-stage" id="holographicOrbitStage">
             <div class="orbit-radar-arena" id="orbitRadarArena">
                 <div class="orbit-ring-outer"></div>
@@ -308,9 +395,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
-        <!-- جسم البطاقة القياسي -->
         <div class="card-body" id="standardCardBody">
-            <!-- تبويب منصة NAMER-IO الرئيسي -->
             <a href="https://namer-io.github.io" id="linkNamerPortal" target="_blank" onclick="triggerShockwave(event)" class="namer-portal-pill">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="background:rgba(0,243,255,0.18);border-color:var(--cyan-glow);">
@@ -324,7 +409,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </a>
 
-            <!-- تبويب الاتصال المباشر -->
             <div class="action-pill-btn" onclick="openChoiceModal('call', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle">
@@ -335,7 +419,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
-            <!-- تبويب واتساب -->
             <div class="action-pill-btn" onclick="openChoiceModal('whatsapp', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="color:var(--gold-primary);">
@@ -346,7 +429,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
-            <!-- تبويب التواصل الاجتماعي المدمج (منصة X + سناب شات) -->
             <div class="action-pill-btn" onclick="openChoiceModal('social', event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle">
@@ -357,7 +439,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="btn-arrow">‹</div>
             </div>
 
-            <!-- البريد الإلكتروني والموقع -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="handleEmail(event)">
                     <div class="box-content-side">
@@ -382,7 +463,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 </a>
             </div>
 
-            <!-- مشاركة الكارت وحفظ جهة الاتصال -->
             <div class="dual-grid">
                 <a href="#" class="action-box-btn" onclick="shareCard(event)">
                     <div class="box-content-side">
@@ -407,7 +487,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 </a>
             </div>
 
-            <!-- إضافة للمحفظة الرقمية -->
             <div class="wallet-pill-btn" onclick="openWalletModal(event)">
                 <div class="btn-side-group">
                     <div class="btn-icon-circle" style="width:28px;height:28px;font-size:13px;">💳</div>
@@ -417,14 +496,12 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
             </div>
         </div>
 
-        <!-- التذييل السفلي مع مؤشر نبض الشريحة الحية Live Neural Heartbeat -->
         <div class="card-footer">
             <div class="footer-left-info">
                 <span class="footer-brand" id="uiFooterBrand">NABIL ALNAMER</span>
                 <button class="customize-trigger-btn" id="tCustomize" onclick="openPinModal(event)">⚙️ تخصيص البيانات 🔒</button>
             </div>
 
-            <!-- مؤشر نبض الشريحة الحية ECG -->
             <div class="neural-ecg-box" title="Live Neural Chip Pulse">
                 <svg class="ecg-svg" viewBox="0 0 100 26">
                     <polyline class="ecg-line" points="0,13 24,13 30,13 35,3 41,24 47,6 52,18 57,13 100,13"/>
@@ -437,49 +514,6 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
                 <div class="nfc-indicator"><span class="nfc-icon">◈</span><span class="nfc-text">NFC VERIFIED</span></div>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- نافذة الروبوت الناطق الحي NAMER-IO AI -->
-<div class="modal-overlay" id="talkingBotModal" onclick="closeTalkingBot()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <div class="modal-header">
-            <h3 class="modal-title" id="botModalTitle">🤖 مستشار NAMER-IO الذكي</h3>
-            <button class="modal-close" onclick="closeTalkingBot()">×</button>
-        </div>
-
-        <!-- مسرح الصوت والموجات الحي -->
-        <div class="bot-holo-stage">
-            <div class="bot-avatar-ring">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.8">
-                    <rect x="4" y="7" width="16" height="11" rx="4" stroke="#dfb15b"/>
-                    <circle cx="9.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-                    <circle cx="14.5" cy="12.5" r="1.4" fill="#00f3ff"/>
-                    <path d="M12 3v4" stroke="#dfb15b" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="bot-voice-waves" id="botVoiceWaves">
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <button type="button" class="bot-mute-btn" id="botMuteBtn" onclick="toggleBotSpeech()" title="تشغيل / إيقاف الصوت">🔊</button>
-        </div>
-
-        <!-- سجل المحادثة التفاعلية -->
-        <div class="bot-chat-log" id="botChatLog"></div>
-
-        <!-- الأسئلة الأربعة المعتمدة -->
-        <div class="bot-quick-grid">
-            <button type="button" class="bot-chip" id="chipIntegrate" onclick="botAskQuestion('integrate')">◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟</button>
-            <button type="button" class="bot-chip" id="chipCompare" onclick="botAskQuestion('compare')">⚡ لماذا يتفوق الـ NFC على الـ QR؟</button>
-            <button type="button" class="bot-chip" id="chipChannel" onclick="botAskQuestion('channel')">💡 كيف تتحول القطعة لقناة تسويق وتوثيق حية؟</button>
-            <button type="button" class="bot-chip" id="chipSector" onclick="botAskQuestion('sector')">🧮 كيف أستفيد من التقنية حسب مجال عملي؟</button>
-        </div>
-
-        <!-- حقل السؤال المباشر -->
-        <form class="bot-input-bar" onsubmit="handleBotUserSubmit(event)">
-            <input type="text" id="botUserInput" placeholder="اكتب مجال عملك أو استفسارك هنا...">
-            <button type="submit" class="bot-send-btn">↗</button>
-        </form>
     </div>
 </div>
 
@@ -604,7 +638,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
 
     if('serviceWorker' in navigator){
         const swCode=`
-            const CACHE_NAME='nabil-card-offline-v2';
+            const CACHE_NAME='nabil-card-offline-v3';
             const ASSETS=['./','./index.html','./logo1.png','./portal-bg.webp'];
             self.addEventListener('install',e=>{
                 e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS)).catch(()=>{}));
@@ -636,7 +670,7 @@ html[dir="ltr"] .toast-notification{font-size:10.5px;}
     }
 })();
 
-/* 2. التفاعل الحي مع إمالة الهاتف ثلاثي الأبعاد (3D Gyroscope Depth Parallax) + البصمة الضوئية */
+/* 2. التفاعل الحي مع إمالة الهاتف ثلاثي الأبعاد + البصمة الضوئية */
 document.addEventListener('pointermove',e=>{
     const card=document.getElementById('ezwaCard').getBoundingClientRect();
     const relX=(e.clientX-card.left)/card.width;
@@ -671,7 +705,7 @@ window.addEventListener('deviceorientation',e=>{
     }
 });
 
-/* 3. سحب وتحريك الروبوت العائم بحرية على الشاشة (Draggable Floating Orb) */
+/* 3. سحب وتحريك الروبوت الهولوغرامي الطافي بحرية على الشاشة */
 (function initDraggableBot(){
     const orb=document.getElementById('floatingBotOrb');
     let isDragging=false,hasMoved=false,startX=0,startY=0,origLeft=0,origTop=0;
@@ -701,11 +735,11 @@ window.addEventListener('deviceorientation',e=>{
         if(!isDragging)return;
         isDragging=false;
         orb.releasePointerCapture(e.pointerId);
-        if(!hasMoved)openTalkingBot(e);
+        if(!hasMoved)openHoloSpace(e);
     });
 })();
 
-/* 4. تأثير نبض القلب الكهرومغناطيسي + نبض الشريحة الحية (Live Neural Heartbeat) */
+/* 4. تأثير نبض القلب الكهرومغناطيسي + نبض الشريحة الحية */
 let neuralPulseTimer=null;
 function exciteNeuralPulse(){
     const card=document.getElementById('ezwaCard');
@@ -735,7 +769,7 @@ function triggerShockwave(e){
     setTimeout(()=>wave.remove(),900);
 }
 
-/* 5. شاشة الرادار الحيّة للروابط (Holographic Orbit Launcher) */
+/* 5. شاشة الرادار الحيّة للروابط */
 let orbitModeActive=false;
 let orbitAngleOffset=0;
 let orbitAnimFrame=null;
@@ -755,8 +789,8 @@ function renderOrbitNodes(){
         {icon:'👤',label:(currentLang==='ar')?'حفظ':'Save',action:()=>downloadVCard()}
     ];
     mount.innerHTML='';
-    const radius=104;
-    const cx=138,cy=138;
+    const radius=100;
+    const cx=134,cy=134;
     nodes.forEach((n,idx)=>{
         const angle=((idx/nodes.length)*Math.PI*2)+orbitAngleOffset;
         const x=cx+Math.cos(angle)*radius;
@@ -824,7 +858,7 @@ function toggleOrbitMode(e){
     }
 }
 
-/* 6. الكشف التلقائي الذكي للغة هاتف الزائر + بوابة السفر عبر الزمن Chrono-Shift */
+/* 6. الكشف التلقائي للغة + بوابة السفر عبر الزمن */
 var deviceLang=(navigator.language||navigator.userLanguage||'ar').toLowerCase();
 var currentLang=deviceLang.startsWith('ar')?'ar':'en';
 document.documentElement.setAttribute('dir',(currentLang==='ar')?'rtl':'ltr');
@@ -848,7 +882,7 @@ var DEFAULT_CONFIG={
     cardUrl:window.location.href
 };
 var EZWA_CONFIG=Object.assign({},DEFAULT_CONFIG);
-try{var saved=localStorage.getItem('namer_card_config_v10');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
+try{var saved=localStorage.getItem('namer_card_config_v11');if(saved)EZWA_CONFIG=Object.assign(EZWA_CONFIG,JSON.parse(saved));}catch(e){}
 
 var TRANSLATIONS={
     ar:{
@@ -857,14 +891,14 @@ var TRANSLATIONS={
         social:"التواصل الاجتماعي",email:"البريد الإلكتروني",
         map:"الموقع",mapSub:"حي الديرة، الرياض",share:"مشاركة الكارت",contact:"حفظ جهة الاتصال",
         wallet:"إضافة للمحفظة الرقمية (Apple / Google)",customize:"⚙️ تخصيص البيانات 🔒",
+        holoCall:"اتصال",holoClose:"✕ إغلاق الهولوغرام",
         orbitCore:"العودة",orbitHint:"◈ اسحب لتدوير المدار الهولوغرامي ◈",orbitExit:"البطاقة",
-        botTitle:"🤖 مستشار NAMER-IO الذكي",
-        botPlaceholder:"اكتب مجال عملك أو استفسارك هنا...",
+        botPlaceholder:"اكتب مجال عملك أو سؤالك في الفضاء...",
         chipIntegrate:"◈ كيف أدمج الـ NFC في علامتي أو مشروعي؟",
         chipCompare:"⚡ لماذا يتفوق الـ NFC على الـ QR؟",
         chipChannel:"💡 كيف تتحول القطعة لقناة تسويق وتوثيق حية؟",
         chipSector:"🧮 كيف أستفيد من التقنية حسب مجال عملي؟",
-        botWelcome:"أهلاً بك في منظومة NAMER-IO. أنا مستشارك الذكي لتقنيات الـ NFC التفاعلية؛ اختر أحد المحاور الأربعة أدناه أو اكتب مجال عملك لأقترح عليك تطبيقات عملية مخصصة.",
+        botWelcome:"أهلاً بك في مجال الإسقاط الهولوغرامي لمنظومة <b>NAMER-IO</b>. اختر أحد الأسئلة الطافية حولي أو اكتب مجال عملك لأعرض لك تطبيقات عملية مخصصة.",
         pinTitle:"حماية الإعدادات",pinDesc:"أدخل الرقم السري الخاص بالمالك للوصول إلى لوحة تخصيص البيانات:",
         pinBtn:"فتح التخصيص",pinError:"الرقم السري غير صحيح، حاول مرة أخرى",
         toastSaved:"تم تحديث البيانات وحفظها بنجاح",toastCopied:"تم نسخ الرابط إلى الحافظة",
@@ -883,14 +917,14 @@ var TRANSLATIONS={
         social:"Social Channels",email:"Email Address",
         map:"Location",mapSub:"Al Deerah, Riyadh",share:"Share Card",contact:"Save Contact",
         wallet:"Add to Digital Wallet (Apple / Google)",customize:"⚙️ Customize 🔒",
+        holoCall:"CALL",holoClose:"✕ Close Hologram",
         orbitCore:"RETURN",orbitHint:"◈ Drag to rotate holographic orbit ◈",orbitExit:"Card View",
-        botTitle:"🤖 NAMER-IO Smart Advisor",
         botPlaceholder:"Type your industry or question...",
         chipIntegrate:"◈ How to integrate NFC into my brand?",
         chipCompare:"⚡ Why does NFC outperform QR codes?",
         chipChannel:"💡 How does a product become a live channel?",
         chipSector:"🧮 Practical NFC ideas for my industry",
-        botWelcome:"Welcome to NAMER-IO. I am your smart NFC advisor; pick one of the four topics below or type your industry for tailored practical applications.",
+        botWelcome:"Welcome to the <b>NAMER-IO</b> holographic projection field. Tap any floating question around me or type your industry for tailored applications.",
         pinTitle:"Security Lock",pinDesc:"Enter owner PIN to unlock card customization:",
         pinBtn:"Unlock Settings",pinError:"Incorrect PIN, please try again",
         toastSaved:"Settings saved successfully",toastCopied:"Link copied to clipboard",
@@ -955,12 +989,13 @@ function updateUI(){
     document.getElementById('tContact').innerText=t.contact;
     document.getElementById('tWallet').innerText=t.wallet;
     document.getElementById('tCustomize').innerText=t.customize;
+    document.getElementById('holoCallLabel').innerText=t.holoCall;
+    document.getElementById('holoCloseBtn').innerText=t.holoClose;
     document.getElementById('orbitCoreBack').innerText=t.orbitCore;
     document.getElementById('orbitHintText').innerText=t.orbitHint;
     document.getElementById('orbitExitBtn').innerText=t.orbitExit;
 
-    /* نصوص الروبوت الناطق */
-    document.getElementById('botModalTitle').innerText=t.botTitle;
+    /* نصوص الهولوغرام */
     document.getElementById('botUserInput').placeholder=t.botPlaceholder;
     document.getElementById('chipIntegrate').innerText=t.chipIntegrate;
     document.getElementById('chipCompare').innerText=t.chipCompare;
@@ -984,7 +1019,7 @@ function updateUI(){
 }
 
 /* =========================================================
-   منظومة الروبوت الناطق الحي NAMER-IO AI
+   مسرح الهولوغرام الطافي NAMER-IO AI (صوت + رد معلق بالفضاء)
 ========================================================= */
 let botVoiceEnabled=true;
 let lastBotSpokenText="";
@@ -1020,29 +1055,22 @@ function toggleBotSpeech(){
     }
 }
 
-function appendBotMsg(sender,htmlText,actionHtml){
-    const log=document.getElementById('botChatLog');
-    const div=document.createElement('div');
-    div.className='bot-msg '+sender;
-    div.innerHTML='<div>'+htmlText+'</div>'+(actionHtml?('<div class="bot-inline-action">'+actionHtml+'</div>'):'');
-    log.appendChild(div);
-    log.scrollTop=log.scrollHeight;
-    if(sender==='ai')speakBotText(htmlText);
+function setHoloResponse(htmlText,actionHtml){
+    const panel=document.getElementById('holoResponsePanel');
+    panel.innerHTML='<div>'+htmlText+'</div>'+(actionHtml||'');
+    speakBotText(htmlText);
 }
 
-function openTalkingBot(e){
+function openHoloSpace(e){
     triggerShockwave(e);
-    document.getElementById('talkingBotModal').style.display='flex';
-    const log=document.getElementById('botChatLog');
-    if(log.children.length===0){
-        appendBotMsg('ai',TRANSLATIONS[currentLang].botWelcome);
-    }else{
-        speakBotText(lastBotSpokenText||TRANSLATIONS[currentLang].botWelcome);
-    }
+    document.getElementById('ezwaCard').classList.add('holo-dimmed');
+    document.getElementById('holoSpaceStage').classList.add('active');
+    setHoloResponse(TRANSLATIONS[currentLang].botWelcome);
 }
 
-function closeTalkingBot(){
-    document.getElementById('talkingBotModal').style.display='none';
+function closeHoloSpace(){
+    document.getElementById('holoSpaceStage').classList.remove('active');
+    document.getElementById('ezwaCard').classList.remove('holo-dimmed');
     if('speechSynthesis' in window)window.speechSynthesis.cancel();
     document.getElementById('botVoiceWaves').classList.remove('speaking');
 }
@@ -1056,35 +1084,31 @@ function getConsultWaLink(topicAr,topicEn){
 function botAskQuestion(type){
     exciteNeuralPulse();
     if(type==='integrate'){
-        appendBotMsg('user',TRANSLATIONS[currentLang].chipIntegrate);
         const reply=(currentLang==='ar')
             ?"يتم الدمج عبر منظومة <b>NAMER-IO</b> في 3 خطوات سلسة: برمجة شرائح NFC مشفّرة، دمجها مخفياً داخل نسيج الملابس أو التغليف أو البطاقات، وربطها بلوحة تحكم سحابية تتيح لك تحديث المحتوى في أي وقت."
             :"Integration via <b>NAMER-IO</b> takes 3 seamless steps: encoding encrypted NFC chips, invisibly embedding them inside fabric, packaging, or cards, and linking them to a cloud dashboard for instant content updates.";
         const btnTxt=(currentLang==='ar')?"💬 اطلب استشارة أو عينة لمشروعك":"💬 Request a consultation or sample";
-        const html='<a class="bot-inline-btn cyan" target="_blank" href="'+getConsultWaLink("دمج تقنية الـ NFC في مشروعي","NFC integration for my brand")+'">'+btnTxt+'</a>';
-        appendBotMsg('ai',reply,html);
+        const html='<a class="holo-action-chip" target="_blank" href="'+getConsultWaLink("دمج تقنية الـ NFC في مشروعي","NFC integration for my brand")+'">'+btnTxt+'</a>';
+        setHoloResponse(reply,html);
     }else if(type==='compare'){
-        appendBotMsg('user',TRANSLATIONS[currentLang].chipCompare);
         const reply=(currentLang==='ar')
             ?"يتفوق الـ NFC على الـ QR في <b>الفخامة، سرعة الاستجابة الفورية، حماية التصميم من التشويه البصري، سهولة الإخفاء التام داخل المنتج، عدم بهتان الألوان مع الزمن، عدم الحاجة لأي بطارية أو شحن، وإمكانية تحديث الرابط سحابياً دون إعادة طباعة أو إنتاج</b>."
             :"NFC outperforms QR codes in <b>luxury feel, instant tap response, preserving design aesthetics without visual clutter, complete concealment inside the product, zero color fading over time, requiring no battery or charging, and cloud link updates without reprinting</b>.";
-        appendBotMsg('ai',reply);
+        setHoloResponse(reply);
     }else if(type==='channel'){
-        appendBotMsg('user',TRANSLATIONS[currentLang].chipChannel);
         const reply=(currentLang==='ar')
             ?"تمنح الشريحة المدمجة كل قطعة <b>هوية رقمية مشفّرة</b> تحمي علامتك من التقليد وتوثّق ملكية العميل سحابياً، وتُبقيك على تواصل مباشر معه بعد البيع عبر تحديث العروض والمحتوى الحصري بلمسة واحدة."
             :"The embedded chip gives every item an <b>encrypted digital identity</b> that prevents counterfeiting, verifies ownership in the cloud, and keeps your brand connected post-purchase with updatable exclusive content.";
-        appendBotMsg('ai',reply);
+        setHoloResponse(reply);
     }else if(type==='sector'){
-        appendBotMsg('user',TRANSLATIONS[currentLang].chipSector);
         const reply=(currentLang==='ar')?"اختر مجال عملك لأقترح عليك 3 تطبيقات عملية مخصصة لنشاطك فوراً:":"Select your industry below for 3 tailored practical NFC applications:";
-        const html='<div class="bot-sector-grid">'+
-            '<button type="button" class="bot-inline-btn cyan" onclick="botSelectSector(\'fashion\')">'+((currentLang==='ar')?"👕 الأزياء والعلامات":"👕 Fashion & Brands")+'</button>'+
-            '<button type="button" class="bot-inline-btn" onclick="botSelectSector(\'corporate\')">'+((currentLang==='ar')?"🏢 الشركات والأعمال":"🏢 Corporate & B2B")+'</button>'+
-            '<button type="button" class="bot-inline-btn" onclick="botSelectSector(\'hospitality\')">'+((currentLang==='ar')?"☕ الضيافة والمقاهي":"☕ Hospitality & Cafes")+'</button>'+
-            '<button type="button" class="bot-inline-btn cyan" onclick="botSelectSector(\'events\')">'+((currentLang==='ar')?"🏛️ الفعاليات والسياحة":"🏛️ Events & Tourism")+'</button>'+
+        const html='<div class="holo-sector-grid">'+
+            '<button type="button" class="holo-action-chip" onclick="botSelectSector(\'fashion\')">'+((currentLang==='ar')?"👕 الأزياء والعلامات":"👕 Fashion & Brands")+'</button>'+
+            '<button type="button" class="holo-action-chip" onclick="botSelectSector(\'corporate\')">'+((currentLang==='ar')?"🏢 الشركات والأعمال":"🏢 Corporate & B2B")+'</button>'+
+            '<button type="button" class="holo-action-chip" onclick="botSelectSector(\'hospitality\')">'+((currentLang==='ar')?"☕ الضيافة والمقاهي":"☕ Hospitality & Cafes")+'</button>'+
+            '<button type="button" class="holo-action-chip" onclick="botSelectSector(\'events\')">'+((currentLang==='ar')?"🏛️ الفعاليات والسياحة":"🏛️ Events & Tourism")+'</button>'+
         '</div>';
-        appendBotMsg('ai',reply,html);
+        setHoloResponse(reply,html);
     }
 }
 
@@ -1117,10 +1141,9 @@ function botSelectSector(sector){
         }
     };
     const item=data[sector];
-    appendBotMsg('user',(currentLang==='ar')?item.arTitle:item.enTitle);
     const btnTxt=(currentLang==='ar')?"💬 ناقش تطبيق هذه الأفكار مع أ. نبيل":"💬 Discuss implementing these ideas";
-    const html='<a class="bot-inline-btn cyan" target="_blank" href="'+getConsultWaLink(item.arTitle,item.enTitle)+'">'+btnTxt+'</a>';
-    appendBotMsg('ai',(currentLang==='ar')?item.arBody:item.enBody,html);
+    const html='<a class="holo-action-chip" target="_blank" href="'+getConsultWaLink(item.arTitle,item.enTitle)+'">'+btnTxt+'</a>';
+    setHoloResponse((currentLang==='ar')?item.arBody:item.enBody,html);
 }
 
 function handleBotUserSubmit(e){
@@ -1129,7 +1152,6 @@ function handleBotUserSubmit(e){
     const q=inp.value.trim();
     if(!q)return;
     inp.value='';
-    appendBotMsg('user',q);
     const low=q.toLowerCase();
 
     if(low.includes('أزياء')||low.includes('ملابس')||low.includes('تيشيرت')||low.includes('براند')||low.includes('متجر')||low.includes('fashion')||low.includes('brand')){
@@ -1223,7 +1245,7 @@ function saveCustomData(){
     EZWA_CONFIG.x=document.getElementById('inputX').value;
     EZWA_CONFIG.email=document.getElementById('inputEmail').value;
     EZWA_CONFIG.mapUrl=document.getElementById('inputMap').value;
-    try{localStorage.setItem('namer_card_config_v10',JSON.stringify(EZWA_CONFIG));}catch(e){}
+    try{localStorage.setItem('namer_card_config_v11',JSON.stringify(EZWA_CONFIG));}catch(e){}
     updateUI();closeCustomizeModal();showToast(TRANSLATIONS[currentLang].toastSaved);
 }
 
